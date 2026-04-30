@@ -49,6 +49,16 @@ export default function Layout() {
         <p className="font-heading text-xs tracking-widest uppercase text-parchment-faint">
           Strategium Nexus &mdash; For the glory of the Imperium
         </p>
+        <p className="mt-1.5 font-heading text-[10px] tracking-widest uppercase">
+          <a
+            href="https://github.com/Ryan-Coates/StrategiumNexus/issues"
+            target="_blank"
+            rel="noreferrer"
+            className="text-parchment-faint hover:text-gold transition-colors"
+          >
+            Report an Issue &rarr;
+          </a>
+        </p>
       </footer>
     </div>
   )

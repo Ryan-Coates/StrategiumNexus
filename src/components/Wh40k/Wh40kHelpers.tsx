@@ -118,8 +118,9 @@ export function buildDatasheet(entry: SelectionEntry): Datasheet {
   const unitProfiles = allProfiles.filter(isUnit)
   const rangedWeapons = allProfiles.filter(isRanged)
   const meleeWeapons = allProfiles.filter(isMelee)
-  // Ability profiles hold their text in characteristics["Description"] or similar
-  const abilityProfiles = allProfiles.filter(isAbility)
+  // Ability profiles + any unknown single-column types (e.g. "Lord of the Death Guard" -> Effect)
+  const knownStatTypes = (p: Profile) => isUnit(p) || isRanged(p) || isMelee(p) || p.typeName === 'Transport'
+  const abilityProfiles = allProfiles.filter((p) => isAbility(p) || !knownStatTypes(p))
 
   // Turn ability profiles into rules for display
   const abilityRules: RuleEntry[] = abilityProfiles.map((p) => ({

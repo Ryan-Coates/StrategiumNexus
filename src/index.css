@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-void-950 text-parchment font-body antialiased min-h-screen;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-gold tracking-wider;
+  }
+
+  /* Gothic scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-void-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gold-muted rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gold;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-block font-heading text-sm tracking-widest uppercase px-6 py-2.5
+           bg-gold-dark text-parchment border border-gold/40
+           hover:bg-gold hover:text-void-950 hover:border-gold
+           transition-all duration-200 cursor-pointer select-none;
+  }
+
+  .btn-ghost {
+    @apply inline-block font-heading text-sm tracking-widest uppercase px-6 py-2.5
+           text-parchment-muted border border-parchment-faint/30
+           hover:text-gold hover:border-gold/40
+           transition-all duration-200 cursor-pointer select-none;
+  }
+
+  .card {
+    @apply bg-void-800 border border-gold-muted/20 p-5
+           shadow-inner-dark hover:border-gold-muted/50
+           transition-colors duration-200;
+  }
+
+  .card-header {
+    @apply font-heading text-gold text-lg tracking-wide mb-3 pb-3
+           border-b border-gold-muted/20;
+  }
+
+  .divider-gold {
+    @apply w-full h-px bg-gold-gradient opacity-30 my-2;
+  }
+
+  .badge {
+    @apply inline-block font-heading text-xs tracking-widest uppercase
+           px-2 py-0.5 border;
+  }
+
+  .badge-gold {
+    @apply badge border-gold/40 text-gold bg-gold/5;
+  }
+
+  .badge-blood {
+    @apply badge border-blood/40 text-blood-light bg-blood/5;
+  }
+}

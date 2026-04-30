@@ -102,12 +102,19 @@ function extractStratagem(entry: SelectionEntry): Stratagem {
 }
 
 function extractEnhancement(entry: SelectionEntry): Enhancement {
-  const rule = entry.rules[0] ?? collectAllRules(entry)[0]
+  // In 10e, enhancements store their text as an Abilities profile, not a rule
+  const allProfiles = collectAllProfiles(entry)
+  const abilityProfile = allProfiles.find(isAbility)
+  const description =
+    abilityProfile?.characteristics['Description'] ??
+    abilityProfile?.characteristics['Effect'] ??
+    (entry.rules[0] ?? collectAllRules(entry)[0])?.description ??
+    ''
   const pts = entry.costs.find((c) => c.name === 'pts')
   return {
     name: entry.name,
     points: pts ? `${pts.value}pts` : '',
-    description: rule?.description ?? '',
+    description,
   }
 }
 
@@ -151,6 +158,24 @@ export function buildDatasheet(entry: SelectionEntry): Datasheet {
 }
 
 export function buildDetachments(entries: SelectionEntry[]): Detachment[] {
+  // 10e structure: one "Detachment" upgrade entry whose children are variant detachments
+  // (e.g. "Flyblown Host", "Virulent Vectorium"). Each child has exactly one rule.
+  const detachmentEntry = entries.find(
+    (e) => e.name === 'Detachment' && e.type === 'upgrade' && e.children.length > 0,
+  )
+  if (detachmentEntry) {
+    const variants = detachmentEntry.children.filter((c) => c.rules.length > 0)
+    if (variants.length > 0) {
+      return variants.map((v) => ({
+        name: v.name,
+        rules: v.rules,
+        stratagems: [],
+        enhancements: [],
+      }))
+    }
+  }
+
+  // Fallback for other game systems: look for entries with detachment in name
   return entries
     .filter(
       (e) =>
@@ -164,11 +189,9 @@ export function buildDetachments(entries: SelectionEntry[]): Detachment[] {
     .map((e) => {
       const stratagems: Stratagem[] = []
       const enhancements: Enhancement[] = []
-
       for (const child of e.children) {
         const lc = child.name.toLowerCase()
         if (lc.includes('stratagem') || child.type === 'upgrade') {
-          // Stratagems are usually entries with a CP cost
           const hasCp = child.costs.some((c) => c.name === 'CP')
           if (hasCp || lc.includes('stratagem')) {
             stratagems.push(extractStratagem(child))
@@ -177,13 +200,26 @@ export function buildDetachments(entries: SelectionEntry[]): Detachment[] {
           }
         }
       }
-
-      // Direct rules on the detachment entry = detachment rules
       const rules = collectAllRules(e)
-
       return { name: e.name, rules, stratagems, enhancements }
     })
     .filter((d) => d.rules.length > 0 || d.stratagems.length > 0 || d.enhancements.length > 0)
+}
+
+export function buildEnhancements(entries: SelectionEntry[]): Enhancement[] {
+  // Enhancements are upgrade entries with pts cost, ability profiles, and no weapon profiles.
+  // They surface from sharedSelectionEntryGroups "Enhancements" after parsing.
+  return entries
+    .filter((e) => {
+      if (e.type !== 'upgrade') return false
+      if (!e.costs.some((c) => c.name === 'pts' && c.value > 0)) return false
+      const profiles = collectAllProfiles(e)
+      const hasAbility = profiles.some(isAbility)
+      const hasWeapon = profiles.some((p) => isRanged(p) || isMelee(p))
+      return hasAbility && !hasWeapon
+    })
+    .map(extractEnhancement)
+    .sort((a, b) => a.name.localeCompare(b.name))
 }
 
 // ── Sub-components ────────────────────────────────────────────────────────────
@@ -340,40 +376,6 @@ export function DatasheetDetail({ sheet }: { sheet: Datasheet | null }) {
 
 // ── Detachment panel ──────────────────────────────────────────────────────────
 
-function StratagemCard({ s }: { s: Stratagem }) {
-  return (
-    <div className="border border-gold-muted/20 bg-void-800 p-4 mb-3">
-      <div className="flex items-start justify-between gap-2 mb-2">
-        <p className="font-heading text-gold text-sm tracking-wide">{s.name}</p>
-        {s.cost && (
-          <span className="badge badge-gold text-[10px] shrink-0">{s.cost}</span>
-        )}
-      </div>
-      {s.when && (
-        <p className="text-xs font-body mb-1">
-          <span className="font-heading text-parchment-faint tracking-wide uppercase text-[10px]">When: </span>
-          <span className="text-parchment-muted">{s.when}</span>
-        </p>
-      )}
-      {s.target && (
-        <p className="text-xs font-body mb-1">
-          <span className="font-heading text-parchment-faint tracking-wide uppercase text-[10px]">Target: </span>
-          <span className="text-parchment-muted">{s.target}</span>
-        </p>
-      )}
-      {s.effect && (
-        <p className="text-xs font-body mb-1">
-          <span className="font-heading text-parchment-faint tracking-wide uppercase text-[10px]">Effect: </span>
-          <span className="text-parchment-muted">{s.effect}</span>
-        </p>
-      )}
-      {s.restrictions && (
-        <p className="text-xs font-body text-parchment-faint italic mt-1">{s.restrictions}</p>
-      )}
-    </div>
-  )
-}
-
 function EnhancementCard({ e }: { e: Enhancement }) {
   return (
     <div className="border border-gold-muted/15 bg-void-800 px-4 py-3 mb-2">
@@ -390,26 +392,24 @@ function EnhancementCard({ e }: { e: Enhancement }) {
   )
 }
 
-export function DetachmentPanel({ detachments }: { detachments: Detachment[] }) {
+export function DetachmentPanel({
+  catalogueRules,
+  detachments,
+  enhancements,
+}: {
+  catalogueRules: RuleEntry[]
+  detachments: Detachment[]
+  enhancements: Enhancement[]
+}) {
   const [activeIdx, setActiveIdx] = useState(0)
 
-  if (detachments.length === 0) {
-    return (
-      <div className="p-6">
-        <p className="text-parchment-faint font-body italic text-sm">
-          No detachment data found in this catalogue. Army rules are usually in the game system file.
-        </p>
-      </div>
-    )
-  }
-
-  const det = detachments[activeIdx]
+  const det = detachments[activeIdx] ?? null
 
   return (
     <div className="flex flex-col h-full overflow-hidden">
-      {/* Detachment tabs */}
+      {/* Section selector: Army Rules / Detachments / Enhancements */}
       <div className="flex gap-1 px-4 pt-4 pb-0 flex-wrap border-b border-gold-muted/15">
-        {detachments.map((d, i) => (
+        {detachments.length > 0 && detachments.map((d, i) => (
           <button
             key={i}
             onClick={() => setActiveIdx(i)}
@@ -419,17 +419,36 @@ export function DetachmentPanel({ detachments }: { detachments: Detachment[] }) 
                 : 'border-transparent text-parchment-faint hover:text-parchment'
             }`}
           >
-            {d.name.replace(/detachment/i, '').trim() || d.name}
+            {d.name}
           </button>
         ))}
       </div>
 
-      <div className="flex-1 overflow-y-auto p-5">
-        {/* Detachment rules */}
-        {det.rules.length > 0 && (
-          <section className="mb-6">
+      <div className="flex-1 overflow-y-auto">
+        {/* Army-wide faction rules */}
+        {catalogueRules.length > 0 && (
+          <section className="px-5 pt-5 pb-2">
             <h3 className="font-heading text-xs tracking-[0.2em] uppercase text-gold mb-3">
-              Detachment Rules
+              Faction Rules
+            </h3>
+            <div className="space-y-3">
+              {catalogueRules.map((r) => (
+                <div key={r.id} className="bg-void-800 border border-gold-muted/15 px-4 py-3">
+                  <p className="font-heading text-gold text-sm tracking-wide mb-1">{r.name}</p>
+                  <p className="font-body text-parchment-muted text-sm leading-relaxed whitespace-pre-wrap">
+                    {r.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Selected detachment rule */}
+        {det && (
+          <section className="px-5 pt-4 pb-2">
+            <h3 className="font-heading text-xs tracking-[0.2em] uppercase text-gold mb-3">
+              Detachment Rule
             </h3>
             <div className="space-y-3">
               {det.rules.map((r) => (
@@ -444,27 +463,25 @@ export function DetachmentPanel({ detachments }: { detachments: Detachment[] }) 
           </section>
         )}
 
-        {/* Enhancements */}
-        {det.enhancements.length > 0 && (
-          <section className="mb-6">
-            <h3 className="font-heading text-xs tracking-[0.2em] uppercase text-gold mb-3">
-              Enhancements
-            </h3>
-            {det.enhancements.map((e, i) => (
-              <EnhancementCard key={i} e={e} />
-            ))}
-          </section>
+        {detachments.length === 0 && catalogueRules.length === 0 && (
+          <div className="p-6">
+            <p className="text-parchment-faint font-body italic text-sm">
+              No army rules found in this catalogue.
+            </p>
+          </div>
         )}
 
-        {/* Stratagems */}
-        {det.stratagems.length > 0 && (
-          <section className="mb-6">
+        {/* Enhancements */}
+        {enhancements.length > 0 && (
+          <section className="px-5 pt-4 pb-5">
             <h3 className="font-heading text-xs tracking-[0.2em] uppercase text-gold mb-3">
-              Stratagems
+              Enhancements ({enhancements.length})
             </h3>
-            {det.stratagems.map((s, i) => (
-              <StratagemCard key={i} s={s} />
-            ))}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+              {enhancements.map((e, i) => (
+                <EnhancementCard key={i} e={e} />
+              ))}
+            </div>
           </section>
         )}
       </div>

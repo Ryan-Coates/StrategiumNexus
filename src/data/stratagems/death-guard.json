@@ -1,5 +1,68 @@
 {
   "faction": "Death Guard",
   "catalogueSlug": "Chaos - Death Guard",
-  "stratagems": []
+  "_note": "DUMMY DATA — replace with real content from your Index card / Codex",
+  "stratagems": [
+    {
+      "name": "[DUMMY] Plague Cloud",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Your Shooting Phase",
+      "when": "DUMMY: Start of your Shooting phase.",
+      "target": "DUMMY: One Death Guard Infantry unit from your army.",
+      "effect": "DUMMY: Until the end of the phase, ranged attacks made by models in that unit have +1 Strength.",
+      "restrictions": ""
+    },
+    {
+      "name": "[DUMMY] Contagion Surge",
+      "cp": 2,
+      "detachment": "Any",
+      "phase": "Your Shooting Phase",
+      "when": "DUMMY: When an enemy unit is destroyed by a Death Guard unit.",
+      "target": "DUMMY: One friendly Death Guard unit within 6\" of that destroyed unit.",
+      "effect": "DUMMY: That unit may immediately make a free Normal Move of up to 3\".",
+      "restrictions": "DUMMY: Cannot be used more than once per turn."
+    },
+    {
+      "name": "[DUMMY] Virulent Swarm",
+      "cp": 1,
+      "detachment": "Virulent Vectorium",
+      "phase": "Your Fight Phase",
+      "when": "DUMMY: Start of your Fight phase.",
+      "target": "DUMMY: One Death Guard unit from your army that is within Engagement Range of an enemy unit.",
+      "effect": "DUMMY: Until the end of the phase, melee weapons equipped by models in that unit gain the [LETHAL HITS] ability.",
+      "restrictions": ""
+    },
+    {
+      "name": "[DUMMY] Festering Advance",
+      "cp": 1,
+      "detachment": "Virulent Vectorium",
+      "phase": "Your Movement Phase",
+      "when": "DUMMY: Start of your Movement phase.",
+      "target": "DUMMY: One Death Guard unit from your army.",
+      "effect": "DUMMY: That unit can Advance and still be eligible to shoot this turn.",
+      "restrictions": ""
+    },
+    {
+      "name": "[DUMMY] Bloated Resilience",
+      "cp": 1,
+      "detachment": "Flyblown Host",
+      "phase": "Opponent's Shooting Phase",
+      "when": "DUMMY: When an enemy unit targets a Death Guard unit from your army.",
+      "target": "DUMMY: That Death Guard unit.",
+      "effect": "DUMMY: Until the end of the phase, models in that unit have a 5+ invulnerable save.",
+      "restrictions": "DUMMY: Cannot be used if the unit already has an invulnerable save of 4+ or better."
+    },
+    {
+      "name": "[DUMMY] Rot Spores",
+      "cp": 2,
+      "detachment": "Flyblown Host",
+      "phase": "Opponent's Fight Phase",
+      "when": "DUMMY: When an enemy unit destroys a Death Guard model in your army.",
+      "target": "DUMMY: The enemy unit that destroyed that model.",
+      "effect": "DUMMY: Roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds.",
+      "restrictions": ""
+    }
+  ]
 }
+

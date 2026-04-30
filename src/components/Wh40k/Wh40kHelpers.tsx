@@ -459,25 +459,16 @@ export function DetachmentPanel({
   const [activeDetIdx, setActiveDetIdx] = useState(0)
   const [section, setSection] = useState<ArmyRulesSection>('detachments')
   const [stratagemSearch, setStratagemSearch] = useState('')
-  const [stratagemDetFilter, setStratagemDetFilter] = useState('All')
-
-  const stratagemDetachments = useMemo(() => {
-    const names = [...new Set(stratagems.map((s) => s.detachment).filter(Boolean))]
-    return ['All', ...names.sort()]
-  }, [stratagems])
 
   const filteredStratagems = useMemo(() => {
     const q = stratagemSearch.toLowerCase()
-    return stratagems.filter((s) => {
-      if (stratagemDetFilter !== 'All' && s.detachment !== stratagemDetFilter) return false
-      if (!q) return true
-      return (
-        s.name.toLowerCase().includes(q) ||
-        s.effect.toLowerCase().includes(q) ||
-        s.when.toLowerCase().includes(q)
-      )
-    })
-  }, [stratagems, stratagemSearch, stratagemDetFilter])
+    if (!q) return stratagems
+    return stratagems.filter((s) =>
+      s.name.toLowerCase().includes(q) ||
+      s.effect.toLowerCase().includes(q) ||
+      s.when.toLowerCase().includes(q),
+    )
+  }, [stratagems, stratagemSearch])
 
   const det = detachments[activeDetIdx] ?? null
 
@@ -583,46 +574,82 @@ export function DetachmentPanel({
                   </code>{' '}
                   (or the matching faction file) following the{' '}
                   <code className="font-mono text-gold-muted text-xs bg-void-900 px-1 py-0.5">_schema.json</code>{' '}
-                  structure.
-                </p>
-                <p className="font-body text-parchment-faint text-xs">
-                  Rebuild the app after editing the file — Vite bundles it at build time.
+                  structure. Rebuild after editing.
                 </p>
               </div>
             ) : (
               <>
-                {/* Filters */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                {/* Search */}
+                <div className="flex items-center gap-3 mb-5">
                   <input
                     type="text"
                     placeholder="Search stratagems…"
                     value={stratagemSearch}
                     onChange={(e) => setStratagemSearch(e.target.value)}
-                    className="flex-1 min-w-[180px] bg-void-900 border border-gold-muted/20 px-3 py-1.5 font-body text-parchment text-sm placeholder-parchment-faint focus:outline-none focus:border-gold-muted/50"
+                    className="flex-1 bg-void-900 border border-gold-muted/20 px-3 py-1.5 font-body text-parchment text-sm placeholder-parchment-faint focus:outline-none focus:border-gold-muted/50"
                   />
-                  {stratagemDetachments.length > 2 && (
-                    <select
-                      value={stratagemDetFilter}
-                      onChange={(e) => setStratagemDetFilter(e.target.value)}
-                      className="bg-void-900 border border-gold-muted/20 px-3 py-1.5 font-heading text-[10px] tracking-widest uppercase text-parchment-muted focus:outline-none focus:border-gold-muted/50"
-                    >
-                      {stratagemDetachments.map((d) => (
-                        <option key={d} value={d}>{d}</option>
-                      ))}
-                    </select>
-                  )}
-                  <span className="font-heading text-[10px] tracking-widest uppercase text-parchment-faint self-center">
-                    {filteredStratagems.length} stratagem{filteredStratagems.length !== 1 ? 's' : ''}
+                  <span className="font-heading text-[10px] tracking-widest uppercase text-parchment-faint shrink-0">
+                    {filteredStratagems.length} / {stratagems.length}
                   </span>
                 </div>
-                {/* Cards */}
-                <div className="grid grid-cols-1 xl:grid-cols-2 gap-2">
-                  {filteredStratagems.map((s, i) => (
-                    <StratagemCard key={i} s={s} />
-                  ))}
-                </div>
-                {filteredStratagems.length === 0 && (
+
+                {filteredStratagems.length === 0 ? (
                   <p className="text-parchment-faint font-body italic text-sm">No stratagems match.</p>
+                ) : (
+                  /* Group by detachment → then by phase */
+                  (() => {
+                    // Build ordered detachment list: "Any" first, then alphabetical
+                    const detachmentOrder = [
+                      ...new Set(filteredStratagems.map((s) => s.detachment || 'Any')),
+                    ].sort((a, b) => {
+                      if (a === 'Any') return -1
+                      if (b === 'Any') return 1
+                      return a.localeCompare(b)
+                    })
+
+                    return detachmentOrder.map((detName) => {
+                      const detStrats = filteredStratagems.filter(
+                        (s) => (s.detachment || 'Any') === detName,
+                      )
+
+                      // Group by phase within this detachment
+                      const phaseOrder = [...new Set(detStrats.map((s) => s.phase || 'Any Phase'))].sort()
+
+                      return (
+                        <div key={detName} className="mb-7">
+                          {/* Detachment heading */}
+                          <div className="flex items-center gap-3 mb-4">
+                            <h3 className="font-heading text-xs tracking-[0.2em] uppercase text-gold">
+                              {detName}
+                            </h3>
+                            <div className="flex-1 h-px bg-gold-muted/20" />
+                            <span className="font-heading text-[10px] tracking-widest uppercase text-parchment-faint">
+                              {detStrats.length}
+                            </span>
+                          </div>
+
+                          {phaseOrder.map((phase) => {
+                            const phaseStrats = detStrats.filter(
+                              (s) => (s.phase || 'Any Phase') === phase,
+                            )
+                            return (
+                              <div key={phase} className="mb-4">
+                                {/* Phase sub-heading */}
+                                <p className="font-heading text-[10px] tracking-[0.25em] uppercase text-gold-muted mb-2 pl-1">
+                                  {phase}
+                                </p>
+                                <div className="grid grid-cols-1 xl:grid-cols-2 gap-2">
+                                  {phaseStrats.map((s, i) => (
+                                    <StratagemCard key={i} s={s} />
+                                  ))}
+                                </div>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      )
+                    })
+                  })()
                 )}
               </>
             )}

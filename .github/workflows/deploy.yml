@@ -30,10 +30,14 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          VITE_BASE_URL: /${{ github.event.repository.name }}/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          cname: ""   # Set your custom domain here if needed
+          force_orphan: true
+          enable_jekyll: false   # creates .nojekyll so _asset folders aren't stripped
+          cname: ""              # Set your custom domain here if needed

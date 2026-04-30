@@ -91,3 +91,8 @@ export async function listCataloguesForSystem(systemId: string): Promise<Catalog
   const db = await getDb()
   return db.getAllFromIndex('catalogues', 'by-system', systemId)
 }
+
+export async function deleteCatalogue(id: string): Promise<void> {
+  const db = await getDb()
+  await db.delete('catalogues', id)
+}

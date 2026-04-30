@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import {
   getSystemBySlug,
   downloadCatalogue,
   downloadAllCatalogues,
   loadCataloguesForSystem,
+  deleteGameSystem,
+  deleteCatalogue,
   type GameSystemRecord,
 } from '../services/dataManager'
 import type { CatFile } from '../services/bsdataApi'
@@ -28,6 +30,7 @@ function CatalogueRow({
   onDone: () => void
 }) {
   const [loading, setLoading] = useState(false)
+  const [deleting, setDeleting] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   async function handleDownload() {
@@ -42,6 +45,21 @@ function CatalogueRow({
       setLoading(false)
     }
   }
+
+  async function handleDelete() {
+    if (!downloaded) return
+    setDeleting(true)
+    try {
+      await deleteCatalogue(downloaded.id)
+      onDone()
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err))
+    } finally {
+      setDeleting(false)
+    }
+  }
+
+  const busy = loading || deleting
 
   return (
     <div className="flex items-center justify-between gap-4 py-3 border-b border-gold-muted/10 last:border-b-0">
@@ -61,7 +79,7 @@ function CatalogueRow({
 
       <div className="flex items-center gap-2 shrink-0">
         {error && <span className="text-blood-light text-xs max-w-[160px] truncate">{error}</span>}
-        {loading ? (
+        {busy ? (
           <div className="w-4 h-4 rounded-full border border-gold-muted/30 border-t-gold animate-spin" />
         ) : downloaded ? (
           <div className="flex gap-2">
@@ -73,6 +91,13 @@ function CatalogueRow({
             </Link>
             <button onClick={handleDownload} className="btn-ghost text-[10px] py-1 px-3">
               Update
+            </button>
+            <button
+              onClick={handleDelete}
+              className="btn-ghost text-[10px] py-1 px-3 text-blood-light hover:text-blood"
+              title="Delete this catalogue from local storage"
+            >
+              Delete
             </button>
           </div>
         ) : (
@@ -89,11 +114,14 @@ function CatalogueRow({
 
 export default function GameSystem() {
   const { slug } = useParams<{ slug: string }>()
-  const { downloading, progress, errors, setDownloading, setProgress, setError } = useGameStore()
+  const navigate = useNavigate()
+  const { downloading, progress, errors, setDownloading, setProgress, setError, removeSystem } = useGameStore()
 
   const [system, setSystem] = useState<GameSystemRecord | null>(null)
   const [catalogues, setCatalogues] = useState<CatalogueMeta[]>([])
   const [loading, setLoading] = useState(true)
+  const [deletingSystem, setDeletingSystem] = useState(false)
+  const [confirmDelete, setConfirmDelete] = useState(false)
 
   const key = slug ?? ''
 
@@ -124,6 +152,20 @@ export default function GameSystem() {
     } finally {
       setDownloading(key, false)
       setProgress(key, '')
+    }
+  }
+
+  async function handleDeleteSystem() {
+    if (!system) return
+    setDeletingSystem(true)
+    try {
+      await deleteGameSystem(system.id)
+      removeSystem(system.id)
+      navigate('/games')
+    } catch (err) {
+      setError(key, err instanceof Error ? err.message : String(err))
+      setDeletingSystem(false)
+      setConfirmDelete(false)
     }
   }
 
@@ -181,6 +223,35 @@ export default function GameSystem() {
             Download All Catalogues
           </button>
         )}
+        <div className="ml-auto">
+          {confirmDelete ? (
+            <div className="flex items-center gap-2">
+              <span className="font-heading text-xs text-blood-light tracking-wide">
+                Delete all local data?
+              </span>
+              <button
+                onClick={handleDeleteSystem}
+                disabled={deletingSystem}
+                className="btn-ghost text-xs text-blood-light hover:text-blood border-blood-light/30"
+              >
+                {deletingSystem ? 'Deleting…' : 'Confirm'}
+              </button>
+              <button
+                onClick={() => setConfirmDelete(false)}
+                className="btn-ghost text-xs"
+              >
+                Cancel
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={() => setConfirmDelete(true)}
+              className="btn-ghost text-xs text-parchment-faint hover:text-blood-light"
+            >
+              Delete All Data
+            </button>
+          )}
+        </div>
       </div>
 
       {error && (

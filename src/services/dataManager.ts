@@ -8,6 +8,7 @@ import {
   listGameSystems,
   listCataloguesForSystem,
   deleteGameSystem,
+  deleteCatalogue,
   getCatalogue,
   getGameSystem,
   type GameSystemRecord,
@@ -128,5 +129,5 @@ export async function parseSystemData(systemId: string): Promise<ParsedGameSyste
   return parseGameSystemXml(record.rawXml)
 }
 
-export { deleteGameSystem, listCataloguesForSystem }
+export { deleteGameSystem, deleteCatalogue, listCataloguesForSystem }
 export type { GameSystemRecord }

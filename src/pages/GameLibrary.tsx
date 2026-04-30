@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BSDATA_SYSTEMS, type BsDataSystemManifest } from '../data/bsdataIndex'
 import {
@@ -21,6 +21,8 @@ function SystemCard({
 }) {
   const { downloading, progress, errors, setDownloading, setProgress, setError, setSystems } =
     useGameStore()
+  const [confirmDelete, setConfirmDelete] = useState(false)
+  const [deleting, setDeleting] = useState(false)
 
   const key = manifest.slug
   const isDownloading = downloading[key]
@@ -44,10 +46,17 @@ function SystemCard({
 
   async function handleDelete() {
     if (!record) return
-    if (!window.confirm(`Remove "${record.name}" and all its downloaded catalogues?`)) return
-    await deleteGameSystem(record.id)
-    const all = await loadAllSystems()
-    setSystems(all)
+    setDeleting(true)
+    try {
+      await deleteGameSystem(record.id)
+      const all = await loadAllSystems()
+      setSystems(all)
+    } catch (err) {
+      setError(key, err instanceof Error ? err.message : String(err))
+    } finally {
+      setDeleting(false)
+      setConfirmDelete(false)
+    }
   }
 
   return (
@@ -62,6 +71,9 @@ function SystemCard({
                 {t}
               </span>
             ))}
+            {manifest.inProgress && (
+              <span className="badge badge-blood text-[10px]">In Progress</span>
+            )}
           </div>
         </div>
         {record && (
@@ -76,6 +88,14 @@ function SystemCard({
       <p className="text-parchment-muted text-sm font-body leading-relaxed flex-1">
         {manifest.description}
       </p>
+
+      {/* WIP notice */}
+      {manifest.inProgress && (
+        <div className="flex items-start gap-2 bg-gold/5 border border-gold-muted/30 px-3 py-2">
+          <span className="text-gold text-xs mt-0.5">⚒</span>
+          <p className="text-gold-muted text-xs font-body leading-snug">{manifest.wipNote}</p>
+        </div>
+      )}
 
       {record && (
         <p className="text-parchment-faint text-xs font-heading tracking-wide">
@@ -110,12 +130,33 @@ function SystemCard({
             <button onClick={handleDownload} className="btn-ghost text-xs">
               Update
             </button>
-            <button
-              onClick={handleDelete}
-              className="btn-ghost text-xs text-blood-light hover:text-blood hover:border-blood/40"
-            >
-              Remove
-            </button>
+            {confirmDelete ? (
+              <>
+                <span className="font-heading text-[10px] text-blood-light tracking-wide self-center">
+                  Remove all data?
+                </span>
+                <button
+                  onClick={handleDelete}
+                  disabled={deleting}
+                  className="btn-ghost text-[10px] py-1 px-3 text-blood-light hover:text-blood border-blood-light/30"
+                >
+                  {deleting ? 'Removing…' : 'Confirm'}
+                </button>
+                <button
+                  onClick={() => setConfirmDelete(false)}
+                  className="btn-ghost text-[10px] py-1 px-3"
+                >
+                  Cancel
+                </button>
+              </>
+            ) : (
+              <button
+                onClick={() => setConfirmDelete(true)}
+                className="btn-ghost text-xs text-blood-light hover:text-blood hover:border-blood/40"
+              >
+                Remove
+              </button>
+            )}
           </>
         ) : (
           <button onClick={handleDownload} className="btn-primary text-xs">

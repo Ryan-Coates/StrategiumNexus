@@ -5,6 +5,8 @@ export interface BsDataSystemManifest {
   repoOwner: string
   repoSlug: string
   tags: string[]
+  inProgress?: boolean
+  wipNote?: string
 }
 
 export const BSDATA_SYSTEMS: BsDataSystemManifest[] = [
@@ -14,7 +16,7 @@ export const BSDATA_SYSTEMS: BsDataSystemManifest[] = [
     description:
       '10th edition datasheets, matched play points, and faction rules for the far future.',
     repoOwner: 'BSData',
-    repoSlug: 'wh40k',
+    repoSlug: 'wh40k-10e',
     tags: ['Sci-Fi', 'Games Workshop'],
   },
   {
@@ -25,6 +27,8 @@ export const BSDATA_SYSTEMS: BsDataSystemManifest[] = [
     repoOwner: 'BSData',
     repoSlug: 'necromunda',
     tags: ['Sci-Fi', 'Games Workshop', 'Campaign'],
+    inProgress: true,
+    wipNote: 'We are working on the format here — feel free to download and have a look.',
   },
   {
     slug: 'killteam',
@@ -33,6 +37,8 @@ export const BSDATA_SYSTEMS: BsDataSystemManifest[] = [
     repoOwner: 'BSData',
     repoSlug: 'wh40k-killteam',
     tags: ['Sci-Fi', 'Games Workshop', 'Skirmish'],
+    inProgress: true,
+    wipNote: 'We are working on the format here — feel free to download and have a look.',
   },
   {
     slug: 'horus-heresy',
@@ -42,6 +48,8 @@ export const BSDATA_SYSTEMS: BsDataSystemManifest[] = [
     repoOwner: 'BSData',
     repoSlug: 'horus-heresy',
     tags: ['Sci-Fi', 'Games Workshop'],
+    inProgress: true,
+    wipNote: 'We are working on the format here — feel free to download and have a look.',
   },
   {
     slug: 'aos',
@@ -50,6 +58,8 @@ export const BSDATA_SYSTEMS: BsDataSystemManifest[] = [
     repoOwner: 'BSData',
     repoSlug: 'age-of-sigmar',
     tags: ['Fantasy', 'Games Workshop'],
+    inProgress: true,
+    wipNote: 'We are working on the format here — feel free to download and have a look.',
   },
   {
     slug: 'old-world',
@@ -58,5 +68,7 @@ export const BSDATA_SYSTEMS: BsDataSystemManifest[] = [
     repoOwner: 'BSData',
     repoSlug: 'warhammer-the-old-world',
     tags: ['Fantasy', 'Games Workshop'],
+    inProgress: true,
+    wipNote: 'We are working on the format here — feel free to download and have a look.',
   },
 ]

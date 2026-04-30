@@ -1,1 +1,66 @@
-{ "faction": "Chaos Space Marines", "catalogueSlug": "Chaos - Chaos Space Marines", "stratagems": [] }
+{
+  "faction": "Chaos Space Marines",
+  "catalogueSlug": "Chaos - Chaos Space Marines",
+  "stratagems": [
+    {
+      "name": "Veterans of the Long War",
+      "cp": 1,
+      "detachment": "Veterans of the Long War",
+      "phase": "Your Shooting Phase or Your Fight Phase",
+      "when": "When you select a Heretic Astartes Infantry or Mounted unit to shoot or fight.",
+      "target": "One Heretic Astartes Infantry or Mounted unit.",
+      "effect": "That unit gains +1 to wound with all its attacks for the rest of the phase.",
+      "restrictions": "Cannot target Cultists."
+    },
+    {
+      "name": "Endless Hatred",
+      "cp": 1,
+      "detachment": "Veterans of the Long War",
+      "phase": "Any Phase",
+      "when": "When a Heretic Astartes unit is selected as the target of an attack.",
+      "target": "One Heretic Astartes unit.",
+      "effect": "Until the end of the phase, improve that unit’s armour save against the attack by 1.",
+      "restrictions": "Cannot be used on units with a 2+ save already benefiting from cover."
+    },
+    {
+      "name": "Relentless Advance",
+      "cp": 1,
+      "detachment": "Veterans of the Long War",
+      "phase": "Your Movement Phase",
+      "when": "When a Heretic Astartes Infantry unit makes a Normal Move.",
+      "target": "One Heretic Astartes Infantry unit.",
+      "effect": "That unit can Advance and still shoot later this turn, but counts as having Remained Stationary.",
+      "restrictions": "Does not allow Heavy weapons to ignore the -1 to hit from Advancing unless they already have that rule."
+    },
+    {
+      "name": "Unyielding Malice",
+      "cp": 2,
+      "detachment": "Veterans of the Long War",
+      "phase": "Opponent's Shooting Phase",
+      "when": "When an enemy unit destroys a model in a Heretic Astartes unit.",
+      "target": "The Heretic Astartes unit that lost a model.",
+      "effect": "Until the end of the phase, each time a model in that unit is destroyed, roll one D6; on a 4+, the attacking unit suffers 1 mortal wound (max 6).",
+      "restrictions": ""
+    },
+    {
+      "name": "Dark Reprisals",
+      "cp": 1,
+      "detachment": "Veterans of the Long War",
+      "phase": "Opponent's Fight Phase",
+      "when": "When an enemy unit finishes a charge move within Engagement Range of a Heretic Astartes unit.",
+      "target": "One Heretic Astartes unit.",
+      "effect": "That unit fights first this phase.",
+      "restrictions": "Cannot be used on units that already have Fights First."
+    },
+    {
+      "name": "Legacy of Vengeance",
+      "cp": 1,
+      "detachment": "Veterans of the Long War",
+      "phase": "Your Command Phase",
+      "when": "When you select a Heretic Astartes unit to receive orders or buffs.",
+      "target": "One Heretic Astartes unit.",
+      "effect": "Until the start of your next Command phase, that unit re-rolls one hit roll and one wound roll each time it shoots or fights.",
+      "restrictions": "Cannot be stacked with abilities that grant full hit or wound re-rolls."
+    }
+  ]
+}

@@ -393,28 +393,25 @@ function EnhancementCard({ e }: { e: Enhancement }) {
   )
 }
 
-type ArmyRulesSection = 'detachments' | 'stratagems' | 'enhancements'
-
-function StratagemCard({ s }: { s: StratagemEntry }) {
-  const cpBadge = `${s.cp}CP`
+function StratagemCard({ s, hideDetachment }: { s: StratagemEntry; hideDetachment?: boolean }) {
   return (
     <div className="border border-gold-muted/20 bg-void-800 px-4 py-3 mb-2">
       <div className="flex items-baseline gap-2 mb-2 flex-wrap">
         <p className="font-heading text-gold text-sm tracking-wide">{s.name}</p>
         <span className="font-heading text-[10px] tracking-widest uppercase px-2 py-0.5 border border-gold-muted/30 text-gold-muted">
-          {cpBadge}
+          {s.cp}CP
         </span>
-        {s.detachment && s.detachment !== 'Any' && (
+        {!hideDetachment && s.detachment && s.detachment !== 'Any' && (
           <span className="font-heading text-[10px] tracking-widest uppercase text-parchment-faint">
             {s.detachment}
           </span>
         )}
+        {s.detachment === 'Any' && (
+          <span className="font-heading text-[10px] tracking-widest uppercase text-parchment-faint/50 italic">
+            universal
+          </span>
+        )}
       </div>
-      {s.phase && (
-        <p className="font-heading text-[10px] tracking-widest uppercase text-gold-muted mb-2">
-          {s.phase}
-        </p>
-      )}
       <dl className="space-y-1.5">
         {s.when && (
           <div className="flex gap-2">
@@ -457,225 +454,163 @@ export function DetachmentPanel({
   stratagems: StratagemEntry[]
 }) {
   const [activeDetIdx, setActiveDetIdx] = useState(0)
-  const [section, setSection] = useState<ArmyRulesSection>('detachments')
   const [stratagemSearch, setStratagemSearch] = useState('')
-
-  const filteredStratagems = useMemo(() => {
-    const q = stratagemSearch.toLowerCase()
-    if (!q) return stratagems
-    return stratagems.filter((s) =>
-      s.name.toLowerCase().includes(q) ||
-      s.effect.toLowerCase().includes(q) ||
-      s.when.toLowerCase().includes(q),
-    )
-  }, [stratagems, stratagemSearch])
 
   const det = detachments[activeDetIdx] ?? null
 
+  // Stratagems visible for the active detachment: universal ('Any') + detachment-specific
+  const detStratagemsFull = useMemo(() => {
+    if (!det) return stratagems.filter((s) => !s.detachment || s.detachment === 'Any')
+    return stratagems.filter(
+      (s) => !s.detachment || s.detachment === 'Any' || s.detachment === det.name,
+    )
+  }, [stratagems, det])
+
+  const filteredStratagems = useMemo(() => {
+    const q = stratagemSearch.toLowerCase()
+    if (!q) return detStratagemsFull
+    return detStratagemsFull.filter(
+      (s) =>
+        s.name.toLowerCase().includes(q) ||
+        s.effect.toLowerCase().includes(q) ||
+        s.when.toLowerCase().includes(q),
+    )
+  }, [detStratagemsFull, stratagemSearch])
+
+  const stratagemsByPhase = useMemo(() => {
+    const map = new Map<string, StratagemEntry[]>()
+    for (const s of filteredStratagems) {
+      const phase = s.phase || 'Any Phase'
+      if (!map.has(phase)) map.set(phase, [])
+      map.get(phase)!.push(s)
+    }
+    return [...map.entries()].sort(([a], [b]) => a.localeCompare(b))
+  }, [filteredStratagems])
+
   return (
     <div className="flex flex-col h-full overflow-hidden">
-      {/* Top-level section tabs */}
-      <div className="flex gap-0 px-4 pt-4 pb-0 border-b border-gold-muted/15">
-        {(['detachments', 'stratagems', 'enhancements'] as ArmyRulesSection[]).map((s) => (
-          <button
-            key={s}
-            onClick={() => setSection(s)}
-            className={`font-heading text-[10px] tracking-widest uppercase px-4 py-2 border-b-2 transition-colors capitalize ${
-              s === section
-                ? 'border-gold text-gold'
-                : 'border-transparent text-parchment-faint hover:text-parchment'
-            }`}
-          >
-            {s}
-          </button>
-        ))}
-      </div>
+      {/* Detachment selector tabs */}
+      {detachments.length > 0 && (
+        <div className="flex gap-0 px-4 pt-4 pb-0 border-b border-gold-muted/15 overflow-x-auto shrink-0">
+          {detachments.map((d, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveDetIdx(i)}
+              className={`font-heading text-[10px] tracking-widest uppercase px-4 py-2 border-b-2 whitespace-nowrap transition-colors ${
+                i === activeDetIdx
+                  ? 'border-gold text-gold'
+                  : 'border-transparent text-parchment-faint hover:text-parchment'
+              }`}
+            >
+              {d.name}
+            </button>
+          ))}
+        </div>
+      )}
 
       <div className="flex-1 overflow-y-auto">
 
-        {/* ── Detachments section ── */}
-        {section === 'detachments' && (
-          <>
-            {/* Army-wide faction rules */}
-            {catalogueRules.length > 0 && (
-              <section className="px-5 pt-5 pb-2">
-                <h3 className="font-heading text-xs tracking-[0.2em] uppercase text-gold mb-3">
-                  Faction Rules
-                </h3>
-                <div className="space-y-3">
-                  {catalogueRules.map((r) => (
-                    <div key={r.id} className="bg-void-800 border border-gold-muted/15 px-4 py-3">
-                      <p className="font-heading text-gold text-sm tracking-wide mb-1">{r.name}</p>
-                      <p className="font-body text-parchment-muted text-sm leading-relaxed whitespace-pre-wrap">
-                        {r.description}
-                      </p>
+        {/* ── 1. Faction Rules ── */}
+        {catalogueRules.length > 0 && (
+          <section className="px-5 pt-5 pb-3">
+            <div className="flex items-center gap-3 mb-3">
+              <h3 className="font-heading text-xs tracking-[0.2em] uppercase text-gold shrink-0">Faction Rules</h3>
+              <div className="flex-1 h-px bg-gold-muted/15" />
+            </div>
+            <div className="space-y-2">
+              {catalogueRules.map((r) => (
+                <div key={r.id} className="bg-void-800 border border-gold-muted/15 px-4 py-3">
+                  <p className="font-heading text-gold text-sm tracking-wide mb-1">{r.name}</p>
+                  <p className="font-body text-parchment-muted text-sm leading-relaxed whitespace-pre-wrap">{r.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ── 2. Detachment Rule ── */}
+        {det && det.rules.length > 0 && (
+          <section className="px-5 pt-3 pb-3">
+            <div className="flex items-center gap-3 mb-3">
+              <h3 className="font-heading text-xs tracking-[0.2em] uppercase text-gold shrink-0">Detachment Rule</h3>
+              <div className="flex-1 h-px bg-gold-muted/15" />
+            </div>
+            <div className="space-y-2">
+              {det.rules.map((r) => (
+                <div key={r.id} className="bg-void-800 border border-gold-muted/15 px-4 py-3">
+                  <p className="font-heading text-gold text-sm tracking-wide mb-1">{r.name}</p>
+                  <p className="font-body text-parchment-muted text-sm leading-relaxed whitespace-pre-wrap">{r.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ── 3. Stratagems ── */}
+        <section className="px-5 pt-3 pb-3">
+          <div className="flex items-center gap-3 mb-3">
+            <h3 className="font-heading text-xs tracking-[0.2em] uppercase text-gold shrink-0">Stratagems</h3>
+            <div className="flex-1 h-px bg-gold-muted/15" />
+            {detStratagemsFull.length > 0 && (
+              <span className="font-heading text-[10px] tracking-widest uppercase text-parchment-faint shrink-0">
+                {filteredStratagems.length}{stratagemSearch ? ` / ${detStratagemsFull.length}` : ''}
+              </span>
+            )}
+          </div>
+          {stratagems.length === 0 ? (
+            <p className="font-body text-parchment-faint text-xs italic">
+              No stratagem data — add entries to{' '}
+              <code className="font-mono text-gold-muted bg-void-900 px-1 py-0.5">src/data/stratagems/</code>
+            </p>
+          ) : detStratagemsFull.length === 0 ? (
+            <p className="font-body text-parchment-faint text-xs italic">No stratagems for this detachment.</p>
+          ) : (
+            <>
+              <input
+                type="text"
+                placeholder="Search stratagems…"
+                value={stratagemSearch}
+                onChange={(e) => setStratagemSearch(e.target.value)}
+                className="w-full bg-void-900 border border-gold-muted/20 px-3 py-1.5 font-body text-parchment text-sm placeholder-parchment-faint focus:outline-none focus:border-gold-muted/50 mb-4"
+              />
+              {filteredStratagems.length === 0 ? (
+                <p className="text-parchment-faint font-body italic text-sm">No stratagems match.</p>
+              ) : (
+                stratagemsByPhase.map(([phase, strats]) => (
+                  <div key={phase} className="mb-4">
+                    <p className="font-heading text-[10px] tracking-[0.25em] uppercase text-gold-muted mb-2 pl-1">{phase}</p>
+                    <div className="grid grid-cols-1 xl:grid-cols-2 gap-2">
+                      {strats.map((s, i) => <StratagemCard key={i} s={s} hideDetachment />)}
                     </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* Detachment variant selector + rule */}
-            {detachments.length > 0 && (
-              <section className="px-5 pt-4 pb-2">
-                <h3 className="font-heading text-xs tracking-[0.2em] uppercase text-gold mb-3">
-                  Detachment Rule
-                </h3>
-                <div className="flex flex-wrap gap-1 mb-4">
-                  {detachments.map((d, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setActiveDetIdx(i)}
-                      className={`font-heading text-[10px] tracking-widest uppercase px-3 py-1.5 border transition-colors ${
-                        i === activeDetIdx
-                          ? 'border-gold text-gold bg-gold/5'
-                          : 'border-gold-muted/20 text-parchment-faint hover:text-parchment hover:border-gold-muted/40'
-                      }`}
-                    >
-                      {d.name}
-                    </button>
-                  ))}
-                </div>
-                {det && (
-                  <div className="space-y-3">
-                    {det.rules.map((r) => (
-                      <div key={r.id} className="bg-void-800 border border-gold-muted/15 px-4 py-3">
-                        <p className="font-heading text-gold text-sm tracking-wide mb-1">{r.name}</p>
-                        <p className="font-body text-parchment-muted text-sm leading-relaxed whitespace-pre-wrap">
-                          {r.description}
-                        </p>
-                      </div>
-                    ))}
                   </div>
-                )}
-              </section>
+                ))
+              )}
+            </>
+          )}
+        </section>
+
+        {/* ── 4. Enhancements ── */}
+        <section className="px-5 pt-3 pb-6">
+          <div className="flex items-center gap-3 mb-3">
+            <h3 className="font-heading text-xs tracking-[0.2em] uppercase text-gold shrink-0">Enhancements</h3>
+            <div className="flex-1 h-px bg-gold-muted/15" />
+            {enhancements.length > 0 && (
+              <span className="font-heading text-[10px] tracking-widest uppercase text-parchment-faint shrink-0">{enhancements.length}</span>
             )}
+          </div>
+          {enhancements.length > 0 ? (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+              {enhancements.map((e, i) => <EnhancementCard key={i} e={e} />)}
+            </div>
+          ) : (
+            <p className="text-parchment-faint font-body italic text-sm">No enhancements found.</p>
+          )}
+        </section>
 
-            {detachments.length === 0 && catalogueRules.length === 0 && (
-              <div className="p-6">
-                <p className="text-parchment-faint font-body italic text-sm">
-                  No army rules found in this catalogue.
-                </p>
-              </div>
-            )}
-          </>
-        )}
-
-        {/* ── Stratagems section ── */}
-        {section === 'stratagems' && (
-          <section className="px-5 pt-5 pb-5">
-            {stratagems.length === 0 ? (
-              <div className="bg-void-800 border border-gold-muted/20 px-5 py-5">
-                <p className="font-heading text-gold text-sm tracking-wide mb-2">No stratagem data loaded</p>
-                <p className="font-body text-parchment-muted text-sm leading-relaxed mb-3">
-                  Add your stratagems to{' '}
-                  <code className="font-mono text-gold-muted text-xs bg-void-900 px-1 py-0.5">
-                    src/data/stratagems/death-guard.json
-                  </code>{' '}
-                  (or the matching faction file) following the{' '}
-                  <code className="font-mono text-gold-muted text-xs bg-void-900 px-1 py-0.5">_schema.json</code>{' '}
-                  structure. Rebuild after editing.
-                </p>
-              </div>
-            ) : (
-              <>
-                {/* Search */}
-                <div className="flex items-center gap-3 mb-5">
-                  <input
-                    type="text"
-                    placeholder="Search stratagems…"
-                    value={stratagemSearch}
-                    onChange={(e) => setStratagemSearch(e.target.value)}
-                    className="flex-1 bg-void-900 border border-gold-muted/20 px-3 py-1.5 font-body text-parchment text-sm placeholder-parchment-faint focus:outline-none focus:border-gold-muted/50"
-                  />
-                  <span className="font-heading text-[10px] tracking-widest uppercase text-parchment-faint shrink-0">
-                    {filteredStratagems.length} / {stratagems.length}
-                  </span>
-                </div>
-
-                {filteredStratagems.length === 0 ? (
-                  <p className="text-parchment-faint font-body italic text-sm">No stratagems match.</p>
-                ) : (
-                  /* Group by detachment → then by phase */
-                  (() => {
-                    // Build ordered detachment list: "Any" first, then alphabetical
-                    const detachmentOrder = [
-                      ...new Set(filteredStratagems.map((s) => s.detachment || 'Any')),
-                    ].sort((a, b) => {
-                      if (a === 'Any') return -1
-                      if (b === 'Any') return 1
-                      return a.localeCompare(b)
-                    })
-
-                    return detachmentOrder.map((detName) => {
-                      const detStrats = filteredStratagems.filter(
-                        (s) => (s.detachment || 'Any') === detName,
-                      )
-
-                      // Group by phase within this detachment
-                      const phaseOrder = [...new Set(detStrats.map((s) => s.phase || 'Any Phase'))].sort()
-
-                      return (
-                        <div key={detName} className="mb-7">
-                          {/* Detachment heading */}
-                          <div className="flex items-center gap-3 mb-4">
-                            <h3 className="font-heading text-xs tracking-[0.2em] uppercase text-gold">
-                              {detName}
-                            </h3>
-                            <div className="flex-1 h-px bg-gold-muted/20" />
-                            <span className="font-heading text-[10px] tracking-widest uppercase text-parchment-faint">
-                              {detStrats.length}
-                            </span>
-                          </div>
-
-                          {phaseOrder.map((phase) => {
-                            const phaseStrats = detStrats.filter(
-                              (s) => (s.phase || 'Any Phase') === phase,
-                            )
-                            return (
-                              <div key={phase} className="mb-4">
-                                {/* Phase sub-heading */}
-                                <p className="font-heading text-[10px] tracking-[0.25em] uppercase text-gold-muted mb-2 pl-1">
-                                  {phase}
-                                </p>
-                                <div className="grid grid-cols-1 xl:grid-cols-2 gap-2">
-                                  {phaseStrats.map((s, i) => (
-                                    <StratagemCard key={i} s={s} />
-                                  ))}
-                                </div>
-                              </div>
-                            )
-                          })}
-                        </div>
-                      )
-                    })
-                  })()
-                )}
-              </>
-            )}
-          </section>
-        )}
-
-        {/* ── Enhancements section ── */}
-        {section === 'enhancements' && (
-          <section className="px-5 pt-5 pb-5">
-            {enhancements.length > 0 ? (
-              <>
-                <h3 className="font-heading text-xs tracking-[0.2em] uppercase text-gold mb-3">
-                  Enhancements ({enhancements.length})
-                </h3>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
-                  {enhancements.map((e, i) => (
-                    <EnhancementCard key={i} e={e} />
-                  ))}
-                </div>
-              </>
-            ) : (
-              <p className="text-parchment-faint font-body italic text-sm">
-                No enhancements found in this catalogue.
-              </p>
-            )}
-          </section>
+        {detachments.length === 0 && catalogueRules.length === 0 && (
+          <div className="p-6">
+            <p className="text-parchment-faint font-body italic text-sm">No army rules found in this catalogue.</p>
+          </div>
         )}
       </div>
     </div>

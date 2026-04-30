@@ -87,6 +87,11 @@ The lockfile MUST be committed — CI uses `npm ci` which requires it.
 - Requires GitHub Pages source set to **"GitHub Actions"** in repo Settings → Pages
 - `concurrency: group: pages` ensures only one deploy runs at a time
 
+## Git & Deployment
+- **NEVER run `git commit`, `git push`, or any destructive git command.** The user commits and pushes manually.
+- After making code changes, run lint + build validation only. Stop there and tell the user what was changed.
+- Do not suggest `git add` or `git commit` commands as next steps.
+
 ## Common Mistakes to Avoid
 - Do NOT use `localStorage` for game data — files are too large (50–100MB). Use IndexedDB.
 - Do NOT use absolute asset paths (`/assets/...`) — always use `'./'` base or let Vite inject it.

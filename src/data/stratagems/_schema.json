@@ -1,0 +1,17 @@
+{
+  "$comment": "Schema reference for stratagem data files. Copy this structure into a faction file (e.g. death-guard.json). Fill in from your physical Index cards or Codex. Each file maps to one faction catalogue slug.",
+  "faction": "Faction Name",
+  "catalogueSlug": "catalogue-slug-matching-bsdata-name",
+  "stratagems": [
+    {
+      "name": "Example Stratagem Name",
+      "cp": 1,
+      "detachment": "Detachment Name or 'Any'",
+      "phase": "Command Phase",
+      "when": "When condition text",
+      "target": "Target condition text",
+      "effect": "Effect text",
+      "restrictions": ""
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { parseCatalogueData, parseSystemData } from '../../services/dataManager'
+import { getStratagemsForCatalogue } from '../../services/stratagemLoader'
 import { useGameStore } from '../../store/gameStore'
 import Spinner from '../Spinner'
 import {
@@ -161,6 +162,11 @@ export default function Wh40kViewer() {
     [catalogue],
   )
 
+  const stratagems = useMemo(
+    () => (catalogue ? getStratagemsForCatalogue(catalogue.meta.name) : []),
+    [catalogue],
+  )
+
   const selectedSheet = useMemo(
     () => (selectedId ? sheets.find((s) => s.entry.id === selectedId) ?? null : null),
     [sheets, selectedId],
@@ -273,6 +279,7 @@ export default function Wh40kViewer() {
               catalogueRules={catalogue.rules}
               detachments={detachments}
               enhancements={enhancements}
+              stratagems={stratagems}
             />
           </div>
         ) : (

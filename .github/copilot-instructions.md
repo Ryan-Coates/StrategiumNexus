@@ -81,9 +81,11 @@ The lockfile MUST be committed — CI uses `npm ci` which requires it.
 
 ## GitHub Actions (deploy.yml)
 - Triggers on push to `main`
-- Steps: checkout → setup-node (20) → `npm ci` → lint → build → deploy to `gh-pages`
+- Two jobs: `build` (lint → build → upload artifact) and `deploy` (Pages environment)
+- Uses official `actions/upload-pages-artifact` + `actions/deploy-pages` — no `gh-pages` branch
 - `VITE_BASE_URL` is injected as `/${{ github.event.repository.name }}/`
-- `enable_jekyll: false` ensures `.nojekyll` is created (prevents GitHub stripping `_` folders)
+- Requires GitHub Pages source set to **"GitHub Actions"** in repo Settings → Pages
+- `concurrency: group: pages` ensures only one deploy runs at a time
 
 ## Common Mistakes to Avoid
 - Do NOT use `localStorage` for game data — files are too large (50–100MB). Use IndexedDB.

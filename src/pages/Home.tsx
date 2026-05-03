@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 
+const APP_VERSION = '0.1.0'
+
 const FEATURES = [
   {
     title: 'War Codex',
@@ -34,6 +36,9 @@ export default function Home() {
         <h1 className="font-display text-4xl md:text-6xl text-gold mb-4 tracking-wider leading-tight">
           Strategium<br />Nexus
         </h1>
+        <p className="font-heading text-[10px] tracking-widest uppercase text-gold-muted/50">
+          v{APP_VERSION}
+        </p>
         <div className="divider-gold my-6" />
         <p className="font-body text-lg text-parchment-muted leading-relaxed">
           Browse codices, forge your warband, wage your campaign.
@@ -65,6 +70,28 @@ export default function Home() {
             )}
           </div>
         ))}
+      </section>
+
+      {/* Feedback CTA */}
+      <section className="w-full mt-6 mb-2">
+        <div className="card border-gold-muted/40 bg-gold/5 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+          <div className="flex-1">
+            <p className="font-heading text-gold text-base tracking-wide mb-1">
+              OI, Virgins!
+            </p>
+            <p className="font-body text-parchment-muted text-sm leading-relaxed">
+              I built this for you — give me feedback so I can make it better. Bugs, missing factions, feature requests… raise an issue and I'll sort it.
+            </p>
+          </div>
+          <a
+            href="https://github.com/Ryan-Coates/StrategiumNexus/issues/new"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary shrink-0 whitespace-nowrap"
+          >
+            Raise an Issue ↗
+          </a>
+        </div>
       </section>
     </div>
   )

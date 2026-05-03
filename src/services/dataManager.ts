@@ -13,7 +13,7 @@ import {
   getGameSystem,
   type GameSystemRecord,
 } from './db'
-import type { ParsedCatalogue, ParsedGameSystem } from '../types'
+import type { ParsedCatalogue, ParsedGameSystem, CatalogueMeta } from '../types'
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -63,7 +63,7 @@ export async function downloadCatalogue(
   systemId: string,
   catFile: CatFile,
   onProgress: ProgressCallback,
-): Promise<void> {
+): Promise<CatalogueMeta> {
   onProgress({ stage: `Downloading ${catFile.name}…` })
 
   const xml = await fetchRawXml(catFile.rawUrl)
@@ -71,14 +71,20 @@ export async function downloadCatalogue(
   onProgress({ stage: 'Parsing…' })
   const parsed = parseCatalogueXml(xml)
 
-  await saveCatalogue({
+  const record: CatalogueMeta = {
     id: parsed.meta.id,
     gameSystemId: systemId,
-    name: parsed.meta.name || catFile.name,
+    // Always use the catFile.name (filename without .cat) as the canonical name.
+    // The XML root <catalogue name="..."> often differs from the filename
+    // (e.g. "Xenos - Aeldari" vs filename "Aeldari - Craftworlds"), so using
+    // catFile.name ensures consistent matching and user-friendly display.
+    name: catFile.name,
     revision: parsed.meta.revision,
-    rawXml: xml,
     fetchedAt: Date.now(),
-  })
+  }
+
+  await saveCatalogue({ ...record, rawXml: xml })
+  return record
 }
 
 export async function downloadAllCatalogues(
@@ -120,7 +126,37 @@ export async function loadCataloguesForSystem(systemId: string) {
 export async function parseCatalogueData(catalogueId: string): Promise<ParsedCatalogue> {
   const record = await getCatalogue(catalogueId)
   if (!record) throw new Error(`Catalogue ${catalogueId} not found. Re-download required.`)
-  return parseCatalogueXml(record.rawXml)
+
+  const parsed = parseCatalogueXml(record.rawXml)
+
+  // Some catalogues (e.g. Aeldari - Craftworlds, Chaos Daemons, Chaos Knights) store
+  // their datasheets in a separate Library catalogue and only contain entryLinks that
+  // point into that library.  If we parsed zero unit/model entries but have catalogue
+  // links, load each linked library from IndexedDB and merge the referenced entries.
+  const hasUnits = parsed.entries.some((e) => e.type === 'unit' || e.type === 'model')
+  if (!hasUnits && parsed.catalogueLinkIds.length > 0) {
+    const targets = new Set(parsed.entryLinkTargetIds)
+    for (const linkedId of parsed.catalogueLinkIds) {
+      try {
+        const linkedRecord = await getCatalogue(linkedId)
+        if (!linkedRecord) continue
+        const linked = parseCatalogueXml(linkedRecord.rawXml)
+        const toAdd = linked.entries.filter(
+          (e) =>
+            (e.type === 'unit' || e.type === 'model') &&
+            (targets.size === 0 || targets.has(e.id)),
+        )
+        if (toAdd.length > 0) {
+          parsed.entries.push(...toAdd)
+          parsed.rules.push(...linked.rules)
+        }
+      } catch {
+        // Library not downloaded yet – silently skip; viewer will show empty state
+      }
+    }
+  }
+
+  return parsed
 }
 
 export async function parseSystemData(systemId: string): Promise<ParsedGameSystem> {

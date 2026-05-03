@@ -5,6 +5,7 @@ export interface BsDataSystemManifest {
   repoOwner: string
   repoSlug: string
   tags: string[]
+  image?: string
   inProgress?: boolean
   wipNote?: string
 }
@@ -13,6 +14,7 @@ export const BSDATA_SYSTEMS: BsDataSystemManifest[] = [
   {
     slug: 'wh40k',
     name: 'Warhammer 40,000',
+    image: 'images/systems/wh40k.svg',
     description:
       '10th edition datasheets, matched play points, and faction rules for the far future.',
     repoOwner: 'BSData',
@@ -22,6 +24,7 @@ export const BSDATA_SYSTEMS: BsDataSystemManifest[] = [
   {
     slug: 'necromunda',
     name: 'Necromunda',
+    image: 'images/systems/necromunda.svg',
     description:
       'Gang warfare in the underhive. Campaigns, hired guns, and treacherous terrain rules.',
     repoOwner: 'BSData',
@@ -33,6 +36,7 @@ export const BSDATA_SYSTEMS: BsDataSystemManifest[] = [
   {
     slug: 'killteam',
     name: 'Kill Team',
+    image: 'images/systems/killteam.svg',
     description: 'Elite skirmish warfare in the 41st millennium — fast and lethal.',
     repoOwner: 'BSData',
     repoSlug: 'wh40k-killteam',
@@ -43,6 +47,7 @@ export const BSDATA_SYSTEMS: BsDataSystemManifest[] = [
   {
     slug: 'horus-heresy',
     name: 'The Horus Heresy',
+    image: 'images/systems/horus-heresy.svg',
     description:
       'The Age of Darkness — Space Marine legions clash in the greatest civil war the galaxy has known.',
     repoOwner: 'BSData',
@@ -54,6 +59,7 @@ export const BSDATA_SYSTEMS: BsDataSystemManifest[] = [
   {
     slug: 'aos',
     name: 'Age of Sigmar',
+    image: 'images/systems/aos.svg',
     description: 'Epic fantasy battles across the Mortal Realms.',
     repoOwner: 'BSData',
     repoSlug: 'age-of-sigmar',
@@ -64,6 +70,7 @@ export const BSDATA_SYSTEMS: BsDataSystemManifest[] = [
   {
     slug: 'old-world',
     name: 'Warhammer: The Old World',
+    image: 'images/systems/old-world.svg',
     description: 'Mass battle fantasy in the world-that-was. Return to the Old World.',
     repoOwner: 'BSData',
     repoSlug: 'warhammer-the-old-world',

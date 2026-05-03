@@ -20,25 +20,34 @@ function CatalogueRow({
   catFile,
   systemId,
   slug,
-  downloaded,
+  downloaded: downloadedProp,
   onDone,
 }: {
   catFile: CatFile
   systemId: string
   slug: string
   downloaded: CatalogueMeta | undefined
-  onDone: () => void
+  onDone: () => Promise<void>
 }) {
   const [loading, setLoading] = useState(false)
   const [deleting, setDeleting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  // Local copy so the row flips to "View" immediately after download,
+  // without waiting for the parent to re-derive the match from IndexedDB.
+  const [localDownloaded, setLocalDownloaded] = useState<CatalogueMeta | undefined>(downloadedProp)
+
+  // Sync when parent's prop changes (Delete All, batch download, page refresh)
+  useEffect(() => {
+    setLocalDownloaded(downloadedProp)
+  }, [downloadedProp])
 
   async function handleDownload() {
     setLoading(true)
     setError(null)
     try {
-      await downloadCatalogue(systemId, catFile, () => {})
-      onDone()
+      const meta = await downloadCatalogue(systemId, catFile, () => {})
+      setLocalDownloaded(meta)
+      await onDone()
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
     } finally {
@@ -47,11 +56,12 @@ function CatalogueRow({
   }
 
   async function handleDelete() {
-    if (!downloaded) return
+    if (!localDownloaded) return
     setDeleting(true)
     try {
-      await deleteCatalogue(downloaded.id)
-      onDone()
+      await deleteCatalogue(localDownloaded.id)
+      setLocalDownloaded(undefined)
+      await onDone()
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
     } finally {
@@ -59,53 +69,73 @@ function CatalogueRow({
     }
   }
 
+  const downloaded = localDownloaded
   const busy = loading || deleting
 
   return (
-    <div className="flex items-center justify-between gap-4 py-3 border-b border-gold-muted/10 last:border-b-0">
-      <div className="flex items-center gap-3 min-w-0">
-        <span
-          className={`w-1.5 h-1.5 rounded-full shrink-0 ${
-            downloaded ? 'bg-gold' : 'bg-parchment-faint/30'
-          }`}
-        />
-        <span className="font-body text-sm text-parchment truncate">{catFile.name}</span>
-        {downloaded && (
-          <span className="text-parchment-faint text-xs shrink-0">
-            Rev {downloaded.revision}
+    <div className="flex flex-col gap-2">
+      {/* Card */}
+      <div
+        className={`card flex flex-col gap-3 ${busy ? 'opacity-60' : ''}`}
+      >
+        {/* Name row */}
+        <div className="flex items-center gap-3">
+          <span
+            className={`w-2 h-2 rounded-full shrink-0 ${
+              downloaded ? 'bg-gold' : 'bg-parchment-faint/30'
+            }`}
+          />
+          <span className="font-heading text-base text-parchment tracking-wide leading-snug flex-1">
+            {catFile.name}
           </span>
-        )}
-      </div>
+          {downloaded && (
+            <span className="badge badge-gold text-[10px] shrink-0">
+              Rev {downloaded.revision}
+            </span>
+          )}
+        </div>
 
-      <div className="flex items-center gap-2 shrink-0">
-        {error && <span className="text-blood-light text-xs max-w-[160px] truncate">{error}</span>}
+        {/* Actions */}
         {busy ? (
-          <div className="w-4 h-4 rounded-full border border-gold-muted/30 border-t-gold animate-spin" />
+          <div className="flex items-center gap-2 pl-5">
+            <div className="w-4 h-4 rounded-full border border-gold-muted/30 border-t-gold animate-spin shrink-0" />
+            <span className="text-gold-muted text-xs font-heading tracking-wide">
+              {loading ? 'Downloading…' : 'Deleting…'}
+            </span>
+          </div>
         ) : downloaded ? (
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2 pl-5">
             <Link
               to={`/games/${slug}/${downloaded.id}`}
-              className="btn-primary text-[10px] py-1 px-3"
+              className="btn-primary text-xs flex-1 text-center min-w-[80px]"
             >
               View
             </Link>
-            <button onClick={handleDownload} className="btn-ghost text-[10px] py-1 px-3">
+            <button onClick={handleDownload} className="btn-ghost text-xs">
               Update
             </button>
             <button
               onClick={handleDelete}
-              className="btn-ghost text-[10px] py-1 px-3 text-blood-light hover:text-blood"
-              title="Delete this catalogue from local storage"
+              className="btn-ghost text-xs text-blood-light hover:text-blood"
             >
               Delete
             </button>
           </div>
         ) : (
-          <button onClick={handleDownload} className="btn-ghost text-[10px] py-1 px-3">
-            Download
-          </button>
+          <div className="pl-5">
+            <button onClick={handleDownload} className="btn-primary text-xs w-full">
+              Download
+            </button>
+          </div>
         )}
       </div>
+
+      {/* Error */}
+      {error && (
+        <p className="px-4 py-2 text-blood-light text-xs font-body bg-blood/10 border border-blood/30">
+          {error}
+        </p>
+      )}
     </div>
   )
 }
@@ -183,8 +213,7 @@ export default function GameSystem() {
     )
   }
 
-  const downloadedById = Object.fromEntries(catalogues.map((c) => [c.name, c]))
-  const downloadedByPath = Object.fromEntries(
+  const downloadedByName = Object.fromEntries(
     catalogues.map((c) => [c.name.toLowerCase(), c]),
   )
 
@@ -216,7 +245,7 @@ export default function GameSystem() {
       {/* Actions */}
       <div className="flex flex-wrap items-center gap-3 mb-6">
         <span className="font-heading text-xs tracking-wide text-parchment-faint">
-          {catalogues.length} / {system.catFiles.length} catalogues downloaded
+          {catalogues.length} / {system.catFiles.filter(f => !f.name.toLowerCase().includes('library')).length} catalogues downloaded
         </span>
         {!isDownloadingAll && (
           <button onClick={handleDownloadAll} className="btn-primary text-xs">
@@ -266,32 +295,35 @@ export default function GameSystem() {
         </div>
       )}
 
-      {/* Catalogue list */}
-      <div className="card">
-        <div className="card-header">Available Catalogues</div>
-        {system.catFiles.length === 0 ? (
-          <p className="text-parchment-faint text-sm font-body italic">No catalogue files found.</p>
-        ) : (
-          <div>
-            {system.catFiles.map((catFile) => {
-              const downloaded = downloadedByPath[catFile.name.toLowerCase()] ??
-                Object.values(downloadedById).find((c) =>
-                  c.name.toLowerCase().includes(catFile.name.toLowerCase()),
-                )
-              return (
-                <CatalogueRow
-                  key={catFile.path}
-                  catFile={catFile}
-                  systemId={system.id}
-                  slug={slug ?? ''}
-                  downloaded={downloaded}
-                  onDone={refresh}
-                />
-              )
-            })}
-          </div>
-        )}
-      </div>
+      {/* Catalogue grid */}
+      <div className="card-header">Available Catalogues</div>
+      {system.catFiles.length === 0 ? (
+        <p className="card text-parchment-faint text-sm font-body italic">No catalogue files found.</p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {system.catFiles
+            .filter((catFile) => !catFile.name.toLowerCase().includes('library'))
+            .map((catFile) => {
+            const fl = catFile.name.toLowerCase()
+            const downloaded =
+              downloadedByName[fl] ??
+              catalogues.find((c) => {
+                const cl = c.name.toLowerCase()
+                return cl.includes(fl) || fl.includes(cl)
+              })
+            return (
+              <CatalogueRow
+                key={catFile.path}
+                catFile={catFile}
+                systemId={system.id}
+                slug={slug ?? ''}
+                downloaded={downloaded}
+                onDone={refresh}
+              />
+            )
+          })}
+        </div>
+      )}
     </div>
   )
 }

@@ -173,5 +173,19 @@ export function parseCatalogueXml(xml: string): ParsedCatalogue {
     return true
   })
 
-  return { meta, rules, entries: uniqueEntries }
+  // Collect IDs of linked catalogues (Library files this catalogue delegates to)
+  const catalogueLinkIds: string[] = []
+  for (const cl of doc.querySelectorAll('catalogue > catalogueLinks > catalogueLink')) {
+    const id = attr(cl, 'targetId')
+    if (id) catalogueLinkIds.push(id)
+  }
+
+  // Collect targetIds from top-level entryLinks (which library entries belong here)
+  const entryLinkTargetIds: string[] = []
+  for (const el of doc.querySelectorAll('catalogue > entryLinks > entryLink')) {
+    const id = attr(el, 'targetId')
+    if (id) entryLinkTargetIds.push(id)
+  }
+
+  return { meta, rules, entries: uniqueEntries, catalogueLinkIds, entryLinkTargetIds }
 }

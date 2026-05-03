@@ -7,6 +7,11 @@ import type { StratagemEntry } from '../../services/stratagemLoader'
 // In BSData 40k, the game system file (.gst) holds detachment rules.
 // Catalogues hold unit datasheets. We detect context by entry content.
 
+/** Strip BattleScribe-specific markup (`^^` markers and `**` bold) from text. */
+function stripBsMarkup(text: string): string {
+  return text.replace(/\^\^/g, '').replace(/\*\*/g, '')
+}
+
 export interface Datasheet {
   entry: SelectionEntry
   unitProfiles: Profile[]
@@ -312,7 +317,7 @@ function AbilitiesSection({ abilities }: { abilities: RuleEntry[] }) {
             <p className="font-heading text-gold text-sm tracking-wide mb-1">{r.name}</p>
             {r.description && (
               <p className="font-body text-parchment-muted text-sm leading-relaxed whitespace-pre-wrap">
-                {r.description}
+                {stripBsMarkup(r.description)}
               </p>
             )}
           </div>
@@ -387,7 +392,7 @@ function EnhancementCard({ e }: { e: Enhancement }) {
         )}
       </div>
       {e.description && (
-        <p className="font-body text-parchment-muted text-sm leading-relaxed">{e.description}</p>
+        <p className="font-body text-parchment-muted text-sm leading-relaxed">{stripBsMarkup(e.description)}</p>
       )}
     </div>
   )
@@ -521,7 +526,7 @@ export function DetachmentPanel({
               {catalogueRules.map((r) => (
                 <div key={r.id} className="bg-void-800 border border-gold-muted/15 px-4 py-3">
                   <p className="font-heading text-gold text-sm tracking-wide mb-1">{r.name}</p>
-                  <p className="font-body text-parchment-muted text-sm leading-relaxed whitespace-pre-wrap">{r.description}</p>
+                  <p className="font-body text-parchment-muted text-sm leading-relaxed whitespace-pre-wrap">{stripBsMarkup(r.description)}</p>
                 </div>
               ))}
             </div>
@@ -539,7 +544,7 @@ export function DetachmentPanel({
               {det.rules.map((r) => (
                 <div key={r.id} className="bg-void-800 border border-gold-muted/15 px-4 py-3">
                   <p className="font-heading text-gold text-sm tracking-wide mb-1">{r.name}</p>
-                  <p className="font-body text-parchment-muted text-sm leading-relaxed whitespace-pre-wrap">{r.description}</p>
+                  <p className="font-body text-parchment-muted text-sm leading-relaxed whitespace-pre-wrap">{stripBsMarkup(r.description)}</p>
                 </div>
               ))}
             </div>

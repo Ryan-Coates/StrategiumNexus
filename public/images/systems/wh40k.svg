@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <g fill="#c9aa71">
+    <!-- Outer decorative ring -->
+    <path fill-rule="evenodd" d="M100 8a92 92 0 1 1 0 184A92 92 0 0 1 100 8zm0 8a84 84 0 1 0 0 168A84 84 0 0 0 100 16z"/>
+    <!-- Inner ring -->
+    <path fill-rule="evenodd" d="M100 22a78 78 0 1 1 0 156A78 78 0 0 1 100 22zm0 6a72 72 0 1 0 0 144A72 72 0 0 0 100 28z"/>
+
+    <!-- Left wing upper sweep -->
+    <path d="M92 98 C78 90 55 78 32 65 C42 72 64 84 86 95Z"/>
+    <!-- Left wing middle -->
+    <path d="M91 103 C74 100 50 100 28 98 C42 99 66 100 89 105Z"/>
+    <!-- Left wing lower sweep -->
+    <path d="M92 108 C75 112 52 118 30 120 C44 116 68 112 90 110Z"/>
+    <!-- Left secondary feathers -->
+    <path d="M89 94 C72 83 50 68 35 52 C47 64 68 80 87 97Z"/>
+    <path d="M87 112 C68 120 46 132 36 148 C48 135 70 122 90 113Z"/>
+
+    <!-- Right wing upper sweep -->
+    <path d="M108 98 C122 90 145 78 168 65 C158 72 136 84 114 95Z"/>
+    <!-- Right wing middle -->
+    <path d="M109 103 C126 100 150 100 172 98 C158 99 134 100 111 105Z"/>
+    <!-- Right wing lower sweep -->
+    <path d="M108 108 C125 112 148 118 170 120 C156 116 132 112 110 110Z"/>
+    <!-- Right secondary feathers -->
+    <path d="M111 94 C128 83 150 68 165 52 C153 64 132 80 113 97Z"/>
+    <path d="M113 112 C132 120 154 132 164 148 C152 135 130 122 110 113Z"/>
+
+    <!-- Left head -->
+    <ellipse cx="86" cy="76" rx="11" ry="13" transform="rotate(-12 86 76)"/>
+    <!-- Left beak -->
+    <path d="M74 73 L68 70 L74 79Z"/>
+    <!-- Left eye -->
+    <circle cx="89" cy="71" r="3.5" fill="#0d0b09"/>
+    <circle cx="89" cy="71" r="1.5" fill="#c9aa71"/>
+
+    <!-- Right head -->
+    <ellipse cx="114" cy="76" rx="11" ry="13" transform="rotate(12 114 76)"/>
+    <!-- Right beak -->
+    <path d="M126 73 L132 70 L126 79Z"/>
+    <!-- Right eye -->
+    <circle cx="111" cy="71" r="3.5" fill="#0d0b09"/>
+    <circle cx="111" cy="71" r="1.5" fill="#c9aa71"/>
+
+    <!-- Neck/body connector left -->
+    <path d="M89 87 L91 98 L97 96 L93 85Z"/>
+    <!-- Neck/body connector right -->
+    <path d="M111 87 L109 98 L103 96 L107 85Z"/>
+
+    <!-- Body / chest -->
+    <ellipse cx="100" cy="107" rx="10" ry="14"/>
+    <!-- Chest hollow -->
+    <ellipse cx="100" cy="107" rx="5" ry="7" fill="#0d0b09"/>
+
+    <!-- Skull on chest -->
+    <ellipse cx="100" cy="104" rx="6" ry="5.5"/>
+    <ellipse cx="100" cy="104" rx="3.5" ry="3" fill="#0d0b09"/>
+    <circle cx="97.5" cy="102.5" r="1.4" fill="#0d0b09"/>
+    <circle cx="102.5" cy="102.5" r="1.4" fill="#0d0b09"/>
+
+    <!-- Tail feathers -->
+    <path d="M93 121 L89 145 L100 137 L111 145 L107 121Z"/>
+    <path d="M96 121 L93 148 L100 141 L107 148 L104 121Z"/>
+
+    <!-- Corner ornaments -->
+    <rect x="30" y="28" width="20" height="3" rx="1.5"/>
+    <rect x="28" y="28" width="3" height="20" rx="1.5"/>
+    <rect x="150" y="28" width="20" height="3" rx="1.5"/>
+    <rect x="169" y="28" width="3" height="20" rx="1.5"/>
+    <rect x="30" y="169" width="20" height="3" rx="1.5"/>
+    <rect x="28" y="152" width="3" height="20" rx="1.5"/>
+    <rect x="150" y="169" width="20" height="3" rx="1.5"/>
+    <rect x="169" y="152" width="3" height="20" rx="1.5"/>
+  </g>
+</svg>

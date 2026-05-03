@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <g fill="#c9aa71">
+    <!-- Outer decorative ring -->
+    <path fill-rule="evenodd" d="M100 8a92 92 0 1 1 0 184A92 92 0 0 1 100 8zm0 8a84 84 0 1 0 0 168A84 84 0 0 0 100 16z"/>
+
+    <!-- Twin-Tailed Comet - the sign of the Old World -->
+    <!-- Central comet head / fireball -->
+    <circle cx="100" cy="85" r="22"/>
+    <!-- Comet core -->
+    <circle cx="100" cy="85" r="12" fill="#0d0b09"/>
+    <circle cx="100" cy="85" r="6"/>
+
+    <!-- Comet rays -->
+    <path d="M100 57 L103 72 L100 63 L97 72Z"/>
+    <path d="M128 65 L114 75 L123 70 L111 79Z"/>
+    <path d="M72 65 L86 75 L77 70 L89 79Z"/>
+    <path d="M128 105 L113 95 L122 100 L110 91Z"/>
+    <path d="M72 105 L87 95 L78 100 L90 91Z"/>
+
+    <!-- LEFT TAIL - sweeps down-left with curve -->
+    <!-- Main left tail body -->
+    <path d="M85 103 C76 114 64 128 50 140 C46 144 40 150 36 158
+             C42 152 50 145 56 140 C70 128 82 114 92 103Z"/>
+    <!-- Left tail secondary -->
+    <path d="M82 107 C70 122 56 138 42 155 C46 150 52 143 58 137
+             C72 122 86 107 95 104Z" opacity="0.8"/>
+    <!-- Left tail wisp -->
+    <path d="M78 112 C64 130 48 148 36 168 C44 150 60 132 76 115Z" opacity="0.6"/>
+    <!-- Left tail tip curl -->
+    <path d="M38 158 C32 162 28 168 30 174 C28 166 32 160 40 158Z"/>
+
+    <!-- RIGHT TAIL - sweeps down-right with curve -->
+    <!-- Main right tail body -->
+    <path d="M115 103 C124 114 136 128 150 140 C154 144 160 150 164 158
+             C158 152 150 145 144 140 C130 128 118 114 108 103Z"/>
+    <!-- Right tail secondary -->
+    <path d="M118 107 C130 122 144 138 158 155 C154 150 148 143 142 137
+             C128 122 114 107 105 104Z" opacity="0.8"/>
+    <!-- Right tail wisp -->
+    <path d="M122 112 C136 130 152 148 164 168 C156 150 140 132 124 115Z" opacity="0.6"/>
+    <!-- Right tail tip curl -->
+    <path d="M162 158 C168 162 172 168 170 174 C172 166 168 160 160 158Z"/>
+
+    <!-- Decorative shield/heraldic element below comet -->
+    <!-- Empire shield suggestion: pointed bottom shield -->
+    <path d="M91 110 L91 126 C91 134 100 140 100 140 C100 140 109 134 109 126 L109 110Z" fill="#0d0b09"/>
+    <path fill-rule="evenodd" d="M92 111 L92 126 C92 133 100 139 100 139 C100 139 108 133 108 126 L108 111Z"/>
+
+    <!-- Crown dots -->
+    <circle cx="100" cy="18" r="3"/>
+    <circle cx="174" cy="100" r="3"/>
+    <circle cx="100" cy="182" r="3"/>
+    <circle cx="26" cy="100" r="3"/>
+  </g>
+</svg>

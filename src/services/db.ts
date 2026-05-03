@@ -28,7 +28,7 @@ interface StrategiumSchema {
 // ── DB singleton ──────────────────────────────────────────────────────────────
 
 const DB_NAME = 'strategium-nexus'
-const DB_VERSION = 2  // bump whenever schema changes — data is re-fetchable from GitHub
+const DB_VERSION = 3  // v3: catalogue names now stored as catFile.name (filename) not XML root name
 
 let _db: IDBPDatabase<StrategiumSchema> | null = null
 

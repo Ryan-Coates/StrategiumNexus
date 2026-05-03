@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <g fill="#c9aa71">
+    <!-- Industrial cog / gear outer -->
+    <path fill-rule="evenodd" d="
+      M100 14
+      L109 18 L116 14 L121 21 L129 20 L131 28 L139 30 L138 38 L145 43 L141 50
+      L148 57 L141 63 L145 71 L138 74 L139 82 L131 83 L129 91 L121 90 L116 97
+      L109 94 L100 98 L91 94 L84 97 L79 90 L71 91 L69 83 L61 82 L62 74 L55 71
+      L59 63 L52 57 L59 50 L55 43 L62 38 L61 30 L69 28 L71 20 L79 21 L84 14
+      L91 18 Z
+      M100 22
+      L92 26 L86 22 L81 28 L74 28 L72 35 L65 37 L66 44 L60 49 L64 55
+      L58 62 L64 67 L61 74 L68 77 L68 84 L75 85 L77 92 L84 91 L88 97
+      L95 94 L100 97 L105 94 L112 97 L116 91 L123 92 L125 85 L132 84
+      L132 77 L139 74 L136 67 L142 62 L136 55 L140 49 L134 44 L135 37
+      L128 35 L126 28 L119 28 L114 22 L108 26 Z"
+    />
+
+    <!-- Middle ring -->
+    <path fill-rule="evenodd" d="M100 44a56 56 0 1 1 0 112A56 56 0 0 1 100 44zm0 5a51 51 0 1 0 0 102A51 51 0 0 0 100 49z"/>
+
+    <!-- Inner ring -->
+    <path fill-rule="evenodd" d="M100 62a38 38 0 1 1 0 76A38 38 0 0 1 100 62zm0 5a33 33 0 1 0 0 66A33 33 0 0 0 100 67z"/>
+
+    <!-- Skull in center -->
+    <!-- Skull dome -->
+    <path d="M100 74 C88 74 80 81 80 91 L80 97 L88 97 L88 104 L112 104 L112 97 L120 97 L120 91 C120 81 112 74 100 74Z"/>
+    <!-- Eye sockets -->
+    <circle cx="92" cy="90" r="6" fill="#0d0b09"/>
+    <circle cx="108" cy="90" r="6" fill="#0d0b09"/>
+    <!-- Eye highlights -->
+    <circle cx="94" cy="88" r="2" fill="#c9aa71"/>
+    <circle cx="110" cy="88" r="2" fill="#c9aa71"/>
+    <!-- Nasal cavity -->
+    <path d="M97 97 L100 103 L103 97Z" fill="#0d0b09"/>
+    <!-- Teeth -->
+    <rect x="88" y="104" width="5" height="6" rx="1" fill="#0d0b09"/>
+    <rect x="95" y="104" width="5" height="7" rx="1" fill="#0d0b09"/>
+    <rect x="102" y="104" width="5" height="7" rx="1" fill="#0d0b09"/>
+    <rect x="109" y="104" width="5" height="6" rx="1" fill="#0d0b09"/>
+    <!-- Chin -->
+    <rect x="88" y="110" width="26" height="4" rx="2"/>
+
+    <!-- Industrial bolt details on gear -->
+    <circle cx="100" cy="48" r="3"/>
+    <circle cx="100" cy="152" r="3"/>
+    <circle cx="48" cy="100" r="3"/>
+    <circle cx="152" cy="100" r="3"/>
+    <circle cx="63" cy="63" r="2.5"/>
+    <circle cx="137" cy="63" r="2.5"/>
+    <circle cx="63" cy="137" r="2.5"/>
+    <circle cx="137" cy="137" r="2.5"/>
+  </g>
+</svg>

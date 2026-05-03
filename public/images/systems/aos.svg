@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <g fill="#c9aa71">
+    <!-- Outer decorative ring -->
+    <path fill-rule="evenodd" d="M100 8a92 92 0 1 1 0 184A92 92 0 0 1 100 8zm0 8a84 84 0 1 0 0 168A84 84 0 0 0 100 16z"/>
+
+    <!-- Comet / Sigmar's Comet of Azyrheim -->
+    <!-- Comet head - glowing orb with rays -->
+    <circle cx="100" cy="75" r="24"/>
+    <!-- Inner glow -->
+    <circle cx="100" cy="75" r="14" fill="#0d0b09"/>
+    <circle cx="100" cy="75" r="8"/>
+
+    <!-- Star rays from comet head -->
+    <path d="M100 44 L103 60 L100 51 L97 60Z"/>
+    <path d="M131 56 L116 66 L126 61 L113 70Z"/>
+    <path d="M69 56 L84 66 L74 61 L87 70Z"/>
+    <path d="M131 94 L115 84 L125 89 L112 80Z"/>
+    <path d="M69 94 L85 84 L75 89 L88 80Z"/>
+
+    <!-- Comet tail - sweeping downward -->
+    <!-- Main tail -->
+    <path d="M88 95 C82 110 74 125 62 140 C72 130 84 115 94 100Z"/>
+    <path d="M94 98 C90 115 86 132 80 150 C85 135 92 118 98 101Z"/>
+    <path d="M100 99 C100 118 100 138 100 158 C100 138 100 118 100 101Z"/>
+    <path d="M106 98 C110 115 114 132 120 150 C115 135 108 118 102 101Z"/>
+    <path d="M112 95 C118 110 126 125 138 140 C128 130 116 115 106 100Z"/>
+
+    <!-- Tail glow wisps -->
+    <path d="M78 108 C68 120 58 135 50 152 C60 138 72 122 82 110Z" opacity="0.7"/>
+    <path d="M122 108 C132 120 142 135 150 152 C140 138 128 122 118 110Z" opacity="0.7"/>
+
+    <!-- Lightning bolt - Sigmar's divine power -->
+    <path d="M107 118 L94 138 L104 138 L93 162 L115 136 L103 136 L116 118Z"/>
+
+    <!-- Decorative dots at ring positions -->
+    <circle cx="100" cy="18" r="3"/>
+    <circle cx="174" cy="100" r="3"/>
+    <circle cx="100" cy="182" r="3"/>
+    <circle cx="26" cy="100" r="3"/>
+
+    <!-- Wing-like decorative sweeps on comet sides -->
+    <path d="M76 74 C62 68 48 68 36 72 C48 70 63 72 78 78Z"/>
+    <path d="M124 74 C138 68 152 68 164 72 C152 70 137 72 122 78Z"/>
+    <path d="M76 76 C60 78 45 85 34 95 C46 86 62 81 78 80Z"/>
+    <path d="M124 76 C140 78 155 85 166 95 C154 86 138 81 122 80Z"/>
+  </g>
+</svg>

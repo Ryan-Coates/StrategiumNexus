@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <g fill="#c9aa71">
+    <!-- Outer decorative ring -->
+    <path fill-rule="evenodd" d="M100 8a92 92 0 1 1 0 184A92 92 0 0 1 100 8zm0 8a84 84 0 1 0 0 168A84 84 0 0 0 100 16z"/>
+
+    <!-- Eight-pointed star (Chaos / Legiones symbol) -->
+    <!-- Cardinal points - tall spikes -->
+    <path d="M100 22 L107 88 L100 96 L93 88Z"/>
+    <path d="M178 100 L112 107 L104 100 L112 93Z"/>
+    <path d="M100 178 L93 112 L100 104 L107 112Z"/>
+    <path d="M22 100 L88 93 L96 100 L88 107Z"/>
+
+    <!-- Diagonal points - medium spikes -->
+    <path d="M157 43 L110 90 L103 90 L106 83Z"/>
+    <path d="M157 157 L110 110 L110 103 L117 106Z"/>
+    <path d="M43 157 L90 110 L97 110 L94 117Z"/>
+    <path d="M43 43 L90 90 L90 97 L83 94Z"/>
+
+    <!-- Center ring with etched detail -->
+    <path fill-rule="evenodd" d="M100 74a26 26 0 1 1 0 52A26 26 0 0 1 100 74zm0 4a22 22 0 1 0 0 44A22 22 0 0 0 100 78z"/>
+
+    <!-- Eye of the Legions in center -->
+    <!-- Outer eye shape -->
+    <path d="M100 83 C88 90 82 97 82 100 C82 103 88 110 100 117 C112 110 118 103 118 100 C118 97 112 90 100 83Z"/>
+    <!-- Eye inner -->
+    <path d="M100 87 C91 92 86 97 86 100 C86 103 91 108 100 113 C109 108 114 103 114 100 C114 97 109 92 100 87Z" fill="#0d0b09"/>
+    <!-- Iris -->
+    <ellipse cx="100" cy="100" rx="8" ry="9" fill="#c9aa71"/>
+    <!-- Pupil -->
+    <ellipse cx="100" cy="100" rx="4" ry="5" fill="#0d0b09"/>
+    <!-- Highlight -->
+    <circle cx="103" cy="97" r="2" fill="#c9aa71"/>
+
+    <!-- Decorative notches between spikes -->
+    <circle cx="100" cy="26" r="3"/>
+    <circle cx="174" cy="100" r="3"/>
+    <circle cx="100" cy="174" r="3"/>
+    <circle cx="26" cy="100" r="3"/>
+    <circle cx="154" cy="46" r="2.5"/>
+    <circle cx="154" cy="154" r="2.5"/>
+    <circle cx="46" cy="154" r="2.5"/>
+    <circle cx="46" cy="46" r="2.5"/>
+  </g>
+</svg>

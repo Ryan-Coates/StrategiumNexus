@@ -74,4 +74,8 @@ export interface ParsedCatalogue {
   meta: CatalogueMeta
   rules: RuleEntry[]
   entries: SelectionEntry[]
+  /** UUIDs of catalogues this one links to (for library delegation) */
+  catalogueLinkIds: string[]
+  /** targetIds from entryLinks – which linked entries belong to this sub-faction */
+  entryLinkTargetIds: string[]
 }

@@ -6,6 +6,10 @@ import { useGameStore } from '../store/gameStore'
 import ProfileCard from '../components/ProfileCard'
 import Spinner from '../components/Spinner'
 
+function stripBsMarkup(text: string): string {
+  return text.replace(/\^\^/g, '').replace(/\*\*/g, '')
+}
+
 // ── Constants ─────────────────────────────────────────────────────────────────
 
 const TYPE_LABELS: Record<string, string> = {
@@ -73,7 +77,7 @@ function EntryDetail({ entry }: { entry: SelectionEntry | null; topRules?: RuleE
               <div key={r.id} className="bg-void-800 border border-gold-muted/15 p-4">
                 <p className="font-heading text-gold text-sm tracking-wide mb-1.5">{r.name}</p>
                 <p className="font-body text-parchment-muted text-sm leading-relaxed whitespace-pre-wrap">
-                  {r.description}
+                  {stripBsMarkup(r.description)}
                 </p>
               </div>
             ))}
@@ -105,7 +109,7 @@ function EntryDetail({ entry }: { entry: SelectionEntry | null; topRules?: RuleE
                 {child.rules.map((r) => (
                   <div key={r.id} className="mt-1">
                     <span className="font-heading text-gold text-xs">{r.name}: </span>
-                    <span className="font-body text-parchment-muted text-xs">{r.description}</span>
+                    <span className="font-body text-parchment-muted text-xs">{stripBsMarkup(r.description)}</span>
                   </div>
                 ))}
               </div>

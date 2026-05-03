@@ -2,6 +2,7 @@ import { useEffect, useState, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { parseCatalogueData, parseSystemData } from '../../services/dataManager'
 import { getStratagemsForCatalogue } from '../../services/stratagemLoader'
+import { CORE_STRATAGEMS_10E } from '../../data/coreStratagems'
 import { useGameStore } from '../../store/gameStore'
 import Spinner from '../Spinner'
 import {
@@ -13,6 +14,10 @@ import {
   type Datasheet,
 } from './Wh40kHelpers'
 import type { SelectionEntry, RuleEntry } from '../../types'
+
+function stripBsMarkup(text: string): string {
+  return text.replace(/\^\^/g, '').replace(/\*\*/g, '')
+}
 
 type Tab = 'datasheets' | 'army-rules' | 'core-rules'
 
@@ -148,7 +153,11 @@ export default function Wh40kViewer() {
   }, [search])
 
   const sheets = useMemo(
-    () => (catalogue ? catalogue.entries.map(buildDatasheet) : []),
+    () => (catalogue
+      ? catalogue.entries
+          .filter((e) => e.type === 'unit' || e.type === 'model')
+          .map(buildDatasheet)
+      : []),
     [catalogue],
   )
 
@@ -256,6 +265,15 @@ export default function Wh40kViewer() {
                   {sheets.length} datasheets
                 </p>
               </div>
+              {sheets.length === 0 && catalogue.catalogueLinkIds.length > 0 && (
+                <div className="mx-3 mt-3 px-3 py-3 border border-gold-muted/25 bg-gold/5">
+                  <p className="text-gold-muted text-xs font-body leading-relaxed">
+                    This faction's datasheets are stored in a linked Library catalogue.
+                    Use <span className="text-gold font-heading tracking-wide">Download All</span> on
+                    the game system page to fetch all required files.
+                  </p>
+                </div>
+              )}
               <DatasheetSidebar
                 sheets={sheets}
                 search={searchDebounced}
@@ -289,42 +307,135 @@ export default function Wh40kViewer() {
               <Spinner label="Loading core rules…" />
             ) : (
               <>
-                <div className="mb-4">
+                <div className="mb-5 flex items-center gap-3">
                   <input
                     type="search"
                     value={coreRulesSearch}
                     onChange={(e) => setCoreRulesSearch(e.target.value)}
-                    placeholder="Search rules…"
+                    placeholder="Search rules &amp; stratagems…"
                     className="bg-void-800 border border-gold-muted/25 text-parchment placeholder-parchment-faint text-xs font-body px-3 py-1.5 w-56 focus:outline-none focus:border-gold/50 transition-colors"
                   />
-                  <span className="ml-3 font-heading text-[10px] tracking-widest uppercase text-parchment-faint">
-                    {coreRules.length} rules
+                  <span className="font-heading text-[10px] tracking-widest uppercase text-parchment-faint">
+                    {coreRules.length} rules · {CORE_STRATAGEMS_10E.length} stratagems
                   </span>
                 </div>
-                {coreRules.length === 0 && (
-                  <p className="text-parchment-faint font-body italic text-sm">
-                    No core rules found. The game system file may not be downloaded yet.
+
+                {/* ── Core Stratagems ── */}
+                {(() => {
+                  const q = coreRulesSearch.toLowerCase()
+                  const filtered = q
+                    ? CORE_STRATAGEMS_10E.filter(
+                        (s) =>
+                          s.name.toLowerCase().includes(q) ||
+                          s.effect.toLowerCase().includes(q) ||
+                          s.when.toLowerCase().includes(q),
+                      )
+                    : CORE_STRATAGEMS_10E
+                  if (filtered.length === 0) return null
+                  const byPhase = new Map<string, typeof filtered>()
+                  for (const s of filtered) {
+                    const ph = s.phase || 'Any Phase'
+                    if (!byPhase.has(ph)) byPhase.set(ph, [])
+                    byPhase.get(ph)!.push(s)
+                  }
+                  return (
+                    <section className="mb-8">
+                      <div className="flex items-center gap-3 mb-4">
+                        <h3 className="font-heading text-xs tracking-[0.2em] uppercase text-gold shrink-0">
+                          Universal Stratagems
+                        </h3>
+                        <div className="flex-1 h-px bg-gold-muted/15" />
+                        <span className="font-heading text-[10px] tracking-widest uppercase text-parchment-faint shrink-0">
+                          {filtered.length}
+                        </span>
+                      </div>
+                      {[...byPhase.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([phase, strats]) => (
+                        <div key={phase} className="mb-4">
+                          <p className="font-heading text-[10px] tracking-[0.25em] uppercase text-gold-muted mb-2 pl-1">{phase}</p>
+                          <div className="grid grid-cols-1 xl:grid-cols-2 gap-2">
+                            {strats.map((s) => (
+                              <div key={s.name} className="border border-gold-muted/20 bg-void-800 px-4 py-3">
+                                <div className="flex items-baseline gap-2 mb-2 flex-wrap">
+                                  <p className="font-heading text-gold text-sm tracking-wide">{s.name}</p>
+                                  <span className="font-heading text-[10px] tracking-widest uppercase px-2 py-0.5 border border-gold-muted/30 text-gold-muted">
+                                    {s.cp}CP
+                                  </span>
+                                </div>
+                                <dl className="space-y-1.5">
+                                  {s.when && (
+                                    <div className="flex gap-2">
+                                      <dt className="font-heading text-[10px] tracking-widest uppercase text-parchment-faint shrink-0 w-20">When</dt>
+                                      <dd className="font-body text-parchment-muted text-xs leading-relaxed">{s.when}</dd>
+                                    </div>
+                                  )}
+                                  {s.target && (
+                                    <div className="flex gap-2">
+                                      <dt className="font-heading text-[10px] tracking-widest uppercase text-parchment-faint shrink-0 w-20">Target</dt>
+                                      <dd className="font-body text-parchment-muted text-xs leading-relaxed">{s.target}</dd>
+                                    </div>
+                                  )}
+                                  {s.effect && (
+                                    <div className="flex gap-2">
+                                      <dt className="font-heading text-[10px] tracking-widest uppercase text-parchment-faint shrink-0 w-20">Effect</dt>
+                                      <dd className="font-body text-parchment text-xs leading-relaxed">{s.effect}</dd>
+                                    </div>
+                                  )}
+                                  {s.restrictions && (
+                                    <div className="flex gap-2">
+                                      <dt className="font-heading text-[10px] tracking-widest uppercase text-parchment-faint shrink-0 w-20">Restrict.</dt>
+                                      <dd className="font-body text-parchment-muted text-xs leading-relaxed italic">{s.restrictions}</dd>
+                                    </div>
+                                  )}
+                                </dl>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </section>
+                  )
+                })()}
+
+                {/* ── Game System Rules ── */}
+                {coreRules.length > 0 && (() => {
+                  const q = coreRulesSearch.toLowerCase()
+                  const filtered = coreRules
+                    .filter((r) => !q || r.name.toLowerCase().includes(q) || r.description.toLowerCase().includes(q))
+                    .sort((a, b) => a.name.localeCompare(b.name))
+                  if (filtered.length === 0) return null
+                  return (
+                    <section>
+                      <div className="flex items-center gap-3 mb-4">
+                        <h3 className="font-heading text-xs tracking-[0.2em] uppercase text-gold shrink-0">
+                          Game Rules
+                        </h3>
+                        <div className="flex-1 h-px bg-gold-muted/15" />
+                        <span className="font-heading text-[10px] tracking-widest uppercase text-parchment-faint shrink-0">
+                          {filtered.length}
+                        </span>
+                      </div>
+                      <div className="columns-1 md:columns-2 gap-3 space-y-3">
+                        {filtered.map((r) => (
+                          <div
+                            key={r.id}
+                            className="break-inside-avoid bg-void-800 border border-gold-muted/15 px-4 py-3 mb-3"
+                          >
+                            <p className="font-heading text-gold text-sm tracking-wide mb-1">{r.name}</p>
+                            <p className="font-body text-parchment-muted text-sm leading-relaxed whitespace-pre-wrap">
+                              {stripBsMarkup(r.description)}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+                  )
+                })()}
+
+                {coreRules.length === 0 && !coreRulesSearch && (
+                  <p className="text-parchment-faint font-body italic text-sm mt-2">
+                    Game system rules will appear here once the .gst file is downloaded.
                   </p>
                 )}
-                <div className="columns-1 md:columns-2 gap-3 space-y-3">
-                  {coreRules
-                    .filter((r) => {
-                      const q = coreRulesSearch.toLowerCase()
-                      return !q || r.name.toLowerCase().includes(q) || r.description.toLowerCase().includes(q)
-                    })
-                    .sort((a, b) => a.name.localeCompare(b.name))
-                    .map((r) => (
-                      <div
-                        key={r.id}
-                        className="break-inside-avoid bg-void-800 border border-gold-muted/15 px-4 py-3 mb-3"
-                      >
-                        <p className="font-heading text-gold text-sm tracking-wide mb-1">{r.name}</p>
-                        <p className="font-body text-parchment-muted text-sm leading-relaxed whitespace-pre-wrap">
-                          {r.description}
-                        </p>
-                      </div>
-                    ))}
-                </div>
               </>
             )}
           </div>

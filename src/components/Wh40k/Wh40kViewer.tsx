@@ -181,6 +181,13 @@ export default function Wh40kViewer() {
     [sheets, selectedId],
   )
 
+  // Auto-select the first datasheet when data loads so the panel isn't blank
+  useEffect(() => {
+    if (sheets.length > 0 && selectedId === null) {
+      setSelectedId(sheets[0].entry.id)
+    }
+  }, [sheets, selectedId])
+
   if (loading) return <Spinner label="Parsing datasheet data…" />
 
   if (error) {

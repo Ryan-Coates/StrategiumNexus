@@ -2,6 +2,7 @@ import { NavLink, Outlet } from 'react-router-dom'
 
 const NAV_ITEMS = [
   { to: '/games', label: 'War Codex' },
+  { to: '/rosters', label: 'Warband Forge' },
 ]
 
 export default function Layout() {

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const APP_VERSION = '0.1.0'
+const APP_VERSION = '0.2.0'
 
 const FEATURES = [
   {
@@ -12,9 +12,9 @@ const FEATURES = [
   {
     title: 'Warband Forge',
     description: 'Build, validate, and export army rosters using official data.',
-    to: '#',
+    to: '/rosters',
     phase: 'Phase II',
-    soon: true,
+    soon: false,
   },
   {
     title: 'Campaign Chronicler',

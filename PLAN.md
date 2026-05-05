@@ -119,37 +119,266 @@ BSData GitHub Repo (raw XML)
 
 ---
 
-## Phase 2: Army Roster Builder
+## Phase 2: Warband Forge (Roster Builder)
 
-**Goal:** Allow a player to construct and save valid army lists using the downloaded data.
+**Goal:** A friendly, wizard-driven army builder that lets players construct, validate, and personalise army rosters using live BSData rules — then export or share them.
 
-### User Stories
+**Inspiration:** New Recruit (wizard flow, live validation, mobile-first)
 
-- As a player, I can create a new roster for any downloaded game system and faction.
-- As a player, I can add units/models from the catalogue to my roster.
-- As a player, I can select wargear options per unit as defined by the catalogue rules.
-- As a player, I can see running points totals and validation errors (over-limit, illegal selections).
-- As a player, I can save multiple named rosters to localStorage.
-- As a player, I can print or export my roster as a formatted PDF or plain text.
+---
 
-### Key Components
+### Design Principles
 
-- `RosterManager` — CRUD for saved rosters in localStorage.
-- `RosterBuilder` — Interactive builder: faction picker → unit picker → options.
-- `PointsTracker` — Live points/PL counter with limit enforcement.
-- `ValidationEngine` — Evaluates BSData constraints (min/max selections, category limits).
-- `RosterExport` — Renders a printable roster view; triggers browser print dialog.
+- **Wizard with free navigation** — progress through steps in order, but any visited step is accessible at any time via a persistent step-bar at the top. No step is locked as long as you have a valid army name.
+- **Live feedback** — validation errors and points totals update on every change without needing a "Check" button.
+- **Data-first** — all rules (costs, limits, options) are read from the parsed BSData catalogues already in IndexedDB. No hardcoded data.
+- **Personalisation first-class** — custom names and portrait images are core features, not afterthoughts.
+- **Storage in IndexedDB** — rosters can contain base64 portrait images (potentially large); IndexedDB is the right tier, not localStorage.
 
-### Deliverables
+---
 
-- [ ] Roster data model (TypeScript interfaces)
-- [ ] `RosterManager` with localStorage persistence
-- [ ] `RosterBuilder` screen
-- [ ] BSData constraint parser (selection entries, costs, conditions)
-- [ ] `ValidationEngine`
-- [ ] `PointsTracker` component
-- [ ] `RosterExport` (print stylesheet + plain text)
+### Wizard Steps
+
+The builder is a single `/roster/:id` route that renders a step-bar and swappable step panels. Step state persists to IndexedDB on every change (auto-save).
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│  ① Army Setup → ② Detachment → ③ Build Roster → ④ Configure     │
+│  Units → ⑤ Review & Validate → ⑥ Export                         │
+│  [step bar — click any completed step to jump back]              │
+├──────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  [ Active step panel ]                                           │
+│                                                                  │
+│  [ ← Back ]                               [ Next Step → ]       │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+#### Step 1 — Army Setup
+- **Army name** (text input, required)
+- **Game system** (dropdown of downloaded systems)
+- **Points limit** (free input, or common presets: 500 / 1000 / 1500 / 2000)
+- **Optional: army notes** (free text, displayed in View mode)
+- Choosing a game system loads its available catalogues for Step 2.
+
+#### Step 2 — Detachment
+- **Faction / Catalogue** (list of available catalogues for the chosen system — same cards as Browse Codex, filtered to non-library)
+- **Detachment** (if the catalogue defines detachments via BSData — e.g. Plague Company, Ironstorm Spearhead)
+- Shows the detachment rule text once selected.
+- Sets the stratagem pool for Step 5 and the View panel.
+
+#### Step 3 — Build Roster
+The main building step. Split into two panels (collapsible on mobile):
+
+**Left panel — Unit Browser:**
+- All available selection entries from the chosen catalogue, grouped by category (HQ / BATTLELINE / FAST ATTACK / etc.)
+- Each entry shows name, base points cost, and key keywords.
+- Search / filter bar at top.
+- Tap/click to add a unit to the roster. Units with min > 1 add the minimum count immediately.
+
+**Right panel — Current Roster:**
+- Live list of all added units, each showing:
+  - Name (custom name if set, else catalogue name)
+  - Portrait thumbnail (if uploaded)
+  - Wargear summary
+  - Points cost
+  - ✏️ button → jumps to Step 4 focused on that unit
+  - 🗑️ button → removes unit
+- Running totals bar: `1,240 / 2,000 pts` + category breakdown
+- Inline validation badges (🔴 Over limit / ⚠️ Missing BATTLELINE / etc.)
+
+#### Step 4 — Configure Units
+One panel per unit (tabbed list on left, config panel on right). Per unit:
+
+- **Custom name** — text input; displayed everywhere in place of catalogue name
+- **Portrait image** — drag-and-drop or file picker; stored as base64 in IndexedDB; displayed as a card header in View mode
+- **Wargear options** — rendered from BSData `selectionEntries` / `entryGroups`:
+  - Radio groups for "pick one of" options
+  - Checkboxes for "pick any" options
+  - Numeric spinners for "how many" options
+  - Each option shows its points delta
+- **Enhancement** — if the unit is a CHARACTER and the detachment has enhancements, show an enhancement picker
+- **Unit notes** — free text for personal reminders ("fleet of foot", "usually goes with X")
+
+#### Step 5 — Review & Validate
+Read-only summary + validation. Split layout:
+
+**Left — Roster summary:**
+- All units listed with final points, wargear, custom name, and portrait
+- Total points, total models, power level (if applicable)
+
+**Right — Validation panel:**
+- 🔴 **Errors** (army cannot legally be used): over points limit, required category minimums not met, detachment-specific restrictions violated
+- ⚠️ **Warnings** (questionable but legal): units with no wargear configured, characters with no bodyguard nearby
+- ✅ **OK** items listed below errors
+
+**Bottom — Stratagem reference:**
+- Collapsed accordion of all stratagems for the chosen detachment (from the stratagem JSON files)
+- Useful last-minute reminder before a game
+
+#### Step 6 — Export
+Four options, presented as large buttons:
+
+1. **📋 Copy as Text** — plain-text army list to clipboard (Army Forge / BattleScribe compatible format)
+2. **⬇️ Download Roster JSON** — single roster as a `.json` file; can be re-imported later
+3. **🖨️ Print / Save as PDF** — opens a print-optimised view (no nav, no wizard chrome; clean layout with portraits if uploaded)
+4. **💾 Full Backup** — downloads ALL rosters as a single `strategium-nexus-backup.json`
+
+---
+
+### Roster List Screen (`/rosters`)
+
+Accessible from the main nav. Shows all saved rosters as cards:
+
+- Portrait collage (up to 4 unit thumbnails)
+- Army name, game system, faction, points
+- Last modified date
+- Action buttons: **Open in Builder**, **View**, **Export**, **Duplicate**, **Delete**
+
+"New Army" button leads to Step 1 of the wizard.
+
+---
+
+### View Mode (`/rosters/:id/view`)
+
+A read-only, game-table-friendly view. No builder chrome — just the army.
+
+- Header: army name, detachment, points total
+- Unit cards in a grid: portrait, stats table, wargear list, abilities
+- Collapsible stratagems panel at the bottom
+- Army rules and detachment rule panel
+- Print button
+
+---
+
+### Data Model
+
+```typescript
+// IndexedDB store: "rosters"
+interface Roster {
+  id: string                    // uuid
+  name: string                  // custom army name
+  systemId: string              // BSData system id
+  catalogueId: string           // BSData catalogue id (XML UUID)
+  detachment: string            // detachment name
+  pointsLimit: number
+  notes: string
+  createdAt: number             // unix ms
+  updatedAt: number
+  units: RosterUnit[]
+}
+
+interface RosterUnit {
+  uid: string                   // local uuid (stable across renames)
+  catalogueEntryId: string      // BSData selectionEntry id
+  catalogueName: string         // original catalogue name (fallback)
+  customName: string            // player's custom name (empty = use catalogueName)
+  portraitBase64: string        // empty string if no portrait
+  notes: string
+  selections: RosterSelection[] // chosen wargear / options
+  enhancementId: string         // empty if none
+}
+
+interface RosterSelection {
+  entryId: string               // BSData selectionEntry id of the option
+  count: number                 // for numeric options
+}
+```
+
+---
+
+### Validation Engine
+
+Reads BSData `categoryLinks`, `constraints`, and `costs` from the parsed catalogue to enforce:
+
+| Rule | Source in BSData |
+|---|---|
+| Points total ≤ limit | `cost` elements on each selectionEntry |
+| Category minimums (e.g. min 2 BATTLELINE) | `constraint type="min"` on category |
+| Category maximums (e.g. max 1 LORD) | `constraint type="max"` on category |
+| Selection min/max within a unit | `constraint` on selectionEntryGroup |
+| Detachment restrictions | Currently: manual overrides in a `detachmentRules.ts` file per game system (BSData does not encode all detachment rules in machine-readable form) |
+
+Validation runs on every roster mutation and returns `ValidationResult[]` (errors + warnings) stored in Zustand.
+
+---
+
+### Import / Export
+
+- **Single roster export:** `{ version: 2, type: "roster", roster: Roster }` JSON file
+- **Full backup export:** `{ version: 2, type: "backup", rosters: Roster[] }` JSON file
+- **Import:** File picker → parse JSON → validate schema version → write to IndexedDB → redirect to roster list
+- **Conflict on import:** if a roster with the same `id` already exists, prompt: Overwrite / Keep Both (new uuid) / Cancel
+
+---
+
+### New Routes
+
+| Path | Component |
+|---|---|
+| `/#/rosters` | RosterList |
+| `/#/rosters/new` | RosterWizard (Step 1) |
+| `/#/rosters/:id` | RosterWizard (last active step) |
+| `/#/rosters/:id/view` | RosterView |
+
+---
+
+### Key Components / Files
+
+```
+src/
+  pages/
+    RosterList.tsx
+    RosterWizard.tsx         — step-bar + step switcher
+    RosterView.tsx
+  components/
+    Roster/
+      StepBar.tsx            — step indicator / navigation
+      steps/
+        ArmySetupStep.tsx
+        DetachmentStep.tsx
+        BuildRosterStep.tsx
+        ConfigureUnitsStep.tsx
+        ReviewStep.tsx
+        ExportStep.tsx
+      UnitBrowserPanel.tsx
+      RosterPanel.tsx
+      UnitConfigCard.tsx
+      PortraitUploader.tsx
+      ValidationPanel.tsx
+      PrintView.tsx
+  services/
+    rosterDb.ts              — IndexedDB CRUD for Roster objects
+    rosterValidator.ts       — ValidationEngine
+    rosterExport.ts          — text/json/backup export helpers
+  store/
+    rosterStore.ts           — Zustand: active roster, validation results, step
+```
+
+---
+
+### Deliverables (Phase 2)
+
+- [ ] IndexedDB schema bump (add "rosters" store) in `db.ts`
+- [ ] `rosterDb.ts` — CRUD helpers
+- [ ] `Roster` / `RosterUnit` TypeScript interfaces in `types/index.ts`
+- [ ] `rosterStore.ts` Zustand store
+- [ ] `RosterList` page
+- [ ] `StepBar` component
+- [ ] Step 1 — ArmySetupStep
+- [ ] Step 2 — DetachmentStep (reads catalogues from IndexedDB)
+- [ ] Step 3 — BuildRosterStep with UnitBrowserPanel + RosterPanel
+- [ ] Step 4 — ConfigureUnitsStep with PortraitUploader
+- [ ] Step 5 — ReviewStep + ValidationPanel + stratagem accordion
+- [ ] Step 6 — ExportStep (text, JSON, print, backup)
+- [ ] `rosterValidator.ts` — ValidationEngine (points, categories, constraints)
+- [ ] `rosterExport.ts` — export/import helpers
+- [ ] `RosterView` page (print-friendly view mode)
+- [ ] Import flow (file picker → parse → IndexedDB)
+- [ ] Nav update (add Warband Forge link)
 - [ ] Unit tests for ValidationEngine
+- [ ] Unit tests for export/import round-trip
+
 
 ---
 

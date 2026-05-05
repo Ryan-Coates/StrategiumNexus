@@ -1,5 +1,5 @@
 import { openDB, type IDBPDatabase } from 'idb'
-import type { GameSystemMeta, CatalogueMeta } from '../types'
+import type { GameSystemMeta, CatalogueMeta, Roster } from '../types'
 import type { CatFile } from './bsdataApi'
 
 // ── Schema ────────────────────────────────────────────────────────────────
@@ -23,12 +23,17 @@ interface StrategiumSchema {
     value: CatalogueRecord
     indexes: { 'by-system': string }
   }
+  rosters: {
+    key: string
+    value: Roster
+    indexes: { 'by-system': string }
+  }
 }
 
 // ── DB singleton ──────────────────────────────────────────────────────────────
 
 const DB_NAME = 'strategium-nexus'
-const DB_VERSION = 3  // v3: catalogue names now stored as catFile.name (filename) not XML root name
+const DB_VERSION = 4  // v4: added rosters store
 
 let _db: IDBPDatabase<StrategiumSchema> | null = null
 
@@ -36,12 +41,17 @@ async function getDb(): Promise<IDBPDatabase<StrategiumSchema>> {
   if (_db) return _db
   _db = await openDB<StrategiumSchema>(DB_NAME, DB_VERSION, {
     upgrade(db) {
-      // Drop and recreate on any schema change — data is always re-downloadable
+      // Drop and recreate game data stores on any schema change — data is re-downloadable
       if (db.objectStoreNames.contains('gameSystems')) db.deleteObjectStore('gameSystems')
       if (db.objectStoreNames.contains('catalogues')) db.deleteObjectStore('catalogues')
       db.createObjectStore('gameSystems', { keyPath: 'id' })
       const cats = db.createObjectStore('catalogues', { keyPath: 'id' })
       cats.createIndex('by-system', 'gameSystemId')
+      // Rosters store: only create if it doesn't exist (user data — never deleted on upgrade)
+      if (!db.objectStoreNames.contains('rosters')) {
+        const rosters = db.createObjectStore('rosters', { keyPath: 'id' })
+        rosters.createIndex('by-system', 'systemId')
+      }
     },
   })
   return _db
@@ -95,4 +105,27 @@ export async function listCataloguesForSystem(systemId: string): Promise<Catalog
 export async function deleteCatalogue(id: string): Promise<void> {
   const db = await getDb()
   await db.delete('catalogues', id)
+}
+
+// ── Roster operations ─────────────────────────────────────────────────────────
+
+export async function saveRoster(roster: Roster): Promise<void> {
+  const db = await getDb()
+  await db.put('rosters', roster)
+}
+
+export async function getRoster(id: string): Promise<Roster | undefined> {
+  const db = await getDb()
+  return db.get('rosters', id)
+}
+
+export async function listRosters(): Promise<Roster[]> {
+  const db = await getDb()
+  const all = await db.getAll('rosters')
+  return all.sort((a, b) => b.updatedAt - a.updatedAt)
+}
+
+export async function deleteRoster(id: string): Promise<void> {
+  const db = await getDb()
+  await db.delete('rosters', id)
 }

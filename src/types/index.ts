@@ -39,14 +39,80 @@ export interface Cost {
   value: number
 }
 
+export interface CostBracket {
+  minModels: number   // applies when total model count >= this value
+  pts: number
+}
+
+export interface SelectionEntryGroup {
+  id: string
+  name: string
+  minSelections: number   // 0 = optional
+  maxSelections: number   // -1 = unlimited
+  defaultEntryId: string  // defaultSelectionEntryId from BSData
+  entries: SelectionEntry[]
+}
+
 export interface SelectionEntry {
   id: string
   name: string
   type: string
+  categoryIds: string[]         // targetIds from categoryLinks
+  primaryCategoryId: string     // first category with primary="true", else first
   profiles: Profile[]
   rules: RuleEntry[]
   costs: Cost[]
-  children: SelectionEntry[]
+  minCount: number              // from constraints min (for model-type children)
+  maxCount: number              // from constraints max (-1 = unlimited)
+  costBrackets: CostBracket[]   // tiered pts costs based on model count
+  linkedEquipment: string[]     // fixed loadout from top-level entryLinks (display only)
+  notes: string[]               // restriction notes from modifier[field="error"]
+  groups: SelectionEntryGroup[] // wargear option groups (pick-one / pick-any)
+  children: SelectionEntry[]    // direct child entries not in a group
+}
+
+// ── Roster types (Phase 2) ────────────────────────────────────────────────────
+
+export interface RosterSelection {
+  entryId: string   // BSData selectionEntry id of the chosen option
+  count: number
+}
+
+export interface ModelConfig {
+  id: string                   // local stable uuid per model instance
+  childEntryId: string         // which model sub-entry (empty = base unit)
+  selections: RosterSelection[] // per-model weapon / upgrade choices
+}
+
+export interface RosterUnit {
+  uid: string                  // local stable uuid
+  catalogueEntryId: string     // BSData selectionEntry id
+  catalogueName: string        // original catalogue name (fallback display)
+  customName: string           // player's custom name (empty = use catalogueName)
+  notes: string
+  selections: RosterSelection[] // unit-level selections (legacy / shared)
+  enhancementId: string
+  models: ModelConfig[]        // one entry per model in the squad
+}
+
+export interface Roster {
+  id: string
+  name: string
+  systemId: string
+  systemName: string
+  catalogueId: string
+  catalogueName: string
+  detachment: string
+  pointsLimit: number
+  notes: string
+  createdAt: number
+  updatedAt: number
+  units: RosterUnit[]
+  warlordUid: string              // uid of the designated Warlord unit ('' if none)
+  // Allied detachment (optional second faction)
+  alliedCatalogueId: string
+  alliedCatalogueName: string
+  alliedUnits: RosterUnit[]
 }
 
 export interface ProfileType {
@@ -74,6 +140,7 @@ export interface ParsedCatalogue {
   meta: CatalogueMeta
   rules: RuleEntry[]
   entries: SelectionEntry[]
+  categoryEntries: CategoryEntry[]          // categories defined in this catalogue
   /** UUIDs of catalogues this one links to (for library delegation) */
   catalogueLinkIds: string[]
   /** targetIds from entryLinks – which linked entries belong to this sub-faction */

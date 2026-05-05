@@ -73,6 +73,12 @@ function collectAllProfiles(entry: SelectionEntry): Profile[] {
   for (const child of entry.children) {
     out.push(...collectAllProfiles(child))
   }
+  // Also recurse into group entries (model sub-entries live here after parser rewrite)
+  for (const group of entry.groups) {
+    for (const ge of group.entries) {
+      out.push(...collectAllProfiles(ge))
+    }
+  }
   return out
 }
 
@@ -80,6 +86,12 @@ function collectAllRules(entry: SelectionEntry): RuleEntry[] {
   const out: RuleEntry[] = [...entry.rules]
   for (const child of entry.children) {
     out.push(...collectAllRules(child))
+  }
+  // Also recurse into group entries
+  for (const group of entry.groups) {
+    for (const ge of group.entries) {
+      out.push(...collectAllRules(ge))
+    }
   }
   return out
 }
@@ -370,6 +382,18 @@ export function DatasheetDetail({ sheet }: { sheet: Datasheet | null }) {
 
       {/* Abilities */}
       <AbilitiesSection abilities={abilities} />
+
+      {/* Keywords */}
+      {sheet.keywords.length > 0 && (
+        <div className="mt-2">
+          <h4 className="font-heading text-[10px] tracking-[0.2em] uppercase text-gold-muted mb-2">
+            Keywords
+          </h4>
+          <p className="font-body text-parchment-muted text-sm leading-relaxed">
+            {sheet.keywords.join(', ')}
+          </p>
+        </div>
+      )}
 
       {unitProfiles.length === 0 && rangedWeapons.length === 0 && meleeWeapons.length === 0 && abilities.length === 0 && (
         <p className="text-parchment-faint text-sm font-body italic">

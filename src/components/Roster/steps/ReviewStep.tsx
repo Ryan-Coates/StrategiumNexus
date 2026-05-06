@@ -34,7 +34,7 @@ function bracketPts(entry: SelectionEntry, modelCount: number): number {
   return pts
 }
 
-function unitTotalPts(unit: RosterUnit, entry: SelectionEntry | undefined): number {
+function unitTotalPts(unit: RosterUnit, entry: SelectionEntry | undefined, enhancementPts = 0): number {
   if (!entry) return 0
   const models = unit.models ?? []
   const modelCount = models.length || 1
@@ -56,7 +56,12 @@ function unitTotalPts(unit: RosterUnit, entry: SelectionEntry | undefined): numb
       entry.children.find((e) => e.id === sel.entryId)
     return sum + (opt ? entryPts(opt) * sel.count : 0)
   }, 0)
-  return base + modelUpgradePts + legacyUpgrades
+  return base + modelUpgradePts + legacyUpgrades + enhancementPts
+}
+
+function enhPts(unit: RosterUnit, map: Map<string, SelectionEntry>): number {
+  if (!unit.enhancementId) return 0
+  return map.get(unit.enhancementId)?.costs.find((c) => c.name === 'pts')?.value ?? 0
 }
 
 /** Compact loadout lines for the review: "N× Model Type — weapon1, weapon2" */
@@ -115,7 +120,7 @@ function CategorySection({
         ? getCategoryForSystem(entry.categoryIds, entry.primaryCategoryId, systemId, catNames)
         : OTHER_GROUP
       if (!map.has(g.label)) map.set(g.label, { group: g, items: [] })
-      map.get(g.label)!.items.push({ unit, entry, pts: unitTotalPts(unit, entry) })
+      map.get(g.label)!.items.push({ unit, entry, pts: unitTotalPts(unit, entry, enhPts(unit, entryMap)) })
     }
     return [...map.values()].sort((a, b) => a.group.order - b.group.order)
   }, [units, entryMap, systemId, catNames])
@@ -124,7 +129,7 @@ function CategorySection({
     () => new Set(grouped.map((g) => g.group.label)),
   )
 
-  const sectionPts = units.reduce((sum, u) => sum + unitTotalPts(u, entryMap.get(u.catalogueEntryId)), 0)
+  const sectionPts = units.reduce((sum, u) => sum + unitTotalPts(u, entryMap.get(u.catalogueEntryId), enhPts(u, entryMap)), 0)
 
   return (
     <div className="flex flex-col gap-2">
@@ -216,11 +221,11 @@ export default function ReviewStep() {
   const systemId = activeRoster.systemId
 
   const mainPts = activeRoster.units.reduce(
-    (sum, u) => sum + unitTotalPts(u, entryMap.get(u.catalogueEntryId)),
+    (sum, u) => sum + unitTotalPts(u, entryMap.get(u.catalogueEntryId), enhPts(u, entryMap)),
     0,
   )
   const alliedPts = (activeRoster.alliedUnits ?? []).reduce(
-    (sum, u) => sum + unitTotalPts(u, alliedEntryMap.get(u.catalogueEntryId)),
+    (sum, u) => sum + unitTotalPts(u, alliedEntryMap.get(u.catalogueEntryId), enhPts(u, alliedEntryMap)),
     0,
   )
   const totalPts = mainPts + alliedPts

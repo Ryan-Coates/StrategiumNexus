@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import type { SelectionEntry, Profile, RuleEntry } from '../../types'
+import type { SelectionEntry, Profile, RuleEntry, RosterUnit } from '../../types'
 import type { StratagemEntry } from '../../services/stratagemLoader'
 
 // ── 40k data shape helpers ────────────────────────────────────────────────────
@@ -32,8 +32,10 @@ export interface Stratagem {
 }
 
 export interface Enhancement {
+  id: string
   name: string
   points: string
+  ptsValue: number
   description: string
 }
 
@@ -124,8 +126,10 @@ function extractEnhancement(entry: SelectionEntry): Enhancement {
     ''
   const pts = entry.costs.find((c) => c.name === 'pts')
   return {
+    id: entry.id,
     name: entry.name,
     points: pts ? `${pts.value}pts` : '',
+    ptsValue: pts?.value ?? 0,
     description,
   }
 }
@@ -183,6 +187,102 @@ export function buildDatasheet(entry: SelectionEntry): Datasheet {
     abilities: [...allRules, ...abilityRules],
     keywords,
   }
+}
+
+/**
+ * Roster-aware datasheet: only shows weapons the unit actually has equipped
+ * (based on model selections), not every possible wargear option.
+ */
+export function buildRosterDatasheet(unit: RosterUnit, entry: SelectionEntry): Datasheet {
+  // Unit stat profiles — direct entry profiles only
+  const unitProfiles = entry.profiles.filter(isUnit)
+
+  // Abilities — top-level rules + top-level ability profiles only (no recursion)
+  const seenRules = new Set<string>()
+  const abilities: RuleEntry[] = []
+  for (const r of entry.rules) {
+    if (!seenRules.has(r.name)) {
+      seenRules.add(r.name)
+      abilities.push({ ...r, description: stripBsMarkup(r.description) })
+    }
+  }
+  const knownStatTypes = (p: Profile) => isUnit(p) || isRanged(p) || isMelee(p) || p.typeName === 'Transport'
+  for (const p of entry.profiles) {
+    if (knownStatTypes(p)) continue
+    if (!seenRules.has(p.name)) {
+      seenRules.add(p.name)
+      abilities.push({
+        id: p.id,
+        name: p.name,
+        description: stripBsMarkup(
+          p.characteristics['Description'] ??
+            p.characteristics['Effect'] ??
+            Object.values(p.characteristics)[0] ??
+            '',
+        ),
+      })
+    }
+  }
+
+  // Weapons — only from the unit's configured model loadouts
+  const seenWeapons = new Set<string>()
+  const rangedWeapons: Profile[] = []
+  const meleeWeapons: Profile[] = []
+
+  function addWeapons(e: SelectionEntry) {
+    for (const p of e.profiles) {
+      const key = `${p.typeName}\0${p.name}`
+      if (seenWeapons.has(key)) continue
+      if (isRanged(p)) { seenWeapons.add(key); rangedWeapons.push(p) }
+      else if (isMelee(p)) { seenWeapons.add(key); meleeWeapons.push(p) }
+    }
+  }
+
+  // Resolve which entry a model uses (mirrors ConfigureUnitsStep logic)
+  function resolveModelEntry(childEntryId: string): SelectionEntry {
+    if (!childEntryId) return entry
+    for (const c of entry.children) if (c.id === childEntryId) return c
+    for (const g of entry.groups) {
+      const found = g.entries.find((e) => e.id === childEntryId)
+      if (found) return found
+    }
+    return entry
+  }
+
+  const models = unit.models ?? []
+  if (models.length === 0) {
+    // Unit not yet configured — show weapons from direct children (reference view)
+    addWeapons(entry)
+    for (const child of entry.children) addWeapons(child)
+  } else {
+    const seenConfigs = new Set<string>()
+    for (const model of models) {
+      const cfgKey = `${model.childEntryId}|${model.selections.map((s) => s.entryId).sort().join(',')}`
+      if (seenConfigs.has(cfgKey)) continue
+      seenConfigs.add(cfgKey)
+
+      const me = resolveModelEntry(model.childEntryId)
+      // Always-on weapons on the model entry (e.g. base profiles)
+      addWeapons(me)
+      // Selected wargear options
+      for (const sel of model.selections) {
+        const opt =
+          me.children.find((e) => e.id === sel.entryId) ??
+          me.groups.flatMap((g) => g.entries).find((e) => e.id === sel.entryId)
+        if (opt) addWeapons(opt)
+      }
+    }
+  }
+
+  // Keywords
+  const keywords: string[] = []
+  for (const child of entry.children) {
+    if (child.type === 'upgrade' && child.name.startsWith('Keyword')) {
+      keywords.push(child.name.replace(/^Keyword[:\s]*/i, ''))
+    }
+  }
+
+  return { entry, unitProfiles, rangedWeapons, meleeWeapons, abilities, keywords }
 }
 
 export function buildDetachments(entries: SelectionEntry[]): Detachment[] {

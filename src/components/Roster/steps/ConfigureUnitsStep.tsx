@@ -3,6 +3,7 @@ import { useGameStore } from '../../../store/gameStore'
 import { useRosterStore } from '../../../store/rosterStore'
 import { getCategoryForSystem, buildCatNamesMap, OTHER_GROUP } from '../../../data/wh40kCategories'
 import type { UnitCategoryGroup } from '../../../data/wh40kCategories'
+import { buildEnhancements } from '../../Wh40k/Wh40kHelpers'
 import { nanoid } from '../../../services/nanoid'
 import type { SelectionEntry, RosterUnit, RosterSelection, ModelConfig, ParsedCatalogue } from '../../../types'
 
@@ -413,6 +414,11 @@ export default function ConfigureUnitsStep() {
     setRosterField('warlordUid', isWarlord ? '' : activeUnit.uid)
   }
 
+  const availableEnhancements = catalogue ? buildEnhancements(catalogue.entries) : []
+  const selectedEnhancement = activeUnit?.enhancementId
+    ? availableEnhancements.find((e) => e.id === activeUnit.enhancementId)
+    : undefined
+
   // Lazily initialise models — guard against legacy records with models===undefined
   function ensureModels(unit: RosterUnit, entry: SelectionEntry): ModelConfig[] {
     const existing: ModelConfig[] = unit.models ?? []
@@ -553,6 +559,32 @@ export default function ConfigureUnitsStep() {
                     Warlord
                   </label>
                   <span className="font-body text-xs text-parchment-faint">(only one per army)</span>
+                </div>
+              )}
+
+              {/* Enhancement picker — only for Character-category units that have enhancements available */}
+              {isCharacter && availableEnhancements.length > 0 && (
+                <div className="mt-3 flex flex-col gap-1.5">
+                  <label className="font-heading text-xs tracking-widest uppercase text-gold-muted">
+                    Enhancement
+                  </label>
+                  <select
+                    value={activeUnit.enhancementId ?? ''}
+                    onChange={(e) => updateUnit(activeUnit.uid, { enhancementId: e.target.value })}
+                    className="bg-void-800 border border-gold-muted/30 px-3 py-2 font-body text-parchment text-sm focus:outline-none focus:border-gold transition-colors"
+                  >
+                    <option value="">— None —</option>
+                    {availableEnhancements.map((enh) => (
+                      <option key={enh.id} value={enh.id}>
+                        {enh.name}{enh.points ? ` (${enh.points})` : ''}
+                      </option>
+                    ))}
+                  </select>
+                  {selectedEnhancement?.description && (
+                    <p className="font-body text-xs text-parchment-faint leading-relaxed italic">
+                      {selectedEnhancement.description}
+                    </p>
+                  )}
                 </div>
               )}
             </div>

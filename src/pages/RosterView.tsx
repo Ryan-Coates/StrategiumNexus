@@ -5,12 +5,13 @@ import { getRoster } from '../services/db'
 import { parseCatalogueData } from '../services/dataManager'
 import { getStratagemsForCatalogue } from '../services/stratagemLoader'
 import {
-  buildDatasheet,
+  buildRosterDatasheet,
   buildDetachments,
   buildEnhancements,
   DatasheetDetail,
   DetachmentPanel,
   type Datasheet,
+  type Enhancement,
 } from '../components/Wh40k/Wh40kHelpers'
 import { getCategoryForSystem, buildCatNamesMap, OTHER_GROUP } from '../data/wh40kCategories'
 import type { UnitCategoryGroup } from '../data/wh40kCategories'
@@ -39,14 +40,19 @@ function UnitCard({
   unit,
   entry,
   isWarlord,
+  enhancement,
 }: {
   unit: RosterUnit
   entry: SelectionEntry | undefined
   isWarlord: boolean
+  enhancement?: Enhancement
 }) {
   const [open, setOpen] = useState(false)
-  const sheet: Datasheet | null = useMemo(() => (entry ? buildDatasheet(entry) : null), [entry])
-  const pts = entry ? unitPts(unit, entry) : 0
+  const sheet: Datasheet | null = useMemo(
+    () => (entry ? buildRosterDatasheet(unit, entry) : null),
+    [unit, entry],
+  )
+  const pts = (entry ? unitPts(unit, entry) : 0) + (enhancement?.ptsValue ?? 0)
   const models = unit.models ?? []
 
   return (
@@ -63,6 +69,11 @@ function UnitCard({
             <span className="font-body text-xs text-parchment-faint">({unit.catalogueName})</span>
           )}
           {isWarlord && <span className="badge badge-gold text-[9px]">WARLORD</span>}
+          {enhancement && (
+            <span className="font-heading text-[9px] tracking-widest uppercase px-1.5 py-0.5 border border-gold/40 text-gold">
+              {enhancement.name}
+            </span>
+          )}
           {models.length > 0 && (
             <span className="font-body text-[11px] text-parchment-faint">
               {models.length} model{models.length !== 1 ? 's' : ''}
@@ -158,14 +169,6 @@ export default function RosterView() {
     return [...map.values()].sort((a, b) => a.group.order - b.group.order)
   }, [roster, entryMap, catNames])
 
-  const totalPts = useMemo(() => {
-    if (!roster) return 0
-    return [...roster.units, ...(roster.alliedUnits ?? [])].reduce((sum, u) => {
-      const entry = entryMap.get(u.catalogueEntryId)
-      return sum + (entry ? unitPts(u, entry) : 0)
-    }, 0)
-  }, [roster, entryMap])
-
   const detachments = useMemo(
     () => (catalogue ? buildDetachments(catalogue.entries) : []),
     [catalogue],
@@ -176,6 +179,31 @@ export default function RosterView() {
     [catalogue],
   )
 
+  // Only show enhancements that have been assigned to a unit in this roster
+  const enhancementsById = useMemo(
+    () => new Map(enhancements.map((e) => [e.id, e])),
+    [enhancements],
+  )
+
+  const totalPts = useMemo(() => {
+    if (!roster) return 0
+    return [...roster.units, ...(roster.alliedUnits ?? [])].reduce((sum, u) => {
+      const entry = entryMap.get(u.catalogueEntryId)
+      const enhPts = u.enhancementId ? enhancementsById.get(u.enhancementId)?.ptsValue ?? 0 : 0
+      return sum + (entry ? unitPts(u, entry) : 0) + enhPts
+    }, 0)
+  }, [roster, entryMap, enhancementsById])
+
+  const selectedEnhancements = useMemo(() => {
+    if (!roster) return []
+    const ids = new Set(
+      [...roster.units, ...(roster.alliedUnits ?? [])]
+        .map((u) => u.enhancementId)
+        .filter(Boolean),
+    )
+    return enhancements.filter((e) => ids.has(e.id))
+  }, [enhancements, roster])
+
   const stratagems = useMemo(
     () => (roster ? getStratagemsForCatalogue(roster.catalogueName) : []),
     [roster],
@@ -183,7 +211,7 @@ export default function RosterView() {
 
   const catalogueRules = useMemo(() => catalogue?.rules ?? [], [catalogue])
 
-  const hasArmyRules = catalogueRules.length > 0 || detachments.length > 0 || stratagems.length > 0 || enhancements.length > 0
+  const hasArmyRules = catalogueRules.length > 0 || detachments.length > 0 || stratagems.length > 0 || selectedEnhancements.length > 0
 
   if (loading) return <Spinner label="Loading roster…" />
 
@@ -259,6 +287,7 @@ export default function RosterView() {
                   unit={unit}
                   entry={entry}
                   isWarlord={warlordUid !== '' && warlordUid === unit.uid}
+                  enhancement={unit.enhancementId ? enhancementsById.get(unit.enhancementId) : undefined}
                 />
               ))}
             </div>
@@ -283,7 +312,7 @@ export default function RosterView() {
             <DetachmentPanel
               catalogueRules={catalogueRules}
               detachments={detachments}
-              enhancements={enhancements}
+              enhancements={selectedEnhancements}
               stratagems={stratagems}
             />
           </div>

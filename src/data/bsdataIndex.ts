@@ -49,9 +49,9 @@ export const BSDATA_SYSTEMS: BsDataSystemManifest[] = [
     name: 'The Horus Heresy',
     image: 'images/systems/horus-heresy.svg',
     description:
-      'The Age of Darkness — Space Marine legions clash in the greatest civil war the galaxy has known.',
+      'The Age of Darkness — 3rd Edition. Space Marine legions clash in the greatest civil war the galaxy has known.',
     repoOwner: 'BSData',
-    repoSlug: 'horus-heresy',
+    repoSlug: 'horus-heresy-3rd-edition',
     tags: ['Sci-Fi', 'Games Workshop'],
     inProgress: true,
     wipNote: 'We are working on the format here — feel free to download and have a look.',

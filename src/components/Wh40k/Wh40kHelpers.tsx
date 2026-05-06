@@ -87,12 +87,6 @@ function collectAllRules(entry: SelectionEntry): RuleEntry[] {
   for (const child of entry.children) {
     out.push(...collectAllRules(child))
   }
-  // Also recurse into group entries
-  for (const group of entry.groups) {
-    for (const ge of group.entries) {
-      out.push(...collectAllRules(ge))
-    }
-  }
   return out
 }
 
@@ -137,8 +131,24 @@ function extractEnhancement(entry: SelectionEntry): Enhancement {
 }
 
 export function buildDatasheet(entry: SelectionEntry): Datasheet {
-  const allProfiles = collectAllProfiles(entry)
-  const allRules = collectAllRules(entry)
+  const allProfilesRaw = collectAllProfiles(entry)
+  // Deduplicate by typeName+name: same weapon may appear in multiple model variant groups
+  const seenProfiles = new Set<string>()
+  const allProfiles = allProfilesRaw.filter((p) => {
+    const key = `${p.typeName}\0${p.name}`
+    if (seenProfiles.has(key)) return false
+    seenProfiles.add(key)
+    return true
+  })
+
+  const allRulesRaw = collectAllRules(entry)
+  // Deduplicate rules by name
+  const seenRules = new Set<string>()
+  const allRules = allRulesRaw.filter((r) => {
+    if (seenRules.has(r.name)) return false
+    seenRules.add(r.name)
+    return true
+  })
 
   const unitProfiles = allProfiles.filter(isUnit)
   const rangedWeapons = allProfiles.filter(isRanged)
@@ -176,13 +186,18 @@ export function buildDatasheet(entry: SelectionEntry): Datasheet {
 }
 
 export function buildDetachments(entries: SelectionEntry[]): Detachment[] {
-  // 10e structure: one "Detachment" upgrade entry whose children are variant detachments
-  // (e.g. "Flyblown Host", "Virulent Vectorium"). Each child has exactly one rule.
+  // 10e structure: one "Detachment" upgrade entry with variants in a selectionEntryGroup
+  // (e.g. "Flyblown Host", "Virulent Vectorium"). Each variant has exactly one rule.
   const detachmentEntry = entries.find(
-    (e) => e.name === 'Detachment' && e.type === 'upgrade' && e.children.length > 0,
+    (e) => e.name === 'Detachment' && e.type === 'upgrade',
   )
   if (detachmentEntry) {
-    const variants = detachmentEntry.children.filter((c) => c.rules.length > 0)
+    // Variants live in groups (selectionEntryGroups), not direct children
+    const allVariants = [
+      ...detachmentEntry.children,
+      ...detachmentEntry.groups.flatMap((g) => g.entries),
+    ]
+    const variants = allVariants.filter((v) => v.rules.length > 0)
     if (variants.length > 0) {
       return variants.map((v) => ({
         name: v.name,

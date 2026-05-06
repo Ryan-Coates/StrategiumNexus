@@ -136,23 +136,29 @@ export async function parseCatalogueData(catalogueId: string): Promise<ParsedCat
   const hasUnits = parsed.entries.some((e) => e.type === 'unit' || e.type === 'model')
   if (!hasUnits && parsed.catalogueLinkIds.length > 0) {
     const targets = new Set(parsed.entryLinkTargetIds)
-    for (const linkedId of parsed.catalogueLinkIds) {
-      try {
-        const linkedRecord = await getCatalogue(linkedId)
-        if (!linkedRecord) continue
-        const linked = parseCatalogueXml(linkedRecord.rawXml)
-        const toAdd = linked.entries.filter(
-          (e) =>
-            (e.type === 'unit' || e.type === 'model') &&
-            (targets.size === 0 || targets.has(e.id)),
-        )
-        if (toAdd.length > 0) {
-          parsed.entries.push(...toAdd)
-          parsed.rules.push(...linked.rules)
+    // Only merge when we have explicit targetIds — never blindly import all library entries
+    if (targets.size > 0) {
+      for (const linkedId of parsed.catalogueLinkIds) {
+        try {
+          const linkedRecord = await getCatalogue(linkedId)
+          if (!linkedRecord) continue
+          const linked = parseCatalogueXml(linkedRecord.rawXml)
+          // Include ALL entry types that are explicitly targeted (unit, model, AND upgrade e.g. Detachment)
+          const toAdd = linked.entries.filter((e) => targets.has(e.id))
+          if (toAdd.length > 0) {
+            parsed.entries.push(...toAdd)
+          }
+        } catch {
+          // Library not downloaded yet – silently skip; viewer will show empty state
         }
-      } catch {
-        // Library not downloaded yet – silently skip; viewer will show empty state
       }
+      // Re-deduplicate after merge (entries from multiple libraries may overlap)
+      const seen = new Set<string>()
+      parsed.entries = parsed.entries.filter((e) => {
+        if (seen.has(e.id)) return false
+        seen.add(e.id)
+        return true
+      })
     }
   }
 

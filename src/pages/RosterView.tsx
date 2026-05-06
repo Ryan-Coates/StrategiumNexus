@@ -4,18 +4,18 @@ import { useGameStore } from '../store/gameStore'
 import { getRoster } from '../services/db'
 import { parseCatalogueData } from '../services/dataManager'
 import { getStratagemsForCatalogue } from '../services/stratagemLoader'
-import type { StratagemEntry } from '../services/stratagemLoader'
 import {
   buildDatasheet,
   buildDetachments,
+  buildEnhancements,
   DatasheetDetail,
+  DetachmentPanel,
   type Datasheet,
-  type Detachment,
 } from '../components/Wh40k/Wh40kHelpers'
 import { getCategoryForSystem, buildCatNamesMap, OTHER_GROUP } from '../data/wh40kCategories'
 import type { UnitCategoryGroup } from '../data/wh40kCategories'
 import Spinner from '../components/Spinner'
-import type { Roster, SelectionEntry, RosterUnit, RuleEntry } from '../types'
+import type { Roster, SelectionEntry, RosterUnit } from '../types'
 
 // ── Pts helpers (mirrors ReviewStep logic) ────────────────────────────────────
 
@@ -31,10 +31,6 @@ function bracketPts(entry: SelectionEntry, modelCount: number): number {
 function unitPts(unit: RosterUnit, entry: SelectionEntry): number {
   const modelCount = (unit.models ?? []).length || 1
   return bracketPts(entry, modelCount)
-}
-
-function stripBsMarkup(text: string): string {
-  return text.replace(/\^\^/g, '').replace(/\*\*/g, '')
 }
 
 // ── Expandable unit card ──────────────────────────────────────────────────────
@@ -94,155 +90,6 @@ function UnitCard({
             </p>
           )}
         </div>
-      )}
-    </div>
-  )
-}
-
-// ── Army rules & stratagems section ──────────────────────────────────────────
-
-function RulesAccordion({ title, children }: { title: string; children: React.ReactNode }) {
-  const [open, setOpen] = useState(true)
-  return (
-    <div className="border border-gold-muted/20 mb-3">
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-center justify-between px-4 py-3 bg-void-800 hover:bg-gold/5 transition-colors"
-      >
-        <span className="font-heading text-xs tracking-[0.2em] uppercase text-gold">{title}</span>
-        <span className="text-parchment-faint text-xs">{open ? '▲' : '▼'}</span>
-      </button>
-      {open && <div className="px-4 pb-4 pt-3">{children}</div>}
-    </div>
-  )
-}
-
-function RulesList({ rules }: { rules: RuleEntry[] }) {
-  if (rules.length === 0) return null
-  return (
-    <div className="space-y-2">
-      {rules.map((r) => (
-        <div key={r.id} className="bg-void-800 border border-gold-muted/15 px-4 py-3">
-          <p className="font-heading text-gold text-sm tracking-wide mb-1">{r.name}</p>
-          {r.description && (
-            <p className="font-body text-parchment-muted text-sm leading-relaxed whitespace-pre-wrap">
-              {stripBsMarkup(r.description)}
-            </p>
-          )}
-        </div>
-      ))}
-    </div>
-  )
-}
-
-function StratagemCard({ s }: { s: StratagemEntry }) {
-  const [open, setOpen] = useState(false)
-  return (
-    <div className="border border-gold-muted/15 hover:border-gold-muted/30 transition-colors">
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-center justify-between px-3 py-2.5 text-left gap-4"
-      >
-        <div className="flex items-center gap-2 flex-wrap">
-          <span className="font-heading text-sm tracking-wide text-parchment">{s.name}</span>
-          {s.detachment && s.detachment !== 'Any' && (
-            <span className="badge text-[9px]">{s.detachment}</span>
-          )}
-        </div>
-        <div className="flex items-center gap-2 shrink-0">
-          <span className="badge badge-gold text-[9px]">{s.cp}CP</span>
-          <span className="text-parchment-faint text-xs">{open ? '▲' : '▼'}</span>
-        </div>
-      </button>
-      {open && (
-        <div className="border-t border-gold-muted/10 px-3 pb-3 pt-2 space-y-1.5">
-          {s.when && (
-            <p className="font-body text-xs text-parchment-muted">
-              <span className="font-heading text-[10px] uppercase tracking-widest text-gold-muted mr-2">When</span>
-              {s.when}
-            </p>
-          )}
-          {s.target && (
-            <p className="font-body text-xs text-parchment-muted">
-              <span className="font-heading text-[10px] uppercase tracking-widest text-gold-muted mr-2">Target</span>
-              {s.target}
-            </p>
-          )}
-          {s.effect && (
-            <p className="font-body text-xs text-parchment-muted">
-              <span className="font-heading text-[10px] uppercase tracking-widest text-gold-muted mr-2">Effect</span>
-              {s.effect}
-            </p>
-          )}
-          {s.restrictions && (
-            <p className="font-body text-xs text-parchment-faint italic">{s.restrictions}</p>
-          )}
-        </div>
-      )}
-    </div>
-  )
-}
-
-function ArmyRulesSection({
-  catalogueRules,
-  detachments,
-  stratagems,
-}: {
-  catalogueRules: RuleEntry[]
-  detachments: Detachment[]
-  stratagems: StratagemEntry[]
-}) {
-  const hasContent = catalogueRules.length > 0 || detachments.length > 0 || stratagems.length > 0
-  if (!hasContent) return null
-
-  const stratagemsByPhase = useMemo(() => {
-    const map = new Map<string, StratagemEntry[]>()
-    for (const s of stratagems) {
-      const phase = s.phase || 'Any Phase'
-      if (!map.has(phase)) map.set(phase, [])
-      map.get(phase)!.push(s)
-    }
-    return [...map.entries()].sort(([a], [b]) => a.localeCompare(b))
-  }, [stratagems])
-
-  return (
-    <div>
-      <div className="flex items-center gap-3 mb-4">
-        <h2 className="font-heading text-xs tracking-[0.2em] uppercase text-gold shrink-0">
-          Army Rules
-        </h2>
-        <div className="flex-1 h-px bg-gold-muted/15" />
-      </div>
-
-      {catalogueRules.length > 0 && (
-        <RulesAccordion title="Faction Rules">
-          <RulesList rules={catalogueRules} />
-        </RulesAccordion>
-      )}
-
-      {detachments.map((det, i) => (
-        <RulesAccordion key={i} title={det.name || 'Detachment Rules'}>
-          <RulesList rules={det.rules} />
-        </RulesAccordion>
-      ))}
-
-      {stratagems.length > 0 && (
-        <RulesAccordion title={`Stratagems (${stratagems.length})`}>
-          <div className="flex flex-col gap-1">
-            {stratagemsByPhase.map(([phase, strats]) => (
-              <div key={phase} className="mb-3">
-                <p className="font-heading text-[10px] tracking-widest uppercase text-parchment-faint mb-1.5">
-                  {phase}
-                </p>
-                <div className="flex flex-col gap-1">
-                  {strats.map((s) => (
-                    <StratagemCard key={s.name} s={s} />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </RulesAccordion>
       )}
     </div>
   )
@@ -324,12 +171,19 @@ export default function RosterView() {
     [catalogue],
   )
 
+  const enhancements = useMemo(
+    () => (catalogue ? buildEnhancements(catalogue.entries) : []),
+    [catalogue],
+  )
+
   const stratagems = useMemo(
     () => (roster ? getStratagemsForCatalogue(roster.catalogueName) : []),
     [roster],
   )
 
   const catalogueRules = useMemo(() => catalogue?.rules ?? [], [catalogue])
+
+  const hasArmyRules = catalogueRules.length > 0 || detachments.length > 0 || stratagems.length > 0 || enhancements.length > 0
 
   if (loading) return <Spinner label="Loading roster…" />
 
@@ -418,12 +272,23 @@ export default function RosterView() {
         )}
       </div>
 
-      {/* ── Army Rules ── */}
-      <ArmyRulesSection
-        catalogueRules={catalogueRules}
-        detachments={detachments}
-        stratagems={stratagems}
-      />
+      {/* ── Army Rules (DetachmentPanel) ── */}
+      {hasArmyRules && (
+        <div>
+          <div className="flex items-center gap-3 mb-4">
+            <h2 className="font-heading text-xs tracking-[0.2em] uppercase text-gold shrink-0">Army Rules</h2>
+            <div className="flex-1 h-px bg-gold-muted/15" />
+          </div>
+          <div className="border border-gold-muted/20" style={{ minHeight: '12rem' }}>
+            <DetachmentPanel
+              catalogueRules={catalogueRules}
+              detachments={detachments}
+              enhancements={enhancements}
+              stratagems={stratagems}
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

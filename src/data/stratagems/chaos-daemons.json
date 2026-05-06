@@ -1,1 +1,46 @@
-{ "faction": "Chaos Daemons", "catalogueSlug": "Chaos - Chaos Daemons", "stratagems": [] }
+{
+  "faction": "Chaos Daemons",
+  "catalogueSlug": "Chaos - Chaos Daemons",
+  "stratagems": [
+    {
+      "name": "Warp Surge",
+      "cp": 1,
+      "detachment": "Warp Surge",
+      "phase": "Any Phase",
+      "when": "Any phase.",
+      "target": "One CHAOS DAEMONS unit from your army.",
+      "effect": "Until the end of the phase, models in your unit have a 4+ invulnerable save.",
+      "restrictions": ""
+    },
+    {
+      "name": "Daemonic Ritual",
+      "cp": 2,
+      "detachment": "Excess of Violence",
+      "phase": "Your Command Phase",
+      "when": "Your Command phase.",
+      "target": "One CHAOS DAEMONS PSYKER unit from your army.",
+      "effect": "Roll 3D6. For each result of 4+, place one Warp Token. At the end of the phase, you can spend any number of Warp Tokens: for each Token spent, one friendly CHAOS DAEMONS unit within 12\" of your PSYKER regains 1 lost wound.",
+      "restrictions": ""
+    },
+    {
+      "name": "Blood for the Blood God",
+      "cp": 1,
+      "detachment": "Blessed Sons",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One KHORNE DAEMONS unit from your army.",
+      "effect": "Until the end of the phase, add 1 to the Attacks characteristic of models in your unit. In addition, each time a model in your unit destroys an enemy model, that model can immediately make one additional attack with one of its melee weapons.",
+      "restrictions": ""
+    },
+    {
+      "name": "Plaguebearer's Resilience",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Opponent's Shooting Phase",
+      "when": "Your opponent's Shooting phase or the Fight phase, just after an enemy unit has selected its targets.",
+      "target": "One CHAOS DAEMONS unit from your army that was selected as a target.",
+      "effect": "Until the end of the phase, each time a model in your unit would lose a wound, roll one D6: on a 5+, that wound is not lost.",
+      "restrictions": ""
+    }
+  ]
+}

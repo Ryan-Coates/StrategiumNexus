@@ -1,1 +1,36 @@
-{ "faction": "Agents of the Imperium", "catalogueSlug": "Imperium - Agents of the Imperium", "stratagems": [] }
+{
+  "faction": "Agents of the Imperium",
+  "catalogueSlug": "Imperium - Agents of the Imperium",
+  "stratagems": [
+    {
+      "name": "Inquisitorial Mandate",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Your Command Phase",
+      "when": "Your Command phase.",
+      "target": "One INQUISITOR model from your army.",
+      "effect": "Select one friendly IMPERIUM unit within 12\" of that INQUISITOR. Until the start of your next Command phase, each time a model in the selected unit makes an attack, re-roll a Hit roll of 1.",
+      "restrictions": ""
+    },
+    {
+      "name": "Scribe of Fate",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase.",
+      "target": "One AGENTS OF THE IMPERIUM unit from your army.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a ranged attack against an enemy CHARACTER, add 1 to the Wound roll.",
+      "restrictions": ""
+    },
+    {
+      "name": "Rogue Trader Allies",
+      "cp": 2,
+      "detachment": "Any",
+      "phase": "Your Reinforcements Step",
+      "when": "Reinforcements step of your Movement phase.",
+      "target": "One AGENTS OF THE IMPERIUM unit from your army that is in Reserves.",
+      "effect": "Set up that unit anywhere on the battlefield more than 9\" from all enemy models.",
+      "restrictions": ""
+    }
+  ]
+}

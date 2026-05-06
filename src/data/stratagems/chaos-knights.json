@@ -1,1 +1,36 @@
-{ "faction": "Chaos Knights", "catalogueSlug": "Chaos - Chaos Knights", "stratagems": [] }
+{
+  "faction": "Chaos Knights",
+  "catalogueSlug": "Chaos - Chaos Knights",
+  "stratagems": [
+    {
+      "name": "Warpfire",
+      "cp": 1,
+      "detachment": "Traitoris Lance",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase.",
+      "target": "One CHAOS KNIGHTS unit from your army.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a ranged attack, on an unmodified Hit roll of 6, that attack has the [DEVASTATING WOUNDS] ability.",
+      "restrictions": ""
+    },
+    {
+      "name": "Traitor's Hatred",
+      "cp": 2,
+      "detachment": "Traitoris Lance",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One CHAOS KNIGHTS unit from your army.",
+      "effect": "Until the end of the phase, add 1 to the Strength and Damage characteristics of melee weapons used by models in your unit.",
+      "restrictions": ""
+    },
+    {
+      "name": "Corrupted Shields",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Opponent's Shooting Phase",
+      "when": "Your opponent's Shooting phase, just after an enemy unit has selected its targets.",
+      "target": "One CHAOS KNIGHTS unit from your army that was selected as a target.",
+      "effect": "Until the end of the phase, improve the invulnerable save of models in your unit by 1 (to a maximum of 3+).",
+      "restrictions": ""
+    }
+  ]
+}

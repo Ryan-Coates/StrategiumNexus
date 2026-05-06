@@ -1,1 +1,46 @@
-{ "faction": "Tyranids", "catalogueSlug": "Tyranids", "stratagems": [] }
+{
+  "faction": "Tyranids",
+  "catalogueSlug": "Tyranids",
+  "stratagems": [
+    {
+      "name": "Synaptic Imperative",
+      "cp": 1,
+      "detachment": "Invasion Fleet",
+      "phase": "Your Command Phase",
+      "when": "Your Command phase.",
+      "target": "One TYRANIDS SYNAPSE unit from your army.",
+      "effect": "Until the start of your next Command phase, friendly TYRANIDS units within 12\" of your unit have the Objective Secured ability (if they already have it, they count as 2 additional models when determining control).",
+      "restrictions": ""
+    },
+    {
+      "name": "Lurk in the Shadows",
+      "cp": 1,
+      "detachment": "Invasion Fleet",
+      "phase": "Your Shooting Phase",
+      "when": "Opponent's Shooting phase, just after an enemy unit has selected its targets.",
+      "target": "One TYRANIDS unit from your army that was selected as a target.",
+      "effect": "Until the end of the phase, your unit has the Stealth ability and a 4+ invulnerable save against ranged attacks.",
+      "restrictions": ""
+    },
+    {
+      "name": "Unstoppable Onslaught",
+      "cp": 2,
+      "detachment": "Crusher Stampede",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One TYRANIDS MONSTER unit from your army.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a melee attack, add 1 to the Strength and Damage characteristics of that attack.",
+      "restrictions": ""
+    },
+    {
+      "name": "Acid Blood",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Fight Phase",
+      "when": "Fight phase, just after an enemy unit makes its attacks.",
+      "target": "One TYRANIDS unit from your army that was targeted.",
+      "effect": "Roll one D6 for each model in your unit that was destroyed by melee attacks this phase: on a 4+, the attacking unit suffers 1 mortal wound.",
+      "restrictions": ""
+    }
+  ]
+}

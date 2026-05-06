@@ -1,1 +1,46 @@
-{ "faction": "Blood Angels", "catalogueSlug": "Imperium - Blood Angels", "stratagems": [] }
+{
+  "faction": "Blood Angels",
+  "catalogueSlug": "Imperium - Blood Angels",
+  "stratagems": [
+    {
+      "name": "The Red Thirst",
+      "cp": 1,
+      "detachment": "Sons of Sanguinius",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One BLOOD ANGELS unit from your army that made a charge move this turn.",
+      "effect": "Until the end of the phase, add 1 to the Attacks and Strength characteristics of models in your unit.",
+      "restrictions": ""
+    },
+    {
+      "name": "Descent of Angels",
+      "cp": 1,
+      "detachment": "Sons of Sanguinius",
+      "phase": "Your Movement Phase",
+      "when": "Your Movement phase, when a BLOOD ANGELS JUMP PACK unit from your army is set up on the battlefield.",
+      "target": "That BLOOD ANGELS JUMP PACK unit.",
+      "effect": "Do not roll for Desperate Breakout for your unit this turn. Until the end of the turn, add 2 to Advance and charge rolls made for your unit.",
+      "restrictions": ""
+    },
+    {
+      "name": "Sanguinary Rites",
+      "cp": 2,
+      "detachment": "Any",
+      "phase": "Any Phase",
+      "when": "Any phase, just after a BLOOD ANGELS CHARACTER model from your army is destroyed.",
+      "target": "One BLOOD ANGELS unit from your army within 12\" of that CHARACTER.",
+      "effect": "Until the end of the battle, each time a model in your unit makes a melee attack, re-roll a Hit roll of 1. In addition, add 1 to the Attacks characteristic of models in your unit.",
+      "restrictions": ""
+    },
+    {
+      "name": "Artisan of War",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase or Fight phase.",
+      "target": "One BLOOD ANGELS CHARACTER model from your army.",
+      "effect": "Until the end of the phase, improve the Ballistic Skill and Weapon Skill characteristics of that CHARACTER by 1.",
+      "restrictions": ""
+    }
+  ]
+}

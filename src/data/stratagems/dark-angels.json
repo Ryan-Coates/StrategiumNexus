@@ -1,1 +1,46 @@
-{ "faction": "Dark Angels", "catalogueSlug": "Imperium - Dark Angels", "stratagems": [] }
+{
+  "faction": "Dark Angels",
+  "catalogueSlug": "Imperium - Dark Angels",
+  "stratagems": [
+    {
+      "name": "Watched",
+      "cp": 1,
+      "detachment": "Unforgiven Task Force",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase or Fight phase.",
+      "target": "One DARK ANGELS DEATHWING or RAVENWING unit from your army.",
+      "effect": "Until the end of the phase, each time a model in your unit makes an attack against a CHARACTER unit, add 1 to the Wound roll.",
+      "restrictions": ""
+    },
+    {
+      "name": "Deathwing Assault",
+      "cp": 1,
+      "detachment": "Unforgiven Task Force",
+      "phase": "Your Movement Phase",
+      "when": "Reinforcements step of your Movement phase.",
+      "target": "One DARK ANGELS DEATHWING unit from your army arriving from Reserves.",
+      "effect": "Set up that unit anywhere on the battlefield that is more than 3\" horizontally from all enemy models.",
+      "restrictions": ""
+    },
+    {
+      "name": "Righteous Repugnance",
+      "cp": 2,
+      "detachment": "Any",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One DARK ANGELS unit from your army that has not been selected to fight this phase.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a melee attack, re-roll the Hit roll.",
+      "restrictions": ""
+    },
+    {
+      "name": "Intractable Will",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Opponent's Shooting Phase",
+      "when": "Your opponent's Shooting phase or the Fight phase.",
+      "target": "One DARK ANGELS unit from your army that was selected as a target.",
+      "effect": "Until the end of the phase, models in your unit have a 4+ invulnerable save.",
+      "restrictions": ""
+    }
+  ]
+}

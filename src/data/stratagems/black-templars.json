@@ -1,1 +1,46 @@
-{ "faction": "Black Templars", "catalogueSlug": "Imperium - Black Templars", "stratagems": [] }
+{
+  "faction": "Black Templars",
+  "catalogueSlug": "Imperium - Black Templars",
+  "stratagems": [
+    {
+      "name": "Devout Push",
+      "cp": 1,
+      "detachment": "Righteous Crusaders",
+      "phase": "Your Charge Phase",
+      "when": "Your Charge phase.",
+      "target": "One BLACK TEMPLARS unit from your army.",
+      "effect": "Until the end of the phase, add 2 to Charge rolls made for your unit. In addition, this turn, your unit is eligible to declare a charge even if it Fell Back this turn.",
+      "restrictions": ""
+    },
+    {
+      "name": "Crusader's Wrath",
+      "cp": 2,
+      "detachment": "Righteous Crusaders",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One BLACK TEMPLARS unit from your army that made a charge move or was charged this turn.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a melee attack, improve the Armour Penetration characteristic of that attack by 1.",
+      "restrictions": ""
+    },
+    {
+      "name": "Never Retreat!",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Morale Phase",
+      "when": "Morale phase.",
+      "target": "One BLACK TEMPLARS unit from your army.",
+      "effect": "Until the end of the phase, your unit cannot fail Morale tests and cannot be Battle-shocked.",
+      "restrictions": ""
+    },
+    {
+      "name": "Suffer Not the Unclean to Live",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase or Fight phase.",
+      "target": "One BLACK TEMPLARS unit from your army.",
+      "effect": "Until the end of the phase, each time a model in your unit makes an attack against a CHAOS or HERETIC unit, add 1 to the Hit roll.",
+      "restrictions": ""
+    }
+  ]
+}

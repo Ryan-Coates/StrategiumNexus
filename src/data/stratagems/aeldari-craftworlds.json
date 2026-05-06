@@ -1,1 +1,46 @@
-{ "faction": "Aeldari - Craftworlds", "catalogueSlug": "Aeldari - Craftworlds", "stratagems": [] }
+{
+  "faction": "Aeldari Craftworlds",
+  "catalogueSlug": "Aeldari - Craftworlds",
+  "stratagems": [
+    {
+      "name": "Forewarned",
+      "cp": 1,
+      "detachment": "Warhost",
+      "phase": "Opponent's Movement Phase",
+      "when": "Your opponent's Movement phase, when an enemy unit is set up on the battlefield.",
+      "target": "One AELDARI unit from your army.",
+      "effect": "Your unit can shoot as if it were your Shooting phase. When doing so, each hit roll of 6+ scores an additional hit.",
+      "restrictions": ""
+    },
+    {
+      "name": "Phantasm",
+      "cp": 1,
+      "detachment": "Warhost",
+      "phase": "Your Movement Phase",
+      "when": "Your Movement phase.",
+      "target": "One AELDARI INFANTRY unit from your army that is on or within an objective marker.",
+      "effect": "Remove your unit from the battlefield and set it up again anywhere that is more than 9\" from all enemy models. Your unit counts as having moved this turn.",
+      "restrictions": ""
+    },
+    {
+      "name": "Matchless Agility",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Your Movement Phase",
+      "when": "Your Movement phase.",
+      "target": "One AELDARI unit from your army.",
+      "effect": "Until the end of the phase, models in your unit can move an additional 3\" when they Advance, and do not suffer the penalty to Hit rolls from Advancing and shooting.",
+      "restrictions": ""
+    },
+    {
+      "name": "Webway Strike",
+      "cp": 2,
+      "detachment": "Aspect Host",
+      "phase": "Your Reinforcements Step",
+      "when": "Reinforcements step of your Movement phase.",
+      "target": "One AELDARI ASPECT WARRIOR unit from your army that is in Reserves.",
+      "effect": "Set up that unit anywhere on the battlefield that is more than 7\" horizontally from all enemy models.",
+      "restrictions": ""
+    }
+  ]
+}

@@ -1,1 +1,46 @@
-{ "faction": "Imperial Knights", "catalogueSlug": "Imperium - Imperial Knights", "stratagems": [] }
+{
+  "faction": "Imperial Knights",
+  "catalogueSlug": "Imperium - Imperial Knights",
+  "stratagems": [
+    {
+      "name": "Shoulder of the Mountain",
+      "cp": 1,
+      "detachment": "Noble Lance",
+      "phase": "Opponent's Shooting Phase",
+      "when": "Your opponent's Shooting phase, just after an enemy unit has selected its targets.",
+      "target": "One IMPERIAL KNIGHTS TITANIC unit from your army that was selected as a target.",
+      "effect": "Until the end of the phase, each time an attack targets your unit, subtract 1 from the Damage characteristic of that attack (min 1).",
+      "restrictions": ""
+    },
+    {
+      "name": "Rotate Ion Shields",
+      "cp": 1,
+      "detachment": "Noble Lance",
+      "phase": "Opponent's Shooting Phase",
+      "when": "Your opponent's Shooting phase, just after an enemy unit has selected its targets.",
+      "target": "One IMPERIAL KNIGHTS unit from your army that was selected as a target.",
+      "effect": "Until the end of the phase, improve the invulnerable save of models in your unit by 1 (to a maximum of 3+).",
+      "restrictions": ""
+    },
+    {
+      "name": "Knight's Oath",
+      "cp": 2,
+      "detachment": "Any",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One IMPERIAL KNIGHTS unit from your army.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a melee attack, add 1 to the Strength and Damage characteristics of that attack.",
+      "restrictions": ""
+    },
+    {
+      "name": "Lay Low the Mighty",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase or Fight phase.",
+      "target": "One IMPERIAL KNIGHTS unit from your army.",
+      "effect": "Until the end of the phase, each time a model in your unit makes an attack against a MONSTER or VEHICLE unit, re-roll a Wound roll of 1.",
+      "restrictions": ""
+    }
+  ]
+}

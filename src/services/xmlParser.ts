@@ -261,6 +261,7 @@ export function parseCatalogueXml(xml: string): ParsedCatalogue {
     name: attr(root, 'name'),
     revision: attr(root, 'revision'),
     fetchedAt: Date.now(),
+    isLibrary: attr(root, 'library') === 'true',
   }
 
   const rules: RuleEntry[] = []
@@ -298,11 +299,54 @@ export function parseCatalogueXml(xml: string): ParsedCatalogue {
     return true
   })
 
-  // Collect IDs of linked catalogues (Library files this catalogue delegates to)
-  const catalogueLinkIds: string[] = []
+  // Post-process: resolve entryLink[type="selectionEntryGroup"] references.
+  // Some entries (e.g. AM's Detachment) reference a sharedSelectionEntryGroup via an
+  // entryLink instead of having inline selectionEntryGroups. Resolve them here so that
+  // buildDetachments can find the variant entries inside those groups.
+  const sharedGroupEls = new Map<string, Element>()
+  for (const grpEl of doc.querySelectorAll(
+    'catalogue > sharedSelectionEntryGroups > selectionEntryGroup',
+  )) {
+    sharedGroupEls.set(attr(grpEl, 'id'), grpEl)
+  }
+  if (sharedGroupEls.size > 0) {
+    for (const entryEl of doc.querySelectorAll(
+      'catalogue > sharedSelectionEntries > selectionEntry, catalogue > selectionEntries > selectionEntry',
+    )) {
+      const links = entryEl.querySelectorAll(
+        ':scope > entryLinks > entryLink[type="selectionEntryGroup"]',
+      )
+      if (links.length === 0) continue
+      const parsedEntry = uniqueEntries.find((e) => e.id === attr(entryEl, 'id'))
+      if (!parsedEntry) continue
+      for (const link of links) {
+        const groupEl = sharedGroupEls.get(attr(link, 'targetId'))
+        if (!groupEl) continue
+        const groupEntries: SelectionEntry[] = []
+        for (const se of groupEl.querySelectorAll(':scope > selectionEntries > selectionEntry')) {
+          groupEntries.push(parseSelectionEntry(se))
+        }
+        if (groupEntries.length > 0) {
+          const minC = groupEl.querySelector(':scope > constraints > constraint[type="min"]')
+          const maxC = groupEl.querySelector(':scope > constraints > constraint[type="max"]')
+          parsedEntry.groups.push({
+            id: attr(groupEl, 'id'),
+            name: attr(groupEl, 'name'),
+            defaultEntryId: attr(groupEl, 'defaultSelectionEntryId') || '',
+            minSelections: minC ? parseInt(attr(minC, 'value')) || 0 : 0,
+            maxSelections: maxC ? parseInt(attr(maxC, 'value')) || -1 : -1,
+            entries: groupEntries,
+          })
+        }
+      }
+    }
+  }
+
+  // Collect linked catalogues with their importRootEntries flag
+  const catalogueLinks: { id: string; importRootEntries: boolean }[] = []
   for (const cl of doc.querySelectorAll('catalogue > catalogueLinks > catalogueLink')) {
     const id = attr(cl, 'targetId')
-    if (id) catalogueLinkIds.push(id)
+    if (id) catalogueLinks.push({ id, importRootEntries: attr(cl, 'importRootEntries') === 'true' })
   }
 
   // Collect targetIds from top-level entryLinks (which library entries belong here)
@@ -318,5 +362,5 @@ export function parseCatalogueXml(xml: string): ParsedCatalogue {
     categoryEntries.push({ id: attr(ce, 'id'), name: attr(ce, 'name') })
   }
 
-  return { meta, rules, entries: uniqueEntries, categoryEntries, catalogueLinkIds, entryLinkTargetIds }
+  return { meta, rules, entries: uniqueEntries, categoryEntries, catalogueLinks, entryLinkTargetIds }
 }

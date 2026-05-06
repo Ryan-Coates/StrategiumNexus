@@ -1,1 +1,56 @@
-{ "faction": "Adeptus Mechanicus", "catalogueSlug": "Imperium - Adeptus Mechanicus", "stratagems": [] }
+{
+  "faction": "Adeptus Mechanicus",
+  "catalogueSlug": "Imperium - Adeptus Mechanicus",
+  "stratagems": [
+    {
+      "name": "Benediction of the Omnissiah",
+      "cp": 1,
+      "detachment": "Rad-Zone Corps",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase.",
+      "target": "One ADEPTUS MECHANICUS unit from your army that has not been selected to shoot this phase.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a ranged attack, a successful unmodified Hit roll of 6 scores 1 additional hit.",
+      "restrictions": ""
+    },
+    {
+      "name": "Protector Doctrina Imperative",
+      "cp": 1,
+      "detachment": "Rad-Zone Corps",
+      "phase": "Opponent's Shooting Phase",
+      "when": "Your opponent's Shooting phase, just after an enemy unit has selected its targets.",
+      "target": "One ADEPTUS MECHANICUS unit from your army that was selected as a target.",
+      "effect": "Until the end of the phase, improve the Save characteristic of models in your unit by 1.",
+      "restrictions": ""
+    },
+    {
+      "name": "Overwatch",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Opponent's Charge Phase",
+      "when": "Your opponent's Charge phase, just after an enemy unit declares a charge.",
+      "target": "One ADEPTUS MECHANICUS unit from your army that was selected as the target of that charge.",
+      "effect": "Your unit can shoot that charging unit as if it were your Shooting phase. When doing so, an unmodified Hit roll of 6 is required to score a hit.",
+      "restrictions": ""
+    },
+    {
+      "name": "Shroud Psalms",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Your Movement Phase",
+      "when": "Your Movement phase.",
+      "target": "One ADEPTUS MECHANICUS INFANTRY unit from your army.",
+      "effect": "Until the start of your next Command phase, your unit has the Stealth ability.",
+      "restrictions": ""
+    },
+    {
+      "name": "Data-Spike",
+      "cp": 2,
+      "detachment": "Skitarii Hunter Cohort",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One ADEPTUS MECHANICUS INFANTRY unit from your army that made a charge move, was charged, or performed a Heroic Intervention this turn.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a melee attack, on an unmodified Wound roll of 6, that attack has an Armour Penetration characteristic of -4.",
+      "restrictions": ""
+    }
+  ]
+}

@@ -1,1 +1,36 @@
-{ "faction": "Thousand Sons", "catalogueSlug": "Chaos - Thousand Sons", "stratagems": [] }
+{
+  "faction": "Thousand Sons",
+  "catalogueSlug": "Chaos - Thousand Sons",
+  "stratagems": [
+    {
+      "name": "Psychic Barrage",
+      "cp": 1,
+      "detachment": "Cult of Magic",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase or Fight phase.",
+      "target": "One THOUSAND SONS PSYKER unit from your army.",
+      "effect": "Until the end of the phase, each time a model in your unit makes an attack, on an unmodified Wound roll of 6, that attack has the [DEVASTATING WOUNDS] ability.",
+      "restrictions": ""
+    },
+    {
+      "name": "Warp Flame",
+      "cp": 2,
+      "detachment": "Cult of Magic",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase.",
+      "target": "One THOUSAND SONS unit from your army.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a ranged attack, improve the Armour Penetration characteristic of that attack by 1.",
+      "restrictions": ""
+    },
+    {
+      "name": "Aetheric Manipulation",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Your Command Phase",
+      "when": "Your Command phase.",
+      "target": "One THOUSAND SONS unit from your army.",
+      "effect": "Until the start of your next Command phase, your unit has the Stealth ability and models in your unit have a 4+ invulnerable save.",
+      "restrictions": ""
+    }
+  ]
+}

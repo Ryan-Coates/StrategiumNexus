@@ -1,1 +1,36 @@
-{ "faction": "Emperor's Children", "catalogueSlug": "Chaos - Emperor's Children", "stratagems": [] }
+{
+  "faction": "Emperor's Children",
+  "catalogueSlug": "Chaos - Emperor's Children",
+  "stratagems": [
+    {
+      "name": "Excess of Sensation",
+      "cp": 1,
+      "detachment": "Kakophoni",
+      "phase": "Any Phase",
+      "when": "Any phase, just after an EMPEROR'S CHILDREN unit from your army destroys one or more enemy models.",
+      "target": "That EMPEROR'S CHILDREN unit.",
+      "effect": "Your unit gains 1 Depravity point. If your unit has 3 or more Depravity points, it gains the Fights First ability until the end of the battle round.",
+      "restrictions": ""
+    },
+    {
+      "name": "Slaanesh's Gift",
+      "cp": 2,
+      "detachment": "Kakophoni",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One EMPEROR'S CHILDREN unit from your army.",
+      "effect": "Until the end of the phase, add 1 to the Attacks characteristic of models in your unit and each time a model in your unit makes a melee attack, re-roll a Hit roll of 1.",
+      "restrictions": ""
+    },
+    {
+      "name": "Dirge Caster",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Opponent's Charge Phase",
+      "when": "Your opponent's Charge phase.",
+      "target": "One EMPEROR'S CHILDREN unit from your army that is within 12\" of a charging enemy unit.",
+      "effect": "Until the end of the phase, enemy units cannot fire Overwatch while within 6\" of your unit.",
+      "restrictions": ""
+    }
+  ]
+}

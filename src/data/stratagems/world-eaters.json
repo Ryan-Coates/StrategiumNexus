@@ -1,1 +1,36 @@
-{ "faction": "World Eaters", "catalogueSlug": "Chaos - World Eaters", "stratagems": [] }
+{
+  "faction": "World Eaters",
+  "catalogueSlug": "Chaos - World Eaters",
+  "stratagems": [
+    {
+      "name": "Blood Tithe",
+      "cp": 1,
+      "detachment": "Berzerker Warband",
+      "phase": "Any Phase",
+      "when": "Any phase, just after a WORLD EATERS unit from your army destroys one or more enemy models.",
+      "target": "That WORLD EATERS unit.",
+      "effect": "Your unit gains 1 Blood Tithe point. For every 5 Blood Tithe points your army has accumulated this battle, one friendly WORLD EATERS unit may re-roll all Hit rolls until the end of the current phase.",
+      "restrictions": ""
+    },
+    {
+      "name": "Berzerker Charge",
+      "cp": 1,
+      "detachment": "Berzerker Warband",
+      "phase": "Your Charge Phase",
+      "when": "Your Charge phase.",
+      "target": "One WORLD EATERS unit from your army.",
+      "effect": "Until the end of the phase, add 2 to Charge rolls made for your unit. In addition, your unit is eligible to declare a charge even if it Advanced this turn.",
+      "restrictions": ""
+    },
+    {
+      "name": "Khorne's Wrath",
+      "cp": 2,
+      "detachment": "Any",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One WORLD EATERS unit from your army.",
+      "effect": "Until the end of the phase, add 1 to the Attacks and Strength characteristics of models in your unit.",
+      "restrictions": ""
+    }
+  ]
+}

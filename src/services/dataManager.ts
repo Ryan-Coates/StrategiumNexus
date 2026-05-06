@@ -134,32 +134,47 @@ export async function parseCatalogueData(catalogueId: string): Promise<ParsedCat
   // point into that library.  If we parsed zero unit/model entries but have catalogue
   // links, load each linked library from IndexedDB and merge the referenced entries.
   const hasUnits = parsed.entries.some((e) => e.type === 'unit' || e.type === 'model')
-  if (!hasUnits && parsed.catalogueLinkIds.length > 0) {
+  if (!hasUnits && parsed.catalogueLinks.length > 0) {
     const targets = new Set(parsed.entryLinkTargetIds)
-    // Only merge when we have explicit targetIds — never blindly import all library entries
-    if (targets.size > 0) {
-      for (const linkedId of parsed.catalogueLinkIds) {
-        try {
-          const linkedRecord = await getCatalogue(linkedId)
-          if (!linkedRecord) continue
-          const linked = parseCatalogueXml(linkedRecord.rawXml)
-          // Include ALL entry types that are explicitly targeted (unit, model, AND upgrade e.g. Detachment)
-          const toAdd = linked.entries.filter((e) => targets.has(e.id))
-          if (toAdd.length > 0) {
-            parsed.entries.push(...toAdd)
-          }
-        } catch {
-          // Library not downloaded yet – silently skip; viewer will show empty state
+    for (const link of parsed.catalogueLinks) {
+      try {
+        const linkedRecord = await getCatalogue(link.id)
+        if (!linkedRecord) continue
+        const linked = parseCatalogueXml(linkedRecord.rawXml)
+        // Only merge from actual BSData library files (library="true").
+        // This prevents regular faction catalogues (e.g. Chaos Space Marines linked by
+        // Chaos Daemons for the Shadow Legion detachment) from polluting the unit list.
+        if (!linked.meta.isLibrary) continue
+        // importRootEntries=true → include ALL entries from the library (e.g. Chaos Daemons/Knights
+        //   where daemon units are not listed in individual entryLinks but imported wholesale).
+        // importRootEntries=false → only include entries explicitly targeted by entryLinks
+        //   (e.g. AM where each unit is explicitly enumerated in the main catalogue).
+        const toAdd = link.importRootEntries
+          ? linked.entries
+          : linked.entries.filter((e) => targets.has(e.id))
+        if (toAdd.length > 0) {
+          parsed.entries.push(...toAdd)
+          // Also pull in top-level rules from this library (faction rules etc.)
+          parsed.rules.push(...linked.rules)
         }
+      } catch {
+        // Library not downloaded yet – silently skip; viewer will show empty state
       }
-      // Re-deduplicate after merge (entries from multiple libraries may overlap)
-      const seen = new Set<string>()
-      parsed.entries = parsed.entries.filter((e) => {
-        if (seen.has(e.id)) return false
-        seen.add(e.id)
-        return true
-      })
     }
+    // Re-deduplicate after merge (entries from multiple libraries may overlap)
+    const seen = new Set<string>()
+    parsed.entries = parsed.entries.filter((e) => {
+      if (seen.has(e.id)) return false
+      seen.add(e.id)
+      return true
+    })
+    // De-duplicate rules by id too
+    const seenRules = new Set<string>()
+    parsed.rules = parsed.rules.filter((r) => {
+      if (seenRules.has(r.id)) return false
+      seenRules.add(r.id)
+      return true
+    })
   }
 
   return parsed

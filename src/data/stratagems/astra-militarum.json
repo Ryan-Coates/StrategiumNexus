@@ -1,1 +1,66 @@
-{ "faction": "Astra Militarum", "catalogueSlug": "Imperium - Astra Militarum", "stratagems": [] }
+{
+  "faction": "Astra Militarum",
+  "catalogueSlug": "Imperium - Astra Militarum",
+  "stratagems": [
+    {
+      "name": "Firstborn Pride",
+      "cp": 1,
+      "detachment": "Combined Regiment",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase.",
+      "target": "One REGIMENT INFANTRY unit from your army that has not been selected to shoot this phase.",
+      "effect": "Until the end of the phase, improve the Ballistic Skill characteristic of models in your unit by 1.",
+      "restrictions": ""
+    },
+    {
+      "name": "Fire For Effect",
+      "cp": 2,
+      "detachment": "Combined Regiment",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase, just after a friendly REGIMENT unit shoots.",
+      "target": "One enemy unit that was the target of one or more of those attacks.",
+      "effect": "Until the end of the phase, each time a friendly REGIMENT model makes a ranged attack against that enemy unit, re-roll a Hit roll of 1.",
+      "restrictions": ""
+    },
+    {
+      "name": "Armoured Fist",
+      "cp": 1,
+      "detachment": "Combined Regiment",
+      "phase": "Your Charge Phase",
+      "when": "Your Charge phase.",
+      "target": "One REGIMENT INFANTRY unit from your army that disembarked from a TRANSPORT this turn.",
+      "effect": "Until the end of the turn, that unit is eligible to declare a charge even if it Advanced this turn.",
+      "restrictions": ""
+    },
+    {
+      "name": "Take Cover!",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Opponent's Shooting Phase",
+      "when": "Your opponent's Shooting phase, just after an enemy unit has selected its targets.",
+      "target": "One REGIMENT unit from your army that was selected as a target.",
+      "effect": "Until the end of the phase, all models in your unit have a 4+ invulnerable save against ranged attacks.",
+      "restrictions": ""
+    },
+    {
+      "name": "Mechanised Advance",
+      "cp": 1,
+      "detachment": "Hammer of the Emperor",
+      "phase": "Your Movement Phase",
+      "when": "Your Movement phase.",
+      "target": "One REGIMENT VEHICLE unit from your army.",
+      "effect": "Until the end of the turn, that unit does not suffer the penalty to its hit rolls for moving and shooting Heavy weapons.",
+      "restrictions": ""
+    },
+    {
+      "name": "Blanket of Fire",
+      "cp": 2,
+      "detachment": "Hammer of the Emperor",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase.",
+      "target": "One REGIMENT ARTILLERY unit from your army.",
+      "effect": "Until the end of the phase, each time that unit makes a ranged attack, the target does not receive the benefits of Light Cover against that attack.",
+      "restrictions": ""
+    }
+  ]
+}

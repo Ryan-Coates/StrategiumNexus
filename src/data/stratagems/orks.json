@@ -1,1 +1,46 @@
-{ "faction": "Orks", "catalogueSlug": "Orks", "stratagems": [] }
+{
+  "faction": "Orks",
+  "catalogueSlug": "Orks",
+  "stratagems": [
+    {
+      "name": "Waaagh!",
+      "cp": 1,
+      "detachment": "Waaagh!",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One ORKS unit from your army.",
+      "effect": "Until the end of the phase, add 1 to the Attacks characteristic of models in your unit and re-roll Hit rolls of 1.",
+      "restrictions": ""
+    },
+    {
+      "name": "Dakka! Dakka! Dakka!",
+      "cp": 1,
+      "detachment": "Waaagh!",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase.",
+      "target": "One ORKS unit from your army.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a ranged attack, on an unmodified Hit roll of 6, score 1 additional hit.",
+      "restrictions": ""
+    },
+    {
+      "name": "More Dakka!",
+      "cp": 2,
+      "detachment": "Green Tide",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase.",
+      "target": "One ORKS unit from your army with 10 or more models.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a ranged attack, re-roll a Hit roll of 1. In addition, unmodified Hit rolls of 6 score 1 additional hit.",
+      "restrictions": ""
+    },
+    {
+      "name": "Ere We Go",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Your Charge Phase",
+      "when": "Your Charge phase.",
+      "target": "One ORKS unit from your army.",
+      "effect": "Until the end of the phase, add 2 to Charge rolls made for your unit. In addition, your unit is eligible to declare a charge even if it Advanced this turn.",
+      "restrictions": ""
+    }
+  ]
+}

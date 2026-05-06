@@ -1,1 +1,36 @@
-{ "faction": "Leagues of Votann", "catalogueSlug": "Leagues of Votann", "stratagems": [] }
+{
+  "faction": "Leagues of Votann",
+  "catalogueSlug": "Leagues of Votann",
+  "stratagems": [
+    {
+      "name": "Ancestral Grudge",
+      "cp": 1,
+      "detachment": "Oathband",
+      "phase": "Any Phase",
+      "when": "Any phase, just after an enemy unit targets a friendly LEAGUES OF VOTANN unit.",
+      "target": "That enemy unit.",
+      "effect": "Place a Judgement token on that enemy unit. While an enemy unit has any Judgement tokens, worsen the saving throw of models in that unit by 1 for each Judgement token (to a min of 6+).",
+      "restrictions": "Once per unit, per phase."
+    },
+    {
+      "name": "Efficient Harvest",
+      "cp": 1,
+      "detachment": "Oathband",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase.",
+      "target": "One LEAGUES OF VOTANN unit from your army.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a ranged attack against a unit with one or more Judgement tokens, improve the Armour Penetration characteristic of that attack by 1.",
+      "restrictions": ""
+    },
+    {
+      "name": "Iron Will",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Opponent's Shooting Phase",
+      "when": "Your opponent's Shooting phase, just after an enemy unit has selected its targets.",
+      "target": "One LEAGUES OF VOTANN unit from your army that was selected as a target.",
+      "effect": "Until the end of the phase, each time an attack targets your unit, subtract 1 from the Damage characteristic of that attack (min 1).",
+      "restrictions": ""
+    }
+  ]
+}

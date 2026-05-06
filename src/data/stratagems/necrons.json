@@ -1,1 +1,46 @@
-{ "faction": "Necrons", "catalogueSlug": "Necrons", "stratagems": [] }
+{
+  "faction": "Necrons",
+  "catalogueSlug": "Necrons",
+  "stratagems": [
+    {
+      "name": "Reanimation Protocols",
+      "cp": 1,
+      "detachment": "Awakened Dynasty",
+      "phase": "Any Phase",
+      "when": "End of any phase.",
+      "target": "One NECRONS unit from your army that has had any models destroyed.",
+      "effect": "Roll one D6 for each destroyed model: on a 5+, return one destroyed model to your unit with its full complement of wounds.",
+      "restrictions": "Once per unit, per phase."
+    },
+    {
+      "name": "Disruption Fields",
+      "cp": 1,
+      "detachment": "Awakened Dynasty",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One NECRONS unit from your army.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a melee attack, that attack has the [LETHAL HITS] ability.",
+      "restrictions": ""
+    },
+    {
+      "name": "Quantum Shielding",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Opponent's Shooting Phase",
+      "when": "Your opponent's Shooting phase or the Fight phase, just after an enemy unit has selected its targets.",
+      "target": "One NECRONS VEHICLE unit from your army that was selected as a target.",
+      "effect": "Until the end of the phase, each time an attack targets your unit, if the Damage characteristic of that attack is 3 or more, that attack has a Damage characteristic of 1 instead.",
+      "restrictions": ""
+    },
+    {
+      "name": "Hypercrypt Node",
+      "cp": 2,
+      "detachment": "Hypercrypt Legion",
+      "phase": "Your Movement Phase",
+      "when": "Your Movement phase.",
+      "target": "One NECRONS unit from your army that is on the battlefield.",
+      "effect": "Remove your unit from the battlefield and place it in Reserves. At the start of your next Reinforcements step, set it up anywhere more than 9\" from all enemy models.",
+      "restrictions": ""
+    }
+  ]
+}

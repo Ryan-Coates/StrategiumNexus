@@ -1,1 +1,36 @@
-{ "faction": "Aeldari - Ynnari", "catalogueSlug": "Aeldari - Ynnari", "stratagems": [] }
+﻿{
+  "faction": "Aeldari - Ynnari",
+  "catalogueSlug": "Aeldari - Ynnari",
+  "stratagems": [
+    {
+      "name": "Strength From Death",
+      "cp": 1,
+      "detachment": "Army of Rebirth",
+      "phase": "Any Phase",
+      "when": "Any phase, just after an YNNARI unit from your army is destroyed.",
+      "target": "One other YNNARI unit within 12\" of the destroyed unit.",
+      "effect": "Until the end of the battle round, add 1 to the Attacks characteristic of models in your unit and your unit gains the Fights First ability.",
+      "restrictions": ""
+    },
+    {
+      "name": "Revenant Boon",
+      "cp": 2,
+      "detachment": "Army of Rebirth",
+      "phase": "Your Command Phase",
+      "when": "Your Command phase.",
+      "target": "One YNNARI unit from your army.",
+      "effect": "Roll a D3: your unit regains that many lost wounds, or if your unit has the Wounds characteristic of 1, return that many destroyed models to your unit.",
+      "restrictions": ""
+    },
+    {
+      "name": "Soulburst",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Any Phase",
+      "when": "Any phase, just after a YNNARI model destroys an enemy model.",
+      "target": "One YNNARI unit from your army within 6\" of the enemy model that was destroyed.",
+      "effect": "Your unit can make a Normal move, shoot, or fight (as appropriate to the current phase), even if it has already done so this turn.",
+      "restrictions": "Once per turn."
+    }
+  ]
+}

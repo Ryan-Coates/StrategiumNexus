@@ -1,1 +1,46 @@
-{ "faction": "Aeldari - Drukhari", "catalogueSlug": "Aeldari - Drukhari", "stratagems": [] }
+{
+  "faction": "Aeldari - Drukhari",
+  "catalogueSlug": "Aeldari - Drukhari",
+  "stratagems": [
+    {
+      "name": "Power from Pain",
+      "cp": 1,
+      "detachment": "Realspace Raiders",
+      "phase": "Any Phase",
+      "when": "Any phase, just after a DRUKHARI unit from your army destroys an enemy unit.",
+      "target": "That DRUKHARI unit.",
+      "effect": "Each model in your unit regains 1 lost wound. In addition, your unit gains 1 Power from Pain token.",
+      "restrictions": ""
+    },
+    {
+      "name": "Webway Portal",
+      "cp": 2,
+      "detachment": "Realspace Raiders",
+      "phase": "Your Reinforcements Step",
+      "when": "Reinforcements step of your Movement phase.",
+      "target": "One DRUKHARI unit from your army that is in Reserves.",
+      "effect": "Set up that unit anywhere on the battlefield that is more than 9\" horizontally from all enemy models.",
+      "restrictions": ""
+    },
+    {
+      "name": "Torment Grenade",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase.",
+      "target": "One DRUKHARI unit from your army.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a ranged attack, on an unmodified Wound roll of 6, that attack has the [LETHAL HITS] ability.",
+      "restrictions": ""
+    },
+    {
+      "name": "Labyrinthine Cunning",
+      "cp": 1,
+      "detachment": "Court of the Archon",
+      "phase": "Your Command Phase",
+      "when": "Your Command phase.",
+      "target": "One DRUKHARI KABAL unit from your army.",
+      "effect": "Until the start of your next Command phase, each time an enemy unit targets your unit, that enemy unit must subtract 1 from all Hit rolls.",
+      "restrictions": ""
+    }
+  ]
+}

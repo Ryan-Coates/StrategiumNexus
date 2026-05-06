@@ -1,1 +1,46 @@
-{ "faction": "Space Wolves", "catalogueSlug": "Imperium - Space Wolves", "stratagems": [] }
+{
+  "faction": "Space Wolves",
+  "catalogueSlug": "Imperium - Space Wolves",
+  "stratagems": [
+    {
+      "name": "Cunning of the Wolf",
+      "cp": 1,
+      "detachment": "Champions of Russ",
+      "phase": "Your Charge Phase",
+      "when": "Your Charge phase.",
+      "target": "One SPACE WOLVES unit from your army.",
+      "effect": "Until the end of the phase, add 1 to Charge rolls made for your unit. In addition, after your unit's charge move, you can choose one enemy unit your unit is now within Engagement Range of; that enemy unit cannot fire Overwatch this turn.",
+      "restrictions": ""
+    },
+    {
+      "name": "Wolf Guard",
+      "cp": 1,
+      "detachment": "Champions of Russ",
+      "phase": "Opponent's Shooting Phase",
+      "when": "Your opponent's Shooting phase or Fight phase, just after an enemy unit has selected its targets.",
+      "target": "One SPACE WOLVES WOLF GUARD TERMINATOR unit from your army that was selected as a target.",
+      "effect": "Until the end of the phase, each time an attack targets your unit, subtract 1 from the Damage characteristic of that attack (min 1).",
+      "restrictions": ""
+    },
+    {
+      "name": "Tempest's Wrath",
+      "cp": 2,
+      "detachment": "Any",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One SPACE WOLVES unit from your army that made a charge move or was charged this turn.",
+      "effect": "Until the end of the phase, models in your unit have the Fights First ability.",
+      "restrictions": ""
+    },
+    {
+      "name": "Keen Senses",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase.",
+      "target": "One SPACE WOLVES unit from your army.",
+      "effect": "Until the end of the phase, your unit can target units that are not visible to it. When doing so, subtract 1 from all Hit rolls.",
+      "restrictions": ""
+    }
+  ]
+}

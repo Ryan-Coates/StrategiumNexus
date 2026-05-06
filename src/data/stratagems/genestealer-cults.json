@@ -1,1 +1,36 @@
-{ "faction": "Genestealer Cults", "catalogueSlug": "Genestealer Cults", "stratagems": [] }
+{
+  "faction": "Genestealer Cults",
+  "catalogueSlug": "Genestealer Cults",
+  "stratagems": [
+    {
+      "name": "Cult Ambush",
+      "cp": 1,
+      "detachment": "Biosurge Patrol",
+      "phase": "Your Movement Phase",
+      "when": "Reinforcements step of your Movement phase.",
+      "target": "One GENESTEALER CULTS unit from your army that is in Reserves.",
+      "effect": "Set up that unit anywhere on the battlefield more than 9\" from all enemy models. Until the end of the turn, your unit cannot be targeted by Overwatch.",
+      "restrictions": ""
+    },
+    {
+      "name": "Blasting Charges",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase.",
+      "target": "One GENESTEALER CULTS unit from your army.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a ranged attack with a grenade or blast weapon, on an unmodified Hit roll of 6, that attack scores 1 additional hit.",
+      "restrictions": ""
+    },
+    {
+      "name": "Twisted Helix",
+      "cp": 2,
+      "detachment": "Biosurge Patrol",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One GENESTEALER CULTS GENESTEALER unit from your army.",
+      "effect": "Until the end of the phase, add 1 to the Attacks and Strength characteristics of models in your unit.",
+      "restrictions": ""
+    }
+  ]
+}

@@ -1,1 +1,46 @@
-{ "faction": "Adeptus Custodes", "catalogueSlug": "Imperium - Adeptus Custodes", "stratagems": [] }
+{
+  "faction": "Adeptus Custodes",
+  "catalogueSlug": "Imperium - Adeptus Custodes",
+  "stratagems": [
+    {
+      "name": "Shoulder the Mantle",
+      "cp": 1,
+      "detachment": "Talons of the Emperor",
+      "phase": "Any Phase",
+      "when": "Any phase, just after a friendly ADEPTUS CUSTODES CHARACTER model is destroyed.",
+      "target": "One other friendly ADEPTUS CUSTODES unit within 6\" of that destroyed CHARACTER.",
+      "effect": "Until the end of the battle, models in your unit have the Leader ability. While a CHARACTER model is leading that unit, each time a model in that unit makes an attack, add 1 to the Hit roll.",
+      "restrictions": ""
+    },
+    {
+      "name": "Emperor's Chosen",
+      "cp": 1,
+      "detachment": "Talons of the Emperor",
+      "phase": "Opponent's Shooting Phase",
+      "when": "Your opponent's Shooting phase or the Fight phase, just after an enemy unit has selected its targets.",
+      "target": "One ADEPTUS CUSTODES unit from your army that was selected as the target.",
+      "effect": "Until the end of the phase, each time an attack targets your unit, add 1 to any armour saving throw made against that attack.",
+      "restrictions": ""
+    },
+    {
+      "name": "Auric Exemplar",
+      "cp": 2,
+      "detachment": "Talons of the Emperor",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One ADEPTUS CUSTODES unit from your army that has not been selected to fight this phase.",
+      "effect": "Until the end of the phase, each time a model in your unit makes an attack, re-roll a Wound roll of 1.",
+      "restrictions": ""
+    },
+    {
+      "name": "Stand Vigil",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Your Command Phase",
+      "when": "Your Command phase.",
+      "target": "One ADEPTUS CUSTODES unit from your army that is within range of an objective marker you control.",
+      "effect": "Until the start of your next Command phase, that objective marker is considered to be defended by your unit. While defended, improve the Save characteristic of all models in that unit by 1.",
+      "restrictions": ""
+    }
+  ]
+}

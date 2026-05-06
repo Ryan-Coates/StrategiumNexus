@@ -1,1 +1,46 @@
-{ "faction": "T'au Empire", "catalogueSlug": "T'au Empire", "stratagems": [] }
+{
+  "faction": "T'au Empire",
+  "catalogueSlug": "T'au Empire",
+  "stratagems": [
+    {
+      "name": "Kauyon",
+      "cp": 2,
+      "detachment": "Retaliation Cadre",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase.",
+      "target": "One T'AU EMPIRE unit from your army.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a ranged attack against a unit that is within half range, re-roll the Hit roll. In addition, ranged attacks made by models in your unit have the [SUSTAINED HITS 1] ability.",
+      "restrictions": ""
+    },
+    {
+      "name": "Mont'ka",
+      "cp": 1,
+      "detachment": "Retaliation Cadre",
+      "phase": "Your Movement Phase",
+      "when": "Your Movement phase.",
+      "target": "One T'AU EMPIRE unit from your army.",
+      "effect": "Your unit can Advance and still shoot this turn. In addition, until the end of the turn, subtract 1 from all Hit rolls targeting your unit.",
+      "restrictions": ""
+    },
+    {
+      "name": "Photon Grenade",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Opponent's Charge Phase",
+      "when": "Your opponent's Charge phase, just after an enemy unit declares a charge.",
+      "target": "One T'AU EMPIRE unit from your army targeted by that charge.",
+      "effect": "The charging unit suffers 1 mortal wound. In addition, until the end of the phase, your unit can fire Overwatch this turn as if it were your Shooting phase.",
+      "restrictions": ""
+    },
+    {
+      "name": "Emergent Tunnelling",
+      "cp": 1,
+      "detachment": "Kroot Hunting Pack",
+      "phase": "Your Movement Phase",
+      "when": "Reinforcements step of your Movement phase.",
+      "target": "One KROOT unit from your army that is in Reserves.",
+      "effect": "Set up that unit anywhere on the battlefield more than 9\" from all enemy models.",
+      "restrictions": ""
+    }
+  ]
+}

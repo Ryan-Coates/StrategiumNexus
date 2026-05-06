@@ -1,1 +1,46 @@
-{ "faction": "Adepta Sororitas", "catalogueSlug": "Imperium - Adepta Sororitas miss", "stratagems": [] }
+{
+  "faction": "Adepta Sororitas",
+  "catalogueSlug": "Imperium - Adepta Sororitas",
+  "stratagems": [
+    {
+      "name": "Acts of Faith",
+      "cp": 1,
+      "detachment": "Hallowed Martyrs",
+      "phase": "Any Phase",
+      "when": "Any phase.",
+      "target": "One ADEPTA SORORITAS unit from your army.",
+      "effect": "Your unit gains one Miracle die. If that unit has the Acts of Faith ability, it can use that Miracle die to activate one of its Acts of Faith abilities for free this phase.",
+      "restrictions": ""
+    },
+    {
+      "name": "Shield of Faith",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Opponent's Shooting Phase",
+      "when": "Your opponent's Shooting phase or the Fight phase, just after an enemy unit has selected its targets.",
+      "target": "One ADEPTA SORORITAS unit from your army that was selected as a target.",
+      "effect": "Until the end of the phase, each time a model in your unit would lose a wound, roll one D6: on a 6, that wound is not lost.",
+      "restrictions": ""
+    },
+    {
+      "name": "Holy Rage",
+      "cp": 2,
+      "detachment": "Hallowed Martyrs",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One ADEPTA SORORITAS unit from your army that made a charge move or was charged this turn.",
+      "effect": "Until the end of the phase, add 1 to the Attacks characteristic of models in your unit. In addition, each time a model in your unit makes an attack, re-roll a Hit roll of 1.",
+      "restrictions": ""
+    },
+    {
+      "name": "Pious Fury",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase, just after an ADEPTA SORORITAS unit from your army destroys an enemy unit.",
+      "target": "That ADEPTA SORORITAS unit.",
+      "effect": "If your unit is not within Engagement Range of any enemy units, it can make a Normal move of up to 6\".",
+      "restrictions": ""
+    }
+  ]
+}

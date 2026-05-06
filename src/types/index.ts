@@ -17,6 +17,8 @@ export interface CatalogueMeta {
   name: string
   revision: string
   fetchedAt: number
+  /** True when this is a BSData library file (library="true" in XML) */
+  isLibrary?: boolean
 }
 
 // ── Rules content (parsed from XML) ──────────────────────────────────────────
@@ -141,8 +143,8 @@ export interface ParsedCatalogue {
   rules: RuleEntry[]
   entries: SelectionEntry[]
   categoryEntries: CategoryEntry[]          // categories defined in this catalogue
-  /** UUIDs of catalogues this one links to (for library delegation) */
-  catalogueLinkIds: string[]
+  /** Catalogues this one links to (for library delegation) */
+  catalogueLinks: { id: string; importRootEntries: boolean }[]
   /** targetIds from entryLinks – which linked entries belong to this sub-faction */
   entryLinkTargetIds: string[]
 }

@@ -1,1 +1,46 @@
-{ "faction": "Grey Knights", "catalogueSlug": "Imperium - Grey Knights", "stratagems": [] }
+{
+  "faction": "Grey Knights",
+  "catalogueSlug": "Imperium - Grey Knights",
+  "stratagems": [
+    {
+      "name": "Teleport Assault",
+      "cp": 1,
+      "detachment": "Teleport Assault Force",
+      "phase": "Your Reinforcements Step",
+      "when": "Reinforcements step of your Movement phase.",
+      "target": "One GREY KNIGHTS unit from your army that is in Reserves.",
+      "effect": "Set up that unit anywhere on the battlefield that is more than 9\" horizontally from all enemy models.",
+      "restrictions": ""
+    },
+    {
+      "name": "Warp Shaping",
+      "cp": 1,
+      "detachment": "Teleport Assault Force",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase or Fight phase.",
+      "target": "One GREY KNIGHTS PSYKER unit from your army.",
+      "effect": "Until the end of the phase, each time a model in your unit makes an attack, on an unmodified Wound roll of 6, that attack has the [DEVASTATING WOUNDS] ability.",
+      "restrictions": ""
+    },
+    {
+      "name": "Banishment",
+      "cp": 2,
+      "detachment": "Any",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One GREY KNIGHTS unit from your army that is within Engagement Range of a DAEMON unit.",
+      "effect": "Until the end of the phase, each time a model in your unit makes an attack against a DAEMON unit, add 1 to the Wound roll and the Armour Penetration characteristic of that attack is improved by 1.",
+      "restrictions": ""
+    },
+    {
+      "name": "Psybolt Ammunition",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase.",
+      "target": "One GREY KNIGHTS INFANTRY unit from your army.",
+      "effect": "Until the end of the phase, improve the Armour Penetration characteristic of bolt weapons used by models in your unit by 2.",
+      "restrictions": ""
+    }
+  ]
+}

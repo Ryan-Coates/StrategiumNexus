@@ -1,1 +1,56 @@
-{ "faction": "Space Marines", "catalogueSlug": "Imperium - Space Marines", "stratagems": [] }
+{
+  "faction": "Space Marines",
+  "catalogueSlug": "Imperium - Space Marines",
+  "stratagems": [
+    {
+      "name": "Honour the Chapter",
+      "cp": 2,
+      "detachment": "Gladius Task Force",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One ADEPTUS ASTARTES unit from your army that has not been selected to fight this phase.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a melee attack, add 1 to the Strength and Damage characteristics of that attack.",
+      "restrictions": ""
+    },
+    {
+      "name": "Adaptive Strategy",
+      "cp": 1,
+      "detachment": "Gladius Task Force",
+      "phase": "Your Command Phase",
+      "when": "Your Command phase.",
+      "target": "One ADEPTUS ASTARTES unit from your army.",
+      "effect": "Until the start of your next Command phase, your unit gains the Scouts 6\" ability and the Infiltrators ability.",
+      "restrictions": ""
+    },
+    {
+      "name": "Rapid Deployment",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Your Reinforcements Step",
+      "when": "Reinforcements step of your Movement phase.",
+      "target": "One ADEPTUS ASTARTES unit from your army that is in Reserves.",
+      "effect": "Set up that unit anywhere on the battlefield that is more than 9\" horizontally from all enemy models.",
+      "restrictions": ""
+    },
+    {
+      "name": "Fortress of Will",
+      "cp": 1,
+      "detachment": "Anvil Siege Force",
+      "phase": "Opponent's Shooting Phase",
+      "when": "Your opponent's Shooting phase, just after an enemy unit has selected its targets.",
+      "target": "One ADEPTUS ASTARTES INFANTRY unit from your army that was selected as a target and that is on or within an objective marker.",
+      "effect": "Until the end of the phase, each time a ranged attack targets your unit, subtract 1 from the Strength characteristic of that attack.",
+      "restrictions": ""
+    },
+    {
+      "name": "Storm of Fire",
+      "cp": 1,
+      "detachment": "Stormlance Task Force",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase.",
+      "target": "One ADEPTUS ASTARTES unit from your army.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a ranged attack, an unmodified Hit roll of 6 automatically wounds the target.",
+      "restrictions": ""
+    }
+  ]
+}

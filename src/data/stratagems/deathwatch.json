@@ -1,1 +1,46 @@
-{ "faction": "Deathwatch", "catalogueSlug": "Imperium - Deathwatch", "stratagems": [] }
+{
+  "faction": "Deathwatch",
+  "catalogueSlug": "Imperium - Deathwatch",
+  "stratagems": [
+    {
+      "name": "Adaptive Tactics",
+      "cp": 1,
+      "detachment": "Black Spearhead",
+      "phase": "Your Command Phase",
+      "when": "Your Command phase.",
+      "target": "One DEATHWATCH unit from your army.",
+      "effect": "Select one of the following Combat Doctrines: Devastator, Tactical, or Assault. Until the start of your next Command phase, your unit gains the benefits of that doctrine, regardless of what Combat Doctrine is active for the rest of your army.",
+      "restrictions": ""
+    },
+    {
+      "name": "Hellfire Rounds",
+      "cp": 1,
+      "detachment": "Any",
+      "phase": "Your Shooting Phase",
+      "when": "Your Shooting phase.",
+      "target": "One DEATHWATCH unit from your army equipped with bolt weapons.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a ranged attack with a bolt weapon, an unmodified Wound roll of 2+ is always successful, and that attack has the [ANTI-INFANTRY 2+] ability.",
+      "restrictions": ""
+    },
+    {
+      "name": "Xenos-killer",
+      "cp": 2,
+      "detachment": "Any",
+      "phase": "Your Fight Phase",
+      "when": "Fight phase.",
+      "target": "One DEATHWATCH unit from your army that is within Engagement Range of a TYRANIDS, ORKS, AELDARI, or T'AU EMPIRE unit.",
+      "effect": "Until the end of the phase, each time a model in your unit makes an attack against a unit with any of those keywords, add 1 to the Hit roll.",
+      "restrictions": ""
+    },
+    {
+      "name": "Teleport Homer",
+      "cp": 1,
+      "detachment": "Black Spearhead",
+      "phase": "Your Reinforcements Step",
+      "when": "Reinforcements step of your Movement phase.",
+      "target": "One DEATHWATCH unit from your army that is in Reserves.",
+      "effect": "Set up that unit anywhere on the battlefield that is more than 3\" horizontally from all enemy models.",
+      "restrictions": ""
+    }
+  ]
+}

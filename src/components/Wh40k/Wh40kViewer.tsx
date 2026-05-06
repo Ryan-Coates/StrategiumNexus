@@ -4,6 +4,7 @@ import { parseCatalogueData, parseSystemData } from '../../services/dataManager'
 import { getStratagemsForCatalogue } from '../../services/stratagemLoader'
 import { CORE_STRATAGEMS_10E } from '../../data/coreStratagems'
 import { useGameStore } from '../../store/gameStore'
+import { getCategoryForSystem, buildCatNamesMap, WH40K_SYSTEM_ID } from '../../data/wh40kCategories'
 import Spinner from '../Spinner'
 import {
   buildDatasheet,
@@ -13,7 +14,7 @@ import {
   DetachmentPanel,
   type Datasheet,
 } from './Wh40kHelpers'
-import type { SelectionEntry, RuleEntry } from '../../types'
+import type { RuleEntry } from '../../types'
 
 function stripBsMarkup(text: string): string {
   return text.replace(/\^\^/g, '').replace(/\*\*/g, '')
@@ -23,40 +24,43 @@ type Tab = 'datasheets' | 'army-rules' | 'core-rules'
 
 // ── Datasheet sidebar ─────────────────────────────────────────────────────────
 
-function unitTypeLabel(entry: SelectionEntry): string {
-  // BSData 40k groups units via category links; fall back to entry type
-  return entry.type === 'unit' ? 'Unit'
-    : entry.type === 'model' ? 'Model'
-    : entry.type === 'upgrade' ? 'Upgrade'
-    : 'Other'
-}
-
 function DatasheetSidebar({
   sheets,
   search,
   selectedId,
   onSelect,
+  systemId,
+  catNames,
 }: {
   sheets: Datasheet[]
   search: string
   selectedId: string | null
   onSelect: (id: string) => void
+  systemId: string
+  catNames: Map<string, string>
 }) {
   const filtered = useMemo(() => {
     const q = search.toLowerCase()
     return q ? sheets.filter((s) => s.entry.name.toLowerCase().includes(q)) : sheets
   }, [sheets, search])
 
-  // Group by entry type
+  // Group by 40k category (Characters, Battleline, Infantry, etc.)
   const groups = useMemo(() => {
-    const map = new Map<string, Datasheet[]>()
+    const map = new Map<string, { order: number; icon: string; items: Datasheet[] }>()
     for (const s of filtered) {
-      const t = unitTypeLabel(s.entry)
-      if (!map.has(t)) map.set(t, [])
-      map.get(t)!.push(s)
+      const g = getCategoryForSystem(
+        s.entry.categoryIds,
+        s.entry.primaryCategoryId,
+        systemId,
+        catNames,
+      )
+      if (!map.has(g.label)) map.set(g.label, { order: g.order, icon: g.icon, items: [] })
+      map.get(g.label)!.items.push(s)
     }
-    return [...map.entries()].sort(([a], [b]) => a.localeCompare(b))
-  }, [filtered])
+    return [...map.entries()]
+      .sort(([, a], [, b]) => a.order - b.order)
+      .map(([label, v]) => ({ label, icon: v.icon, items: v.items }))
+  }, [filtered, systemId, catNames])
 
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({})
 
@@ -67,16 +71,16 @@ function DatasheetSidebar({
           No datasheets match.
         </p>
       )}
-      {groups.map(([type, items]) => {
-        const isOpen = !collapsed[type]
+      {groups.map(({ label, icon, items }) => {
+        const isOpen = !collapsed[label]
         return (
-          <div key={type}>
+          <div key={label}>
             <button
-              onClick={() => setCollapsed((p) => ({ ...p, [type]: isOpen }))}
+              onClick={() => setCollapsed((p) => ({ ...p, [label]: isOpen }))}
               className="w-full flex items-center justify-between px-4 py-2.5 hover:bg-void-800 transition-colors"
             >
               <span className="font-heading text-xs tracking-[0.15em] uppercase text-gold">
-                {type}s
+                {icon !== '•' ? `${icon} ` : ''}{label}
               </span>
               <span className="text-parchment-faint text-xs">
                 {isOpen ? '▾' : '▸'} {items.length}
@@ -160,6 +164,13 @@ export default function Wh40kViewer() {
       : []),
     [catalogue],
   )
+
+  const catNames = useMemo(
+    () => buildCatNamesMap(catalogue?.categoryEntries ?? []),
+    [catalogue],
+  )
+
+  const systemId = catalogue?.meta.gameSystemId ?? WH40K_SYSTEM_ID
 
   const detachments = useMemo(
     () => (catalogue ? buildDetachments(catalogue.entries) : []),
@@ -272,7 +283,7 @@ export default function Wh40kViewer() {
                   {sheets.length} datasheets
                 </p>
               </div>
-              {sheets.length === 0 && catalogue.catalogueLinkIds.length > 0 && (
+              {sheets.length === 0 && catalogue.catalogueLinks.length > 0 && (
                 <div className="mx-3 mt-3 px-3 py-3 border border-gold-muted/25 bg-gold/5">
                   <p className="text-gold-muted text-xs font-body leading-relaxed">
                     This faction's datasheets are stored in a linked Library catalogue.
@@ -286,6 +297,8 @@ export default function Wh40kViewer() {
                 search={searchDebounced}
                 selectedId={selectedId}
                 onSelect={(id) => { setSelectedId(id); setShowSidebar(false) }}
+                systemId={systemId}
+                catNames={catNames}
               />
             </div>
 

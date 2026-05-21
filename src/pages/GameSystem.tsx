@@ -245,7 +245,7 @@ export default function GameSystem() {
       {/* Actions */}
       <div className="flex flex-wrap items-center gap-3 mb-6">
         <span className="font-heading text-xs tracking-wide text-parchment-faint">
-          {catalogues.length} / {system.catFiles.filter(f => !f.name.toLowerCase().includes('library')).length} catalogues downloaded
+          {catalogues.filter(c => !c.isLibrary && !c.name.toLowerCase().includes('library')).length} / {system.catFiles.filter(f => !f.name.toLowerCase().includes('library')).length} catalogues downloaded
         </span>
         {!isDownloadingAll && (
           <button onClick={handleDownloadAll} className="btn-primary text-xs">

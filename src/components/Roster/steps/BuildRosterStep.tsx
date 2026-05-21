@@ -273,10 +273,10 @@ export default function BuildRosterStep() {
     if (alliedCatalogueList.length > 0) return
     // Use cached list from gameStore if available, else load
     const cached = cataloguesBySystem[activeRoster.systemId]
-    if (cached) { setAlliedCatalogueList(cached.filter((c) => !c.name.toLowerCase().includes('library'))); return }
+    if (cached) { setAlliedCatalogueList(cached.filter((c) => !c.isLibrary && !c.name.toLowerCase().includes('library'))); return }
     setAlliedListLoading(true)
     loadCataloguesForSystem(activeRoster.systemId)
-      .then((cats) => setAlliedCatalogueList(cats.filter((c) => !c.name.toLowerCase().includes('library'))))
+      .then((cats) => setAlliedCatalogueList(cats.filter((c) => !c.isLibrary && !c.name.toLowerCase().includes('library'))))
       .finally(() => setAlliedListLoading(false))
   }, [tab, activeRoster?.systemId, alliedCatalogueList.length, cataloguesBySystem])
 

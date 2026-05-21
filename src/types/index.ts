@@ -95,6 +95,32 @@ export interface RosterUnit {
   selections: RosterSelection[] // unit-level selections (legacy / shared)
   enhancementId: string
   models: ModelConfig[]        // one entry per model in the squad
+  detachmentId?: string        // HH only — which detachment this unit belongs to
+}
+
+// ── Horus Heresy detachment types ────────────────────────────────────────────
+
+export type HHDetachmentType = 'primary' | 'auxiliary' | 'apex'
+
+export type HHAuxiliarySubtype =
+  | 'armoured-fist'
+  | 'tactical-support'
+  | 'armoured-support'
+  | 'heavy-support'
+  | 'combat-pioneer'
+  | 'shock-assault'
+  | 'first-strike'
+
+export type HHApexSubtype =
+  | 'combat-retinue'
+  | 'officer-cadre'
+  | 'army-vanguard'
+
+export interface HHDetachment {
+  id: string
+  type: HHDetachmentType
+  subtype?: HHAuxiliarySubtype | HHApexSubtype
+  name: string
 }
 
 export interface Roster {
@@ -115,6 +141,8 @@ export interface Roster {
   alliedCatalogueId: string
   alliedCatalogueName: string
   alliedUnits: RosterUnit[]
+  // HH only — list of detachments (primary is always index 0)
+  hhDetachments?: HHDetachment[]
 }
 
 export interface ProfileType {
@@ -147,4 +175,6 @@ export interface ParsedCatalogue {
   catalogueLinks: { id: string; importRootEntries: boolean }[]
   /** targetIds from entryLinks – which linked entries belong to this sub-faction */
   entryLinkTargetIds: string[]
+  /** IDs of entries that are Rites of War (from sharedSelectionEntryGroups named "Rite of War") */
+  riteOfWarIds: string[]
 }

@@ -6,6 +6,9 @@
  * so they are stable across all faction catalogues.
  */
 
+import type { CategoryEntry } from '../types'
+import { HH_SYSTEM_ID, getHHCategory } from './hhCategories'
+
 export const WH40K_SYSTEM_ID = 'sys-352e-adc2-7639-d6a9'
 
 export interface UnitCategoryGroup {
@@ -92,8 +95,6 @@ export function getWh40kCategory(categoryIds: string[]): UnitCategoryGroup {
   return OTHER_GROUP
 }
 
-import type { CategoryEntry } from '../types'
-
 /**
  * System-aware categorize function. Use in roster builder / review components.
  * Falls back to catalogue-name lookup for non-40k systems.
@@ -106,6 +107,9 @@ export function getCategoryForSystem(
 ): UnitCategoryGroup {
   if (systemId === WH40K_SYSTEM_ID) {
     return getWh40kCategory(categoryIds)
+  }
+  if (systemId === HH_SYSTEM_ID) {
+    return getHHCategory(categoryIds)
   }
   const name = catNames.get(primaryCategoryId) ?? 'Other'
   return { label: name, icon: '•', order: 0 }

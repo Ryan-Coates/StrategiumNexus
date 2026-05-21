@@ -16,7 +16,7 @@ export default function DetachmentStep() {
 
   // Filter library catalogues out (same logic as GameSystem.tsx)
   const visibleCatalogues = systemCatalogues.filter(
-    (c) => !c.name.toLowerCase().includes('library'),
+    (c) => !c.isLibrary && !c.name.toLowerCase().includes('library'),
   )
 
   useEffect(() => {

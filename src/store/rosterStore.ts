@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { Roster, RosterUnit, RosterSelection } from '../types'
+import type { Roster, RosterUnit, RosterSelection, HHDetachment, HHAuxiliarySubtype, HHApexSubtype } from '../types'
 import { saveRoster, listRosters, deleteRoster as dbDeleteRoster } from '../services/db'
 import { nanoid } from '../services/nanoid'
 
@@ -31,6 +31,10 @@ interface RosterStore {
   setUnitSelection: (uid: string, selection: RosterSelection) => Promise<void>
   addAlliedUnit: (unit: RosterUnit) => Promise<void>
   removeAlliedUnit: (uid: string) => Promise<void>
+  // HH detachment management
+  addHHDetachment: (type: 'auxiliary', subtype: HHAuxiliarySubtype) => Promise<void>
+  addHHApexDetachment: (subtype: HHApexSubtype) => Promise<void>
+  removeHHDetachment: (id: string) => Promise<void>
 
   // Persistence
   saveActive: () => Promise<void>
@@ -147,6 +151,72 @@ export const useRosterStore = create<RosterStore>((set, get) => ({
       ...current,
       updatedAt: Date.now(),
       alliedUnits: (current.alliedUnits ?? []).filter((u) => u.uid !== uid),
+    }
+    set({ activeRoster: updated })
+    await saveRoster(updated)
+    set((s) => ({ rosters: s.rosters.map((r) => (r.id === updated.id ? updated : r)) }))
+  },
+
+  addHHDetachment: async (type, subtype) => {
+    const current = get().activeRoster
+    if (!current) return
+    const SUBTYPE_LABELS: Record<string, string> = {
+      'armoured-fist': 'Armoured Fist',
+      'tactical-support': 'Tactical Support',
+      'armoured-support': 'Armoured Support',
+      'heavy-support': 'Heavy Support',
+      'combat-pioneer': 'Combat Pioneer',
+      'shock-assault': 'Shock Assault',
+      'first-strike': 'First Strike',
+    }
+    const newDet: HHDetachment = {
+      id: nanoid(),
+      type,
+      subtype,
+      name: SUBTYPE_LABELS[subtype] ?? subtype,
+    }
+    const updated = {
+      ...current,
+      updatedAt: Date.now(),
+      hhDetachments: [...(current.hhDetachments ?? []), newDet],
+    }
+    set({ activeRoster: updated })
+    await saveRoster(updated)
+    set((s) => ({ rosters: s.rosters.map((r) => (r.id === updated.id ? updated : r)) }))
+  },
+
+  addHHApexDetachment: async (subtype) => {
+    const current = get().activeRoster
+    if (!current) return
+    const APEX_LABELS: Record<string, string> = {
+      'combat-retinue': 'Combat Retinue',
+      'officer-cadre': 'Officer Cadre',
+      'army-vanguard': 'Army Vanguard',
+    }
+    const newDet: HHDetachment = {
+      id: nanoid(),
+      type: 'apex',
+      subtype,
+      name: APEX_LABELS[subtype] ?? subtype,
+    }
+    const updated = {
+      ...current,
+      updatedAt: Date.now(),
+      hhDetachments: [...(current.hhDetachments ?? []), newDet],
+    }
+    set({ activeRoster: updated })
+    await saveRoster(updated)
+    set((s) => ({ rosters: s.rosters.map((r) => (r.id === updated.id ? updated : r)) }))
+  },
+
+  removeHHDetachment: async (id) => {
+    const current = get().activeRoster
+    if (!current) return
+    const updated = {
+      ...current,
+      updatedAt: Date.now(),
+      hhDetachments: (current.hhDetachments ?? []).filter((d) => d.id !== id),
+      units: current.units.filter((u) => u.detachmentId !== id),
     }
     set({ activeRoster: updated })
     await saveRoster(updated)

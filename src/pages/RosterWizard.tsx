@@ -7,15 +7,27 @@ import { parseCatalogueData } from '../services/dataManager'
 import StepBar, { STEPS } from '../components/Roster/StepBar'
 import ArmySetupStep from '../components/Roster/steps/ArmySetupStep'
 import DetachmentStep from '../components/Roster/steps/DetachmentStep'
+import HHDetachmentStep from '../components/Roster/steps/HH/HHDetachmentStep'
+import HHBuildStep from '../components/Roster/steps/HH/HHBuildStep'
 import BuildRosterStep from '../components/Roster/steps/BuildRosterStep'
 import ConfigureUnitsStep from '../components/Roster/steps/ConfigureUnitsStep'
 import ReviewStep from '../components/Roster/steps/ReviewStep'
 import ExportStep from '../components/Roster/steps/ExportStep'
+import { HH_SYSTEM_ID } from '../data/hhCategories'
 
-const STEP_COMPONENTS = [
+const WH40K_STEPS = [
   ArmySetupStep,
   DetachmentStep,
   BuildRosterStep,
+  ConfigureUnitsStep,
+  ReviewStep,
+  ExportStep,
+]
+
+const HH_STEPS = [
+  ArmySetupStep,
+  HHDetachmentStep,
+  HHBuildStep,
   ConfigureUnitsStep,
   ReviewStep,
   ExportStep,
@@ -90,7 +102,7 @@ export default function RosterWizard() {
         const entry = cat.entries.find((e) => e.id === u.catalogueEntryId)
         if (!entry) return sum
         const mc = (u.models ?? []).length || 1
-        let pts = entry.costs.find((c) => c.name === 'pts')?.value ?? 0
+        let pts = entry.costs.find((c) => c.name === 'pts' || c.name === 'Point(s)' || c.name === 'Points')?.value ?? 0
         for (const b of (entry.costBrackets ?? [])) { if (mc >= b.minModels) pts = b.pts }
         return sum + pts
       }, 0)
@@ -98,6 +110,7 @@ export default function RosterWizard() {
     return unitPts(activeRoster.units, mainCat) + unitPts(activeRoster.alliedUnits ?? [], alliedCat)
   })()
 
+  const STEP_COMPONENTS = activeRoster?.systemId === HH_SYSTEM_ID ? HH_STEPS : WH40K_STEPS
   const StepComponent = STEP_COMPONENTS[activeStep]
 
   function canGoNext(): boolean {

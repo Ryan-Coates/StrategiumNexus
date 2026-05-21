@@ -349,11 +349,51 @@ export function parseCatalogueXml(xml: string): ParsedCatalogue {
     if (id) catalogueLinks.push({ id, importRootEntries: attr(cl, 'importRootEntries') === 'true' })
   }
 
+  // Post-process: merge categoryLinks from root entryLinks into the target entries.
+  // HH legion catalogues assign force-org categories (Warlord, Troops, etc.) to units
+  // exclusively via root entryLinks – the shared entries themselves have no categoryLinks.
+  const entryById = new Map<string, SelectionEntry>(uniqueEntries.map((e) => [e.id, e]))
+  for (const link of doc.querySelectorAll('catalogue > entryLinks > entryLink')) {
+    const targetId = attr(link, 'targetId')
+    const entry = entryById.get(targetId)
+    if (!entry) continue
+    for (const cl of link.querySelectorAll(':scope > categoryLinks > categoryLink')) {
+      const catId = attr(cl, 'targetId')
+      if (!catId) continue
+      if (!entry.categoryIds.includes(catId)) {
+        entry.categoryIds.push(catId)
+      }
+      // Only set primaryCategoryId if the entry doesn't already have one
+      if (attr(cl, 'primary') === 'true' && !entry.primaryCategoryId) {
+        entry.primaryCategoryId = catId
+      }
+    }
+    // Ensure primary is set if still empty but categories exist
+    if (!entry.primaryCategoryId && entry.categoryIds.length > 0) {
+      entry.primaryCategoryId = entry.categoryIds[0]
+    }
+  }
+
   // Collect targetIds from top-level entryLinks (which library entries belong here)
   const entryLinkTargetIds: string[] = []
   for (const el of doc.querySelectorAll('catalogue > entryLinks > entryLink')) {
     const id = attr(el, 'targetId')
     if (id) entryLinkTargetIds.push(id)
+  }
+
+  // Extract IDs of entries in "Rite of War" shared selection entry groups.
+  // HH catalogues store available Rites of War as selectionEntry children of a
+  // sharedSelectionEntryGroup named "Rite of War".
+  const riteOfWarIds: string[] = []
+  for (const grpEl of doc.querySelectorAll(
+    'catalogue > sharedSelectionEntryGroups > selectionEntryGroup',
+  )) {
+    if (attr(grpEl, 'name').trim() === 'Rite of War') {
+      for (const el of grpEl.querySelectorAll(':scope > selectionEntries > selectionEntry')) {
+        const id = attr(el, 'id')
+        if (id) riteOfWarIds.push(id)
+      }
+    }
   }
 
   // Catalogue-level category entries
@@ -362,5 +402,13 @@ export function parseCatalogueXml(xml: string): ParsedCatalogue {
     categoryEntries.push({ id: attr(ce, 'id'), name: attr(ce, 'name') })
   }
 
-  return { meta, rules, entries: uniqueEntries, categoryEntries, catalogueLinks, entryLinkTargetIds }
+  return {
+    meta,
+    rules,
+    entries: uniqueEntries,
+    categoryEntries,
+    catalogueLinks,
+    entryLinkTargetIds,
+    riteOfWarIds,
+  }
 }

@@ -81,6 +81,7 @@ export async function downloadCatalogue(
     name: catFile.name,
     revision: parsed.meta.revision,
     fetchedAt: Date.now(),
+    isLibrary: parsed.meta.isLibrary,
   }
 
   await saveCatalogue({ ...record, rawXml: xml })
@@ -100,10 +101,11 @@ export async function downloadAllCatalogues(
     await saveCatalogue({
       id: parsed.meta.id,
       gameSystemId: system.id,
-      name: parsed.meta.name || cat.name,
+      name: cat.name,
       revision: parsed.meta.revision,
       rawXml: xml,
       fetchedAt: Date.now(),
+      isLibrary: parsed.meta.isLibrary,
     })
   }
 }
@@ -129,33 +131,28 @@ export async function parseCatalogueData(catalogueId: string): Promise<ParsedCat
 
   const parsed = parseCatalogueXml(record.rawXml)
 
-  // Some catalogues (e.g. Aeldari - Craftworlds, Chaos Daemons, Chaos Knights) store
-  // their datasheets in a separate Library catalogue and only contain entryLinks that
-  // point into that library.  If we parsed zero unit/model entries but have catalogue
-  // links, load each linked library from IndexedDB and merge the referenced entries.
-  const hasUnits = parsed.entries.some((e) => e.type === 'unit' || e.type === 'model')
-  if (!hasUnits && parsed.catalogueLinks.length > 0) {
+  // Always merge entries from linked library catalogues.
+  // importRootEntries=true  → pull in all entries from the library (e.g. Chaos Daemons)
+  // importRootEntries=false → pull in only entries targeted by entryLinks (e.g. Salamanders
+  //   linking generic Space Marines units from the core Space Marines library)
+  if (parsed.catalogueLinks.length > 0) {
     const targets = new Set(parsed.entryLinkTargetIds)
     for (const link of parsed.catalogueLinks) {
       try {
         const linkedRecord = await getCatalogue(link.id)
         if (!linkedRecord) continue
         const linked = parseCatalogueXml(linkedRecord.rawXml)
-        // Only merge from actual BSData library files (library="true").
-        // This prevents regular faction catalogues (e.g. Chaos Space Marines linked by
-        // Chaos Daemons for the Shadow Legion detachment) from polluting the unit list.
         if (!linked.meta.isLibrary) continue
-        // importRootEntries=true → include ALL entries from the library (e.g. Chaos Daemons/Knights
-        //   where daemon units are not listed in individual entryLinks but imported wholesale).
-        // importRootEntries=false → only include entries explicitly targeted by entryLinks
-        //   (e.g. AM where each unit is explicitly enumerated in the main catalogue).
         const toAdd = link.importRootEntries
           ? linked.entries
           : linked.entries.filter((e) => targets.has(e.id))
         if (toAdd.length > 0) {
           parsed.entries.push(...toAdd)
-          // Also pull in top-level rules from this library (faction rules etc.)
           parsed.rules.push(...linked.rules)
+        }
+        // Merge rite of war IDs from library catalogues
+        if (linked.riteOfWarIds.length > 0) {
+          parsed.riteOfWarIds.push(...linked.riteOfWarIds)
         }
       } catch {
         // Library not downloaded yet – silently skip; viewer will show empty state
@@ -175,6 +172,8 @@ export async function parseCatalogueData(catalogueId: string): Promise<ParsedCat
       seenRules.add(r.id)
       return true
     })
+    // De-duplicate riteOfWarIds
+    parsed.riteOfWarIds = [...new Set(parsed.riteOfWarIds)]
   }
 
   return parsed

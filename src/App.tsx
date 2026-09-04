@@ -7,6 +7,9 @@ import RulesViewer from './pages/RulesViewer'
 import RosterList from './pages/RosterList'
 import RosterWizard from './pages/RosterWizard'
 import RosterView from './pages/RosterView'
+import HordeHome from './pages/Horde/HordeHome'
+import WaveGenerator from './pages/Horde/WaveGenerator'
+import AttritionTracker from './pages/Horde/AttritionTracker'
 
 export default function App() {
   return (
@@ -21,6 +24,9 @@ export default function App() {
           <Route path="rosters/new" element={<RosterWizard />} />
           <Route path="rosters/:id" element={<RosterWizard />} />
           <Route path="rosters/:id/view" element={<RosterView />} />
+          <Route path="horde" element={<HordeHome />} />
+          <Route path="horde/waves" element={<WaveGenerator />} />
+          <Route path="horde/attrition" element={<AttritionTracker />} />
         </Route>
       </Routes>
     </HashRouter>

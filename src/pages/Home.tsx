@@ -17,11 +17,10 @@ const FEATURES = [
     soon: false,
   },
   {
-    title: 'Campaign Chronicler',
-    description: 'Track your Crusade or Dominion campaign, record battles, and manage your warband.',
-    to: '#',
+    title: 'Horde Mode',
+    description: 'Roll Spawning Table waves and track attrition for Horde Mode games.',
+    to: '/horde',
     phase: 'Phase III',
-    soon: true,
   },
 ]
 

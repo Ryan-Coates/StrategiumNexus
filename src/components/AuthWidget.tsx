@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useAuthStore } from '../store/authStore'
 import { clearEntryChoice } from '../services/entryChoice'
+import Avatar from './Avatar'
 
 // Returns to the entry gate (splash screen) so the visitor can pick shared/local mode again.
 function backToEntryGate() {
@@ -41,14 +42,14 @@ export default function AuthWidget() {
   }
 
   return (
-    <div className="flex items-center gap-2 text-xs">
+    <div className="flex flex-wrap items-center gap-2 text-xs">
       <span className="badge-gold">Shared</span>
       {isAdmin && (
         <Link to="/campaign/admin" className="btn-ghost text-xs">
           Admin
         </Link>
       )}
-      {user?.photoUrl && <img src={user.photoUrl} alt="" className="w-6 h-6 rounded-full border border-gold-muted/40" />}
+      <Avatar name={user?.displayName ?? ''} photoUrl={user?.photoUrl} />
       <span className="font-body text-parchment-muted hidden sm:inline">{user?.displayName}</span>
       <button onClick={() => signOutUser()} className="btn-ghost text-xs">
         Sign out

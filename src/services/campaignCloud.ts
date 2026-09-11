@@ -6,12 +6,19 @@ import { getFirebaseDb } from './firebase'
 const ROSTERS_COLLECTION = 'rosters'
 const MISSIONS_COLLECTION = 'narrativeMissions'
 
+// Firestore's setDoc() throws on any `undefined` field value. Optional fields (e.g.
+// waaaghPoints, description, activeMission) are often explicitly set to undefined rather
+// than omitted, which IndexedDB tolerates but Firestore does not — strip them recursively.
+function stripUndefined<T>(value: T): T {
+  return JSON.parse(JSON.stringify(value))
+}
+
 // ── Campaign roster operations ─────────────────────────────────────────────
 
 export async function saveCampaignRoster(roster: CampaignRoster): Promise<void> {
   const db = await getFirebaseDb()
   const { doc, setDoc } = await import('firebase/firestore')
-  await setDoc(doc(db, ROSTERS_COLLECTION, roster.id), roster)
+  await setDoc(doc(db, ROSTERS_COLLECTION, roster.id), stripUndefined(roster))
 }
 
 export async function getCampaignRoster(id: string): Promise<CampaignRoster | undefined> {
@@ -39,7 +46,7 @@ export async function deleteCampaignRoster(id: string): Promise<void> {
 export async function saveNarrativeMission(mission: NarrativeMission): Promise<void> {
   const db = await getFirebaseDb()
   const { doc, setDoc } = await import('firebase/firestore')
-  await setDoc(doc(db, MISSIONS_COLLECTION, mission.id), mission)
+  await setDoc(doc(db, MISSIONS_COLLECTION, mission.id), stripUndefined(mission))
 }
 
 export async function getNarrativeMission(id: string): Promise<NarrativeMission | undefined> {

@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
+import { useAuthStore } from '../../store/authStore'
 
 export default function CampaignTidesHome() {
+  const { isAdmin } = useAuthStore()
+
   return (
     <div className="max-w-4xl mx-auto">
       <div className="mb-6">
@@ -23,6 +26,14 @@ export default function CampaignTidesHome() {
             Read published mission briefings, story text, and deployment maps.
           </p>
         </Link>
+        {isAdmin && (
+          <Link to="/campaign/admin" className="card flex flex-col gap-2">
+            <h2 className="font-heading text-gold text-lg tracking-wide">Manage Access</h2>
+            <p className="font-body text-parchment-faint text-sm">
+              Grant or revoke club members' access to shared Campaign Mode.
+            </p>
+          </Link>
+        )}
       </div>
     </div>
   )

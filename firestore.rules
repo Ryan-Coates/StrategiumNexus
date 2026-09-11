@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Hardcoded admin(s) who manage the allowlist from the in-app Admin screen.
+    // Keep this in sync with ADMIN_EMAILS in src/services/adminConfig.ts.
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email in ['ryancoates366@gmail.com'];
+    }
+
+    // Anyone who has signed in with Google AND whose exact email address
+    // has a document in /allowlist is treated as an approved club member.
+    function isAllowed() {
+      return request.auth != null
+        && (isAdmin()
+          || exists(/databases/$(database)/documents/allowlist/$(request.auth.token.email)));
+    }
+
+    // Managed from the in-app Admin screen (admin-only writes) or the Firebase console.
+    match /allowlist/{email} {
+      allow read: if request.auth != null;
+      allow write: if isAdmin();
+    }
+
+    // Campaign Mode data — equal read/write for every allowlisted member (and the admin).
+    match /rosters/{rosterId} {
+      allow read, write: if isAllowed();
+    }
+
+    match /narrativeMissions/{missionId} {
+      allow read, write: if isAllowed();
+    }
+  }
+}

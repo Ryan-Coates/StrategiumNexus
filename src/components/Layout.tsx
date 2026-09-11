@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom'
+import AuthWidget from './AuthWidget'
 
 const NAV_ITEMS = [
   { to: '/games', label: 'War Codex' },
@@ -41,6 +42,8 @@ export default function Layout() {
               </NavLink>
             ))}
           </nav>
+
+          <AuthWidget />
         </div>
       </header>
 

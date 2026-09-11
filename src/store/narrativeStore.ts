@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { nanoid } from '../services/nanoid'
 import type { NarrativeMission } from '../types/campaign'
-import { deleteNarrativeMission, getNarrativeMission, listNarrativeMissions, saveNarrativeMission } from '../services/campaignDb'
+import { deleteNarrativeMission, getNarrativeMission, listNarrativeMissions, saveNarrativeMission } from '../services/campaignBackend'
 
 // Narrative Driver — kept independent of campaignStore.ts on purpose (no roster linkage).
 interface NarrativeStore {

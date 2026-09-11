@@ -11,13 +11,18 @@ No backend server. All data stored in browser IndexedDB. Deployed to GitHub Page
 - **React Router v6** — hash-based routing (`HashRouter`) for GitHub Pages compatibility
 - **Zustand** — global state; see `src/store/gameStore.ts`
 - **idb** — IndexedDB wrapper; schema in `src/services/db.ts`
+- **firebase** (optional) — Auth + Firestore for shared Campaign Mode; see `src/services/firebase.ts` and FIREBASE-SETUP.md
 - **Node 20-alpine** Docker image for all dev/build operations
 
 ## Key Conventions
 
-### No Server — Ever
-All data comes from public GitHub raw URLs (BSData repos). All storage is IndexedDB.
-Never add a backend, API proxy, or server-side component.
+### No Custom Server — Firebase BaaS Is a Scoped Exception
+All rules/roster data comes from public GitHub raw URLs (BSData repos) and is stored in IndexedDB.
+Never add a custom backend, API proxy, or server-side component.
+The one deliberate exception: Campaign Mode (Rosters + Narrative Missions) optionally uses
+**Firebase** (Auth + Firestore) as a Backend-as-a-Service for club members to share data via
+Google sign-in — see FIREBASE-SETUP.md. This is opt-in: with no `VITE_FIREBASE_*` env vars set,
+the app runs fully local/IndexedDB with no Firebase project required (see `src/services/firebase.ts`).
 
 ### TypeScript
 - Strict mode. Fix all `noUnusedLocals` and `noUnusedParameters` errors before committing.

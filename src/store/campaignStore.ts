@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { nanoid } from '../services/nanoid'
 import type { ActiveMissionState, CampaignFaction, CampaignMissionLog, CampaignRoster, CampaignUnit } from '../types/campaign'
-import { deleteCampaignRoster, getCampaignRoster, listCampaignRosters, saveCampaignRoster } from '../services/campaignDb'
+import { deleteCampaignRoster, getCampaignRoster, listCampaignRosters, saveCampaignRoster } from '../services/campaignBackend'
 
 interface CampaignStore {
   rosters: CampaignRoster[]

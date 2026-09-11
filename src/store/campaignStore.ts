@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { nanoid } from '../services/nanoid'
 import type { ActiveMissionState, CampaignFaction, CampaignMissionLog, CampaignRoster, CampaignUnit } from '../types/campaign'
 import { deleteCampaignRoster, getCampaignRoster, listCampaignRosters, saveCampaignRoster } from '../services/campaignBackend'
+import { unitPointsFor } from '../services/campaignMath'
 
 interface CampaignStore {
   rosters: CampaignRoster[]
@@ -9,12 +10,12 @@ interface CampaignStore {
   current: CampaignRoster | null
 
   loadRosters: () => Promise<void>
-  createRoster: (playerName: string, faction: CampaignFaction) => Promise<CampaignRoster>
+  createRoster: (squadName: string, playerName: string, faction: CampaignFaction) => Promise<CampaignRoster>
   loadRoster: (id: string) => Promise<void>
   deleteRoster: (id: string) => Promise<void>
 
   setDescription: (text: string) => Promise<void>
-  addUnit: (unit: Omit<CampaignUnit, 'id'>) => Promise<void>
+  addUnit: (unit: Omit<CampaignUnit, 'id' | 'startingPointsCost' | 'startingModelCount'>) => Promise<void>
   updateUnit: (id: string, patch: Partial<CampaignUnit>) => Promise<void>
   removeUnit: (id: string) => Promise<void>
   addEnhancement: (unitId: string, text: string) => Promise<void>
@@ -49,10 +50,11 @@ export const useCampaignStore = create<CampaignStore>((set, get) => {
       set({ rosters, rostersLoaded: true })
     },
 
-    async createRoster(playerName, faction) {
+    async createRoster(squadName, playerName, faction) {
       const roster: CampaignRoster = {
         id: nanoid(),
         playerName,
+        squadName,
         faction,
         pointsLimit: pointsLimitFor(faction),
         waaaghPoints: faction === 'ork' ? 0 : undefined,
@@ -85,7 +87,12 @@ export const useCampaignStore = create<CampaignStore>((set, get) => {
     async addUnit(unit) {
       const current = get().current
       if (!current) return
-      const newUnit: CampaignUnit = { ...unit, id: nanoid() }
+      const newUnit: CampaignUnit = {
+        ...unit,
+        id: nanoid(),
+        startingPointsCost: unit.pointsCost,
+        startingModelCount: unit.modelCount,
+      }
       await persist({ ...current, units: [...current.units, newUnit] })
     },
 
@@ -178,7 +185,10 @@ export const useCampaignStore = create<CampaignStore>((set, get) => {
         const wiped = lost >= unit.modelCount
         casualties.push({ unitId: unit.id, unitName: unit.name, modelsLost: lost, wiped })
         // wiped units (and any enhancement they carried) are dropped from the roster entirely
-        if (!wiped) survivingUnits.push({ ...unit, modelCount: unit.modelCount - lost })
+        if (!wiped) {
+          const modelCount = unit.modelCount - lost
+          survivingUnits.push({ ...unit, modelCount, pointsCost: unitPointsFor(unit, modelCount) })
+        }
       }
 
       const log: CampaignMissionLog = {

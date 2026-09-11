@@ -23,9 +23,11 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
-    // Campaign Mode data — equal read/write for every allowlisted member (and the admin).
+    // Campaign Mode data — equal read/create/update for every allowlisted member (and the
+    // admin), but deleting a roster is admin-only to protect other members' data.
     match /rosters/{rosterId} {
-      allow read, write: if isAllowed();
+      allow read, create, update: if isAllowed();
+      allow delete: if isAdmin();
     }
 
     match /narrativeMissions/{missionId} {

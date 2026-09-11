@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCampaignStore } from '../../store/campaignStore'
+import { useAuthStore } from '../../store/authStore'
 import type { CampaignFaction } from '../../types/campaign'
 
 export default function CampaignHome() {
   const { rosters, rostersLoaded, loadRosters, createRoster, deleteRoster } = useCampaignStore()
+  const { mode, isAdmin } = useAuthStore()
+  const canDelete = mode === 'local' || isAdmin
+  const [squadName, setSquadName] = useState('')
   const [playerName, setPlayerName] = useState('')
   const [faction, setFaction] = useState<CampaignFaction>('imperial')
 
@@ -13,8 +17,9 @@ export default function CampaignHome() {
   }, [loadRosters])
 
   async function handleCreate() {
-    if (!playerName.trim()) return
-    await createRoster(playerName.trim(), faction)
+    if (!squadName.trim() || !playerName.trim()) return
+    await createRoster(squadName.trim(), playerName.trim(), faction)
+    setSquadName('')
     setPlayerName('')
   }
 
@@ -41,6 +46,16 @@ export default function CampaignHome() {
       </div>
 
       <div className="card flex flex-wrap items-end gap-4 mb-6">
+        <label className="flex flex-col gap-1 text-xs font-heading tracking-widest uppercase text-parchment-faint">
+          Squad Name
+          <input
+            type="text"
+            value={squadName}
+            onChange={(e) => setSquadName(e.target.value)}
+            placeholder="e.g. Marcus's Reavers"
+            className="bg-void-900 border border-gold-muted/30 text-parchment text-sm px-2 py-1.5 font-body w-48"
+          />
+        </label>
         <label className="flex flex-col gap-1 text-xs font-heading tracking-widest uppercase text-parchment-faint">
           Player Name
           <input
@@ -80,8 +95,10 @@ export default function CampaignHome() {
             return (
               <div key={roster.id} className="card flex flex-col gap-3">
                 <div>
-                  <h2 className="font-heading text-gold text-base tracking-wide leading-snug">{roster.playerName}</h2>
-                  <p className="font-body text-parchment-muted text-xs mt-0.5 capitalize">{roster.faction}</p>
+                  <h2 className="font-heading text-gold text-base tracking-wide leading-snug">{roster.squadName}</h2>
+                  <p className="font-body text-parchment-muted text-xs mt-0.5">
+                    {roster.playerName} &middot; <span className="capitalize">{roster.faction}</span>
+                  </p>
                 </div>
                 <div className="divider-gold" />
                 <div className="flex items-center gap-3 text-xs font-heading tracking-wide text-parchment-muted">
@@ -101,12 +118,14 @@ export default function CampaignHome() {
                   <Link to={`/campaign/rosters/${roster.id}`} className="btn-primary flex-1 text-center text-xs">
                     Open
                   </Link>
-                  <button
-                    onClick={() => handleDelete(roster.id, roster.playerName)}
-                    className="px-3 py-1.5 text-xs font-heading tracking-wide text-blood-light hover:text-blood border border-blood/30 hover:border-blood transition-colors"
-                  >
-                    &#10005;
-                  </button>
+                  {canDelete && (
+                    <button
+                      onClick={() => handleDelete(roster.id, roster.squadName)}
+                      className="px-3 py-1.5 text-xs font-heading tracking-wide text-blood-light hover:text-blood border border-blood/30 hover:border-blood transition-colors"
+                    >
+                      &#10005;
+                    </button>
+                  )}
                 </div>
               </div>
             )

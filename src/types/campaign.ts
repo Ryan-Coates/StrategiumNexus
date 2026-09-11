@@ -12,6 +12,9 @@ export interface CampaignUnit {
   pointsCost: number
   /** Shrinks permanently on casualties; a unit is removed entirely once wiped. */
   modelCount: number
+  /** Fixed at creation — used to prorate pointsCost as modelCount shrinks from casualties. */
+  startingPointsCost?: number
+  startingModelCount?: number
   isCharacter: boolean
   /** Freeform background/fluff for this model. */
   about: string
@@ -41,6 +44,8 @@ export interface ActiveMissionState {
 export interface CampaignRoster {
   id: string
   playerName: string
+  /** The army/warband's own name — distinct from the player controlling it. */
+  squadName: string
   /** Freeform background/fluff for this roster/warband. */
   description?: string
   faction: CampaignFaction

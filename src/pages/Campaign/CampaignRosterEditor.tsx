@@ -66,9 +66,9 @@ export default function CampaignRosterEditor() {
     <div className="max-w-4xl mx-auto">
       <div className="flex items-center justify-between gap-4 mb-6">
         <div>
-          <h1 className="font-display text-2xl text-gold tracking-wider">{current.playerName}</h1>
-          <p className="font-body text-parchment-muted text-sm mt-1 capitalize">
-            {current.faction} — {pointsUsed} / {current.pointsLimit} pts
+          <h1 className="font-display text-2xl text-gold tracking-wider">{current.squadName}</h1>
+          <p className="font-body text-parchment-muted text-sm mt-1">
+            {current.playerName} &middot; <span className="capitalize">{current.faction}</span> — {pointsUsed} / {current.pointsLimit} pts
             {overCap && <span className="text-blood-light"> (over cap)</span>}
           </p>
         </div>

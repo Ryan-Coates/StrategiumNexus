@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useCampaignStore } from '../../store/campaignStore'
+import { unitPointsFor } from '../../services/campaignMath'
 
 export default function CampaignMission() {
   const { rosterId } = useParams<{ rosterId: string }>()
@@ -61,7 +62,7 @@ export default function CampaignMission() {
           <div>
             <h1 className="font-display text-2xl text-gold tracking-wider">Start Mission</h1>
             <p className="font-body text-parchment-muted text-sm mt-1">
-              {current.playerName} — select units to commit. No cap enforced; commit whatever fits the game you're playing.
+              {current.squadName} ({current.playerName}) — select units to commit. No cap enforced; commit whatever fits the game you're playing.
             </p>
           </div>
           <Link to={`/campaign/rosters/${current.id}`} className="btn-ghost text-xs">
@@ -161,31 +162,48 @@ export default function CampaignMission() {
 
       <div className="card flex flex-col gap-3 mb-4">
         <p className="card-header">Casualties</p>
-        {committedUnits.map((unit) => (
-          <div key={unit.id} className="flex items-center gap-3 pb-3 border-b border-gold-muted/10 last:border-0 last:pb-0">
-            <div className="min-w-[10rem]">
-              <p className="font-heading text-parchment text-sm">
-                {unit.name}
-                {unit.datasheetName && <span className="text-parchment-faint text-xs"> ({unit.datasheetName})</span>}
-              </p>
-              <p className="font-body text-parchment-faint text-xs">{unit.modelCount} models</p>
+        {committedUnits.map((unit) => {
+          const lost = activeMission.casualtyDraft[unit.id] ?? 0
+          const remaining = Math.max(0, unit.modelCount - lost)
+          const projectedPoints = unitPointsFor(unit, remaining)
+          return (
+            <div key={unit.id} className="flex items-center gap-3 pb-3 border-b border-gold-muted/10 last:border-0 last:pb-0">
+              <div className="min-w-[10rem]">
+                <p className="font-heading text-parchment text-sm">
+                  {unit.name}
+                  {unit.datasheetName && <span className="text-parchment-faint text-xs"> ({unit.datasheetName})</span>}
+                </p>
+                <p className="font-body text-parchment-faint text-xs">
+                  {unit.modelCount} models
+                  {lost > 0 && (
+                    <span className="text-blood-light">
+                      {' '}
+                      &rarr; {remaining} models, {projectedPoints} pts (was {unit.pointsCost})
+                    </span>
+                  )}
+                </p>
+              </div>
+              <label className="flex flex-col gap-1 text-xs font-heading tracking-widest uppercase text-parchment-faint">
+                Models Lost
+                <input
+                  type="number"
+                  min={0}
+                  max={unit.modelCount}
+                  value={lost}
+                  onChange={(e) => setCasualtyDraft(unit.id, Math.min(unit.modelCount, Number(e.target.value) || 0))}
+                  className="bg-void-900 border border-gold-muted/30 text-parchment text-sm px-2 py-1.5 font-body w-20"
+                />
+              </label>
+              {lost >= unit.modelCount && <span className="badge-blood">Wiped</span>}
             </div>
-            <label className="flex flex-col gap-1 text-xs font-heading tracking-widest uppercase text-parchment-faint">
-              Models Lost
-              <input
-                type="number"
-                min={0}
-                max={unit.modelCount}
-                value={activeMission.casualtyDraft[unit.id] ?? 0}
-                onChange={(e) => setCasualtyDraft(unit.id, Math.min(unit.modelCount, Number(e.target.value) || 0))}
-                className="bg-void-900 border border-gold-muted/30 text-parchment text-sm px-2 py-1.5 font-body w-20"
-              />
-            </label>
-            {(activeMission.casualtyDraft[unit.id] ?? 0) >= unit.modelCount && (
-              <span className="badge-blood">Wiped</span>
-            )}
-          </div>
-        ))}
+          )
+        })}
+        {committedUnits.length > 0 && (
+          <p className="font-body text-parchment-muted text-xs pt-1">
+            Projected committed points: {committedUnits.reduce((sum, u) => sum + unitPointsFor(u, Math.max(0, u.modelCount - (activeMission.casualtyDraft[u.id] ?? 0))), 0)} pts
+            {' '}(was {committedUnits.reduce((sum, u) => sum + u.pointsCost, 0)})
+          </p>
+        )}
       </div>
 
       <div className="flex items-center justify-between">

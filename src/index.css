@@ -75,3 +75,17 @@
     @apply badge border-blood/40 text-blood-light bg-blood/5;
   }
 }
+
+@media print {
+  header, footer, nav, .no-print {
+    display: none !important;
+  }
+  body, main {
+    background: white !important;
+  }
+  .printable-area, .printable-area * {
+    color: black !important;
+    background: white !important;
+    border-color: #999 !important;
+  }
+}

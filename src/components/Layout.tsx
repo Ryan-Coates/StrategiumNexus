@@ -4,6 +4,7 @@ const NAV_ITEMS = [
   { to: '/games', label: 'War Codex' },
   { to: '/rosters', label: 'Warband Forge' },
   { to: '/horde', label: 'Horde Mode' },
+  { to: '/campaign', label: 'Tides of Meridian Campaign' },
 ]
 
 export default function Layout() {

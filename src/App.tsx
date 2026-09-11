@@ -10,6 +10,14 @@ import RosterView from './pages/RosterView'
 import HordeHome from './pages/Horde/HordeHome'
 import WaveGenerator from './pages/Horde/WaveGenerator'
 import AttritionTracker from './pages/Horde/AttritionTracker'
+import CampaignHome from './pages/Campaign/CampaignHome'
+import CampaignRosterEditor from './pages/Campaign/CampaignRosterEditor'
+import CampaignMission from './pages/Campaign/CampaignMission'
+import CampaignTidesHome from './pages/Campaign/CampaignTidesHome'
+import NarrativeList from './pages/Narrative/NarrativeList'
+import NarrativeView from './pages/Narrative/NarrativeView'
+import NarrativeAdminList from './pages/Narrative/NarrativeAdminList'
+import NarrativeEditor from './pages/Narrative/NarrativeEditor'
 
 export default function App() {
   return (
@@ -27,6 +35,15 @@ export default function App() {
           <Route path="horde" element={<HordeHome />} />
           <Route path="horde/waves" element={<WaveGenerator />} />
           <Route path="horde/attrition" element={<AttritionTracker />} />
+          <Route path="campaign" element={<CampaignTidesHome />} />
+          <Route path="campaign/rosters" element={<CampaignHome />} />
+          <Route path="campaign/rosters/:rosterId" element={<CampaignRosterEditor />} />
+          <Route path="campaign/rosters/:rosterId/mission" element={<CampaignMission />} />
+          <Route path="narrative" element={<NarrativeList />} />
+          <Route path="narrative/new" element={<NarrativeEditor />} />
+          <Route path="narrative/admin" element={<NarrativeAdminList />} />
+          <Route path="narrative/:missionId" element={<NarrativeView />} />
+          <Route path="narrative/:missionId/admin" element={<NarrativeEditor />} />
         </Route>
       </Routes>
     </HashRouter>

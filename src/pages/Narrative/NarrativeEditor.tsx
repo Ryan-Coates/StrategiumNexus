@@ -1,13 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useNarrativeStore } from '../../store/narrativeStore'
+import { useAuthStore } from '../../store/authStore'
 import type { NarrativeMission } from '../../types/campaign'
+import DeploymentMapEditor from '../../components/DeploymentMapEditor/DeploymentMapEditor'
 
 export default function NarrativeEditor() {
   const { missionId } = useParams<{ missionId: string }>()
   const navigate = useNavigate()
   const { current, loadMission, createMission, saveMission } = useNarrativeStore()
+  const { mode, isAdmin } = useAuthStore()
+  const canEditMap = mode === 'local' || isAdmin
   const [draft, setDraft] = useState<NarrativeMission | null>(null)
+  const [mapEditorOpen, setMapEditorOpen] = useState(false)
   const initialized = useRef(false)
 
   useEffect(() => {
@@ -19,10 +24,11 @@ export default function NarrativeEditor() {
       } else {
         const mission = await createMission()
         navigate(`/narrative/${mission.id}/admin`, { replace: true })
+        if (canEditMap) setMapEditorOpen(true)
       }
     }
     init()
-  }, [missionId, loadMission, createMission, navigate])
+  }, [missionId, loadMission, createMission, navigate, canEditMap])
 
   useEffect(() => {
     if (current) setDraft(current)
@@ -34,6 +40,12 @@ export default function NarrativeEditor() {
     const reader = new FileReader()
     reader.onload = () => setDraft({ ...draft, deploymentMapImage: reader.result as string })
     reader.readAsDataURL(file)
+  }
+
+  function handleMapSave({ image, data }: { image: string; data: NonNullable<NarrativeMission['deploymentMapData']> }) {
+    if (!draft) return
+    setDraft({ ...draft, deploymentMapImage: image, deploymentMapData: data })
+    setMapEditorOpen(false)
   }
 
   async function handleSave() {
@@ -105,7 +117,15 @@ export default function NarrativeEditor() {
             {draft.deploymentMapImage && (
               <img src={draft.deploymentMapImage} alt="Deployment map preview" className="max-w-full border border-gold-muted/30" />
             )}
-            <input type="file" accept="image/*" onChange={handleImageUpload} className="font-body text-sm text-parchment-muted" />
+            {canEditMap && (
+              <button onClick={() => setMapEditorOpen(true)} className="btn-ghost text-xs w-fit">
+                {draft.deploymentMapData ? 'Edit Map' : 'Open Map Editor'}
+              </button>
+            )}
+            <label className="flex flex-col gap-1 text-xs font-heading tracking-widest uppercase text-parchment-faint">
+              {canEditMap ? 'Or upload an image instead' : 'Upload Image'}
+              <input type="file" accept="image/*" onChange={handleImageUpload} className="font-body text-sm text-parchment-muted" />
+            </label>
           </div>
         </details>
 
@@ -115,6 +135,10 @@ export default function NarrativeEditor() {
           </button>
         </div>
       </div>
+
+      {mapEditorOpen && (
+        <DeploymentMapEditor initialData={draft.deploymentMapData} onSave={handleMapSave} onClose={() => setMapEditorOpen(false)} />
+      )}
     </div>
   )
 }

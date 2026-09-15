@@ -62,14 +62,45 @@ export interface CampaignRoster {
 
 // ── Narrative Driver (independent — no links to CampaignRoster) ───────────
 
+export type TerrainKind = 'ruins' | 'scatter'
+export type MapObjectKind = 'deploymentZone' | 'terrain' | 'objective' | 'label'
+export type MapShape = 'rect' | 'circle' | 'polygon'
+
+export interface MapObject {
+  id: string
+  kind: MapObjectKind
+  shape: MapShape
+  x: number
+  y: number
+  width?: number // rect (inches)
+  height?: number // rect (inches)
+  radius?: number // circle (inches)
+  /** polygon (inches, absolute board coords) — deployment zones use 8 freely-draggable points. */
+  points?: { x: number; y: number }[]
+  color: string
+  label?: string
+  terrainKind?: TerrainKind // only for kind === 'terrain'
+}
+
+/** Editable source data for the in-app deployment map editor (admin-only). */
+export interface DeploymentMapData {
+  boardWidthIn: number
+  boardHeightIn: number
+  /** Data URL — either a generated default board or an uploaded background image. */
+  backgroundImage: string
+  objects: MapObject[]
+}
+
 export interface NarrativeMission {
   id: string
   title: string
   status: 'draft' | 'published'
   narrativeText: string
   missionRulesText: string
-  /** Data URL of the uploaded deployment map image. */
+  /** Data URL of the flattened deployment map (regenerated from deploymentMapData on every editor save). */
   deploymentMapImage?: string
+  /** Absent for missions that only ever had a plain uploaded image and never opened the map editor. */
+  deploymentMapData?: DeploymentMapData
   createdAt: number
   updatedAt: number
 }

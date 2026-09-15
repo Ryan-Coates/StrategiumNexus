@@ -3,16 +3,16 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useNarrativeStore } from '../../store/narrativeStore'
 
 export default function NarrativeAdminList() {
-  const { missions, missionsLoaded, loadMissions, createMission, deleteMission } = useNarrativeStore()
+  const { missions, missionsLoaded, loadMissions, deleteMission } = useNarrativeStore()
   const navigate = useNavigate()
 
   useEffect(() => {
     loadMissions()
   }, [loadMissions])
 
-  async function handleNew() {
-    const mission = await createMission()
-    navigate(`/narrative/${mission.id}/admin`)
+  function handleNew() {
+    // Let NarrativeEditor create the mission itself so it also gets the chance to auto-open the map editor.
+    navigate('/narrative/new')
   }
 
   function handleDelete(id: string, title: string) {

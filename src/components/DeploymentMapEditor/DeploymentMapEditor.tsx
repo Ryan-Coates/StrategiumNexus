@@ -77,8 +77,17 @@ export default function DeploymentMapEditor({ initialData, onSave, onClose }: Pr
 
   const svgRef = useRef<SVGSVGElement>(null)
   const dragRef = useRef<{ mode: DragMode; startX: number; startY: number; objectStart?: MapObject; vertexIndex?: number } | null>(null)
+  const labelInputRef = useRef<HTMLInputElement>(null)
 
   const selected = objects.find((o) => o.id === selectedId) ?? null
+
+  /** Double-clicking a shape selects it and jumps straight to the Label field for quick renaming. */
+  function focusLabelInput() {
+    requestAnimationFrame(() => {
+      labelInputRef.current?.focus()
+      labelInputRef.current?.select()
+    })
+  }
 
   function applyBoardSize(width: number, height: number) {
     const w = Number.isFinite(width) ? Math.max(MIN_BOARD_SIZE_IN, Math.min(MAX_BOARD_SIZE_IN, Math.round(width))) : boardWidthIn
@@ -424,7 +433,7 @@ export default function DeploymentMapEditor({ initialData, onSave, onClose }: Pr
               const isSelected = o.id === selectedId
               if (o.shape === 'circle') {
                 return (
-                  <g key={o.id} onPointerDown={(e) => startObjectDrag(e, o, 'move')}>
+                  <g key={o.id} onPointerDown={(e) => startObjectDrag(e, o, 'move')} onDoubleClick={(e) => { e.stopPropagation(); setSelectedId(o.id); focusLabelInput() }}>
                     <circle cx={o.x} cy={o.y} r={o.radius ?? 1} fill={o.color} fillOpacity={0.75} stroke={isSelected ? '#e8c97a' : o.color} strokeWidth={isSelected ? 0.15 : 0.05} />
                     {o.label && (
                       <text x={o.x} y={o.y} textAnchor="middle" dominantBaseline="middle" fontSize={o.radius ? o.radius * 0.9 : 1} fill="#05050a" fontWeight="bold">
@@ -447,8 +456,16 @@ export default function DeploymentMapEditor({ initialData, onSave, onClose }: Pr
 
               if (o.shape === 'polygon') {
                 const points = o.points ?? []
-                const cx = points.reduce((s, p) => s + p.x, 0) / (points.length || 1)
-                const cy = points.reduce((s, p) => s + p.y, 0) / (points.length || 1)
+                const xs = points.map((p) => p.x)
+                const ys = points.map((p) => p.y)
+                const cx = xs.reduce((s, x) => s + x, 0) / (xs.length || 1)
+                const cy = ys.reduce((s, y) => s + y, 0) / (ys.length || 1)
+                const boundW = xs.length ? Math.max(...xs) - Math.min(...xs) : 1
+                const boundH = ys.length ? Math.max(...ys) - Math.min(...ys) : 1
+                const fontSize = Math.max(1.6, Math.min(boundW, boundH) * 0.18 + 0.6)
+                const text = o.label || ''
+                const chipWidth = text.length * fontSize * 0.62 + 1
+                const chipHeight = fontSize + 0.8
                 return (
                   <g key={o.id}>
                     <polygon
@@ -458,12 +475,16 @@ export default function DeploymentMapEditor({ initialData, onSave, onClose }: Pr
                       stroke={isSelected ? '#e8c97a' : o.color}
                       strokeWidth={isSelected ? 0.15 : 0.05}
                       onPointerDown={(e) => startObjectDrag(e, o, 'move')}
+                      onDoubleClick={(e) => { e.stopPropagation(); setSelectedId(o.id); focusLabelInput() }}
                       style={{ cursor: 'move' }}
                     />
-                    {o.label && (
-                      <text x={cx} y={cy} textAnchor="middle" dominantBaseline="middle" fontSize={2} fill="#e8e0d0">
-                        {o.label}
-                      </text>
+                    {text && (
+                      <g pointerEvents="none">
+                        <rect x={cx - chipWidth / 2} y={cy - chipHeight / 2} width={chipWidth} height={chipHeight} fill="#05050a" fillOpacity={0.55} />
+                        <text x={cx} y={cy} textAnchor="middle" dominantBaseline="middle" fontSize={fontSize} fill="#e8e0d0">
+                          {text}
+                        </text>
+                      </g>
                     )}
                     {isSelected &&
                       points.map((p, i) => (
@@ -487,7 +508,7 @@ export default function DeploymentMapEditor({ initialData, onSave, onClose }: Pr
                 const chipWidth = text.length * fontSize * 0.62 + 1
                 const chipHeight = fontSize + 0.8
                 return (
-                  <g key={o.id} onPointerDown={(e) => startObjectDrag(e, o, 'move')} style={{ cursor: 'move' }}>
+                  <g key={o.id} onPointerDown={(e) => startObjectDrag(e, o, 'move')} onDoubleClick={(e) => { e.stopPropagation(); setSelectedId(o.id); focusLabelInput() }} style={{ cursor: 'move' }}>
                     <rect
                       x={o.x - 0.5}
                       y={o.y - chipHeight + 0.6}
@@ -519,6 +540,7 @@ export default function DeploymentMapEditor({ initialData, onSave, onClose }: Pr
                     stroke={isSelected ? '#e8c97a' : o.color}
                     strokeWidth={isSelected ? 0.15 : 0.05}
                     onPointerDown={(e) => startObjectDrag(e, o, 'move')}
+                    onDoubleClick={(e) => { e.stopPropagation(); setSelectedId(o.id); focusLabelInput() }}
                     style={{ cursor: 'move' }}
                   />
                   {o.label && (
@@ -588,6 +610,7 @@ export default function DeploymentMapEditor({ initialData, onSave, onClose }: Pr
               <label className="flex flex-col gap-1 text-xs font-heading tracking-widest uppercase text-parchment-faint">
                 Label
                 <input
+                  ref={labelInputRef}
                   type="text"
                   value={selected.label ?? ''}
                   onChange={(e) => updateSelected({ label: e.target.value })}

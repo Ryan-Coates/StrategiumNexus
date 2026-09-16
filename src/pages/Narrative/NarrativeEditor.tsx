@@ -24,11 +24,10 @@ export default function NarrativeEditor() {
       } else {
         const mission = await createMission()
         navigate(`/narrative/${mission.id}/admin`, { replace: true })
-        if (canEditMap) setMapEditorOpen(true)
       }
     }
     init()
-  }, [missionId, loadMission, createMission, navigate, canEditMap])
+  }, [missionId, loadMission, createMission, navigate])
 
   useEffect(() => {
     if (current) setDraft(current)

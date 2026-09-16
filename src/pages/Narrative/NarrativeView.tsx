@@ -61,11 +61,18 @@ export default function NarrativeView() {
     writeBody(current.missionRulesText)
 
     if (current.deploymentMapImage) {
+      // Force the map onto its own page and fit it fully within the page bounds (width AND height) —
+      // tall boards were previously only clamped by width, so they overflowed past the bottom of the page.
+      if (y > margin) {
+        doc.addPage()
+        y = margin
+      }
       writeHeading('Deployment Map')
       const imgProps = doc.getImageProperties(current.deploymentMapImage)
-      const imgWidth = Math.min(maxWidth, imgProps.width)
-      const imgHeight = (imgProps.height / imgProps.width) * imgWidth
-      ensureSpace(imgHeight)
+      const availableHeight = pageHeight - margin - y
+      const scale = Math.min(maxWidth / imgProps.width, availableHeight / imgProps.height)
+      const imgWidth = imgProps.width * scale
+      const imgHeight = imgProps.height * scale
       doc.addImage(current.deploymentMapImage, margin, y, imgWidth, imgHeight)
       y += imgHeight + 12
     }

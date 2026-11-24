@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "build:11e": "node scripts/build-wh40k11e.mjs",
+    "prebuild": "npm run build:11e",
     "build": "tsc -b && vite build",
     "lint": "tsc --noEmit",
     "preview": "vite preview --host"

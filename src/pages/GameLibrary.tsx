@@ -228,6 +228,38 @@ export default function GameLibrary() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="card flex flex-col overflow-hidden">
+          <div className="relative h-44 sm:h-48 bg-void-950 flex items-center justify-center">
+            <img
+              src="images/systems/wh40k.svg"
+              alt=""
+              className="h-32 w-32 object-contain opacity-80"
+              draggable={false}
+            />
+            <span className="badge badge-gold absolute top-3 right-3 text-[10px]">
+              11th Edition
+            </span>
+          </div>
+          <div className="flex flex-col gap-3 p-4 flex-1">
+            <div>
+              <h2 className="font-heading text-gold text-lg tracking-wide leading-tight">
+                Warhammer 40,000 — 11th Edition
+              </h2>
+              <span className="badge badge-gold text-[10px] mt-2">Local ruleset</span>
+            </div>
+            <div className="divider-gold" />
+            <p className="text-parchment-muted text-sm font-body leading-relaxed flex-1">
+              Browse the supplied faction datasheets, abilities, detachments, enhancements,
+              and stratagems.
+            </p>
+            <Link
+              to="/games/wh40k-11e"
+              className="btn-primary text-sm w-full text-center mt-auto"
+            >
+              Browse Rules
+            </Link>
+          </div>
+        </div>
         {BSDATA_SYSTEMS.map((manifest) => (
           <SystemCard key={manifest.slug} manifest={manifest} record={recordBySlug[manifest.slug]} />
         ))}

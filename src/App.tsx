@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import GameLibrary from './pages/GameLibrary'
 import GameSystem from './pages/GameSystem'
 import RulesViewer from './pages/RulesViewer'
+import Wh40k11eViewer from './pages/Wh40k11eViewer'
 import RosterList from './pages/RosterList'
 import RosterWizard from './pages/RosterWizard'
 import RosterView from './pages/RosterView'
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="games" element={<GameLibrary />} />
+            <Route path="games/wh40k-11e" element={<Wh40k11eViewer />} />
             <Route path="games/:slug" element={<GameSystem />} />
             <Route path="games/:slug/:catalogueId" element={<RulesViewer />} />
             <Route path="rosters" element={<RosterList />} />

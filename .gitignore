@@ -4,3 +4,5 @@ dist
 .env.local
 .env.*.local
 sample-data/
+Data/11th/mfm-cache/
+Data/11th/mfm-points.json.tmp

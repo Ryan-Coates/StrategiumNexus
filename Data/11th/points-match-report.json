@@ -1,0 +1,7812 @@
+{
+  "pointsUpdatedAt": "2026-11-24T11:50:53.823Z",
+  "matchedDatasheets": 949,
+  "totalDatasheets": 1712,
+  "unmatchedDetachments": [
+    {
+      "id": "000000924",
+      "name": "Voidship’s Company",
+      "faction_id": "AoI"
+    },
+    {
+      "id": "000000925",
+      "name": "Interdiction Team",
+      "faction_id": "AoI"
+    },
+    {
+      "id": "000000927",
+      "name": "Embarked Regiment",
+      "faction_id": "AM"
+    },
+    {
+      "id": "000000928",
+      "name": "Tempestus Boarding Regiment",
+      "faction_id": "AM"
+    },
+    {
+      "id": "000000888",
+      "name": "Brood Brother Auxilia",
+      "faction_id": "GC"
+    },
+    {
+      "id": "000000939",
+      "name": "Cult Unveiled",
+      "faction_id": "GC"
+    },
+    {
+      "id": "000000940",
+      "name": "Genespawn Onslaught",
+      "faction_id": "GC"
+    },
+    {
+      "id": "000000941",
+      "name": "Infestation Swarm",
+      "faction_id": "GC"
+    },
+    {
+      "id": "000000959",
+      "name": "Tomb Ship Complement",
+      "faction_id": "NEC"
+    },
+    {
+      "id": "000000960",
+      "name": "Deranged Outcasts",
+      "faction_id": "NEC"
+    },
+    {
+      "id": "000000961",
+      "name": "Canoptek Harvesters",
+      "faction_id": "NEC"
+    },
+    {
+      "id": "000001140",
+      "name": "Harbinger Cabal",
+      "faction_id": "NEC"
+    },
+    {
+      "id": "000000919",
+      "name": "Khaine’s Arrow",
+      "faction_id": "AE"
+    },
+    {
+      "id": "000000920",
+      "name": "Protector Host",
+      "faction_id": "AE"
+    },
+    {
+      "id": "000000921",
+      "name": "Wraiths of the Void",
+      "faction_id": "AE"
+    },
+    {
+      "id": "000000922",
+      "name": "Star-dancer Masque",
+      "faction_id": "AE"
+    },
+    {
+      "id": "000000963",
+      "name": "Ramship Raiders",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000000964",
+      "name": "Kaptin Killers",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000001030",
+      "name": "More Dakka!",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000001138",
+      "name": "Freebooter Krew",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000001151",
+      "name": "Speedwaaagh!",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000000943",
+      "name": "Void Purge Force",
+      "faction_id": "GK"
+    },
+    {
+      "id": "000000944",
+      "name": "Baneslayer Strike",
+      "faction_id": "GK"
+    },
+    {
+      "id": "000000966",
+      "name": "Starfire Cadre",
+      "faction_id": "TAU"
+    },
+    {
+      "id": "000000967",
+      "name": "Kroot Raiding Party",
+      "faction_id": "TAU"
+    },
+    {
+      "id": "000000950",
+      "name": "Void Salvagers",
+      "faction_id": "LoV"
+    },
+    {
+      "id": "000000951",
+      "name": "Hearthfire Strike",
+      "faction_id": "LoV"
+    },
+    {
+      "id": "000000912",
+      "name": "Electromartyrs",
+      "faction_id": "AdM"
+    },
+    {
+      "id": "000000913",
+      "name": "Response Clade",
+      "faction_id": "AdM"
+    },
+    {
+      "id": "000000914",
+      "name": "Machine Cult",
+      "faction_id": "AdM"
+    },
+    {
+      "id": "000000969",
+      "name": "Chosen Cabal",
+      "faction_id": "TS"
+    },
+    {
+      "id": "000000970",
+      "name": "Devoted Thralls",
+      "faction_id": "TS"
+    },
+    {
+      "id": "000000971",
+      "name": "Fateseekers",
+      "faction_id": "TS"
+    },
+    {
+      "id": "000000930",
+      "name": "Vectors of Decay",
+      "faction_id": "DG"
+    },
+    {
+      "id": "000000931",
+      "name": "Unclean Uprising",
+      "faction_id": "DG"
+    },
+    {
+      "id": "000000932",
+      "name": "Arch-Contaminators",
+      "faction_id": "DG"
+    },
+    {
+      "id": "000001033",
+      "name": "Mercurial Host",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000001034",
+      "name": "Peerless Bladesmen",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000001035",
+      "name": "Rapid Evisceration",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000001036",
+      "name": "Carnival of Excess",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000001037",
+      "name": "Coterie of the Conceited",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000001038",
+      "name": "Slaanesh’s Chosen",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000001125",
+      "name": "Court of the Phoenician",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000001154",
+      "name": "Sublime Strike",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000000977",
+      "name": "Boarding Butchers",
+      "faction_id": "WE"
+    },
+    {
+      "id": "000000978",
+      "name": "Skullsworn",
+      "faction_id": "WE"
+    },
+    {
+      "id": "000000953",
+      "name": "Daemonic Incursion",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000000954",
+      "name": "Infernal Onslaught",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000000955",
+      "name": "Rotten and Rusted",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000000956",
+      "name": "Dread Carnival",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000000957",
+      "name": "Pandaemoniac Inferno",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000000758",
+      "name": "Liberator Assault Group",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000000793",
+      "name": "Anvil Siege Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000000795",
+      "name": "Firestorm Assault Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000000797",
+      "name": "Vanguard Spearhead",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000000798",
+      "name": "1st Company Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000000834",
+      "name": "Unforgiven Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000000836",
+      "name": "Company of Hunters",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000000900",
+      "name": "The Lost Brethren",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000000901",
+      "name": "The Angelic Host",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000000905",
+      "name": "Boarding Strike",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000000906",
+      "name": "Pilum Strike Team",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000000907",
+      "name": "Terminator Assault",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000000981",
+      "name": "Lion’s Blade Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000000994",
+      "name": "Librarius Conclave",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000001006",
+      "name": "Wrathful Procession",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000001068",
+      "name": "Saga of the Hunter",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000001069",
+      "name": "Saga of the Bold",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000001091",
+      "name": "Companions of Vehemence",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000001092",
+      "name": "Vindication Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000001093",
+      "name": "Godhammer Assault Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000001103",
+      "name": "Emperor’s Shield",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000001118",
+      "name": "Hammer of Avernii",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000001123",
+      "name": "Rage-cursed Onslaught",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000001130",
+      "name": "Bastion Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000001131",
+      "name": "Orbital Assault Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000001132",
+      "name": "Reclamation Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000001139",
+      "name": "Shield of the Void",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000001147",
+      "name": "Armoured Speartip",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000001148",
+      "name": "Headhunter Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000000973",
+      "name": "Tyranid Attack",
+      "faction_id": "TYR"
+    },
+    {
+      "id": "000000974",
+      "name": "Boarding Swarm",
+      "faction_id": "TYR"
+    },
+    {
+      "id": "000000975",
+      "name": "Biotide",
+      "faction_id": "TYR"
+    },
+    {
+      "id": "000000979",
+      "name": "Infestation Swarm",
+      "faction_id": "TYR"
+    },
+    {
+      "id": "000000765",
+      "name": "Shield Host",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000000861",
+      "name": "Talons Of The Emperor",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000000909",
+      "name": "Voyagers in Darkness",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000000910",
+      "name": "Black Ship Guardians",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000000986",
+      "name": "Solar Spearhead",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000000916",
+      "name": "Pious Protectors",
+      "faction_id": "AS"
+    },
+    {
+      "id": "000000917",
+      "name": "Penitents and Pilgrims",
+      "faction_id": "AS"
+    },
+    {
+      "id": "000000946",
+      "name": "Infernal Reavers",
+      "faction_id": "CSM"
+    },
+    {
+      "id": "000000947",
+      "name": "Underdeck Uprising",
+      "faction_id": "CSM"
+    },
+    {
+      "id": "000000948",
+      "name": "Champions of Chaos",
+      "faction_id": "CSM"
+    },
+    {
+      "id": "000000934",
+      "name": "Space Lane Raiders",
+      "faction_id": "DRU"
+    },
+    {
+      "id": "000000935",
+      "name": "Kabalite Corsairs",
+      "faction_id": "DRU"
+    },
+    {
+      "id": "000000936",
+      "name": "Ship-killer Cult",
+      "faction_id": "DRU"
+    },
+    {
+      "id": "000000937",
+      "name": "Painbringers",
+      "faction_id": "DRU"
+    }
+  ],
+  "detachmentsWithoutRules": [
+    {
+      "id": "mfm:astra-militarum:detachment:abhumanauxiliaries:detachments",
+      "name": "ABHUMAN AUXILIARIES",
+      "faction_id": "AM"
+    },
+    {
+      "id": "mfm:astra-militarum:detachment:designationforce:detachments",
+      "name": "DESIGNATION FORCE",
+      "faction_id": "AM"
+    },
+    {
+      "id": "mfm:genestealer-cults:detachment:broodbrothersauxilia:detachments",
+      "name": "BROOD BROTHERS AUXILIA",
+      "faction_id": "GC"
+    },
+    {
+      "id": "mfm:genestealer-cults:detachment:heroesoftheuprising:detachments",
+      "name": "HEROES OF THE UPRISING",
+      "faction_id": "GC"
+    },
+    {
+      "id": "mfm:genestealer-cults:detachment:purestrainbroodswarm:detachments",
+      "name": "PURESTRAIN BROODSWARM",
+      "faction_id": "GC"
+    },
+    {
+      "id": "mfm:genestealer-cults:detachment:xenocultmasses:detachments",
+      "name": "XENOCULT MASSES",
+      "faction_id": "GC"
+    },
+    {
+      "id": "mfm:necrons:detachment:handofthedynasty:detachments",
+      "name": "HAND OF THE DYNASTY",
+      "faction_id": "NEC"
+    },
+    {
+      "id": "mfm:necrons:detachment:skyshroudspearhead:detachments",
+      "name": "SKYSHROUD SPEARHEAD",
+      "faction_id": "NEC"
+    },
+    {
+      "id": "mfm:necrons:detachment:thephaeronsarmoury:detachments",
+      "name": "THE PHAERON'S ARMOURY",
+      "faction_id": "NEC"
+    },
+    {
+      "id": "mfm:aeldari:detachment:fatefulperformance:detachments",
+      "name": "FATEFUL PERFORMANCE",
+      "faction_id": "AE"
+    },
+    {
+      "id": "mfm:aeldari:detachment:pathoftheoutcast:detachments",
+      "name": "PATH OF THE OUTCAST",
+      "faction_id": "AE"
+    },
+    {
+      "id": "mfm:aeldari:detachment:twilightflickers:detachments",
+      "name": "TWILIGHT FLICKERS",
+      "faction_id": "AE"
+    },
+    {
+      "id": "mfm:orks:detachment:brutebosses:detachments",
+      "name": "BRUTE BOSSES",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "mfm:orks:detachment:flyboyz:detachments",
+      "name": "FLYBOYZ",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "mfm:orks:detachment:madcapmeks:detachments",
+      "name": "MADCAP MEKS",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "mfm:orks:detachment:runtswarm:detachments",
+      "name": "RUNT SWARM",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "mfm:orks:detachment:shootaboyz:detachments",
+      "name": "SHOOTA BOYZ",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "mfm:orks:detachment:wreckas:detachments",
+      "name": "WRECKAS",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "mfm:orks:detachment:wurrband:detachments",
+      "name": "WURRBAND",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "mfm:grey-knights:detachment:argentassault:detachments",
+      "name": "ARGENT ASSAULT",
+      "faction_id": "GK"
+    },
+    {
+      "id": "mfm:grey-knights:detachment:firesofpurgation:detachments",
+      "name": "FIRES OF PURGATION",
+      "faction_id": "GK"
+    },
+    {
+      "id": "mfm:grey-knights:detachment:immaterialinterdiction:detachments",
+      "name": "IMMATERIAL INTERDICTION",
+      "faction_id": "GK"
+    },
+    {
+      "id": "mfm:tau-empire:detachment:advancedacquisitioncadre:detachments",
+      "name": "ADVANCED ACQUISITION CADRE",
+      "faction_id": "TAU"
+    },
+    {
+      "id": "mfm:leagues-of-votann:detachment:armouredtrailblazers:detachments",
+      "name": "ARMOURED TRAILBLAZERS",
+      "faction_id": "LoV"
+    },
+    {
+      "id": "mfm:leagues-of-votann:detachment:farseekers:detachments",
+      "name": "FARSEEKERS",
+      "faction_id": "LoV"
+    },
+    {
+      "id": "mfm:leagues-of-votann:detachment:hearthguardcovenant:detachments",
+      "name": "HEARTHGUARD COVENANT",
+      "faction_id": "LoV"
+    },
+    {
+      "id": "mfm:adeptus-mechanicus:detachment:cohortacquisitus:detachments",
+      "name": "COHORT ACQUISITUS",
+      "faction_id": "AdM"
+    },
+    {
+      "id": "mfm:adeptus-mechanicus:detachment:lordsoftheforge:detachments",
+      "name": "LORDS OF THE FORGE",
+      "faction_id": "AdM"
+    },
+    {
+      "id": "mfm:adeptus-mechanicus:detachment:luminenautochoir:detachments",
+      "name": "LUMINEN AUTO-CHOIR",
+      "faction_id": "AdM"
+    },
+    {
+      "id": "mfm:thousand-sons:detachment:ritualofregeneration:detachments",
+      "name": "RITUAL OF REGENERATION",
+      "faction_id": "TS"
+    },
+    {
+      "id": "mfm:thousand-sons:detachment:sekhetarcohort:detachments",
+      "name": "SEKHETAR COHORT",
+      "faction_id": "TS"
+    },
+    {
+      "id": "mfm:thousand-sons:detachment:servantsofchange:detachments",
+      "name": "SERVANTS OF CHANGE",
+      "faction_id": "TS"
+    },
+    {
+      "id": "mfm:death-guard:detachment:contagionengines:detachments",
+      "name": "CONTAGION ENGINES",
+      "faction_id": "DG"
+    },
+    {
+      "id": "mfm:death-guard:detachment:paragonsofputrescence:detachments",
+      "name": "PARAGONS OF PUTRESCENCE",
+      "faction_id": "DG"
+    },
+    {
+      "id": "mfm:world-eaters:detachment:brazenengines:detachments",
+      "name": "BRAZEN ENGINES",
+      "faction_id": "WE"
+    },
+    {
+      "id": "mfm:world-eaters:detachment:butchersofkhorne:detachments",
+      "name": "BUTCHERS OF KHORNE",
+      "faction_id": "WE"
+    },
+    {
+      "id": "mfm:chaos-knights:detachment:bastionsoftyranny:detachments",
+      "name": "BASTIONS OF TYRANNY",
+      "faction_id": "QT"
+    },
+    {
+      "id": "mfm:chaos-knights:detachment:huntingwarpack:detachments",
+      "name": "HUNTING WARPACK",
+      "faction_id": "QT"
+    },
+    {
+      "id": "mfm:chaos-daemons:detachment:cavalcadeofchaos:detachments",
+      "name": "CAVALCADE OF CHAOS",
+      "faction_id": "CD"
+    },
+    {
+      "id": "mfm:chaos-daemons:detachment:lordsofthewarp:detachments",
+      "name": "LORDS OF THE WARP",
+      "faction_id": "CD"
+    },
+    {
+      "id": "mfm:chaos-daemons:detachment:warptide:detachments",
+      "name": "WARPTIDE",
+      "faction_id": "CD"
+    },
+    {
+      "id": "mfm:imperial-knights:detachment:dominusfoebreakers:detachments",
+      "name": "DOMINUS FOEBREAKERS",
+      "faction_id": "QI"
+    },
+    {
+      "id": "mfm:imperial-knights:detachment:thronebondedoutriders:detachments",
+      "name": "THRONE-BONDED OUTRIDERS",
+      "faction_id": "QI"
+    },
+    {
+      "id": "mfm:black-templars:detachment:assaultbrethren:detachments",
+      "name": "ASSAULT BRETHREN",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:black-templars:detachment:deathwatchsupport:detachments",
+      "name": "DEATHWATCH SUPPORT",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:black-templars:detachment:devastatorbrethren:detachments",
+      "name": "DEVASTATOR BRETHREN",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:black-templars:detachment:fistofthegodemperor:detachments",
+      "name": "FIST OF THE GOD-EMPEROR",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:black-templars:detachment:gauntlettaskforce:detachments",
+      "name": "GAUNTLET TASK FORCE",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:black-templars:detachment:gravislinebreakerforce:detachments",
+      "name": "GRAVIS LINEBREAKER FORCE",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:black-templars:detachment:gravissiegeforce:detachments",
+      "name": "GRAVIS SIEGE FORCE",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:black-templars:detachment:ironcladchampions:detachments",
+      "name": "IRONCLAD CHAMPIONS",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:black-templars:detachment:marshalshousehold:detachments",
+      "name": "MARSHAL'S HOUSEHOLD",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:black-templars:detachment:phobosshadowforce:detachments",
+      "name": "PHOBOS SHADOW FORCE",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:black-templars:detachment:phobosshockforce:detachments",
+      "name": "PHOBOS SHOCK FORCE",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:black-templars:detachment:tacticalbrethren:detachments",
+      "name": "TACTICAL BRETHREN",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:black-templars:detachment:tacticusattackforce:detachments",
+      "name": "TACTICUS ATTACK FORCE",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:black-templars:detachment:tacticusfirestormforce:detachments",
+      "name": "TACTICUS FIRESTORM FORCE",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:black-templars:detachment:terminatorstormforce:detachments",
+      "name": "TERMINATOR STORM FORCE",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:black-templars:detachment:vowsworncrusaders:detachments",
+      "name": "VOW-SWORN CRUSADERS",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:blood-angels:detachment:encarminespeartip:detachments",
+      "name": "ENCARMINE SPEARTIP",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:blood-angels:detachment:wrathofthedoomed:detachments",
+      "name": "WRATH OF THE DOOMED",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:dark-angels:detachment:darkflightpursuit:detachments",
+      "name": "DARKFLIGHT PURSUIT",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:space-marines:detachment:medusaswrath:detachments",
+      "name": "MEDUSA'S WRATH",
+      "faction_id": "SM"
+    },
+    {
+      "id": "mfm:tyranids:detachment:ambushpredators:detachments",
+      "name": "AMBUSH PREDATORS",
+      "faction_id": "TYR"
+    },
+    {
+      "id": "mfm:tyranids:detachment:talonsofthenornqueen:detachments",
+      "name": "TALONS OF THE NORN QUEEN",
+      "faction_id": "TYR"
+    },
+    {
+      "id": "mfm:adeptus-custodes:detachment:aquilanshield:detachments",
+      "name": "AQUILAN SHIELD",
+      "faction_id": "AC"
+    },
+    {
+      "id": "mfm:adeptus-custodes:detachment:dreadhost:detachments",
+      "name": "DREAD HOST",
+      "faction_id": "AC"
+    },
+    {
+      "id": "mfm:adeptus-custodes:detachment:emissariesimperatus:detachments",
+      "name": "EMISSARIES IMPERATUS",
+      "faction_id": "AC"
+    },
+    {
+      "id": "mfm:adeptus-custodes:detachment:emperorschosen:detachments",
+      "name": "EMPEROR’S CHOSEN",
+      "faction_id": "AC"
+    },
+    {
+      "id": "mfm:adeptus-custodes:detachment:gravassaultforce:detachments",
+      "name": "GRAV‑ASSAULT FORCE",
+      "faction_id": "AC"
+    },
+    {
+      "id": "mfm:adeptus-custodes:detachment:guardiansofthethrone:detachments",
+      "name": "GUARDIANS OF THE THRONE",
+      "faction_id": "AC"
+    },
+    {
+      "id": "mfm:adeptus-custodes:detachment:honouredcompanions:detachments",
+      "name": "HONOURED COMPANIONS",
+      "faction_id": "AC"
+    },
+    {
+      "id": "mfm:adeptus-custodes:detachment:mightofthemoritoi:detachments",
+      "name": "MIGHT OF THE MORITOI",
+      "faction_id": "AC"
+    },
+    {
+      "id": "mfm:adeptus-custodes:detachment:shadowkeepers:detachments",
+      "name": "SHADOWKEEPERS",
+      "faction_id": "AC"
+    },
+    {
+      "id": "mfm:adeptus-custodes:detachment:solarwatch:detachments",
+      "name": "SOLAR WATCH",
+      "faction_id": "AC"
+    },
+    {
+      "id": "mfm:adepta-sororitas:detachment:chorusofcondemnation:detachments",
+      "name": "CHORUS OF CONDEMNATION",
+      "faction_id": "AS"
+    },
+    {
+      "id": "mfm:adepta-sororitas:detachment:sacredchampions:detachments",
+      "name": "SACRED CHAMPIONS",
+      "faction_id": "AS"
+    },
+    {
+      "id": "mfm:adepta-sororitas:detachment:sanctifiedorators:detachments",
+      "name": "SANCTIFIED ORATORS",
+      "faction_id": "AS"
+    },
+    {
+      "id": "mfm:chaos-space-marines:detachment:devoteesofdestruction:detachments",
+      "name": "DEVOTEES OF DESTRUCTION",
+      "faction_id": "CSM"
+    },
+    {
+      "id": "mfm:chaos-space-marines:detachment:murdertalonraiders:detachments",
+      "name": "MURDERTALON RAIDERS",
+      "faction_id": "CSM"
+    },
+    {
+      "id": "mfm:drukhari:detachment:exhibitionofslaughter:detachments",
+      "name": "EXHIBITION OF SLAUGHTER",
+      "faction_id": "DRU"
+    },
+    {
+      "id": "mfm:drukhari:detachment:kabaliteagonysts:detachments",
+      "name": "KABALITE AGONYSTS",
+      "faction_id": "DRU"
+    },
+    {
+      "id": "mfm:drukhari:detachment:toolsoftorment:detachments",
+      "name": "TOOLS OF TORMENT",
+      "faction_id": "DRU"
+    }
+  ],
+  "unmatchedDatasheets": [
+    {
+      "id": "000000882",
+      "name": "Custodian Guard",
+      "faction_id": "AC",
+      "isLegends": false
+    },
+    {
+      "id": "000000883",
+      "name": "Venerable Contemptor Dreadnought",
+      "faction_id": "AC",
+      "isLegends": false
+    },
+    {
+      "id": "000000884",
+      "name": "Venerable Land Raider",
+      "faction_id": "AC",
+      "isLegends": false
+    },
+    {
+      "id": "000001558",
+      "name": "Aquilon Custodians",
+      "faction_id": "AC",
+      "isLegends": false
+    },
+    {
+      "id": "000001559",
+      "name": "Custodian Guard With Adrasite And Pyrithite Spears",
+      "faction_id": "AC",
+      "isLegends": false
+    },
+    {
+      "id": "000001560",
+      "name": "Agamatus Custodians",
+      "faction_id": "AC",
+      "isLegends": false
+    },
+    {
+      "id": "000001561",
+      "name": "Venatari Custodians",
+      "faction_id": "AC",
+      "isLegends": false
+    },
+    {
+      "id": "000001563",
+      "name": "Sagittarum Custodians",
+      "faction_id": "AC",
+      "isLegends": false
+    },
+    {
+      "id": "000002088",
+      "name": "Aleya",
+      "faction_id": "AC",
+      "isLegends": false
+    },
+    {
+      "id": "000002519",
+      "name": "Valerian",
+      "faction_id": "AC",
+      "isLegends": false
+    },
+    {
+      "id": "000002521",
+      "name": "Prosecutors",
+      "faction_id": "AC",
+      "isLegends": false
+    },
+    {
+      "id": "000002522",
+      "name": "Vigilators",
+      "faction_id": "AC",
+      "isLegends": false
+    },
+    {
+      "id": "000002523",
+      "name": "Witchseekers",
+      "faction_id": "AC",
+      "isLegends": false
+    },
+    {
+      "id": "000000847",
+      "name": "Servitors",
+      "faction_id": "AdM",
+      "isLegends": true
+    },
+    {
+      "id": "000001525",
+      "name": "Secutarii Hoplites",
+      "faction_id": "AdM",
+      "isLegends": true
+    },
+    {
+      "id": "000001526",
+      "name": "Secutarii Peltasts",
+      "faction_id": "AdM",
+      "isLegends": true
+    },
+    {
+      "id": "000001533",
+      "name": "Terrax-pattern Termite",
+      "faction_id": "AdM",
+      "isLegends": true
+    },
+    {
+      "id": "000001822",
+      "name": "X-101",
+      "faction_id": "AdM",
+      "isLegends": true
+    },
+    {
+      "id": "000000569",
+      "name": "Prince Yriel (Legendary)",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000570",
+      "name": "Illic Nightspear",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000573",
+      "name": "Karandras",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000580",
+      "name": "Autarch Skyrunner",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000605",
+      "name": "Vypers",
+      "faction_id": "AE",
+      "isLegends": false
+    },
+    {
+      "id": "000000615",
+      "name": "Shadow Spectres",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000616",
+      "name": "Wasp Assault Walker",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000617",
+      "name": "Wraithseer",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000618",
+      "name": "Hornet",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000619",
+      "name": "Warp Hunter",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000620",
+      "name": "Lynx",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000621",
+      "name": "Scorpion",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000622",
+      "name": "Cobra",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000623",
+      "name": "Nightwing",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000624",
+      "name": "Phoenix",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000625",
+      "name": "Vampire Raider",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000626",
+      "name": "Vampire Hunter",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000627",
+      "name": "Skathach Wraithknight",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000629",
+      "name": "Corsair Cloud Dancer Band",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000630",
+      "name": "Irillyth",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000632",
+      "name": "Corsair Reaver Band",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000633",
+      "name": "Corsair Skyreaver Band",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000001393",
+      "name": "Firestorm",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000001400",
+      "name": "Bonesinger",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000001598",
+      "name": "Amallyn Shadowguide",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000002459",
+      "name": "Webway Gate",
+      "faction_id": "AE",
+      "isLegends": true
+    },
+    {
+      "id": "000000713",
+      "name": "‘Iron Hand’ Straken",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000714",
+      "name": "Sergeant Harker",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000728",
+      "name": "Atlas Recovery Vehicle",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000729",
+      "name": "Salamander Command Vehicle",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000730",
+      "name": "Hades Breaching Drill",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000731",
+      "name": "Centaur Light Carrier",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000733",
+      "name": "Trojan Support Vehicle",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000735",
+      "name": "Salamander Scout Vehicle",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000736",
+      "name": "Tauros Assault Vehicle",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000737",
+      "name": "Tauros Venator",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000739",
+      "name": "Armageddon-pattern Medusa",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000740",
+      "name": "Colossus",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000743",
+      "name": "Earthshaker Carriage Battery",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000744",
+      "name": "Griffon Mortar Carrier",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000745",
+      "name": "Heavy Mortar Team",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000746",
+      "name": "Heavy Quad Launcher Team",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000747",
+      "name": "Hydra Platform",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000751",
+      "name": "Malcador Annihilator",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000752",
+      "name": "Malcador Defender",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000753",
+      "name": "Malcador",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000754",
+      "name": "Malcador Infernus",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000755",
+      "name": "Manticore Platform",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000756",
+      "name": "Medusa Carriage Battery",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000757",
+      "name": "Rapier Laser Destroyer Battery",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000758",
+      "name": "Sabre Weapons Battery",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000759",
+      "name": "Sentinel Powerlifter",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000760",
+      "name": "Stygies Destroyer Tank Hunter",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000762",
+      "name": "Tarantula Battery",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000763",
+      "name": "Stormblade",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000764",
+      "name": "Arkurian Stormhammer",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000766",
+      "name": "Crassus",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000767",
+      "name": "Dominus Armoured Siege Bombard",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000768",
+      "name": "Gorgon Heavy Transport",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000769",
+      "name": "Macharius",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000770",
+      "name": "Macharius Omega",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000771",
+      "name": "Macharius Vanquisher",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000772",
+      "name": "Macharius Vulcan",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000773",
+      "name": "Marauder Bomber",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000774",
+      "name": "Marauder Destroyer",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000775",
+      "name": "Minotaur",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000776",
+      "name": "Praetor",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000777",
+      "name": "Valdor",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000778",
+      "name": "Aquila Lander",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000779",
+      "name": "Arvus Lighter",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000781",
+      "name": "Voss-pattern Lightning",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000783",
+      "name": "Vendetta Gunship",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000784",
+      "name": "Vulture Gunship",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000001237",
+      "name": "Valkyrie Sky Talon",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000001383",
+      "name": "Mukaali Riders",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000001397",
+      "name": "Munitorum Servitors",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000001596",
+      "name": "Rein And Raus",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000001994",
+      "name": "Carnodon",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000002374",
+      "name": "Death Korps Grenadier Squad",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000002375",
+      "name": "Quartermaster Cadre Squad",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000002377",
+      "name": "Elysian Sniper Squad",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000002378",
+      "name": "Death Rider Commissar",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000002379",
+      "name": "Storm Chimera",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000002610",
+      "name": "Regimental Attachés",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000002739",
+      "name": "Earthshaker Platform",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000002740",
+      "name": "Elysian Drop Sentinel",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000003922",
+      "name": "Hell’s Last",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000003937",
+      "name": "Provisionally Prepared",
+      "faction_id": "AM",
+      "isLegends": true
+    },
+    {
+      "id": "000000875",
+      "name": "Inquisitor Karamazov",
+      "faction_id": "AoI",
+      "isLegends": true
+    },
+    {
+      "id": "000001579",
+      "name": "Inquisitor Eisenhorn",
+      "faction_id": "AoI",
+      "isLegends": true
+    },
+    {
+      "id": "000002760",
+      "name": "Inquisitor In Terminator Armour",
+      "faction_id": "AoI",
+      "isLegends": true
+    },
+    {
+      "id": "000002761",
+      "name": "Damned Legionnaires",
+      "faction_id": "AoI",
+      "isLegends": true
+    },
+    {
+      "id": "000002763",
+      "name": "Janus Draik",
+      "faction_id": "AoI",
+      "isLegends": true
+    },
+    {
+      "id": "000002764",
+      "name": "Neyam Shai Murad",
+      "faction_id": "AoI",
+      "isLegends": true
+    },
+    {
+      "id": "000002766",
+      "name": "UR-025",
+      "faction_id": "AoI",
+      "isLegends": true
+    },
+    {
+      "id": "000003821",
+      "name": "Kill Team Cassius",
+      "faction_id": "AoI",
+      "isLegends": true
+    },
+    {
+      "id": "000003822",
+      "name": "Deathwatch Terminator Squad",
+      "faction_id": "AoI",
+      "isLegends": true
+    },
+    {
+      "id": "000003823",
+      "name": "Veteran Bike Squad",
+      "faction_id": "AoI",
+      "isLegends": true
+    },
+    {
+      "id": "000003824",
+      "name": "Proteus Kill Team",
+      "faction_id": "AoI",
+      "isLegends": true
+    },
+    {
+      "id": "000003825",
+      "name": "Fortis Kill Team",
+      "faction_id": "AoI",
+      "isLegends": true
+    },
+    {
+      "id": "000003826",
+      "name": "Indomitor Kill Team",
+      "faction_id": "AoI",
+      "isLegends": true
+    },
+    {
+      "id": "000003827",
+      "name": "Spectrus Kill Team",
+      "faction_id": "AoI",
+      "isLegends": true
+    },
+    {
+      "id": "000003828",
+      "name": "Daemonhost",
+      "faction_id": "AoI",
+      "isLegends": true
+    },
+    {
+      "id": "000003829",
+      "name": "Jokaero Weaponsmith",
+      "faction_id": "AoI",
+      "isLegends": true
+    },
+    {
+      "id": "000004173",
+      "name": "Inquisitor Ostromandeus",
+      "faction_id": "AoI",
+      "isLegends": true
+    },
+    {
+      "id": "000000894",
+      "name": "Crusaders",
+      "faction_id": "AS",
+      "isLegends": true
+    },
+    {
+      "id": "000000895",
+      "name": "Death Cult Assassins",
+      "faction_id": "AS",
+      "isLegends": true
+    },
+    {
+      "id": "000001199",
+      "name": "Repressor",
+      "faction_id": "AS",
+      "isLegends": true
+    },
+    {
+      "id": "000002068",
+      "name": "Battle Sanctum",
+      "faction_id": "AS",
+      "isLegends": true
+    },
+    {
+      "id": "000003811",
+      "name": "Celestian Sacresant Aveline",
+      "faction_id": "AS",
+      "isLegends": true
+    },
+    {
+      "id": "000001139",
+      "name": "Herald Of Slaanesh On Steed Of Slaanesh",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000001141",
+      "name": "Tormentbringer On Exalted Seeker Chariot",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000001146",
+      "name": "Seeker Chariot",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000001147",
+      "name": "Exalted Seeker Chariot",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000001150",
+      "name": "Furies",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000001329",
+      "name": "An’ggrath the Unbound",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000001332",
+      "name": "Zarakynel",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000001333",
+      "name": "Aetaos’rau’keres",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000001336",
+      "name": "Plague Toads",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000001337",
+      "name": "Pox Riders",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000001338",
+      "name": "Spined Chaos Beast",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000001339",
+      "name": "Giant Chaos Spawn",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000001340",
+      "name": "Scabeiathrax The Bloated",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000004036",
+      "name": "Chaos Lord",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004037",
+      "name": "Chaos Lord In Terminator Armour",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004038",
+      "name": "Chaos Lord with Jump Pack",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004039",
+      "name": "Chaos Lord On Disc Of Tzeentch",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000004040",
+      "name": "Chaos Lord On Juggernaut",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000004041",
+      "name": "Chaos Lord On Palanquin Of Nurgle",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000004042",
+      "name": "Chaos Lord On Steed Of Slaanesh",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000004043",
+      "name": "Chaos Terminator Squad",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004044",
+      "name": "Chosen",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004045",
+      "name": "Cultist Firebrand",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004046",
+      "name": "Dark Commune",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004047",
+      "name": "Traitor Enforcer",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004048",
+      "name": "Renegade Enforcer",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000004049",
+      "name": "Rogue Psyker",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000004050",
+      "name": "Cultist Mob",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004051",
+      "name": "Cultist Mob with Firearms",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000004052",
+      "name": "Accursed Cultists",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004053",
+      "name": "Fellgor Beastmen",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004054",
+      "name": "Traitor Guardsmen Squad",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004055",
+      "name": "Gellerpox Infected",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000004056",
+      "name": "Mutoid Vermin",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000004057",
+      "name": "Negavolt Cultists",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000004058",
+      "name": "Renegade Heavy Weapons Squad",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000004059",
+      "name": "Renegade Ogryn Beast Handler",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000004060",
+      "name": "Renegade Ogryn Brutes",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000004061",
+      "name": "Renegade Plague Ogryns",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000004062",
+      "name": "Dark Apostle",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004063",
+      "name": "Havocs",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004064",
+      "name": "Legionaries",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004065",
+      "name": "Master Of Possession",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004066",
+      "name": "Possessed",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004067",
+      "name": "Raptors",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004068",
+      "name": "Sorcerer",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004069",
+      "name": "Sorcerer On Disc Of Tzeentch",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000004070",
+      "name": "Sorcerer On Palanquin Of Nurgle",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000004071",
+      "name": "Sorcerer On Steed Of Slaanesh",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000004072",
+      "name": "Sorcerer In Terminator Armour",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004073",
+      "name": "Warp Talons",
+      "faction_id": "CD",
+      "isLegends": false
+    },
+    {
+      "id": "000004101",
+      "name": "Hellflayer",
+      "faction_id": "CD",
+      "isLegends": true
+    },
+    {
+      "id": "000000931",
+      "name": "Chaos Lord On Bike",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000000932",
+      "name": "Chaos Lord On Juggernaut",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000000933",
+      "name": "Chaos Lord On Disc Of Tzeentch",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000000934",
+      "name": "Chaos Lord On Palanquin Of Nurgle",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000000935",
+      "name": "Chaos Lord On Steed Of Slaanesh",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000000940",
+      "name": "Sorcerer On Bike",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000000941",
+      "name": "Sorcerer On Disc Of Tzeentch",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000000942",
+      "name": "Sorcerer On Palanquin Of Nurgle",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000000943",
+      "name": "Sorcerer On Steed Of Slaanesh",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000000955",
+      "name": "Mutilators (Legendary)",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000001293",
+      "name": "Blood Slaughterer",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000001294",
+      "name": "Greater Blight Drone",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000001295",
+      "name": "Decimator",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000001297",
+      "name": "Kytan Ravager",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000001298",
+      "name": "Greater Brass Scorpion",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000001302",
+      "name": "Chaos Deimos Predator",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000001310",
+      "name": "Dreadclaw Drop Pod",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000001311",
+      "name": "Kharybdis Assault Claw",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000001317",
+      "name": "Hell Blade",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000001318",
+      "name": "Hell Talon",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000001321",
+      "name": "Chaos Thunderhawk",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000001355",
+      "name": "Exalted Champion",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000001600",
+      "name": "Rogue Psyker",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000001601",
+      "name": "Negavolt Cultists",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000002591",
+      "name": "Mutoid Vermin",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000002592",
+      "name": "Gellerpox Infected",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000002731",
+      "name": "Renegade Enforcer",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000002732",
+      "name": "Renegade Heavy Weapons Squad",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000002733",
+      "name": "Renegade Ogryn Beast Handler",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000002734",
+      "name": "Renegade Ogryn Brutes",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000002735",
+      "name": "Renegade Plague Ogryns",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003582",
+      "name": "Khorne Berzerkers",
+      "faction_id": "CSM",
+      "isLegends": false
+    },
+    {
+      "id": "000003583",
+      "name": "Rubric Marines",
+      "faction_id": "CSM",
+      "isLegends": false
+    },
+    {
+      "id": "000003584",
+      "name": "Plague Marines",
+      "faction_id": "CSM",
+      "isLegends": false
+    },
+    {
+      "id": "000003606",
+      "name": "Terrax-pattern Termite",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003610",
+      "name": "Land Raider Achilles",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003614",
+      "name": "Land Raider Proteus",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003618",
+      "name": "Fire Raptor Gunship",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003622",
+      "name": "Spartan",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003626",
+      "name": "Deredeo Dreadnought",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003630",
+      "name": "Cerberus",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003634",
+      "name": "Kratos",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003638",
+      "name": "Sokar-pattern Stormbird",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003642",
+      "name": "Sicaran Battle Tank",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003646",
+      "name": "Mastodon",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003650",
+      "name": "Leviathan Dreadnought",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003654",
+      "name": "Fellblade",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003658",
+      "name": "Relic Contemptor Dreadnought",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003662",
+      "name": "Whirlwind Scorpius",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003666",
+      "name": "Xiphon Interceptor",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003670",
+      "name": "Rapier Carrier",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003674",
+      "name": "Storm Eagle Gunship",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003678",
+      "name": "Sicaran Venator",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003682",
+      "name": "Typhon",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003686",
+      "name": "Sicaran Punisher",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003690",
+      "name": "Falchion",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000003713",
+      "name": "Cultist Mob with Firearms",
+      "faction_id": "CSM",
+      "isLegends": true
+    },
+    {
+      "id": "000004099",
+      "name": "Noise Marines",
+      "faction_id": "CSM",
+      "isLegends": false
+    },
+    {
+      "id": "000001037",
+      "name": "Death Guard Chaos Lord",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000001038",
+      "name": "Death Guard Chaos Lord In Terminator Armour",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000001041",
+      "name": "Death Guard Sorcerer In Terminator Armour",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000001043",
+      "name": "Death Guard Cultists",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000001045",
+      "name": "Death Guard Possessed",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000001374",
+      "name": "Myphitic Blight-hauler",
+      "faction_id": "DG",
+      "isLegends": false
+    },
+    {
+      "id": "000003585",
+      "name": "Chaos Thunderhawk",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003586",
+      "name": "Greater Blight Drone",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003592",
+      "name": "Chaos Lord On Palanquin Of Nurgle",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003593",
+      "name": "Gellerpox Infected",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003594",
+      "name": "Hell Blade",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003595",
+      "name": "Hell Talon",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003596",
+      "name": "Mutoid Vermin",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003600",
+      "name": "Sorcerer On Palanquin Of Nurgle",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003604",
+      "name": "Terrax-pattern Termite",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003608",
+      "name": "Land Raider Achilles",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003612",
+      "name": "Land Raider Proteus",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003616",
+      "name": "Fire Raptor Gunship",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003620",
+      "name": "Spartan",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003624",
+      "name": "Deredeo Dreadnought",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003628",
+      "name": "Cerberus",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003632",
+      "name": "Kratos",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003636",
+      "name": "Sokar-pattern Stormbird",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003640",
+      "name": "Sicaran Battle Tank",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003644",
+      "name": "Mastodon",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003648",
+      "name": "Leviathan Dreadnought",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003652",
+      "name": "Fellblade",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003656",
+      "name": "Relic Contemptor Dreadnought",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003660",
+      "name": "Whirlwind Scorpius",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003664",
+      "name": "Xiphon Interceptor",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003668",
+      "name": "Rapier Carrier",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003672",
+      "name": "Storm Eagle Gunship",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003676",
+      "name": "Sicaran Venator",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003680",
+      "name": "Typhon",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003684",
+      "name": "Sicaran Punisher",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000003688",
+      "name": "Falchion",
+      "faction_id": "DG",
+      "isLegends": true
+    },
+    {
+      "id": "000000642",
+      "name": "Urien Rakarth",
+      "faction_id": "DRU",
+      "isLegends": true
+    },
+    {
+      "id": "000000651",
+      "name": "Grotesques",
+      "faction_id": "DRU",
+      "isLegends": true
+    },
+    {
+      "id": "000000652",
+      "name": "Beastmaster",
+      "faction_id": "DRU",
+      "isLegends": true
+    },
+    {
+      "id": "000000666",
+      "name": "Reaper",
+      "faction_id": "DRU",
+      "isLegends": true
+    },
+    {
+      "id": "000000667",
+      "name": "Tantalus",
+      "faction_id": "DRU",
+      "isLegends": true
+    },
+    {
+      "id": "000001390",
+      "name": "Raven Strike Fighter",
+      "faction_id": "DRU",
+      "isLegends": true
+    },
+    {
+      "id": "000002471",
+      "name": "Court of the Archon",
+      "faction_id": "DRU",
+      "isLegends": true
+    },
+    {
+      "id": "000004158",
+      "name": "Death Jester",
+      "faction_id": "DRU",
+      "isLegends": false
+    },
+    {
+      "id": "000004159",
+      "name": "Shadowseer",
+      "faction_id": "DRU",
+      "isLegends": false
+    },
+    {
+      "id": "000004160",
+      "name": "Solitaire",
+      "faction_id": "DRU",
+      "isLegends": false
+    },
+    {
+      "id": "000004161",
+      "name": "Troupe Master",
+      "faction_id": "DRU",
+      "isLegends": false
+    },
+    {
+      "id": "000004162",
+      "name": "Starweaver",
+      "faction_id": "DRU",
+      "isLegends": false
+    },
+    {
+      "id": "000004163",
+      "name": "Skyweavers",
+      "faction_id": "DRU",
+      "isLegends": false
+    },
+    {
+      "id": "000004164",
+      "name": "Troupe",
+      "faction_id": "DRU",
+      "isLegends": false
+    },
+    {
+      "id": "000004165",
+      "name": "Voidweaver",
+      "faction_id": "DRU",
+      "isLegends": false
+    },
+    {
+      "id": "000004168",
+      "name": "Corsair Voidreavers",
+      "faction_id": "DRU",
+      "isLegends": false
+    },
+    {
+      "id": "000004169",
+      "name": "Corsair Voidscarred",
+      "faction_id": "DRU",
+      "isLegends": false
+    },
+    {
+      "id": "000004170",
+      "name": "Corsair Cloud Dancer Band",
+      "faction_id": "DRU",
+      "isLegends": true
+    },
+    {
+      "id": "000004171",
+      "name": "Corsair Reaver Band",
+      "faction_id": "DRU",
+      "isLegends": true
+    },
+    {
+      "id": "000004172",
+      "name": "Corsair Skyreaver Band",
+      "faction_id": "DRU",
+      "isLegends": true
+    },
+    {
+      "id": "000004197",
+      "name": "Kharseth",
+      "faction_id": "DRU",
+      "isLegends": false
+    },
+    {
+      "id": "000004198",
+      "name": "Prince Yriel",
+      "faction_id": "DRU",
+      "isLegends": false
+    },
+    {
+      "id": "000004199",
+      "name": "Corsair Skyreavers",
+      "faction_id": "DRU",
+      "isLegends": false
+    },
+    {
+      "id": "000004200",
+      "name": "Starfangs",
+      "faction_id": "DRU",
+      "isLegends": false
+    },
+    {
+      "id": "000004077",
+      "name": "Fulgrim",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004078",
+      "name": "Lord Exultant",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004079",
+      "name": "Tormentors",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004080",
+      "name": "Infractors",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004081",
+      "name": "Chaos Terminators",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004082",
+      "name": "Chaos Land Raider",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004083",
+      "name": "Lucius the Eternal",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004084",
+      "name": "Lord Kakophonist",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004085",
+      "name": "Sorcerer",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004086",
+      "name": "Daemon Prince of Slaanesh",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004087",
+      "name": "Daemon Prince of Slaanesh with Wings",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004088",
+      "name": "Noise Marines",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004089",
+      "name": "Flawless Blades",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004090",
+      "name": "Chaos Spawn",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004091",
+      "name": "Maulerfiend",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004092",
+      "name": "Heldrake",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004093",
+      "name": "Chaos Rhino",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004094",
+      "name": "Shalaxi Helbane",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004095",
+      "name": "Daemonettes",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004096",
+      "name": "Fiends",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004097",
+      "name": "Keeper of Secrets",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004098",
+      "name": "Seekers",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000004208",
+      "name": "Defiler",
+      "faction_id": "EC",
+      "isLegends": false
+    },
+    {
+      "id": "000001576",
+      "name": "Tectonic Fragdrill",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000003877",
+      "name": "Deathleaper",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003878",
+      "name": "Parasite Of Mortrex",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003879",
+      "name": "Winged Hive Tyrant",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003880",
+      "name": "Winged Tyranid Prime",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003881",
+      "name": "Gargoyles",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003882",
+      "name": "Tyrannocyte",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003883",
+      "name": "Lictor",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003884",
+      "name": "Mawloc",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003885",
+      "name": "Neurolictor",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003886",
+      "name": "Raveners",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003887",
+      "name": "Trygon",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003888",
+      "name": "Von Ryan’s Leapers",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003938",
+      "name": "Cadian Castellan",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003939",
+      "name": "Cadian Command Squad",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003940",
+      "name": "Catachan Command Squad",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003941",
+      "name": "Krieg Command Squad",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003942",
+      "name": "Leman Russ Commander",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003943",
+      "name": "Primaris Psyker",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003944",
+      "name": "Rogal Dorn Commander",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003945",
+      "name": "Death Rider Commissar",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000003946",
+      "name": "Quartermaster Cadre Squad",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000003947",
+      "name": "Hell’s Last",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000003948",
+      "name": "Cadian Shock Troops",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003949",
+      "name": "Catachan Jungle Fighters",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003950",
+      "name": "Death Korps Of Krieg",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003951",
+      "name": "Chimera",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003952",
+      "name": "Taurox",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003953",
+      "name": "Taurox Prime",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003954",
+      "name": "Storm Chimera",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000003955",
+      "name": "Aegis Defence Line",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003956",
+      "name": "Earthshaker Platform",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000003957",
+      "name": "Hydra Platform",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000003958",
+      "name": "Manticore Platform",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000003959",
+      "name": "Sabre Weapons Battery",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000003960",
+      "name": "Armoured Sentinels",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003961",
+      "name": "Artillery Team",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003962",
+      "name": "Attilan Rough Riders",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003963",
+      "name": "Baneblade",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003964",
+      "name": "Banehammer",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003965",
+      "name": "Banesword",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003966",
+      "name": "Basilisk",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003967",
+      "name": "Cadian Heavy Weapons Squad",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003968",
+      "name": "Catachan Heavy Weapons Squad",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003969",
+      "name": "Death Riders",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003970",
+      "name": "Deathstrike",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003971",
+      "name": "Doomhammer",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003972",
+      "name": "Field Ordnance Battery",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003973",
+      "name": "Hellhammer",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003974",
+      "name": "Hellhound",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003975",
+      "name": "Hydra",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003976",
+      "name": "Kasrkin",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003977",
+      "name": "Krieg Combat Engineers",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003978",
+      "name": "Krieg Heavy Weapons Squad",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003979",
+      "name": "Leman Russ Battle Tank",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003980",
+      "name": "Leman Russ Demolisher",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003981",
+      "name": "Leman Russ Eradicator",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003982",
+      "name": "Leman Russ Executioner",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003983",
+      "name": "Leman Russ Exterminator",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003984",
+      "name": "Leman Russ Punisher",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003985",
+      "name": "Leman Russ Vanquisher",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003986",
+      "name": "Manticore",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003987",
+      "name": "Rogal Dorn Battle Tank",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003988",
+      "name": "Scout Sentinels",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003989",
+      "name": "Shadowsword",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003990",
+      "name": "Stormlord",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003991",
+      "name": "Stormsword",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003992",
+      "name": "Wyvern",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003993",
+      "name": "Cyclops Demolition Vehicle",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000003994",
+      "name": "Arkurian Stormhammer",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000003995",
+      "name": "Armageddon-pattern Medusa",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000003996",
+      "name": "Atlas Recovery Vehicle",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000003997",
+      "name": "Carnodon",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000003998",
+      "name": "Centaur Light Carrier",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000003999",
+      "name": "Colossus",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004000",
+      "name": "Crassus",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004001",
+      "name": "Death Korps Grenadier Squad",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004002",
+      "name": "Dominus Armoured Siege Bombard",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004003",
+      "name": "Earthshaker Carriage Battery",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004004",
+      "name": "Elysian Drop Sentinel",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004005",
+      "name": "Elysian Sniper Squad",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004006",
+      "name": "Gorgon Heavy Transport",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004007",
+      "name": "Griffon Mortar Carrier",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004008",
+      "name": "Hades Breaching Drill",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004009",
+      "name": "Heavy Mortar Team",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004010",
+      "name": "Heavy Quad Launcher Team",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004011",
+      "name": "Macharius",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004012",
+      "name": "Macharius Omega",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004013",
+      "name": "Macharius Vanquisher",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004014",
+      "name": "Macharius Vulcan",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004015",
+      "name": "Malcador",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004016",
+      "name": "Malcador Annihilator",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004017",
+      "name": "Malcador Defender",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004018",
+      "name": "Malcador Infernus",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004019",
+      "name": "Medusa Carriage Battery",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004020",
+      "name": "Minotaur",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004021",
+      "name": "Mukaali Riders",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004022",
+      "name": "Munitorum Servitors",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004023",
+      "name": "Praetor",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004024",
+      "name": "Rapier Laser Destroyer Battery",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004025",
+      "name": "Regimental Attachés",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004026",
+      "name": "Salamander Command Vehicle",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004027",
+      "name": "Salamander Scout Vehicle",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004028",
+      "name": "Sentinel Powerlifter",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004029",
+      "name": "Stormblade",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004030",
+      "name": "Stygies Destroyer Tank Hunter",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004031",
+      "name": "Tarantula Battery",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004032",
+      "name": "Tauros Assault Vehicle",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004033",
+      "name": "Tauros Venator",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004034",
+      "name": "Trojan Support Vehicle",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004035",
+      "name": "Valdor",
+      "faction_id": "GC",
+      "isLegends": true
+    },
+    {
+      "id": "000004118",
+      "name": "Hyperadapted Raveners",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000004222",
+      "name": "Centaur RSV",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000004223",
+      "name": "Hippogriff AFV",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000004226",
+      "name": "The Red Terror",
+      "faction_id": "GC",
+      "isLegends": false
+    },
+    {
+      "id": "000000373",
+      "name": "Kaldor Draigo",
+      "faction_id": "GK",
+      "isLegends": true
+    },
+    {
+      "id": "000000377",
+      "name": "Brother-captain Stern",
+      "faction_id": "GK",
+      "isLegends": true
+    },
+    {
+      "id": "000000390",
+      "name": "Grey Knights Dreadnought",
+      "faction_id": "GK",
+      "isLegends": true
+    },
+    {
+      "id": "000000397",
+      "name": "Servitors",
+      "faction_id": "GK",
+      "isLegends": true
+    },
+    {
+      "id": "000002768",
+      "name": "Grey Knights Relic Razorback",
+      "faction_id": "GK",
+      "isLegends": true
+    },
+    {
+      "id": "000000524",
+      "name": "Lord",
+      "faction_id": "NEC",
+      "isLegends": true
+    },
+    {
+      "id": "000000527",
+      "name": "Nemesor Zahndrekh",
+      "faction_id": "NEC",
+      "isLegends": true
+    },
+    {
+      "id": "000000528",
+      "name": "Vargard Obyron",
+      "faction_id": "NEC",
+      "isLegends": true
+    },
+    {
+      "id": "000000531",
+      "name": "Anrakyr The Traveller",
+      "faction_id": "NEC",
+      "isLegends": true
+    },
+    {
+      "id": "000000558",
+      "name": "Canoptek Tomb Stalker",
+      "faction_id": "NEC",
+      "isLegends": true
+    },
+    {
+      "id": "000000559",
+      "name": "Canoptek Acanthrites",
+      "faction_id": "NEC",
+      "isLegends": true
+    },
+    {
+      "id": "000000560",
+      "name": "Canoptek Tomb Sentinel",
+      "faction_id": "NEC",
+      "isLegends": true
+    },
+    {
+      "id": "000000561",
+      "name": "Night Shroud",
+      "faction_id": "NEC",
+      "isLegends": true
+    },
+    {
+      "id": "000000562",
+      "name": "Sentry Pylon",
+      "faction_id": "NEC",
+      "isLegends": true
+    },
+    {
+      "id": "000000564",
+      "name": "Tesseract Ark",
+      "faction_id": "NEC",
+      "isLegends": true
+    },
+    {
+      "id": "000000567",
+      "name": "Gauss Pylon",
+      "faction_id": "NEC",
+      "isLegends": true
+    },
+    {
+      "id": "000002362",
+      "name": "Tomb Citadel Walls",
+      "faction_id": "NEC",
+      "isLegends": true
+    },
+    {
+      "id": "000000003",
+      "name": "Warboss On Warbike",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000000007",
+      "name": "Big Mek On Warbike",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000000009",
+      "name": "Kaptin Badrukk",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000000010",
+      "name": "Boss Zagstruk",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000000014",
+      "name": "Painboy On Warbike",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000000015",
+      "name": "Mad Dok Grotsnik",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000000019",
+      "name": "Burna Boyz",
+      "faction_id": "ORK",
+      "isLegends": false
+    },
+    {
+      "id": "000000022",
+      "name": "Nob With Waaagh! Banner",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000000023",
+      "name": "Nobz On Warbikes",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000000035",
+      "name": "Skorchas",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000000037",
+      "name": "Big Gunz",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000000044",
+      "name": "Lootas",
+      "faction_id": "ORK",
+      "isLegends": false
+    },
+    {
+      "id": "000000049",
+      "name": "Grot Tanks",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000000050",
+      "name": "Grot Mega-tank",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000000051",
+      "name": "Squiggoth",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000000052",
+      "name": "Meka-dread",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000000053",
+      "name": "Lifta Wagon",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000000054",
+      "name": "Big Trakk",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000000055",
+      "name": "Kannonwagon",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000000056",
+      "name": "Kill Tank",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000000057",
+      "name": "Chinork Warkopta",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000001385",
+      "name": "Grot Bomm Launcha",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000001386",
+      "name": "Attack Fighta",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000001387",
+      "name": "Fighta-bommer",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000001388",
+      "name": "Deff Rolla Battle Fortress",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000001389",
+      "name": "Kill Krusha",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000001538",
+      "name": "Kustom Boosta-blasta",
+      "faction_id": "ORK",
+      "isLegends": false
+    },
+    {
+      "id": "000001539",
+      "name": "Shokkjump Dragsta",
+      "faction_id": "ORK",
+      "isLegends": false
+    },
+    {
+      "id": "000001540",
+      "name": "Boomdakka Snazzwagon",
+      "faction_id": "ORK",
+      "isLegends": false
+    },
+    {
+      "id": "000001541",
+      "name": "Megatrakk Scrapjet",
+      "faction_id": "ORK",
+      "isLegends": false
+    },
+    {
+      "id": "000001542",
+      "name": "Rukkatrukk Squigbuggy",
+      "faction_id": "ORK",
+      "isLegends": false
+    },
+    {
+      "id": "000001545",
+      "name": "Mekboy Workshop",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000001993",
+      "name": "Da Red Gobbo",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000002080",
+      "name": "Big Mek With Kustom Force Field",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000002453",
+      "name": "Mega Dread",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000002492",
+      "name": "Wurrboy",
+      "faction_id": "ORK",
+      "isLegends": false
+    },
+    {
+      "id": "000002736",
+      "name": "Deffkoptas With Big Shootas",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000003709",
+      "name": "Ufthak Blackhawk",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000004181",
+      "name": "Da Red Gobbo’s Tinboy",
+      "faction_id": "ORK",
+      "isLegends": true
+    },
+    {
+      "id": "000002770",
+      "name": "Sir Hekhtur",
+      "faction_id": "QI",
+      "isLegends": false
+    },
+    {
+      "id": "000003839",
+      "name": "Tech-priest Dominus",
+      "faction_id": "QI",
+      "isLegends": false
+    },
+    {
+      "id": "000003840",
+      "name": "Tech-priest Manipulus",
+      "faction_id": "QI",
+      "isLegends": false
+    },
+    {
+      "id": "000003841",
+      "name": "Skitarii Marshal",
+      "faction_id": "QI",
+      "isLegends": false
+    },
+    {
+      "id": "000003842",
+      "name": "Skitarii Rangers",
+      "faction_id": "QI",
+      "isLegends": false
+    },
+    {
+      "id": "000003843",
+      "name": "Skitarii Vanguard",
+      "faction_id": "QI",
+      "isLegends": false
+    },
+    {
+      "id": "000003844",
+      "name": "Cultist Firebrand",
+      "faction_id": "QT",
+      "isLegends": false
+    },
+    {
+      "id": "000003845",
+      "name": "Dark Commune",
+      "faction_id": "QT",
+      "isLegends": false
+    },
+    {
+      "id": "000003846",
+      "name": "Traitor Enforcer",
+      "faction_id": "QT",
+      "isLegends": false
+    },
+    {
+      "id": "000003847",
+      "name": "Renegade Enforcer",
+      "faction_id": "QT",
+      "isLegends": true
+    },
+    {
+      "id": "000003848",
+      "name": "Rogue Psyker",
+      "faction_id": "QT",
+      "isLegends": true
+    },
+    {
+      "id": "000003849",
+      "name": "Cultist Mob",
+      "faction_id": "QT",
+      "isLegends": false
+    },
+    {
+      "id": "000003850",
+      "name": "Cultist Mob with Firearms",
+      "faction_id": "QT",
+      "isLegends": true
+    },
+    {
+      "id": "000003851",
+      "name": "Accursed Cultists",
+      "faction_id": "QT",
+      "isLegends": false
+    },
+    {
+      "id": "000003852",
+      "name": "Fellgor Beastmen",
+      "faction_id": "QT",
+      "isLegends": false
+    },
+    {
+      "id": "000003853",
+      "name": "Traitor Guardsmen Squad",
+      "faction_id": "QT",
+      "isLegends": false
+    },
+    {
+      "id": "000003854",
+      "name": "Gellerpox Infected",
+      "faction_id": "QT",
+      "isLegends": true
+    },
+    {
+      "id": "000003855",
+      "name": "Mutoid Vermin",
+      "faction_id": "QT",
+      "isLegends": true
+    },
+    {
+      "id": "000003856",
+      "name": "Negavolt Cultists",
+      "faction_id": "QT",
+      "isLegends": true
+    },
+    {
+      "id": "000003857",
+      "name": "Renegade Heavy Weapons Squad",
+      "faction_id": "QT",
+      "isLegends": true
+    },
+    {
+      "id": "000003858",
+      "name": "Renegade Ogryn Beast Handler",
+      "faction_id": "QT",
+      "isLegends": true
+    },
+    {
+      "id": "000003859",
+      "name": "Renegade Ogryn Brutes",
+      "faction_id": "QT",
+      "isLegends": true
+    },
+    {
+      "id": "000003860",
+      "name": "Renegade Plague Ogryns",
+      "faction_id": "QT",
+      "isLegends": true
+    },
+    {
+      "id": "000000061",
+      "name": "Assault Squad",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000063",
+      "name": "Apothecary on Bike",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000064",
+      "name": "Assault Squad with Jump Packs",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000067",
+      "name": "Land Raider Excelsior",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000068",
+      "name": "Suppressor Squad",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000000070",
+      "name": "Tactical Squad",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000000072",
+      "name": "Caestus Assault Ram",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000084",
+      "name": "Stormhawk Interceptor",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000000085",
+      "name": "Rhino Primaris",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000092",
+      "name": "Sicaran Venator",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000093",
+      "name": "Typhon",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000095",
+      "name": "Ultramarines Honour Guard",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000096",
+      "name": "Carab Culln The Risen",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000097",
+      "name": "Hammerfall Bunker",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000000098",
+      "name": "Tarantula Sentry Battery",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000099",
+      "name": "Tarantula Air Defence Battery",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000103",
+      "name": "Eradicator Squad",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000000104",
+      "name": "Relic Terminator Squad",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000107",
+      "name": "Javelin Attack Speeder",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000110",
+      "name": "Rapier Carrier",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000111",
+      "name": "Mortis Dreadnought",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000113",
+      "name": "Storm Eagle Gunship",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000116",
+      "name": "Bike Squad",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000117",
+      "name": "Dreadnought",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000000120",
+      "name": "Venerable Dreadnought (Legendary)",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000121",
+      "name": "Uriel Ventris",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000000122",
+      "name": "Dreadnought Drop Pod",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000123",
+      "name": "Sicaran Punisher",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000129",
+      "name": "Razorback",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000000131",
+      "name": "Leviathan Dreadnought",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000132",
+      "name": "Land Speeder Storm",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000134",
+      "name": "Astartes Servitors",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000137",
+      "name": "Scout Bike Squad",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000146",
+      "name": "Hunter",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000148",
+      "name": "Imperial Space Marine",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000152",
+      "name": "Captain Tycho",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000153",
+      "name": "Tycho The Lost",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000154",
+      "name": "Librarian Dreadnought",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000159",
+      "name": "Sanguinary Priest on Bike",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000160",
+      "name": "Brother Corbulo",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000167",
+      "name": "Furioso Dreadnought",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000169",
+      "name": "Gabriel Seth",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000283",
+      "name": "Logan Grimnar On Stormrider",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000284",
+      "name": "Wolf Lord on Thunderwolf",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000286",
+      "name": "Krom Dragongaze",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000287",
+      "name": "Harald Deathwolf",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000288",
+      "name": "Canis Wolfborn",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000300",
+      "name": "Wolf Guard Battle Leader In Terminator Armour",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000301",
+      "name": "Wolf Guard Battle Leader On Thunderwolf",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000304",
+      "name": "Lukas The Trickster",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000308",
+      "name": "Iron Priest On Thunderwolf",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000310",
+      "name": "Wolf Scouts (Legendary)",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000315",
+      "name": "Wolf Guard",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000321",
+      "name": "Stormwolf",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000324",
+      "name": "Skyclaws",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000325",
+      "name": "Stormfang Gunship",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000326",
+      "name": "Long Fangs",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001153",
+      "name": "Cerberus",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001154",
+      "name": "Vanguard Veteran Squad",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001158",
+      "name": "Invader ATV",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000001161",
+      "name": "Sicaran Arcus",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001162",
+      "name": "Sergeant Telion",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001163",
+      "name": "Sicaran Omega",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001164",
+      "name": "Thunderfire Cannon",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001166",
+      "name": "Company Veterans On Bikes",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001167",
+      "name": "Company Champion On Bike",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001168",
+      "name": "Land Speeder Tempest",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001169",
+      "name": "Land Speeder Tornado",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001175",
+      "name": "Kratos",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001178",
+      "name": "Vindicator Laser Destroyer",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001179",
+      "name": "Sokar-pattern Stormbird",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001182",
+      "name": "Ancient on Bike",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001184",
+      "name": "Terminus Ultra",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001185",
+      "name": "Sicaran Battle Tank",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001188",
+      "name": "Vindicator",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000001189",
+      "name": "Mastodon",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001190",
+      "name": "Stormtalon Gunship",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000001191",
+      "name": "Stormraven Gunship",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000001192",
+      "name": "Chaplain Venerable Dreadnought",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001193",
+      "name": "Centurion Devastator Squad",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000001344",
+      "name": "Librarian with Jump Pack",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001345",
+      "name": "Lieutenant In Reiver Armour",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000001347",
+      "name": "Land Raider Prometheus",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001348",
+      "name": "Librarian on Bike",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001423",
+      "name": "Ravenwing Talonmaster",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001523",
+      "name": "Scout Sniper Squad",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001524",
+      "name": "Sergeant Chronus",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001527",
+      "name": "Techmarine on Bike",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001607",
+      "name": "Land Raider Achilles",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001608",
+      "name": "Land Raider Proteus",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001609",
+      "name": "Fire Raptor Gunship",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001666",
+      "name": "Falchion",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000001667",
+      "name": "Gladiator Reaper",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000001825",
+      "name": "Gladiator Valiant",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000001991",
+      "name": "Terrax-pattern Termite",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002076",
+      "name": "Attack Bike Squad",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002102",
+      "name": "Land Speeder Typhoon",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002103",
+      "name": "Command Squad",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002202",
+      "name": "Devastator Squad",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000002234",
+      "name": "Primaris Company Champion",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002252",
+      "name": "Spartan",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002258",
+      "name": "Stalker",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002267",
+      "name": "Deathstorm Drop Pod",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002268",
+      "name": "Deimos Predator",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002269",
+      "name": "Deredeo Dreadnought",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002285",
+      "name": "Death Company Marines with Bolt Rifles",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000002302",
+      "name": "Deathwing Command Squad",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002468",
+      "name": "Deathwing Strikemaster",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002568",
+      "name": "Impulsor",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000002678",
+      "name": "Chaplain Cassius",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002703",
+      "name": "Centurion Assault Squad",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000002704",
+      "name": "Fellblade",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002705",
+      "name": "Gladiator Lancer",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000002706",
+      "name": "Ironclad Dreadnought",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002710",
+      "name": "Land Raider Helios",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002713",
+      "name": "Pedro Kantor",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000002714",
+      "name": "Predator Annihilator",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000002715",
+      "name": "Predator Destructor",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000002719",
+      "name": "Relic Contemptor Dreadnought",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002720",
+      "name": "Relic Razorback",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002721",
+      "name": "Repulsor",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000002722",
+      "name": "Repulsor Executioner",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000002724",
+      "name": "Thunderhawk Transporter",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002725",
+      "name": "Tyrannic War Veterans",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002727",
+      "name": "Whirlwind",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000002728",
+      "name": "Whirlwind Scorpius",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002729",
+      "name": "Xiphon Interceptor",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002738",
+      "name": "Sanguinary Priest With Jump Pack",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002786",
+      "name": "Impulsor",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000002787",
+      "name": "Gladiator Lancer",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000002788",
+      "name": "Gladiator Valiant",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000002789",
+      "name": "Gladiator Reaper",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000002790",
+      "name": "Repulsor Executioner",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000002791",
+      "name": "Repulsor",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000002802",
+      "name": "Wolf Guard Pack Leader With Jump Pack",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002803",
+      "name": "Wolf Guard Pack Leader In Terminator Armour",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002804",
+      "name": "Wolf Guard Pack Leader",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002805",
+      "name": "Cyberwolf",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000002806",
+      "name": "Hounds Of Morkai",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000003708",
+      "name": "Example Wargear",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000003835",
+      "name": "Death Company Dreadnought with Magna-grapple",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000003836",
+      "name": "Death Company Marines with Boltguns",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000003837",
+      "name": "Death Company Marines with Boltguns and Jump Packs",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000003875",
+      "name": "Kill Team Cassius",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000004154",
+      "name": "Crusader Squad (Legendary)",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000004179",
+      "name": "Judiciar Xacharus",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000004180",
+      "name": "Chaplain Kastiel",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000004183",
+      "name": "Marneus Calgar in Armour of Antilochus",
+      "faction_id": "SM",
+      "isLegends": false
+    },
+    {
+      "id": "000004204",
+      "name": "Ferren Areios",
+      "faction_id": "SM",
+      "isLegends": true
+    },
+    {
+      "id": "000000403",
+      "name": "Tactical Drones",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000000408",
+      "name": "Aun’shi",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000000409",
+      "name": "Aun’va",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000000418",
+      "name": "Crisis Battlesuits",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000000431",
+      "name": "Longstrike",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000000439",
+      "name": "Shas’o R’alai",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000000443",
+      "name": "Xv9 Hazard Battlesuits",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000000444",
+      "name": "Y’vahra Battlesuit",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000000445",
+      "name": "R’varna Battlesuit",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000000447",
+      "name": "Tetras",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000000448",
+      "name": "Tx42 Piranha",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000000449",
+      "name": "Heavy Gun Drones",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000000452",
+      "name": "Remora Stealth Drones",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000000453",
+      "name": "Barracuda",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000000456",
+      "name": "Orca Dropship",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000000458",
+      "name": "Remote Sensor Tower",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000000459",
+      "name": "Drone Sentry Turret",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000001391",
+      "name": "Knarloc Riders",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000001392",
+      "name": "Great Knarloc",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000001477",
+      "name": "Commander In Crisis Battlesuit",
+      "faction_id": "TAU",
+      "isLegends": true
+    },
+    {
+      "id": "000003591",
+      "name": "Chaos Thunderhawk",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003597",
+      "name": "Chaos Lord On Disc Of Tzeentch",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003598",
+      "name": "Hell Blade",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003599",
+      "name": "Hell Talon",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003603",
+      "name": "Terrax-pattern Termite",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003607",
+      "name": "Land Raider Achilles",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003611",
+      "name": "Land Raider Proteus",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003615",
+      "name": "Fire Raptor Gunship",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003619",
+      "name": "Spartan",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003623",
+      "name": "Deredeo Dreadnought",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003627",
+      "name": "Cerberus",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003631",
+      "name": "Kratos",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003635",
+      "name": "Sokar-pattern Stormbird",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003639",
+      "name": "Sicaran Battle Tank",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003643",
+      "name": "Mastodon",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003647",
+      "name": "Leviathan Dreadnought",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003651",
+      "name": "Fellblade",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003655",
+      "name": "Relic Contemptor Dreadnought",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003659",
+      "name": "Whirlwind Scorpius",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003663",
+      "name": "Xiphon Interceptor",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003667",
+      "name": "Rapier Carrier",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003671",
+      "name": "Storm Eagle Gunship",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003675",
+      "name": "Sicaran Venator",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003679",
+      "name": "Typhon",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003683",
+      "name": "Sicaran Punisher",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000003687",
+      "name": "Falchion",
+      "faction_id": "TS",
+      "isLegends": true
+    },
+    {
+      "id": "000000483",
+      "name": "Sky-slasher Swarms",
+      "faction_id": "TYR",
+      "isLegends": true
+    },
+    {
+      "id": "000000499",
+      "name": "Malanthrope",
+      "faction_id": "TYR",
+      "isLegends": true
+    },
+    {
+      "id": "000000500",
+      "name": "Dimachaeron",
+      "faction_id": "TYR",
+      "isLegends": true
+    },
+    {
+      "id": "000000503",
+      "name": "Barbed Hierodule",
+      "faction_id": "TYR",
+      "isLegends": true
+    },
+    {
+      "id": "000000506",
+      "name": "Scythed Hierodule",
+      "faction_id": "TYR",
+      "isLegends": true
+    },
+    {
+      "id": "000000243",
+      "name": "Fortress Of Redemption",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000000785",
+      "name": "Imperial Fortress Walls",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000000786",
+      "name": "Primaris Redoubt",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000000914",
+      "name": "Bastion",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000000917",
+      "name": "Vengeance Weapon Battery",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000000918",
+      "name": "Firestorm Redoubt",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000000919",
+      "name": "Plasma Obliterator",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000000920",
+      "name": "Macro-cannon Aquila Strongpoint",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000000921",
+      "name": "Vortex Missile Strongpoint",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000000922",
+      "name": "Void Shield Generator",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000000923",
+      "name": "Skyshield Landing Pad",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000001603",
+      "name": "Spindle Drones",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000001630",
+      "name": "Ambull",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000002093",
+      "name": "The Archivist",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000002363",
+      "name": "Guardian Drone",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000002807",
+      "name": "Castellum Stronghold",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000002808",
+      "name": "Wall Of Martyrs Bunker",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000002809",
+      "name": "Wall Of Martyrs Defence Line",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000002810",
+      "name": "Wall Of Martyrs Defence Emplacement",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000002811",
+      "name": "Aegis Defence Line With Weapon Emplacement",
+      "faction_id": "UN",
+      "isLegends": true
+    },
+    {
+      "id": "000003587",
+      "name": "Blood Slaughterer",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003588",
+      "name": "Chaos Thunderhawk",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003589",
+      "name": "Greater Brass Scorpion",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003590",
+      "name": "Kytan Ravager",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003601",
+      "name": "Hell Blade",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003602",
+      "name": "Hell Talon",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003605",
+      "name": "Terrax-pattern Termite",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003609",
+      "name": "Land Raider Achilles",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003613",
+      "name": "Land Raider Proteus",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003617",
+      "name": "Fire Raptor Gunship",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003621",
+      "name": "Spartan",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003625",
+      "name": "Deredeo Dreadnought",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003629",
+      "name": "Cerberus",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003633",
+      "name": "Kratos",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003637",
+      "name": "Sokar-pattern Stormbird",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003641",
+      "name": "Sicaran Battle Tank",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003645",
+      "name": "Mastodon",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003649",
+      "name": "Leviathan Dreadnought",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003653",
+      "name": "Fellblade",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003657",
+      "name": "Relic Contemptor Dreadnought",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003661",
+      "name": "Whirlwind Scorpius",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003665",
+      "name": "Xiphon Interceptor",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003669",
+      "name": "Rapier Carrier",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003673",
+      "name": "Storm Eagle Gunship",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003677",
+      "name": "Sicaran Venator",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003681",
+      "name": "Typhon",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003685",
+      "name": "Sicaran Punisher",
+      "faction_id": "WE",
+      "isLegends": true
+    },
+    {
+      "id": "000003689",
+      "name": "Falchion",
+      "faction_id": "WE",
+      "isLegends": true
+    }
+  ],
+  "unmatchedEnhancements": [
+    {
+      "id": "000009273002",
+      "name": "The Vratine Aquila (Aura)",
+      "detachment": "Black Ship Guardians",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000008921002",
+      "name": "Aegis Projector",
+      "detachment": "Talons Of The Emperor",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000009987002",
+      "name": "Superior Creation",
+      "detachment": "Lions of the Emperor",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000009264002",
+      "name": "Voidstrider",
+      "detachment": "Voyagers in Darkness",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000008926002",
+      "name": "Enhanced Voidsheen Cloak",
+      "detachment": "Null Maiden Vigil",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000009753002",
+      "name": "Adamantine Talisman",
+      "detachment": "Solar Spearhead",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000008395002",
+      "name": "Auric Mantle",
+      "detachment": "Shield Host",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000008930002",
+      "name": "Blade Imperator",
+      "detachment": "Auric Champions",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000009273003",
+      "name": "Sinister Presence (Aura)",
+      "detachment": "Black Ship Guardians",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000009753003",
+      "name": "Augury Uplink",
+      "detachment": "Solar Spearhead",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000008395003",
+      "name": "Castellan’s Mark",
+      "detachment": "Shield Host",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000008921003",
+      "name": "Champion of the Imperium",
+      "detachment": "Talons Of The Emperor",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000009987003",
+      "name": "Praesidius",
+      "detachment": "Lions of the Emperor",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000009264003",
+      "name": "Mantle of the Emissary",
+      "detachment": "Voyagers in Darkness",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000008930004",
+      "name": "Martial Philosopher",
+      "detachment": "Auric Champions",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000009753004",
+      "name": "Honoured Fallen (Aura)",
+      "detachment": "Solar Spearhead",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000008395004",
+      "name": "From the Hall of Armouries",
+      "detachment": "Shield Host",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000009987004",
+      "name": "Fierce Conqueror",
+      "detachment": "Lions of the Emperor",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000008921004",
+      "name": "Gift of Terran Artifice",
+      "detachment": "Talons Of The Emperor",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000009753005",
+      "name": "Veteran of the Kataphraktoi",
+      "detachment": "Solar Spearhead",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000008395005",
+      "name": "Panoptispex",
+      "detachment": "Shield Host",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000009987005",
+      "name": "Admonimortis",
+      "detachment": "Lions of the Emperor",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000008921005",
+      "name": "Radiant Mantle",
+      "detachment": "Talons Of The Emperor",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000008930005",
+      "name": "Veiled Blade",
+      "detachment": "Auric Champions",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000008926005",
+      "name": "Raptor Blade",
+      "detachment": "Null Maiden Vigil",
+      "faction_id": "AC"
+    },
+    {
+      "id": "000009281002",
+      "name": "Remote Lockdown",
+      "detachment": "Electromartyrs",
+      "faction_id": "AdM"
+    },
+    {
+      "id": "000009290002",
+      "name": "Admonissor Shunt",
+      "detachment": "Response Clade",
+      "faction_id": "AdM"
+    },
+    {
+      "id": "000009298002",
+      "name": "Beseech the Machine Spirits",
+      "detachment": "Machine Cult",
+      "faction_id": "AdM"
+    },
+    {
+      "id": "000009281003",
+      "name": "Multi-dimensional Auspex",
+      "detachment": "Electromartyrs",
+      "faction_id": "AdM"
+    },
+    {
+      "id": "000009298003",
+      "name": "Harmonic Discordator",
+      "detachment": "Machine Cult",
+      "faction_id": "AdM"
+    },
+    {
+      "id": "000009290003",
+      "name": "Optimised Cogitators",
+      "detachment": "Response Clade",
+      "faction_id": "AdM"
+    },
+    {
+      "id": "000010704002",
+      "name": "Infamy (Aura)",
+      "detachment": "Corsair Coterie",
+      "faction_id": "AE"
+    },
+    {
+      "id": "000009342002",
+      "name": "Direct Guidance",
+      "detachment": "Wraiths of the Void",
+      "faction_id": "AE"
+    },
+    {
+      "id": "000009351002",
+      "name": "Prismatic Garb",
+      "detachment": "Star-dancer Masque",
+      "faction_id": "AE"
+    },
+    {
+      "id": "000009325002",
+      "name": "Runes of Sanctuary (Psychic)",
+      "detachment": "Khaine’s Arrow",
+      "faction_id": "AE"
+    },
+    {
+      "id": "000009334002",
+      "name": "Grace of Khaine",
+      "detachment": "Protector Host",
+      "faction_id": "AE"
+    },
+    {
+      "id": "000009769003",
+      "name": "Harmonisation Matrix",
+      "detachment": "Armoured Warhost",
+      "faction_id": "AE"
+    },
+    {
+      "id": "000009342003",
+      "name": "Song of Renewal",
+      "detachment": "Wraiths of the Void",
+      "faction_id": "AE"
+    },
+    {
+      "id": "000009351003",
+      "name": "Path of Eldanesh",
+      "detachment": "Star-dancer Masque",
+      "faction_id": "AE"
+    },
+    {
+      "id": "000009334003",
+      "name": "Rallying Cry",
+      "detachment": "Protector Host",
+      "faction_id": "AE"
+    },
+    {
+      "id": "000009325003",
+      "name": "Shieldmaster",
+      "detachment": "Khaine’s Arrow",
+      "faction_id": "AE"
+    },
+    {
+      "id": "000009769005",
+      "name": "Guileful Strategist",
+      "detachment": "Armoured Warhost",
+      "faction_id": "AE"
+    },
+    {
+      "id": "000009389002",
+      "name": "Covert Breach",
+      "detachment": "Tempestus Boarding Regiment",
+      "faction_id": "AM"
+    },
+    {
+      "id": "000009380002",
+      "name": "Rigged Blind Grenades",
+      "detachment": "Embarked Regiment",
+      "faction_id": "AM"
+    },
+    {
+      "id": "000009380003",
+      "name": "Shipboard Veteran",
+      "detachment": "Embarked Regiment",
+      "faction_id": "AM"
+    },
+    {
+      "id": "000009389003",
+      "name": "Elimination Force",
+      "detachment": "Tempestus Boarding Regiment",
+      "faction_id": "AM"
+    },
+    {
+      "id": "000009801004",
+      "name": "Shroud Projector",
+      "detachment": "Bridgehead Strike",
+      "faction_id": "AM"
+    },
+    {
+      "id": "000010791004",
+      "name": "Omnissian Unguents  (Aura)",
+      "detachment": "Armoured Infantry",
+      "faction_id": "AM"
+    },
+    {
+      "id": "000009801005",
+      "name": "Advance Augury",
+      "detachment": "Bridgehead Strike",
+      "faction_id": "AM"
+    },
+    {
+      "id": "000009369002",
+      "name": "Manhunter’s Helm",
+      "detachment": "Interdiction Team",
+      "faction_id": "AoI"
+    },
+    {
+      "id": "000009360002",
+      "name": "Lathimon’s Flock",
+      "detachment": "Voidship’s Company",
+      "faction_id": "AoI"
+    },
+    {
+      "id": "000009369003",
+      "name": "Vasov’s Auto-Oppressor",
+      "detachment": "Interdiction Team",
+      "faction_id": "AoI"
+    },
+    {
+      "id": "000009360003",
+      "name": "Heirloom Blade",
+      "detachment": "Voidship’s Company",
+      "faction_id": "AoI"
+    },
+    {
+      "id": "000009757004",
+      "name": "Intraneural Biotech",
+      "detachment": "Veiled Blade Elimination Force",
+      "faction_id": "AoI"
+    },
+    {
+      "id": "000009130004",
+      "name": "No Escape (Aura)",
+      "detachment": "Ordo Hereticus Purgation Force",
+      "faction_id": "AoI"
+    },
+    {
+      "id": "000009134005",
+      "name": "Grimoire of True Names (Aura)",
+      "detachment": "Ordo Malleus Daemon Hunters",
+      "faction_id": "AoI"
+    },
+    {
+      "id": "000009316002",
+      "name": "Fervent Ferocity",
+      "detachment": "Penitents and Pilgrims",
+      "faction_id": "AS"
+    },
+    {
+      "id": "000009308002",
+      "name": "Martial Discipline",
+      "detachment": "Pious Protectors",
+      "faction_id": "AS"
+    },
+    {
+      "id": "000009308003",
+      "name": "Limitless Resolve",
+      "detachment": "Pious Protectors",
+      "faction_id": "AS"
+    },
+    {
+      "id": "000009316003",
+      "name": "Sanctification Rituals",
+      "detachment": "Penitents and Pilgrims",
+      "faction_id": "AS"
+    },
+    {
+      "id": "000009547002",
+      "name": "Spite Made Manifest",
+      "detachment": "Daemonic Incursion",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000009580002",
+      "name": "Fulgurating Presence",
+      "detachment": "Pandaemoniac Inferno",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000009555002",
+      "name": "Worthier Skulls",
+      "detachment": "Infernal Onslaught",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000009806002",
+      "name": "False Majesty (Aura)",
+      "detachment": "Legion of Excess",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000009564002",
+      "name": "Virulent Corruption",
+      "detachment": "Rotten and Rusted",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000009815002",
+      "name": "Slaughterthirst (Aura)",
+      "detachment": "Blood Legion",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000009572002",
+      "name": "Fatal Caress",
+      "detachment": "Dread Carnival",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000009555003",
+      "name": "Unholy Fury",
+      "detachment": "Infernal Onslaught",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000009580003",
+      "name": "Mutagenic Flames",
+      "detachment": "Pandaemoniac Inferno",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000009980003",
+      "name": "Mantle of Gloom (Aura)",
+      "detachment": "Shadow Legion",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000009572003",
+      "name": "Horrifying Visage",
+      "detachment": "Dread Carnival",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000009564003",
+      "name": "Endless Gift",
+      "detachment": "Rotten and Rusted",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000009806003",
+      "name": "Dreaming Crown (Aura)",
+      "detachment": "Legion of Excess",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000009547003",
+      "name": "Geller Breach",
+      "detachment": "Daemonic Incursion",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000009819004",
+      "name": "Droning Shroud (Aura)",
+      "detachment": "Plague Legion",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000009819005",
+      "name": "Font of Spores (Aura)",
+      "detachment": "Plague Legion",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000009810005",
+      "name": "Improbable Shield (Aura)",
+      "detachment": "Scintillating Legion",
+      "faction_id": "CD"
+    },
+    {
+      "id": "000009512002",
+      "name": "Rabble Rouser",
+      "detachment": "Underdeck Uprising",
+      "faction_id": "CSM"
+    },
+    {
+      "id": "000009503002",
+      "name": "Voice of the Octed",
+      "detachment": "Infernal Reavers",
+      "faction_id": "CSM"
+    },
+    {
+      "id": "000009520002",
+      "name": "Manifest Vengeance",
+      "detachment": "Champions of Chaos",
+      "faction_id": "CSM"
+    },
+    {
+      "id": "000009512003",
+      "name": "Vox Malevolus",
+      "detachment": "Underdeck Uprising",
+      "faction_id": "CSM"
+    },
+    {
+      "id": "000009503003",
+      "name": "Swollen with Power",
+      "detachment": "Infernal Reavers",
+      "faction_id": "CSM"
+    },
+    {
+      "id": "000010151003",
+      "name": "Eyes of Z’desh",
+      "detachment": "Cabal of Chaos",
+      "faction_id": "CSM"
+    },
+    {
+      "id": "000009520003",
+      "name": "Dark Majesty",
+      "detachment": "Champions of Chaos",
+      "faction_id": "CSM"
+    },
+    {
+      "id": "000010151004",
+      "name": "Mind Blade",
+      "detachment": "Cabal of Chaos",
+      "faction_id": "CSM"
+    },
+    {
+      "id": "000010151005",
+      "name": "Infernal Avatar",
+      "detachment": "Cabal of Chaos",
+      "faction_id": "CSM"
+    },
+    {
+      "id": "000009729002",
+      "name": "Droning Chorus",
+      "detachment": "Flyblown Host",
+      "faction_id": "DG"
+    },
+    {
+      "id": "000009416002",
+      "name": "Miasmic Odour",
+      "detachment": "Arch-Contaminators",
+      "faction_id": "DG"
+    },
+    {
+      "id": "000009398002",
+      "name": "Foul Constitution",
+      "detachment": "Vectors of Decay",
+      "faction_id": "DG"
+    },
+    {
+      "id": "000009408002",
+      "name": "Pox-Bearer",
+      "detachment": "Unclean Uprising",
+      "faction_id": "DG"
+    },
+    {
+      "id": "000009416003",
+      "name": "Disgusting Reinvigoration",
+      "detachment": "Arch-Contaminators",
+      "faction_id": "DG"
+    },
+    {
+      "id": "000009729003",
+      "name": "Insectile Murmuration",
+      "detachment": "Flyblown Host",
+      "faction_id": "DG"
+    },
+    {
+      "id": "000009408003",
+      "name": "Hand of Nurgle",
+      "detachment": "Unclean Uprising",
+      "faction_id": "DG"
+    },
+    {
+      "id": "000009398003",
+      "name": "Fountaining Filth",
+      "detachment": "Vectors of Decay",
+      "faction_id": "DG"
+    },
+    {
+      "id": "000009729004",
+      "name": "Rejuvenating Swarm",
+      "detachment": "Flyblown Host",
+      "faction_id": "DG"
+    },
+    {
+      "id": "000009729005",
+      "name": "Plagueveil",
+      "detachment": "Flyblown Host",
+      "faction_id": "DG"
+    },
+    {
+      "id": "000009450002",
+      "name": "Rending Chain-Flails",
+      "detachment": "Painbringers",
+      "faction_id": "DRU"
+    },
+    {
+      "id": "000009433002",
+      "name": "Dark Charisma",
+      "detachment": "Kabalite Corsairs",
+      "faction_id": "DRU"
+    },
+    {
+      "id": "000009425002",
+      "name": "Power and Greed",
+      "detachment": "Space Lane Raiders",
+      "faction_id": "DRU"
+    },
+    {
+      "id": "000009441002",
+      "name": "Stimm-Fervour",
+      "detachment": "Ship-killer Cult",
+      "faction_id": "DRU"
+    },
+    {
+      "id": "000009441003",
+      "name": "Blood-Drenched Champion",
+      "detachment": "Ship-killer Cult",
+      "faction_id": "DRU"
+    },
+    {
+      "id": "000009450003",
+      "name": "Vile Surgeon",
+      "detachment": "Painbringers",
+      "faction_id": "DRU"
+    },
+    {
+      "id": "000009425003",
+      "name": "Spiteful Demise",
+      "detachment": "Space Lane Raiders",
+      "faction_id": "DRU"
+    },
+    {
+      "id": "000009433003",
+      "name": "Malevolent Cunning",
+      "detachment": "Kabalite Corsairs",
+      "faction_id": "DRU"
+    },
+    {
+      "id": "000010584005",
+      "name": "Master Repugnomancer (Aura)",
+      "detachment": "Covenite Coterie",
+      "faction_id": "DRU"
+    },
+    {
+      "id": "000010014002",
+      "name": "Pledge of Eternal Servitude",
+      "detachment": "Coterie of the Conceited",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010018002",
+      "name": "Eager to Prove",
+      "detachment": "Slaanesh’s Chosen",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010808002",
+      "name": "Venom of the Six-fanged Serpent",
+      "detachment": "Sublime Strike",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010010002",
+      "name": "Empyric Suffusion",
+      "detachment": "Carnival of Excess",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010006002",
+      "name": "Sublime Prescience",
+      "detachment": "Rapid Evisceration",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010002002",
+      "name": "Faultless Opportunist",
+      "detachment": "Peerless Bladesmen",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000009998002",
+      "name": "Steeped in Suffering",
+      "detachment": "Mercurial Host",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010654002",
+      "name": "Tears of the Phoenix",
+      "detachment": "Court of the Phoenician",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000009998003",
+      "name": "Intoxicating Musk",
+      "detachment": "Mercurial Host",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010002003",
+      "name": "Blinding Speed",
+      "detachment": "Peerless Bladesmen",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010010003",
+      "name": "Dark Blessings",
+      "detachment": "Carnival of Excess",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010808003",
+      "name": "Daemonshrieker",
+      "detachment": "Sublime Strike",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010014003",
+      "name": "Pledge of Dark Glory",
+      "detachment": "Coterie of the Conceited",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010654003",
+      "name": "Exalted Patron",
+      "detachment": "Court of the Phoenician",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010018003",
+      "name": "Repulsed by Weakness",
+      "detachment": "Slaanesh’s Chosen",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010006003",
+      "name": "Spearhead Striker",
+      "detachment": "Rapid Evisceration",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010002004",
+      "name": "Distortion",
+      "detachment": "Peerless Bladesmen",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010014004",
+      "name": "Pledge of Mortal Pain",
+      "detachment": "Coterie of the Conceited",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010018004",
+      "name": "Proud and Vainglorious",
+      "detachment": "Slaanesh’s Chosen",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010006004",
+      "name": "Accomplished Tactician",
+      "detachment": "Rapid Evisceration",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000009998004",
+      "name": "Tactical Perfection",
+      "detachment": "Mercurial Host",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010010004",
+      "name": "Possessed Blade",
+      "detachment": "Carnival of Excess",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010654004",
+      "name": "Soulstain Made Manifest",
+      "detachment": "Court of the Phoenician",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010010005",
+      "name": "Warp Walker",
+      "detachment": "Carnival of Excess",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010014005",
+      "name": "Pledge of Unholy Fortune",
+      "detachment": "Coterie of the Conceited",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000009998005",
+      "name": "Loathsome Dexterity",
+      "detachment": "Mercurial Host",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010018005",
+      "name": "Slayer of Champions",
+      "detachment": "Slaanesh’s Chosen",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010002005",
+      "name": "Rise to the Challenge",
+      "detachment": "Peerless Bladesmen",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010654005",
+      "name": "Spiritsliver",
+      "detachment": "Court of the Phoenician",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000010006005",
+      "name": "Heretek Adept",
+      "detachment": "Rapid Evisceration",
+      "faction_id": "EC"
+    },
+    {
+      "id": "000009084002",
+      "name": "Martial Espionage",
+      "detachment": "Brood Brother Auxilia",
+      "faction_id": "GC"
+    },
+    {
+      "id": "000009460002",
+      "name": "Master Saboteur",
+      "detachment": "Cult Unveiled",
+      "faction_id": "GC"
+    },
+    {
+      "id": "000009468002",
+      "name": "Spiteful Imp",
+      "detachment": "Genespawn Onslaught",
+      "faction_id": "GC"
+    },
+    {
+      "id": "000009476002",
+      "name": "Stalking Menace",
+      "detachment": "Infestation Swarm",
+      "faction_id": "GC"
+    },
+    {
+      "id": "000009468003",
+      "name": "Miasmic Fumes",
+      "detachment": "Genespawn Onslaught",
+      "faction_id": "GC"
+    },
+    {
+      "id": "000009476003",
+      "name": "Psi-spoor Sensitivity",
+      "detachment": "Infestation Swarm",
+      "faction_id": "GC"
+    },
+    {
+      "id": "000009460003",
+      "name": "Primary Detonator",
+      "detachment": "Cult Unveiled",
+      "faction_id": "GC"
+    },
+    {
+      "id": "000009084003",
+      "name": "Adaptive Reprisal",
+      "detachment": "Brood Brother Auxilia",
+      "faction_id": "GC"
+    },
+    {
+      "id": "000009084004",
+      "name": "The Hero Returned",
+      "detachment": "Brood Brother Auxilia",
+      "faction_id": "GC"
+    },
+    {
+      "id": "000009084005",
+      "name": "Firepoint Commander",
+      "detachment": "Brood Brother Auxilia",
+      "faction_id": "GC"
+    },
+    {
+      "id": "000009493002",
+      "name": "Shield of Admonishment",
+      "detachment": "Baneslayer Strike",
+      "faction_id": "GK"
+    },
+    {
+      "id": "000009485002",
+      "name": "Sigil of Warding",
+      "detachment": "Void Purge Force",
+      "faction_id": "GK"
+    },
+    {
+      "id": "000010348002",
+      "name": "Banishing Wave (Psychic)",
+      "detachment": "Brotherhood Strike",
+      "faction_id": "GK"
+    },
+    {
+      "id": "000009485003",
+      "name": "Tactical Haruspexy",
+      "detachment": "Void Purge Force",
+      "faction_id": "GK"
+    },
+    {
+      "id": "000010352003",
+      "name": "Inescapable Judgement (Psychic)",
+      "detachment": "Hallowed Conclave",
+      "faction_id": "GK"
+    },
+    {
+      "id": "000009493003",
+      "name": "Close and Sanction",
+      "detachment": "Baneslayer Strike",
+      "faction_id": "GK"
+    },
+    {
+      "id": "000010356003",
+      "name": "The Ephemeral Tome",
+      "detachment": "Banishers",
+      "faction_id": "GK"
+    },
+    {
+      "id": "000010364004",
+      "name": "A Foot in the Future",
+      "detachment": "Augurium Task Force",
+      "faction_id": "GK"
+    },
+    {
+      "id": "000010356004",
+      "name": "The Sixty-sixth Seal",
+      "detachment": "Banishers",
+      "faction_id": "GK"
+    },
+    {
+      "id": "000010356005",
+      "name": "Pyresoul (Psychic)",
+      "detachment": "Banishers",
+      "faction_id": "GK"
+    },
+    {
+      "id": "000009537002",
+      "name": "Celebrated Folk Hero",
+      "detachment": "Hearthfire Strike",
+      "faction_id": "LoV"
+    },
+    {
+      "id": "000010443002",
+      "name": "Dêlvwerke Navigator",
+      "detachment": "Dêlve Assault Shift",
+      "faction_id": "LoV"
+    },
+    {
+      "id": "000009529002",
+      "name": "Masterful Construction",
+      "detachment": "Void Salvagers",
+      "faction_id": "LoV"
+    },
+    {
+      "id": "000009537003",
+      "name": "Gûlyk’s Stars",
+      "detachment": "Hearthfire Strike",
+      "faction_id": "LoV"
+    },
+    {
+      "id": "000009529003",
+      "name": "Obsessive Drive",
+      "detachment": "Void Salvagers",
+      "faction_id": "LoV"
+    },
+    {
+      "id": "000009596002",
+      "name": "Inured to Damage",
+      "detachment": "Deranged Outcasts",
+      "faction_id": "NEC"
+    },
+    {
+      "id": "000009604002",
+      "name": "Nanoscarab Reconstitution",
+      "detachment": "Canoptek Harvesters",
+      "faction_id": "NEC"
+    },
+    {
+      "id": "000009588002",
+      "name": "Resurrection Protocols",
+      "detachment": "Tomb Ship Complement",
+      "faction_id": "NEC"
+    },
+    {
+      "id": "000010735002",
+      "name": "Cryptometric Experimentation",
+      "detachment": "Harbinger Cabal",
+      "faction_id": "NEC"
+    },
+    {
+      "id": "000009749002",
+      "name": "Dread Majesty (Aura)",
+      "detachment": "Starshatter Arsenal",
+      "faction_id": "NEC"
+    },
+    {
+      "id": "000009604003",
+      "name": "Impromptu Translocation",
+      "detachment": "Canoptek Harvesters",
+      "faction_id": "NEC"
+    },
+    {
+      "id": "000009596003",
+      "name": "Domineering Presence",
+      "detachment": "Deranged Outcasts",
+      "faction_id": "NEC"
+    },
+    {
+      "id": "000010735003",
+      "name": "Portal Transmuter",
+      "detachment": "Harbinger Cabal",
+      "faction_id": "NEC"
+    },
+    {
+      "id": "000009588003",
+      "name": "Mindshackle Scarabs",
+      "detachment": "Tomb Ship Complement",
+      "faction_id": "NEC"
+    },
+    {
+      "id": "000008372004",
+      "name": "Phasal Subjugator (Aura)",
+      "detachment": "Awakened Dynasty",
+      "faction_id": "NEC"
+    },
+    {
+      "id": "000009623002",
+      "name": "Tellyporta",
+      "detachment": "Kaptin Killers",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000009795002",
+      "name": "Skwad Leader",
+      "detachment": "Taktikal Brigade",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000010799002",
+      "name": "Runnin’ Boots",
+      "detachment": "Blitz Brigade",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008877002",
+      "name": "Gitfinder Googlez",
+      "detachment": "Dread Mob",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008872002",
+      "name": "Fasta Than Yooz",
+      "detachment": "Kult of Speed",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000009615002",
+      "name": "Living Battering Ram",
+      "detachment": "Ramship Raiders",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000010712002",
+      "name": "Da Kaptin",
+      "detachment": "Freebooter Krew",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000010795002",
+      "name": "Kustom Shokk Box",
+      "detachment": "Speedwaaagh!",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008881002",
+      "name": "Bloodthirsty Belligerence",
+      "detachment": "Green Tide",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000009991002",
+      "name": "Da Gobshot Thunderbuss",
+      "detachment": "More Dakka!",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008885002",
+      "name": "Big Gob",
+      "detachment": "Bully Boyz",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008868003",
+      "name": "Proper Killy",
+      "detachment": "Da Big Hunt",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000010712003",
+      "name": "Git-spotter Squig",
+      "detachment": "Freebooter Krew",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000010799003",
+      "name": "Blitzkaptin",
+      "detachment": "Blitz Brigade",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000009623003",
+      "name": "Gnasher Squig Crates",
+      "detachment": "Kaptin Killers",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008872003",
+      "name": "Speed Makes Right",
+      "detachment": "Kult of Speed",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000009615003",
+      "name": "Scarred Brute",
+      "detachment": "Ramship Raiders",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000010795003",
+      "name": "Dakkamek",
+      "detachment": "Speedwaaagh!",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000009795003",
+      "name": "Mek Kaptin",
+      "detachment": "Taktikal Brigade",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000009991003",
+      "name": "Dead Shiny Shootas",
+      "detachment": "More Dakka!",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008881003",
+      "name": "Brutal But Kunnin’",
+      "detachment": "Green Tide",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008877003",
+      "name": "Press It Fasta!",
+      "detachment": "Dread Mob",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008885003",
+      "name": "Da Biggest Boss",
+      "detachment": "Bully Boyz",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000010795004",
+      "name": "Supa-burny Fuel",
+      "detachment": "Speedwaaagh!",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000010799004",
+      "name": "Supercharged Squig Oil",
+      "detachment": "Blitz Brigade",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000010712004",
+      "name": "Bionik Workshop",
+      "detachment": "Freebooter Krew",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000009991004",
+      "name": "Targetin’ Squigs",
+      "detachment": "More Dakka!",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000009795004",
+      "name": "Mork’s Kunnin’",
+      "detachment": "Taktikal Brigade",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008872004",
+      "name": "Squig-hide Tyres",
+      "detachment": "Kult of Speed",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008868004",
+      "name": "Skrag Every Stash!",
+      "detachment": "Da Big Hunt",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008885004",
+      "name": "’Eadstompa",
+      "detachment": "Bully Boyz",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008877004",
+      "name": "Smoky Gubbinz",
+      "detachment": "Dread Mob",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008881005",
+      "name": "Raucous Warcaller",
+      "detachment": "Green Tide",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008877005",
+      "name": "Supa-glowy Fing",
+      "detachment": "Dread Mob",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000010799005",
+      "name": "Tuff Git",
+      "detachment": "Blitz Brigade",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000010795005",
+      "name": "Master Meknologist",
+      "detachment": "Speedwaaagh!",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000009991005",
+      "name": "Zog Off and Eat Dakka!",
+      "detachment": "More Dakka!",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008868005",
+      "name": "Surly as a Squiggoth",
+      "detachment": "Da Big Hunt",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000010712005",
+      "name": "Razgit’s Magik Map",
+      "detachment": "Freebooter Krew",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000009795005",
+      "name": "Gob Boomer",
+      "detachment": "Taktikal Brigade",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008367005",
+      "name": "Supa-Cybork Body",
+      "detachment": "War Horde",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008885005",
+      "name": "Tellyporta",
+      "detachment": "Bully Boyz",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000008872005",
+      "name": "Wazblasta",
+      "detachment": "Kult of Speed",
+      "faction_id": "ORK"
+    },
+    {
+      "id": "000009761002",
+      "name": "Omnissian Champion",
+      "detachment": "Questor Forgepact",
+      "faction_id": "QI"
+    },
+    {
+      "id": "000009761003",
+      "name": "Knight of the Opus Machina",
+      "detachment": "Questor Forgepact",
+      "faction_id": "QI"
+    },
+    {
+      "id": "000009761005",
+      "name": "Vocifer Magnificat (Aura)",
+      "detachment": "Questor Forgepact",
+      "faction_id": "QI"
+    },
+    {
+      "id": "000009765002",
+      "name": "Profane Altar",
+      "detachment": "Iconoclast Fiefdom",
+      "faction_id": "QT"
+    },
+    {
+      "id": "000009765003",
+      "name": "Pave the Way",
+      "detachment": "Iconoclast Fiefdom",
+      "faction_id": "QT"
+    },
+    {
+      "id": "000010312003",
+      "name": "Final Howl (Aura)",
+      "detachment": "Houndpack Lance",
+      "faction_id": "QT"
+    },
+    {
+      "id": "000009765004",
+      "name": "Tyrant’s Banner",
+      "detachment": "Iconoclast Fiefdom",
+      "faction_id": "QT"
+    },
+    {
+      "id": "000009765005",
+      "name": "Diabolical Resilience",
+      "detachment": "Iconoclast Fiefdom",
+      "faction_id": "QT"
+    },
+    {
+      "id": "000010312005",
+      "name": "Panoply of the Cursed Knight",
+      "detachment": "Houndpack Lance",
+      "faction_id": "QT"
+    },
+    {
+      "id": "000010676002",
+      "name": "Eye of the Primarch",
+      "detachment": "Bastion Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009851002",
+      "name": "Wolves’ Wisdom",
+      "detachment": "Champions of Fenris",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009785002",
+      "name": "Prescience",
+      "detachment": "Librarius Conclave",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008490002",
+      "name": "The Blade Driven Deep",
+      "detachment": "Vanguard Spearhead",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010684002",
+      "name": "Seals of Reconquest",
+      "detachment": "Reclamation Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008494002",
+      "name": "The Imperium’s Sword",
+      "detachment": "1st Company Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010680002",
+      "name": "Laurels of Thunder",
+      "detachment": "Orbital Assault Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010396002",
+      "name": "Imperialis of the Eternal Crusade",
+      "detachment": "Vindication Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008522002",
+      "name": "Thief of Secrets",
+      "detachment": "Black Spear Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010392002",
+      "name": "Incendiary Animus",
+      "detachment": "Companions of Vehemence",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008771002",
+      "name": "Shroud of Heroes",
+      "detachment": "Unforgiven Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010400002",
+      "name": "Paragon of Fury",
+      "detachment": "Godhammer Assault Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008482002",
+      "name": "Champion of Humanity",
+      "detachment": "Firestorm Assault Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010265002",
+      "name": "Braggart’s Steel",
+      "detachment": "Saga of the Bold",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010645002",
+      "name": "Carmine Reliquary",
+      "detachment": "Rage-cursed Onslaught",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010261002",
+      "name": "Swift Hunter",
+      "detachment": "Saga of the Hunter",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009190002",
+      "name": "Artisan of War",
+      "detachment": "The Angelic Host",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009843002",
+      "name": "Pyrebrand",
+      "detachment": "Wrathful Procession",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008486002",
+      "name": "Fury of the Storm",
+      "detachment": "Stormlance Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008478002",
+      "name": "Target Augury Web",
+      "detachment": "Ironstorm Spearhead",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008778002",
+      "name": "Master-crafted Weapon",
+      "detachment": "Company of Hunters",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008474002",
+      "name": "Indomitable Fury",
+      "detachment": "Anvil Siege Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009248002",
+      "name": "Omni-Structural Auspex",
+      "detachment": "Pilum Strike Team",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010783002",
+      "name": "Redoubtable Machine Spirit",
+      "detachment": "Headhunter Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010779002",
+      "name": "Liberator",
+      "detachment": "Armoured Speartip",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010727002",
+      "name": "Speartip of the Chapter",
+      "detachment": "Shield of the Void",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009733002",
+      "name": "Calibanite Armaments",
+      "detachment": "Lion’s Blade Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009240002",
+      "name": "Adamantine Mantle",
+      "detachment": "Boarding Strike",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009255002",
+      "name": "Seal of Indomitability",
+      "detachment": "Terminator Assault",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010460002",
+      "name": "Champion of the Feast",
+      "detachment": "Emperor’s Shield",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008376002",
+      "name": "Speed of the Primarch",
+      "detachment": "Liberator Assault Group",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010623002",
+      "name": "Spiritus Ferrum",
+      "detachment": "Hammer of Avernii",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009186002",
+      "name": "Sanguinius’ Grace",
+      "detachment": "The Lost Brethren",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010676003",
+      "name": "Hero of the Chapter",
+      "detachment": "Bastion Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010680003",
+      "name": "Veteran of the Vanguard",
+      "detachment": "Orbital Assault Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010684003",
+      "name": "Avenging Avatar (Aura)",
+      "detachment": "Reclamation Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008486003",
+      "name": "Portents of Wisdom",
+      "detachment": "Stormlance Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010779003",
+      "name": "Tip of the Spear",
+      "detachment": "Armoured Speartip",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010783003",
+      "name": "Gunnery Honours",
+      "detachment": "Headhunter Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009835003",
+      "name": "Troubling Visions",
+      "detachment": "Angelic Inheritors",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008353003",
+      "name": "The Honour Vehement",
+      "detachment": "Gladius Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008771003",
+      "name": "Stubborn Tenacity",
+      "detachment": "Unforgiven Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010727003",
+      "name": "Tolorek Data Djinn",
+      "detachment": "Shield of the Void",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008778003",
+      "name": "Mounted Strategist",
+      "detachment": "Company of Hunters",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008376003",
+      "name": "Rage-fuelled Warrior",
+      "detachment": "Liberator Assault Group",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008522003",
+      "name": "Osseus Key",
+      "detachment": "Black Spear Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010261003",
+      "name": "Fenrisian Grit",
+      "detachment": "Saga of the Hunter",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010265003",
+      "name": "Skjald",
+      "detachment": "Saga of the Bold",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009255003",
+      "name": "Resolute",
+      "detachment": "Terminator Assault",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008774003",
+      "name": "Eye of the Unseen",
+      "detachment": "Inner Circle Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009851003",
+      "name": "Foes’ Fate",
+      "detachment": "Champions of Fenris",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009190003",
+      "name": "Visage of Death",
+      "detachment": "The Angelic Host",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008482003",
+      "name": "War-tempered Artifice",
+      "detachment": "Firestorm Assault Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009843003",
+      "name": "Sacred Rage",
+      "detachment": "Wrathful Procession",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010396003",
+      "name": "Consecrating Aura",
+      "detachment": "Vindication Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009733003",
+      "name": "Lord of the Hunt",
+      "detachment": "Lion’s Blade Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009785003",
+      "name": "Celerity",
+      "detachment": "Librarius Conclave",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008494003",
+      "name": "Fear Made Manifest (Aura)",
+      "detachment": "1st Company Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008490003",
+      "name": "Ghostweave Cloak",
+      "detachment": "Vanguard Spearhead",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009186003",
+      "name": "Blood Shard",
+      "detachment": "The Lost Brethren",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008478003",
+      "name": "The Flesh is Weak",
+      "detachment": "Ironstorm Spearhead",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010400003",
+      "name": "Battle-psalm Precentor",
+      "detachment": "Godhammer Assault Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010392003",
+      "name": "Oathbound Exemplar",
+      "detachment": "Companions of Vehemence",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009248003",
+      "name": "Void Warrior",
+      "detachment": "Pilum Strike Team",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009240003",
+      "name": "Clavitine Reliquary",
+      "detachment": "Boarding Strike",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010460003",
+      "name": "Disciple of Rhetoricus",
+      "detachment": "Emperor’s Shield",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008474003",
+      "name": "Fleet Commander",
+      "detachment": "Anvil Siege Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010623003",
+      "name": "Medusan Roar (Aura)",
+      "detachment": "Hammer of Avernii",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010645003",
+      "name": "Master of the Red Thirst",
+      "detachment": "Rage-cursed Onslaught",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008778004",
+      "name": "Master of Manoeuvre",
+      "detachment": "Company of Hunters",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008474004",
+      "name": "Stoic Defender",
+      "detachment": "Anvil Siege Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010396004",
+      "name": "Orb of the Emperor’s Aegis",
+      "detachment": "Vindication Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010392004",
+      "name": "Merciless Denunciation",
+      "detachment": "Companions of Vehemence",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009190004",
+      "name": "Archangel’s Shard",
+      "detachment": "The Angelic Host",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008482004",
+      "name": "Forged in Battle",
+      "detachment": "Firestorm Assault Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008771004",
+      "name": "Weapons of the First Legion",
+      "detachment": "Unforgiven Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008376004",
+      "name": "Icon of the Angel",
+      "detachment": "Liberator Assault Group",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009785004",
+      "name": "Obfuscation",
+      "detachment": "Librarius Conclave",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010400004",
+      "name": "Augury Servo-host",
+      "detachment": "Godhammer Assault Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009186004",
+      "name": "To Slay the Warmaster",
+      "detachment": "The Lost Brethren",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008494004",
+      "name": "Rites of War",
+      "detachment": "1st Company Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008490004",
+      "name": "Execute and Redeploy",
+      "detachment": "Vanguard Spearhead",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009851004",
+      "name": "Fangrune Pendant",
+      "detachment": "Champions of Fenris",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010460004",
+      "name": "Indomitable Champion",
+      "detachment": "Emperor’s Shield",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010680004",
+      "name": "Orbital Uplink Reliquary",
+      "detachment": "Orbital Assault Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008486004",
+      "name": "Feinting Withdrawal",
+      "detachment": "Stormlance Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009843004",
+      "name": "Taramond’s Censer",
+      "detachment": "Wrathful Procession",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009733004",
+      "name": "Stalwart Champion",
+      "detachment": "Lion’s Blade Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010623004",
+      "name": "Iron Laurel",
+      "detachment": "Hammer of Avernii",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010676004",
+      "name": "Blades of Valour",
+      "detachment": "Bastion Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010645004",
+      "name": "Sanguinary Tear (Aura)",
+      "detachment": "Rage-cursed Onslaught",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010684004",
+      "name": "Scroll of Proclamation",
+      "detachment": "Reclamation Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010779004",
+      "name": "Shock Deployment",
+      "detachment": "Armoured Speartip",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010783004",
+      "name": "Firestorm Coordinators",
+      "detachment": "Headhunter Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008478004",
+      "name": "Adept of the Omnissiah",
+      "detachment": "Ironstorm Spearhead",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010261004",
+      "name": "Wolf Master",
+      "detachment": "Saga of the Hunter",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010265004",
+      "name": "Hordeslayer",
+      "detachment": "Saga of the Bold",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010269004",
+      "name": "Elder’s Guidance",
+      "detachment": "Saga of the Beastslayer",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010684005",
+      "name": "Liberatum",
+      "detachment": "Reclamation Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009186005",
+      "name": "Vengeful Onslaught",
+      "detachment": "The Lost Brethren",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008774005",
+      "name": "Deathwing Assault",
+      "detachment": "Inner Circle Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009190005",
+      "name": "Gleaming Pinions",
+      "detachment": "The Angelic Host",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008474005",
+      "name": "Architect of War",
+      "detachment": "Anvil Siege Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008478005",
+      "name": "Master of Machine War",
+      "detachment": "Ironstorm Spearhead",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010779005",
+      "name": "Armoured Commander",
+      "detachment": "Armoured Speartip",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008482005",
+      "name": "Adamantine Mantle",
+      "detachment": "Firestorm Assault Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008494005",
+      "name": "Iron Resolve",
+      "detachment": "1st Company Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010680005",
+      "name": "Dedicated Gunship",
+      "detachment": "Orbital Assault Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008490005",
+      "name": "Shadow War Veteran",
+      "detachment": "Vanguard Spearhead",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010676005",
+      "name": "Bombast Omnivox",
+      "detachment": "Bastion Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010392005",
+      "name": "Zealous Vanguard",
+      "detachment": "Companions of Vehemence",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009733005",
+      "name": "Fulgus Magna",
+      "detachment": "Lion’s Blade Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010400005",
+      "name": "Herald of Sacred Slaughter",
+      "detachment": "Godhammer Assault Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010623005",
+      "name": "Steel Font",
+      "detachment": "Hammer of Avernii",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009785005",
+      "name": "Fusillade",
+      "detachment": "Librarius Conclave",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008778005",
+      "name": "Recon Hunter",
+      "detachment": "Company of Hunters",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010629005",
+      "name": "Chogorian Huntmaster",
+      "detachment": "Spearpoint Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008486005",
+      "name": "Hunter’s Instincts",
+      "detachment": "Stormlance Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008353005",
+      "name": "Fire Discipline",
+      "detachment": "Gladius Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010645005",
+      "name": "Angel’s Fang",
+      "detachment": "Rage-cursed Onslaught",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008376005",
+      "name": "Gift of Foresight",
+      "detachment": "Liberator Assault Group",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000008771005",
+      "name": "Pennant of Remembrance",
+      "detachment": "Unforgiven Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010269005",
+      "name": "Helm of the Beastslayer",
+      "detachment": "Saga of the Beastslayer",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010265005",
+      "name": "Thunderwolf’s Fortitude",
+      "detachment": "Saga of the Bold",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010783005",
+      "name": "Astartes Tank Ace (Aura)",
+      "detachment": "Headhunter Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010261005",
+      "name": "Feral Rage",
+      "detachment": "Saga of the Hunter",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010396005",
+      "name": "Warden of Honour",
+      "detachment": "Vindication Task Force",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009851005",
+      "name": "Longstrider",
+      "detachment": "Champions of Fenris",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009843005",
+      "name": "Benediction of Fury",
+      "detachment": "Wrathful Procession",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000010460005",
+      "name": "Malodraxian Standard",
+      "detachment": "Emperor’s Shield",
+      "faction_id": "SM"
+    },
+    {
+      "id": "000009645002",
+      "name": "Experienced Leader",
+      "detachment": "Kroot Raiding Party",
+      "faction_id": "TAU"
+    },
+    {
+      "id": "000009636002",
+      "name": "Target Optimisation Microdrones",
+      "detachment": "Starfire Cadre",
+      "faction_id": "TAU"
+    },
+    {
+      "id": "000009645003",
+      "name": "Quill Marker",
+      "detachment": "Kroot Raiding Party",
+      "faction_id": "TAU"
+    },
+    {
+      "id": "000009636003",
+      "name": "Duty’s Echo",
+      "detachment": "Starfire Cadre",
+      "faction_id": "TAU"
+    },
+    {
+      "id": "000009839004",
+      "name": "Fanatical Convert",
+      "detachment": "Auxiliary Cadre",
+      "faction_id": "TAU"
+    },
+    {
+      "id": "000009983005",
+      "name": "Fusion Blades",
+      "detachment": "Experimental Prototype Cadre",
+      "faction_id": "TAU"
+    },
+    {
+      "id": "000009839005",
+      "name": "Transponder Lock Module",
+      "detachment": "Auxiliary Cadre",
+      "faction_id": "TAU"
+    },
+    {
+      "id": "000009663002",
+      "name": "Thrallmaster",
+      "detachment": "Devoted Thralls",
+      "faction_id": "TS"
+    },
+    {
+      "id": "000009654002",
+      "name": "Warp Mastery",
+      "detachment": "Chosen Cabal",
+      "faction_id": "TS"
+    },
+    {
+      "id": "000009672002",
+      "name": "Predestined Champion",
+      "detachment": "Fateseekers",
+      "faction_id": "TS"
+    },
+    {
+      "id": "000009663003",
+      "name": "Prescient Authority",
+      "detachment": "Devoted Thralls",
+      "faction_id": "TS"
+    },
+    {
+      "id": "000009654003",
+      "name": "Fires of Change",
+      "detachment": "Chosen Cabal",
+      "faction_id": "TS"
+    },
+    {
+      "id": "000009672003",
+      "name": "Astral Predation",
+      "detachment": "Fateseekers",
+      "faction_id": "TS"
+    },
+    {
+      "id": "000010205003",
+      "name": "Arcane Thralls (Aura)",
+      "detachment": "Rubricae Phalanx",
+      "faction_id": "TS"
+    },
+    {
+      "id": "000010209003",
+      "name": "The Perplexing Cloak",
+      "detachment": "Warpforged Cabal",
+      "faction_id": "TS"
+    },
+    {
+      "id": "000010205005",
+      "name": "The Stave Abominus",
+      "detachment": "Rubricae Phalanx",
+      "faction_id": "TS"
+    },
+    {
+      "id": "000009737002",
+      "name": "Synaptic Tyrant",
+      "detachment": "Warrior Bioform Onslaught",
+      "faction_id": "TYR"
+    },
+    {
+      "id": "000009690002",
+      "name": "Monoform Predators",
+      "detachment": "Boarding Swarm",
+      "faction_id": "TYR"
+    },
+    {
+      "id": "000009724002",
+      "name": "Stalking Menace",
+      "detachment": "Infestation Swarm",
+      "faction_id": "TYR"
+    },
+    {
+      "id": "000009681002",
+      "name": "Synaptic Goad",
+      "detachment": "Tyranid Attack",
+      "faction_id": "TYR"
+    },
+    {
+      "id": "000009699002",
+      "name": "Synaptic Beacon",
+      "detachment": "Biotide",
+      "faction_id": "TYR"
+    },
+    {
+      "id": "000008421003",
+      "name": "Psychostatic Disruption",
+      "detachment": "Synaptic Nexus",
+      "faction_id": "TYR"
+    },
+    {
+      "id": "000009724003",
+      "name": "Psi-spoor Sensitivity",
+      "detachment": "Infestation Swarm",
+      "faction_id": "TYR"
+    },
+    {
+      "id": "000009681003",
+      "name": "Reinforced Carapace",
+      "detachment": "Tyranid Attack",
+      "faction_id": "TYR"
+    },
+    {
+      "id": "000009699003",
+      "name": "Hypersurge Gland",
+      "detachment": "Biotide",
+      "faction_id": "TYR"
+    },
+    {
+      "id": "000009737004",
+      "name": "Sensory Assimilation",
+      "detachment": "Warrior Bioform Onslaught",
+      "faction_id": "TYR"
+    },
+    {
+      "id": "000008412004",
+      "name": "Biophagic Flow (Aura)",
+      "detachment": "Assimilation Swarm",
+      "faction_id": "TYR"
+    },
+    {
+      "id": "000008421005",
+      "name": "The Dirgeheart of Kharis (Aura)",
+      "detachment": "Synaptic Nexus",
+      "faction_id": "TYR"
+    },
+    {
+      "id": "000009716002",
+      "name": "Frenzied",
+      "detachment": "Skullsworn",
+      "faction_id": "WE"
+    },
+    {
+      "id": "000009708002",
+      "name": "Chosen of Khorne",
+      "detachment": "Boarding Butchers",
+      "faction_id": "WE"
+    },
+    {
+      "id": "000009847003",
+      "name": "Vox-diabolus",
+      "detachment": "Vessels of Wrath",
+      "faction_id": "WE"
+    },
+    {
+      "id": "000009716003",
+      "name": "Carmine Corona",
+      "detachment": "Skullsworn",
+      "faction_id": "WE"
+    },
+    {
+      "id": "000009708003",
+      "name": "Battle Lust",
+      "detachment": "Boarding Butchers",
+      "faction_id": "WE"
+    },
+    {
+      "id": "000009847004",
+      "name": "Avenger’s Crown",
+      "detachment": "Vessels of Wrath",
+      "faction_id": "WE"
+    }
+  ]
+}

@@ -7,6 +7,7 @@ import GameLibrary from './pages/GameLibrary'
 import GameSystem from './pages/GameSystem'
 import RulesViewer from './pages/RulesViewer'
 import Wh40k11eViewer from './pages/Wh40k11eViewer'
+import Wh40k11eRoster from './pages/Wh40k11eRoster'
 import RosterList from './pages/RosterList'
 import RosterWizard from './pages/RosterWizard'
 import RosterView from './pages/RosterView'
@@ -40,6 +41,9 @@ export default function App() {
             <Route path="games/:slug" element={<GameSystem />} />
             <Route path="games/:slug/:catalogueId" element={<RulesViewer />} />
             <Route path="rosters" element={<RosterList />} />
+            <Route path="rosters/11e/new" element={<Wh40k11eRoster />} />
+            <Route path="rosters/11e/:id" element={<Wh40k11eRoster />} />
+            <Route path="rosters/11e/:id/view" element={<Wh40k11eRoster readOnly />} />
             <Route path="rosters/new" element={<RosterWizard />} />
             <Route path="rosters/:id" element={<RosterWizard />} />
             <Route path="rosters/:id/view" element={<RosterView />} />

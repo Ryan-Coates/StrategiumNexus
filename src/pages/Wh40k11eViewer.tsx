@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Spinner from '../components/Spinner'
+import Wh40k11ePoints from '../components/Wh40k/Wh40k11ePoints'
+import { loadWh40k11eRules } from '../services/wh40k11eRules'
 import type {
   Wh40k11eAbility,
   Wh40k11eDatasheet,
@@ -75,12 +77,16 @@ function Section({
   )
 }
 
-function DatasheetDetail({
+export function DatasheetDetail({
   sheet,
   ruleset,
+  includeLinkedRules = true,
+  loadoutTitle = 'Default loadout',
 }: {
   sheet: Wh40k11eDatasheet
   ruleset: Wh40k11eRuleset
+  includeLinkedRules?: boolean
+  loadoutTitle?: string
 }) {
   const faction = ruleset.factions.find((item) => item.id === sheet.faction_id)
   const abilities = sheet.abilities.map((entry) => {
@@ -106,12 +112,17 @@ function DatasheetDetail({
           {faction?.name ?? 'Unknown faction'}{sheet.role ? ` · ${sheet.role}` : ''}
         </p>
         <h2 className="font-display text-2xl text-gold mt-2">{sheet.name}</h2>
+        {sheet.isLegends && <span className="badge badge-blood mt-2">Legends</span>}
         {sheet.legend && (
           <p className="text-parchment-muted text-sm leading-relaxed mt-3">
             {plainText(sheet.legend)}
           </p>
         )}
       </div>
+
+      <Section title="Points">
+        <Wh40k11ePoints sheet={sheet} />
+      </Section>
 
       {sheet.models.length > 0 && (
         <Section title="Model profiles">
@@ -146,7 +157,7 @@ function DatasheetDetail({
       )}
 
       {sheet.loadout && (
-        <Section title="Default loadout">
+        <Section title={loadoutTitle}>
           <p className="text-parchment text-sm">{plainText(sheet.loadout)}</p>
         </Section>
       )}
@@ -221,7 +232,13 @@ function DatasheetDetail({
         </Section>
       )}
 
-      {(referencedDetachmentAbilities.length > 0 || referencedEnhancements.length > 0) && (
+      {sheet.damaged_description && (
+        <Section title={`Damaged${sheet.damaged_w ? `: ${sheet.damaged_w} wounds remaining` : ''}`}>
+          <p className="text-parchment-muted text-sm whitespace-pre-line">{plainText(sheet.damaged_description)}</p>
+        </Section>
+      )}
+
+      {includeLinkedRules && (referencedDetachmentAbilities.length > 0 || referencedEnhancements.length > 0) && (
         <Section title="Linked faction rules">
           <div className="space-y-3">
             {referencedDetachmentAbilities.map((entry) => (
@@ -237,7 +254,7 @@ function DatasheetDetail({
               <RuleCard
                 key={entry.id}
                 title={entry.name}
-                subtitle={`${entry.detachment} · ${entry.cost}`}
+                subtitle={`${entry.detachment} · ${entry.officialPoints === null ? `${entry.cost} (CSV; official price unmatched)` : `${entry.officialPoints} pts (MFM)`}`}
                 legend={entry.legend}
                 description={entry.description}
               />
@@ -246,9 +263,10 @@ function DatasheetDetail({
         </Section>
       )}
 
-      {(sheet.canLeadIds.length > 0 || sheet.leaderIds.length > 0) && (
+      {(sheet.canLeadIds.length > 0 || sheet.leaderIds.length > 0 || sheet.leader_head || sheet.leader_footer) && (
         <Section title="Leader links">
           <div className="space-y-2 text-parchment-muted text-sm">
+            {sheet.leader_head && <p className="whitespace-pre-line">{plainText(sheet.leader_head)}</p>}
             {sheet.canLeadIds.length > 0 && (
               <p>
                 Can lead: {sheet.canLeadIds.map((id) =>
@@ -263,6 +281,7 @@ function DatasheetDetail({
                 ).join(', ')}
               </p>
             )}
+            {sheet.leader_footer && <p className="whitespace-pre-line">{plainText(sheet.leader_footer)}</p>}
           </div>
         </Section>
       )}
@@ -277,16 +296,13 @@ export default function Wh40k11eViewer() {
   const [tab, setTab] = useState<Tab>('datasheets')
   const [factionId, setFactionId] = useState('')
   const [stratagemDetachmentId, setStratagemDetachmentId] = useState('')
+  const [showLegends, setShowLegends] = useState(false)
   const [search, setSearch] = useState('')
   const [selectedId, setSelectedId] = useState('')
 
   useEffect(() => {
     let active = true
-    fetch(`${import.meta.env.BASE_URL}data/wh40k11e.json`)
-      .then((response) => {
-        if (!response.ok) throw new Error(`Could not load the 11th edition data (${response.status}).`)
-        return response.json() as Promise<Wh40k11eRuleset>
-      })
+    loadWh40k11eRules()
       .then((data) => {
         if (active) setRuleset(data)
       })
@@ -306,9 +322,10 @@ export default function Wh40k11eViewer() {
     const query = search.trim().toLowerCase()
     return ruleset.datasheets.filter((sheet) =>
       (!factionId || sheet.faction_id === factionId)
+      && (showLegends || !sheet.isLegends)
       && (!query || sheet.name.toLowerCase().includes(query)),
     )
-  }, [factionId, ruleset, search])
+  }, [factionId, ruleset, search, showLegends])
 
   const selectedSheet = visibleDatasheets.find((sheet) => sheet.id === selectedId) ?? null
   const factions = useMemo(
@@ -368,9 +385,11 @@ export default function Wh40k11eViewer() {
         <h1 className="font-display text-3xl md:text-4xl text-gold tracking-wider uppercase mt-2">
           Faction Rules
         </h1>
+        <Link to="/rosters/11e/new" className="btn-primary mt-3">Build an 11th edition army</Link>
         <p className="text-parchment-muted text-sm mt-2">
           {ruleset.datasheets.length.toLocaleString()} datasheets · {factions.length} factions
           {ruleset.lastUpdated ? ` · Data updated ${ruleset.lastUpdated}` : ''}
+          {` · MFM snapshot ${ruleset.pointsUpdatedAt.slice(0, 10)}`}
         </p>
       </header>
 
@@ -400,6 +419,13 @@ export default function Wh40k11eViewer() {
           className="flex-1 bg-void-900 border border-gold-muted/30 text-parchment px-3 py-2 text-sm placeholder:text-parchment-faint"
         />
       </div>
+
+      {tab === 'datasheets' && (
+        <label className="flex items-center gap-2 text-sm text-parchment-muted mb-4">
+          <input type="checkbox" checked={showLegends} onChange={(event) => setShowLegends(event.target.checked)} />
+          Show Legends datasheets
+        </label>
+      )}
 
       <div className="flex flex-wrap gap-2 border-b border-gold-muted/20 mb-6">
         {TABS.map((item) => (
@@ -433,7 +459,7 @@ export default function Wh40k11eViewer() {
                     : 'border-transparent text-parchment-muted hover:text-parchment hover:bg-void-800'
                 }`}
               >
-                {sheet.name}
+                {sheet.name}{sheet.isLegends && <span className="badge badge-blood ml-2 text-[10px]">Legends</span>}
               </button>
             ))}
             {visibleDatasheets.length === 0 && (
@@ -520,7 +546,10 @@ export default function Wh40k11eViewer() {
             )
             return (
               <section key={entry.id}>
-                <h2 className="card-header">{entry.name}</h2>
+                <h2 className="card-header">{entry.name} · {entry.points ? `${entry.points.detachmentPoints} DP` : 'DP unknown'}</h2>
+                {!!entry.points?.uniqueTags.length && <p className="text-gold text-sm mb-3">Unique: {entry.points.uniqueTags.join(', ')}</p>}
+                {!entry.rulesAvailable && <p className="text-gold-muted text-sm mb-3">Official cost only. Rules and enhancement eligibility are not present in the supplied CSVs.</p>}
+                {entry.points && <a className="text-gold text-xs underline" href={entry.points.sourceUrl} target="_blank" rel="noreferrer">Official points and mustering rules</a>}
                 {entry.legend && (
                   <p className="text-parchment-muted text-sm mb-4">{plainText(entry.legend)}</p>
                 )}

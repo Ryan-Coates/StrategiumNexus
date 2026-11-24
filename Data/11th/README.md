@@ -16,3 +16,7 @@ Selecting a detachment retains general stratagems (those without a detachment ID
 Changing faction resets the detachment filter. Results are grouped into collapsible
 phase sections in turn order, with Any phase listed separately; multi-phase stratagems
 appear in each applicable phase.
+
+Official MFM points and Legends status are included in the generated data.
+See [the update guide](../../POINTS-UPDATE.md) for refreshing points, reviewing
+unmatched names, updating source CSVs, and using the persistent roster builder.

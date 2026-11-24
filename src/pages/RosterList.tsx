@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useRosterStore } from '../store/rosterStore'
+import Wh40k11eArmyList from '../components/Roster/Wh40k11eArmyList'
 
 export default function RosterList() {
   const { rosters, loadRosters, deleteRoster, newRoster } = useRosterStore()
@@ -63,16 +64,19 @@ export default function RosterList() {
             ↑ Import
           </button>
           <button onClick={handleNew} className="btn-primary">
-            + New Army
+            + New BSData Army
           </button>
         </div>
       </div>
+
+      <Wh40k11eArmyList />
+      <h2 className="font-heading text-gold text-xl mb-4">BSData armies</h2>
 
       {rosters.length === 0 ? (
         <div className="card text-center py-16 flex flex-col items-center gap-4">
           <p className="font-display text-4xl text-gold-muted/40">⚔</p>
           <p className="font-heading text-parchment-muted text-sm tracking-wide uppercase">
-            No armies yet
+            No BSData armies yet
           </p>
           <p className="font-body text-parchment-faint text-sm">
             Create your first roster to get started.

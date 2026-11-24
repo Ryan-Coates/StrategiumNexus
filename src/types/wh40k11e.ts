@@ -87,6 +87,8 @@ export interface Wh40k11eDatasheet {
   damaged_w: string
   damaged_description: string
   link: string
+  isLegends: boolean
+  points: MfmEntry | null
   models: Wh40k11eModel[]
   abilities: Wh40k11eDatasheetAbility[]
   wargear: Wh40k11eWargear[]
@@ -105,6 +107,8 @@ export interface Wh40k11eDetachment {
   name: string
   legend: string
   type: string
+  points: MfmEntry | null
+  rulesAvailable: boolean
 }
 
 export interface Wh40k11eDetachmentAbility {
@@ -126,6 +130,7 @@ export interface Wh40k11eEnhancement {
   detachment_id: string
   legend: string
   description: string
+  officialPoints: number | null
 }
 
 export interface Wh40k11eStratagem {
@@ -144,6 +149,8 @@ export interface Wh40k11eStratagem {
 
 export interface Wh40k11eRuleset {
   edition: 11
+  pointsUpdatedAt: string
+  pointsSourceUrl: string
   lastUpdated: string
   factions: Wh40k11eFaction[]
   sources: Wh40k11eSource[]
@@ -153,4 +160,28 @@ export interface Wh40k11eRuleset {
   detachmentAbilities: Wh40k11eDetachmentAbility[]
   enhancements: Wh40k11eEnhancement[]
   stratagems: Wh40k11eStratagem[]
+}
+
+export interface MfmPrice {
+  label: string
+  rawLabel: string
+  points: number
+  models: number | null
+  minCopies: number
+  maxCopies: number | null
+  context: string
+}
+
+export interface MfmEntry {
+  id: string
+  factionSlug: string
+  name: string
+  kind: 'unit' | 'detachment'
+  section: string
+  isLegends: boolean
+  detachmentPoints: number | null
+  uniqueTags: string[]
+  prices: MfmPrice[]
+  sourceUrl: string
+  version: string
 }
